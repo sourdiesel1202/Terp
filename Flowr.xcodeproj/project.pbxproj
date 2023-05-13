@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
+		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
+		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
+		492C536429FF3AA800C55761 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536329FF3AA800C55761 /* Preview Assets.xcassets */; };
+		492C536629FF3AA800C55761 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C536529FF3AA800C55761 /* Persistence.swift */; };
+		492C536929FF3AA800C55761 /* Flowr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 492C536729FF3AA800C55761 /* Flowr.xcdatamodeld */; };
+		492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C536F29FF3B2D00C55761 /* StrainDetailView.swift */; };
+		492C537229FF3B5800C55761 /* StrainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C537129FF3B5800C55761 /* StrainSearchView.swift */; };
+		493796792A05E23800961978 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493796782A05E23800961978 /* MainTabView.swift */; };
+		4937967B2A05E53500961978 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937967A2A05E53500961978 /* ExploreView.swift */; };
+		4937967D2A05E8EC00961978 /* RecommendedStrainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937967C2A05E8EC00961978 /* RecommendedStrainsView.swift */; };
+		4941953C2A0DE218000CEF39 /* SystemImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941953B2A0DE218000CEF39 /* SystemImageRow.swift */; };
+		4941953E2A0DE351000CEF39 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941953D2A0DE351000CEF39 /* AccountView.swift */; };
+		494195402A0DE480000CEF39 /* AccountSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941953F2A0DE480000CEF39 /* AccountSettingsView.swift */; };
+		494195422A0DED51000CEF39 /* terpene.json in Resources */ = {isa = PBXBuildFile; fileRef = 494195412A0DED51000CEF39 /* terpene.json */; };
+		494195442A0DED7D000CEF39 /* Terpene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195432A0DED7D000CEF39 /* Terpene.swift */; };
+		494195462A0ECD25000CEF39 /* TerpeneListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195452A0ECD25000CEF39 /* TerpeneListView.swift */; };
+		494195482A0ECD9A000CEF39 /* TerpeneDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195472A0ECD9A000CEF39 /* TerpeneDetailView.swift */; };
+		494195502A0ED587000CEF39 /* StrainSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4941954F2A0ED587000CEF39 /* StrainSearch.swift */; };
+		494195522A0F07D6000CEF39 /* StrainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195512A0F07D6000CEF39 /* StrainListView.swift */; };
+		494195542A0F88A4000CEF39 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195532A0F88A4000CEF39 /* ListView.swift */; };
+		494195562A0F8AE9000CEF39 /* DataMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195552A0F8AE9000CEF39 /* DataMap.swift */; };
+		494195582A0F9F26000CEF39 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494195572A0F9F26000CEF39 /* GlobalData.swift */; };
+		495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C9DE92A0736A3006E3685 /* BasicRow.swift */; };
+		49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */; };
+		498B530C2A0DBF1200488401 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B530B2A0DBF1200488401 /* RatingView.swift */; };
+		49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B37C192A00753200C053FC /* JSONLoader.swift */; };
+		49B37C1C2A00787A00C053FC /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49B37C1B2A00787A00C053FC /* strain_data.json */; };
+		49B37C1E2A0078A800C053FC /* Strain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B37C1D2A0078A800C053FC /* Strain.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
+		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		492C536029FF3AA800C55761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		492C536329FF3AA800C55761 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		492C536529FF3AA800C55761 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		492C536829FF3AA800C55761 /* Flowr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flowr.xcdatamodel; sourceTree = "<group>"; };
+		492C536F29FF3B2D00C55761 /* StrainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailView.swift; sourceTree = "<group>"; };
+		492C537129FF3B5800C55761 /* StrainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchView.swift; sourceTree = "<group>"; };
+		493796782A05E23800961978 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		4937967A2A05E53500961978 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
+		4937967C2A05E8EC00961978 /* RecommendedStrainsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedStrainsView.swift; sourceTree = "<group>"; };
+		4941953B2A0DE218000CEF39 /* SystemImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImageRow.swift; sourceTree = "<group>"; };
+		4941953D2A0DE351000CEF39 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		4941953F2A0DE480000CEF39 /* AccountSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsView.swift; sourceTree = "<group>"; };
+		494195412A0DED51000CEF39 /* terpene.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = terpene.json; sourceTree = "<group>"; };
+		494195432A0DED7D000CEF39 /* Terpene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terpene.swift; sourceTree = "<group>"; };
+		494195452A0ECD25000CEF39 /* TerpeneListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneListView.swift; sourceTree = "<group>"; };
+		494195472A0ECD9A000CEF39 /* TerpeneDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneDetailView.swift; sourceTree = "<group>"; };
+		4941954F2A0ED587000CEF39 /* StrainSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearch.swift; sourceTree = "<group>"; };
+		494195512A0F07D6000CEF39 /* StrainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainListView.swift; sourceTree = "<group>"; };
+		494195532A0F88A4000CEF39 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		494195552A0F8AE9000CEF39 /* DataMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMap.swift; sourceTree = "<group>"; };
+		494195572A0F9F26000CEF39 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		495C9DE92A0736A3006E3685 /* BasicRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
+		49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchRow.swift; sourceTree = "<group>"; };
+		498B530B2A0DBF1200488401 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		49B37C192A00753200C053FC /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		49B37C1B2A00787A00C053FC /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
+		49B37C1D2A0078A800C053FC /* Strain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strain.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		492C535629FF3AA400C55761 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		492C535029FF3AA400C55761 = {
+			isa = PBXGroup;
+			children = (
+				492C535B29FF3AA400C55761 /* Flowr */,
+				492C535A29FF3AA400C55761 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		492C535A29FF3AA400C55761 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				492C535929FF3AA400C55761 /* Flowr.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		492C535B29FF3AA400C55761 /* Flowr */ = {
+			isa = PBXGroup;
+			children = (
+				49746DC72A039C17002ED1B0 /* Util */,
+				49746DC62A039BCE002ED1B0 /* Views */,
+				49746DC52A039BB6002ED1B0 /* Models */,
+				49B37C1B2A00787A00C053FC /* strain_data.json */,
+				494195412A0DED51000CEF39 /* terpene.json */,
+				492C535C29FF3AA400C55761 /* FlowrApp.swift */,
+				492C536029FF3AA800C55761 /* Assets.xcassets */,
+				492C536529FF3AA800C55761 /* Persistence.swift */,
+				492C536729FF3AA800C55761 /* Flowr.xcdatamodeld */,
+				492C536229FF3AA800C55761 /* Preview Content */,
+			);
+			path = Flowr;
+			sourceTree = "<group>";
+		};
+		492C536229FF3AA800C55761 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				492C536329FF3AA800C55761 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4941953A2A0DE1F9000CEF39 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */,
+				495C9DE92A0736A3006E3685 /* BasicRow.swift */,
+				4941953B2A0DE218000CEF39 /* SystemImageRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		494195492A0ECF56000CEF39 /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				492C536F29FF3B2D00C55761 /* StrainDetailView.swift */,
+				494195472A0ECD9A000CEF39 /* TerpeneDetailView.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		4941954A2A0ECF9C000CEF39 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				498B530B2A0DBF1200488401 /* RatingView.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		4941954B2A0ECFB6000CEF39 /* PrimaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				493796782A05E23800961978 /* MainTabView.swift */,
+				4941953D2A0DE351000CEF39 /* AccountView.swift */,
+				4937967A2A05E53500961978 /* ExploreView.swift */,
+				492C537129FF3B5800C55761 /* StrainSearchView.swift */,
+			);
+			path = PrimaryViews;
+			sourceTree = "<group>";
+		};
+		4941954C2A0ECFD5000CEF39 /* SecondayViews */ = {
+			isa = PBXGroup;
+			children = (
+				494195452A0ECD25000CEF39 /* TerpeneListView.swift */,
+				4941953F2A0DE480000CEF39 /* AccountSettingsView.swift */,
+				4937967C2A05E8EC00961978 /* RecommendedStrainsView.swift */,
+				492C535E29FF3AA400C55761 /* ContentView.swift */,
+				494195512A0F07D6000CEF39 /* StrainListView.swift */,
+				494195532A0F88A4000CEF39 /* ListView.swift */,
+			);
+			path = SecondayViews;
+			sourceTree = "<group>";
+		};
+		49746DC52A039BB6002ED1B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		49746DC62A039BCE002ED1B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4941954C2A0ECFD5000CEF39 /* SecondayViews */,
+				4941954B2A0ECFB6000CEF39 /* PrimaryViews */,
+				4941954A2A0ECF9C000CEF39 /* Util */,
+				494195492A0ECF56000CEF39 /* DetailViews */,
+				4941953A2A0DE1F9000CEF39 /* Rows */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		49746DC72A039C17002ED1B0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				49B37C192A00753200C053FC /* JSONLoader.swift */,
+				49B37C1D2A0078A800C053FC /* Strain.swift */,
+				494195432A0DED7D000CEF39 /* Terpene.swift */,
+				494195552A0F8AE9000CEF39 /* DataMap.swift */,
+				494195572A0F9F26000CEF39 /* GlobalData.swift */,
+				4941954F2A0ED587000CEF39 /* StrainSearch.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		492C535829FF3AA400C55761 /* Flowr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 492C536C29FF3AA800C55761 /* Build configuration list for PBXNativeTarget "Flowr" */;
+			buildPhases = (
+				492C535529FF3AA400C55761 /* Sources */,
+				492C535629FF3AA400C55761 /* Frameworks */,
+				492C535729FF3AA400C55761 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flowr;
+			productName = Flowr;
+			productReference = 492C535929FF3AA400C55761 /* Flowr.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		492C535129FF3AA400C55761 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					492C535829FF3AA400C55761 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 492C535429FF3AA400C55761 /* Build configuration list for PBXProject "Flowr" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 492C535029FF3AA400C55761;
+			productRefGroup = 492C535A29FF3AA400C55761 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				492C535829FF3AA400C55761 /* Flowr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		492C535729FF3AA400C55761 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				492C536429FF3AA800C55761 /* Preview Assets.xcassets in Resources */,
+				492C536129FF3AA800C55761 /* Assets.xcassets in Resources */,
+				49B37C1C2A00787A00C053FC /* strain_data.json in Resources */,
+				494195422A0DED51000CEF39 /* terpene.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		492C535529FF3AA400C55761 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4937967B2A05E53500961978 /* ExploreView.swift in Sources */,
+				4937967D2A05E8EC00961978 /* RecommendedStrainsView.swift in Sources */,
+				49B37C1E2A0078A800C053FC /* Strain.swift in Sources */,
+				498B530C2A0DBF1200488401 /* RatingView.swift in Sources */,
+				494195542A0F88A4000CEF39 /* ListView.swift in Sources */,
+				495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */,
+				494195582A0F9F26000CEF39 /* GlobalData.swift in Sources */,
+				4941953C2A0DE218000CEF39 /* SystemImageRow.swift in Sources */,
+				49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */,
+				494195402A0DE480000CEF39 /* AccountSettingsView.swift in Sources */,
+				492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */,
+				494195442A0DED7D000CEF39 /* Terpene.swift in Sources */,
+				4941953E2A0DE351000CEF39 /* AccountView.swift in Sources */,
+				494195482A0ECD9A000CEF39 /* TerpeneDetailView.swift in Sources */,
+				49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */,
+				492C536929FF3AA800C55761 /* Flowr.xcdatamodeld in Sources */,
+				492C536629FF3AA800C55761 /* Persistence.swift in Sources */,
+				494195562A0F8AE9000CEF39 /* DataMap.swift in Sources */,
+				492C535F29FF3AA400C55761 /* ContentView.swift in Sources */,
+				492C537229FF3B5800C55761 /* StrainSearchView.swift in Sources */,
+				494195522A0F07D6000CEF39 /* StrainListView.swift in Sources */,
+				492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */,
+				494195462A0ECD25000CEF39 /* TerpeneListView.swift in Sources */,
+				493796792A05E23800961978 /* MainTabView.swift in Sources */,
+				494195502A0ED587000CEF39 /* StrainSearch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		492C536A29FF3AA800C55761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		492C536B29FF3AA800C55761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		492C536D29FF3AA800C55761 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Flowr/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sourdiesel1202.Flowr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		492C536E29FF3AA800C55761 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Flowr/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sourdiesel1202.Flowr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		492C535429FF3AA400C55761 /* Build configuration list for PBXProject "Flowr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				492C536A29FF3AA800C55761 /* Debug */,
+				492C536B29FF3AA800C55761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		492C536C29FF3AA800C55761 /* Build configuration list for PBXNativeTarget "Flowr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				492C536D29FF3AA800C55761 /* Debug */,
+				492C536E29FF3AA800C55761 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		492C536729FF3AA800C55761 /* Flowr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				492C536829FF3AA800C55761 /* Flowr.xcdatamodel */,
+			);
+			currentVersion = 492C536829FF3AA800C55761 /* Flowr.xcdatamodel */;
+			path = Flowr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 492C535129FF3AA400C55761 /* Project object */;
+}
