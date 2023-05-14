@@ -10,6 +10,7 @@ import SwiftUI
 struct ListView: View {
     @State private var searchText = ""
     let data: [DataMap]
+    let searchTitle: String?
     var body: some View {
         NavigationStack {List {
             ForEach(data) {(dm: DataMap) in
@@ -27,7 +28,7 @@ struct ListView: View {
                 
             //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(inline).listStyle(GroupedListStyle())
             //            //        .padding()
-        }.navigationTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
+        }.navigationTitle(searchTitle ?? "Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
             //        .padding()
         }.searchable(text: $searchText, prompt: "search")
     }
@@ -35,6 +36,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(data: [DataMap(key: "Fuck", value: "A duck", view: ContentView())])
+        ListView(data: [DataMap(key: "Fuck", value: "A duck", view: ContentView())], searchTitle: "Search")
     }
 }

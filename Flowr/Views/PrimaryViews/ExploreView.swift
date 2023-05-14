@@ -52,7 +52,7 @@ struct ExploreView: View {
             //this is gonna be gross but I want to see if this works
 //            ForEach(globalData.terpenes){terpene: Terpene}
             NavigationLink {
-                ListView(data: self.loadTerpeneList(terpenes: globalData.terpenes))
+                ListView(data: self.loadTerpeneList(terpenes: globalData.terpenes), searchTitle: "Search Terpenes")
             } label: {
                 BasicRow(title: "Terpene List", description: "Learn about the different terepenes")
                 //                    StrainSearchRow(strain: strain)

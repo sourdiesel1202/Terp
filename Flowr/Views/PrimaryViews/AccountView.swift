@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct AccountView: View {
-    
+    @EnvironmentObject var globalData: GlobalData
+//    @State var should = true
+    @State var showAromaHelp = true
+    @State var showEffectHelp = true
+    @State private var path = NavigationPath()
+//    @State var show = true
+//    @State var show = true
     var body: some View {
         
 //        Image(systemName: img)
@@ -22,9 +28,49 @@ struct AccountView: View {
             }
             
             NavigationLink {
-                ContentView()
+                MultipleSelectionList(buttonText: "Next",  data: TerpeneUtil.loadTerpeneAromas(terpenes: globalData.terpenes),action:{}, destination: AnyView(MultipleSelectionList(buttonText: "Done", data: TerpeneUtil.loadTerpeneEffects(terpenes: globalData.terpenes), action:{
+                    NavigationUtil.popToRootView()
+                    print("Something should have happened")
+                    
+                },destination: nil).sheet(isPresented: $showEffectHelp){
+                    VStack(alignment: .center){
+                        Text("Terpene Effects").font(.title)
+                        Text("Next, select effets you are looking to experience when using cannabis").font(.subheadline).padding(.bottom)
+                        Button(action:{
+                            self.showEffectHelp.toggle()
+                        }){
+                            Text("Ok").frame(maxWidth: .infinity).font(.subheadline).padding().background(.blue)
+                                .foregroundColor(.white)
+                                .clipShape(
+                                    
+                                    // 2
+                                    Capsule()
+                                )
+                        }
+                    }
+                    
+                })).sheet(isPresented: $showAromaHelp){
+                    VStack(alignment: .center){
+                        
+                        Text("Terpene Aromas").font(.title)
+                        Text("Start by selecting the aromas that you enjoy").font(.subheadline).padding(.bottom)
+                        Button(action:{
+                            self.showAromaHelp.toggle()
+                        }){
+                            Text("Let's go!").frame(maxWidth: .infinity).font(.subheadline).padding().background(.blue)
+                                .foregroundColor(.white)
+                                .clipShape(
+                                    
+                                    // 2
+                                    Capsule()
+                                )
+                        }
+                    }
+//                    dumb.toggle()
+                }
+                
             } label: {
-                BasicRow(title: "Edit Terpene Profile", description: "Modify your terpene profile")
+                BasicRow(title: "Build Terpene Profile", description: "Build your terpene profile")
                 //                    StrainSearchRow(strain: strain)
             }
             NavigationLink {
@@ -63,6 +109,6 @@ struct AccountView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView()
+        AccountView().environmentObject(GlobalData())
     }
 }

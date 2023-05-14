@@ -26,14 +26,16 @@ struct TerpeneDetailView: View {
                 }
                 
                 NavigationLink {
-                    StrainListView(data: Bundle.main.searchStrainByTerpene(terpene: terpene))
+                    ListView(data: self.loadTerpeneEffects(), searchTitle: "Search Effects")
+//
+                    
                 } label: {
                     BasicRow(title: "View Effects", description: "Discover the effects of \(terpene.name)")
                     //                    StrainSearchRow(strain: strain)
                 }
                 
                 NavigationLink {
-                    RecommendedStrainsView()
+                    ListView(data: self.loadTerpeneAromas(), searchTitle: "Search Aromas")
                 } label: {
                     BasicRow(title: "View Aromas", description: "Explore the aromas of \(terpene.name)")
                     //                    StrainSearchRow(strain: strain)
@@ -42,6 +44,22 @@ struct TerpeneDetailView: View {
             }.navigationTitle("More").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
             }
         }
+    }
+    
+    func loadTerpeneEffects()->[DataMap]{
+        var effects = [DataMap]()
+        self.terpene.effects.forEach {
+            effects.append(DataMap(key: $0, value: "", view: ContentWithTitleDescView(title: $0, desc: $0, image: nil)))
+        }
+        return effects
+    }
+    
+    func loadTerpeneAromas()->[DataMap]{
+        var aromas = [DataMap]()
+        self.terpene.aromas.forEach {
+            aromas.append(DataMap(key: $0, value: "", view: ContentWithTitleDescView(title: $0, desc: $0, image: nil)))
+        }
+        return aromas
     }
 }
 
