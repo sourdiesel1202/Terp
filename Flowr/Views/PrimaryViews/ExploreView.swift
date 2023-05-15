@@ -37,9 +37,15 @@ struct ExploreView: View {
                 //                    StrainSearchRow(strain: strain)
             }
             NavigationLink {
-                RecommendedStrainsView()
+                ListView(data: TerpeneUtil.loadEffectDataMap(terpenes: globalData.terpenes, strains: globalData.strains), searchTitle: "Search effects")
             } label: {
                 BasicRow(title: "Strains by Effect", description: "Find strains by effect (i.e. anti-depressant, dry-mouth, etc)")
+                //                    StrainSearchRow(strain: strain)
+            }
+            NavigationLink {
+                ListView(data: TerpeneUtil.loadAromaDataMap(terpenes: globalData.terpenes, strains: globalData.strains), searchTitle: "Search aromas")
+            } label: {
+                BasicRow(title: "Strains by Aroma", description: "Find strains by aroma (i.e. earthy, grapefruit, diesel, etc)")
                 //                    StrainSearchRow(strain: strain)
             }
             
@@ -52,7 +58,7 @@ struct ExploreView: View {
             //this is gonna be gross but I want to see if this works
 //            ForEach(globalData.terpenes){terpene: Terpene}
             NavigationLink {
-                ListView(data: self.loadTerpeneList(terpenes: globalData.terpenes), searchTitle: "Search Terpenes")
+                ListView(data: TerpeneUtil.loadTerpeneDataMap(terpenes: globalData.terpenes), searchTitle: "Search Terpenes")
             } label: {
                 BasicRow(title: "Terpene List", description: "Learn about the different terepenes")
                 //                    StrainSearchRow(strain: strain)
@@ -74,16 +80,18 @@ struct ExploreView: View {
         }
     }
     
-    func loadTerpeneList(terpenes: [Terpene]) -> [DataMap]{
-        var _terpenes = [DataMap]()
-        terpenes.forEach {
-            _terpenes.append(DataMap(key: $0.name, value: "", view: TerpeneDetailView(terpene: $0)))
-        }
-        return _terpenes
-    }
+//    func loadTerpeneDataMap(terpenes: [Terpene]) -> [DataMap]{
+//        var _terpenes = [DataMap]()
+//        terpenes.forEach {
+//            _terpenes.append(DataMap(key: $0.name, value: "", view: TerpeneDetailView(terpene: $0)))
+//        }
+//        return _terpenes
+//    }
+    
+    
 }
 struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView()
+        ExploreView().environmentObject(GlobalData())
     }
 }

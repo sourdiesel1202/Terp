@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ListView: View {
+    
     @State private var searchText = ""
     let data: [DataMap]
     let searchTitle: String?
     var body: some View {
-        NavigationStack {List {
-            ForEach(data) {(dm: DataMap) in
+//        self.presentat
+        NavigationView {List {
+            ForEach(searchResults) {(dm: DataMap) in
+                
                 NavigationLink {
                     AnyView(dm.view)
                 } label: {
@@ -28,14 +31,24 @@ struct ListView: View {
                 
             //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(inline).listStyle(GroupedListStyle())
             //            //        .padding()
-        }.navigationTitle(searchTitle ?? "Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
+        }.navigationBarTitle(searchTitle ?? "Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
             //        .padding()
-        }.searchable(text: $searchText, prompt: "search")
+        }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search")
     }
+    
+    var searchResults: [DataMap] {
+            if searchText.isEmpty {
+                return data
+            } else {
+                return data.filter { $0.key.contains(searchText) }
+            }
+        }
+    
 }
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(data: [DataMap(key: "Fuck", value: "A duck", view: ContentView())], searchTitle: "Search")
+        ListView(data: [DataMap(key: "Fuck", value: "A duck", view: ContentView())], searchTitle: "Search Me")
     }
 }

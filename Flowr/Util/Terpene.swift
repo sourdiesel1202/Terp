@@ -15,9 +15,9 @@ import SwiftUI
 //}
 
 
-//struct Strains: Codable {
-//    var results = [Strain]()
-//}
+struct Strains: Codable {
+    var results = [Strain]()
+}
 //
 struct Terpene: Codable, Identifiable, Hashable{
 //    var name: String
@@ -26,6 +26,7 @@ struct Terpene: Codable, Identifiable, Hashable{
 //        case url
         case name
         case description
+//        case description
         case aromas
         case effects
     //    var photoCredit: String
