@@ -15,7 +15,9 @@ struct TerpeneUtil{
                 _res.append(terpene)
             }
         }
-        return _res
+        return _res.sorted {
+            $0.name < $1.name
+        }
         
     }
     static func loadTerpenesByEffect(effect: String, terpenes: [Terpene]) -> [Terpene]
@@ -26,7 +28,9 @@ struct TerpeneUtil{
                 _res.append(terpene)
             }
         }
-        return _res
+        return _res.sorted {
+            $0.name < $1.name
+        }
     }
     
     static func loadTerpeneAromas(terpenes: [Terpene])->[String]{
@@ -39,7 +43,9 @@ struct TerpeneUtil{
             }
         }
 //        }
-        return _res
+        return _res.sorted {
+            $0 < $1
+        }
     }
     static func loadTerpeneAromas(terpenes: [Terpene])->[DataMap]{
         var _res = [DataMap]()
@@ -52,7 +58,9 @@ struct TerpeneUtil{
             }
         
 //        }
-        return _res
+        return _res.sorted {
+            $0.key < $1.value
+        }
     }
     
     static func loadTerpeneEffects(terpenes: [Terpene])->[String]{
@@ -65,7 +73,9 @@ struct TerpeneUtil{
             }
         }
 //        }
-        return _res
+        return _res.sorted {
+            $0 < $1
+        }
     }
     static func loadTerpeneEffects(terpenes: [Terpene])->[DataMap]{
         var _res = [DataMap]()
@@ -78,7 +88,9 @@ struct TerpeneUtil{
             }
         
 //        }
-        return _res
+        return _res.sorted {
+            $0.key < $1.value
+        }
     }
     
     
@@ -87,7 +99,9 @@ struct TerpeneUtil{
         terpenes.forEach {
             _terpenes.append(DataMap(key: $0.name, value: "", view: TerpeneDetailView(terpene: $0)))
         }
-        return _terpenes
+        return _terpenes.sorted {
+            $0.key < $1.value
+        }
     }
     static func loadEffectDataMap(terpenes: [Terpene], strains: [Strain]) -> [DataMap]{
         var _effects = [DataMap]()
@@ -98,9 +112,35 @@ struct TerpeneUtil{
 //        terpenes.forEach { terpene in
 //
 //        }
-        return _effects
+        return _effects.sorted {
+            $0.key < $1.value
+        }
     }
     
+    static func loadAromaDataMap(aromas: [String]) -> [DataMap]{
+        var _res = [DataMap]()
+        aromas.forEach(){ aroma in
+            _res.append(DataMap(key: aroma, value: "", view: ContentView()))
+            
+        }
+        return _res
+    }
+    static func loadTerpeneDataMapFromStrings(terpenes: [String]) -> [DataMap]{
+        var _res = [DataMap]()
+        terpenes.forEach(){ terpene in
+            _res.append(DataMap(key: terpene, value: "", view: ContentView()))
+            
+        }
+        return _res
+    }
+    static func loadEffectDataMap(effects: [String]) -> [DataMap]{
+        var _res = [DataMap]()
+        effects.forEach(){ effect in
+            _res.append(DataMap(key: effect, value: "", view: ContentView()))
+            
+        }
+        return _res
+    }
     static func loadAromaDataMap(terpenes: [Terpene], strains: [Strain]) -> [DataMap]{
         var _aromas = [DataMap]()
         TerpeneUtil.loadTerpeneAromas(terpenes: terpenes).forEach { aroma in
@@ -110,7 +150,12 @@ struct TerpeneUtil{
 //        terpenes.forEach { terpene in
 //
 //        }
-        return _aromas
+        return _aromas.sorted {
+            $0.key < $1.value
+        }
     }
+//    static func loadTerpenes()->[Terpene]{
+//        return Bundle.main.decode([Terpene].self, from: "terpene.json")
+//    }
 //    static
 }

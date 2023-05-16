@@ -40,9 +40,10 @@ struct ListView: View {
             if searchText.isEmpty {
                 return data
             } else {
-                return data.filter { $0.key.contains(searchText) }
+                return data.filter { $0.key.lowercased().contains(searchText.lowercased())  ||  $0.value.lowercased().contains(searchText.lowercased()) }
             }
         }
+
     
 }
 

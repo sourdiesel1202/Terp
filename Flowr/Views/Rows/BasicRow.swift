@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct BasicRow: View {
-    let title: String
-    let description: String
+struct BasicRow: Row, View {
+    var title: String
+    var description: String
     var body: some View {
         VStack(alignment: .leading){
             Text(title).font(.headline)

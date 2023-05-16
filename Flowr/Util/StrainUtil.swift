@@ -42,4 +42,8 @@ struct StrainUtil{
         }
         return _res
     }
+    
+//    static func loadStrains()->[Strain]{
+//        return Bundle.main.decode([Strain].self, from: "strain_data.json")
+//    }
 }
