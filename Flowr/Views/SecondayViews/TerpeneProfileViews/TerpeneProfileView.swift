@@ -17,7 +17,8 @@ struct TerpeneProfileView: View {
 //    @State private var showingSheet: Bool = false
     @State private var isPresentingEditEffectSheet: Bool = false
     @State private var isPresentingEditAromaSheet: Bool = false
-    @State var selections = [DataMap]()
+    @State var effectSelections = [DataMap]()
+    @State var aromaSelections = [DataMap]()
 //    @State private var showingAromaHelp: Bool = false
 //    @State private var showingAromaList: Bool = false
 //    @State private var showingEffectList: Bool = false
@@ -58,14 +59,34 @@ struct TerpeneProfileView: View {
                                     List {
                                         ForEach(effectSearchResults, id: \.self) { item in
                                             
-                                            MultipleSelectionRow(title: item.key,description: item.value ,isSelected: self.selections.contains(item)) {
-                                                if self.selections.contains(item) {
-                                                    self.selections.removeAll(where: { $0 == item })
+                                            Button(action: {
+                                                self.isPresentingEditEffectSheet=false
+                                                if !self.effectSelections.contains(item) {
+                                                    self.effectSelections.append(item)
+                                                }else{
+                                                    self.effectSelections.removeAll(where: { $0 == item })
                                                 }
-                                                else {
-                                                    self.selections.append(item)
+//                                                }
+//                                                else {
+                                                    
+//                                                }
+                                                self.isPresentingEditEffectSheet=true
+                                            }) {
+                                                
+                                    //            self.isSelected = self.isSelected==true
+                                                HStack{
+                                                    VStack (alignment: .leading){
+                                                        Text(item.key).font(.headline)
+                                                        
+                                                    }
+                                                    if self.effectSelections.contains( where: {$0.key==item.key}) {
+                                                        Spacer()
+                                                        Image(systemName: "checkmark")
+                                                    }
+                                                    
                                                 }
-                                            }
+                                            }.foregroundColor(.black)
+                                            
                                         }
                                     }.searchable(text: $searchText)
                                 }.navigationBarTitle("Effects").toolbar(content: {
@@ -90,6 +111,7 @@ struct TerpeneProfileView: View {
                                     ToolbarItem(placement: .navigationBarTrailing){
                                         Button(action:{
                                             self.isPresentingEditEffectSheet=false
+                                            updateTerpeneProfileEffects()
                                         }){
                                             Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
                                                 .foregroundColor(.white)
@@ -132,14 +154,34 @@ struct TerpeneProfileView: View {
                                     List {
                                         ForEach(aromaSearchResults, id: \.self) { item in
                                             
-                                            MultipleSelectionRow(title: item.key,description: item.value ,isSelected: self.selections.contains(item)) {
-                                                if self.selections.contains(item) {
-                                                    self.selections.removeAll(where: { $0 == item })
+                                            Button(action: {
+//                                                self.isPresentingEditEffectSheet=false
+                                                if !self.aromaSelections.contains(item) {
+                                                    self.aromaSelections.append(item)
+                                                }else{
+                                                    self.aromaSelections.removeAll(where: { $0 == item })
                                                 }
-                                                else {
-                                                    self.selections.append(item)
+//                                                }
+//                                                else {
+                                                    
+//                                                }
+//                                                self.isPresentingEditEffectSheet=true
+                                            }) {
+                                                
+                                    //            self.isSelected = self.isSelected==true
+                                                HStack{
+                                                    VStack (alignment: .leading){
+                                                        Text(item.key).font(.headline)
+                                                        
+                                                    }
+                                                    if self.aromaSelections.contains( where: {$0.key==item.key}) {
+                                                        Spacer()
+                                                        Image(systemName: "checkmark")
+                                                    }
+                                                    
                                                 }
-                                            }
+                                            }.foregroundColor(.black)
+                                            
                                         }
                                     }.searchable(text: $searchText)
                                 }.navigationBarTitle("Aromas").toolbar(content: {
@@ -164,6 +206,7 @@ struct TerpeneProfileView: View {
                                     ToolbarItem(placement: .navigationBarTrailing){
                                         Button(action:{
                                             self.isPresentingEditAromaSheet=false
+                                            updateTerpeneProfileAromas()
                                         }){
                                             Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
                                                 .foregroundColor(.white)
@@ -217,6 +260,28 @@ struct TerpeneProfileView: View {
         }
 
 
+    func updateTerpeneProfileEffects(){
+//        var _res = [String]()
+        self.globalData.terpeneProfile.effects.removeAll()
+        self.effectSelections.forEach(){ dm in
+            self.globalData.terpeneProfile.effects.append(dm.key)
+        }
+        
+        
+//        return _res
+        
+    }
+    func updateTerpeneProfileAromas(){
+//        var _res = [String]()
+        self.globalData.terpeneProfile.aromas.removeAll()
+        self.aromaSelections.forEach(){ dm in
+            self.globalData.terpeneProfile.aromas.append(dm.key)
+        }
+        
+        
+//        return _res
+        
+    }
 }
 
 
