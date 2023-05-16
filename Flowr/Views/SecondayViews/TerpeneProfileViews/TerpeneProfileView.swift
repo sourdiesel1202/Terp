@@ -16,7 +16,9 @@ struct TerpeneProfileView: View {
 //    @State private var showingFullScreenCover: Bool = false
 //    @State private var showingSheet: Bool = false
     @State private var isPresentingEditEffectSheet: Bool = false
+    @State private var isPresentingBuildEffectSheet: Bool = false
     @State private var isPresentingEditAromaSheet: Bool = false
+    @State private var isPresentingBuildAromaSheet: Bool = false
     @State var effectSelections = [DataMap]()
     @State var aromaSelections = [DataMap]()
 //    @State private var showingAromaHelp: Bool = false
@@ -49,7 +51,95 @@ struct TerpeneProfileView: View {
                     }
                     Section(header: Text("Effects")){
                         if self.globalData.terpeneProfile.effects.count == 0 {
-                            FullWidthButton(text: "Select Cannabis Effects", action: {self.isPresentingEditEffectSheet=true}).fullScreenCover(isPresented: $isPresentingEditEffectSheet){
+                            FullWidthButton(text: "Select Cannabis Effects", action: {self.isPresentingBuildEffectSheet=true}).fullScreenCover(isPresented: $isPresentingBuildEffectSheet){
+                             
+                                //        shouldPresentSheet=determineSheetPresentation()
+                            NavigationStack{
+                                //            VStack(alignment: .center){
+                                
+                                Section{
+                                    List {
+                                        ForEach(effectSearchResults, id: \.self) { item in
+                                            
+                                            Button(action: {
+//                                                self.isPresentingEditEffectSheet=false
+                                                if !self.effectSelections.contains(where: { $0.key == item.key }) {
+                                                    self.effectSelections.append(item)
+                                                }else{
+                                                    self.effectSelections.removeAll(where: { $0.key == item.key })
+                                                }
+//                                                }
+//                                                else {
+                                                    
+//                                                }
+//                                                self.isPresentingEditEffectSheet=true
+                                            }) {
+                                                
+                                    //            self.isSelected = self.isSelected==true
+                                                HStack{
+                                                    VStack (alignment: .leading){
+                                                        Text(item.key).font(.headline)
+                                                        
+                                                    }
+                                                    if self.effectSelections.contains( where: {$0.key==item.key}) {
+                                                        Spacer()
+                                                        Image(systemName: "checkmark")
+                                                    }
+                                                    
+                                                }
+                                            }.foregroundColor(.black)
+                                            
+                                        }
+                                    }.searchable(text: $searchText)
+                                }.navigationBarTitle("Effects").toolbar(content: {
+                                    
+                                    ToolbarItem(placement: .navigationBarLeading){
+                                        Button(action:{
+                                            self.isPresentingBuildEffectSheet=false
+                                        }){
+                                            Text("Back").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
+                                                .foregroundColor(.white)
+                                                .clipShape(
+                                                    
+                                                    // 2
+                                                    Capsule()
+                                                )
+                                        }.padding(.bottom)
+//                                        BasicButton(text: "Back", font: .headline, action: {
+//                                            self.isPresentingEditEffectSheet=false}).padding(.bottom).padding(.bottom)
+//                                            print("Back button pressed")
+                                        
+                                    }
+                                    ToolbarItem(placement: .navigationBarTrailing){
+                                        Button(action:{
+                                            self.isPresentingBuildEffectSheet=false
+                                            updateTerpeneProfileEffects()
+                                        }){
+                                            Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
+                                                .foregroundColor(.white)
+                                                .clipShape(
+                                                    
+                                                    // 2
+                                                    Capsule()
+                                                )
+                                        }.padding(.bottom)
+                                                    }
+
+                                })
+                                
+                            }
+//
+                            }
+//                            FullWidthButton(text: "Select Cannabis Effects", destination: AnyView(MultipleSelectionList(data: TerpeneUtil.loadEffectDataMap(effects: TerpeneUtil.loadTerpeneEffects(terpenes: self.globalData.terpenes)), navigationBarTitle: "Effects",action: {self.navigationUtil.navigationPath.removeLast(self.navigationUtil.navigationPath.count)})))
+                        }else{
+                            
+                            //                        List {
+                            ForEach(TerpeneUtil.loadEffectDataMap(effects: self.globalData.terpeneProfile.effects)) {(dm: DataMap) in
+                                
+                                BasicRow(title: dm.key, description: dm.value)
+                                
+                            }
+                            FullWidthButton(text: "Edit Cannabis Effects", action: {self.isPresentingEditEffectSheet=true}).fullScreenCover(isPresented: $isPresentingEditEffectSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
                             NavigationStack{
@@ -61,10 +151,10 @@ struct TerpeneProfileView: View {
                                             
                                             Button(action: {
                                                 self.isPresentingEditEffectSheet=false
-                                                if !self.effectSelections.contains(item) {
+                                                if !self.effectSelections.contains(where: { $0.key == item.key }) {
                                                     self.effectSelections.append(item)
                                                 }else{
-                                                    self.effectSelections.removeAll(where: { $0 == item })
+                                                    self.effectSelections.removeAll(where: { $0.key == item.key })
                                                 }
 //                                                }
 //                                                else {
@@ -128,15 +218,6 @@ struct TerpeneProfileView: View {
                             }
 //
                             }
-//                            FullWidthButton(text: "Select Cannabis Effects", destination: AnyView(MultipleSelectionList(data: TerpeneUtil.loadEffectDataMap(effects: TerpeneUtil.loadTerpeneEffects(terpenes: self.globalData.terpenes)), navigationBarTitle: "Effects",action: {self.navigationUtil.navigationPath.removeLast(self.navigationUtil.navigationPath.count)})))
-                        }else{
-                            
-                            //                        List {
-                            ForEach(TerpeneUtil.loadEffectDataMap(effects: self.globalData.terpeneProfile.effects)) {(dm: DataMap) in
-                                
-                                BasicRow(title: dm.key, description: dm.value)
-                                
-                            }
                         }
                         
                         
@@ -144,7 +225,7 @@ struct TerpeneProfileView: View {
                     
                     Section(header: Text("Aromas")){
                         if self.globalData.terpeneProfile.aromas.count == 0 {
-                            FullWidthButton(text: "Select Cannabis Aromas", action: {self.isPresentingEditAromaSheet=true}).fullScreenCover(isPresented: $isPresentingEditAromaSheet){
+                            FullWidthButton(text: "Select Cannabis Aromas", action: {self.isPresentingBuildAromaSheet=true}).fullScreenCover(isPresented: $isPresentingBuildAromaSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
                             NavigationStack{
@@ -156,10 +237,101 @@ struct TerpeneProfileView: View {
                                             
                                             Button(action: {
 //                                                self.isPresentingEditEffectSheet=false
-                                                if !self.aromaSelections.contains(item) {
+                                                if !self.aromaSelections.contains(where: { $0.key == item.key }) {
                                                     self.aromaSelections.append(item)
                                                 }else{
-                                                    self.aromaSelections.removeAll(where: { $0 == item })
+                                                    self.aromaSelections.removeAll(where: { $0.key == item.key })
+                                                }
+//                                                }
+//                                                else {
+                                                    
+//                                                }
+//                                                self.isPresentingEditEffectSheet=true
+                                            }) {
+                                                
+                                    //            self.isSelected = self.isSelected==true
+                                                HStack{
+                                                    VStack (alignment: .leading){
+                                                        Text(item.key).font(.headline)
+                                                        
+                                                    }
+                                                    if self.aromaSelections.contains( where: {$0.key==item.key}) {
+                                                        Spacer()
+                                                        Image(systemName: "checkmark")
+                                                    }
+                                                    
+                                                }
+                                            }.foregroundColor(.black)
+                                            
+                                        }
+                                    }.searchable(text: $searchText)
+                                }.navigationBarTitle("Aromas").toolbar(content: {
+                                    
+                                    ToolbarItem(placement: .navigationBarLeading){
+                                        Button(action:{
+                                            self.isPresentingBuildAromaSheet=false
+                                        }){
+                                            Text("Back").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
+                                                .foregroundColor(.white)
+                                                .clipShape(
+                                                    
+                                                    // 2
+                                                    Capsule()
+                                                )
+                                        }.padding(.bottom)
+//                                        BasicButton(text: "Back", font: .headline, action: {
+//                                            self.isPresentingEditEffectSheet=false}).padding(.bottom).padding(.bottom)
+//                                            print("Back button pressed")
+                                        
+                                    }
+                                    ToolbarItem(placement: .navigationBarTrailing){
+                                        Button(action:{
+                                            self.isPresentingBuildAromaSheet=false
+                                            updateTerpeneProfileAromas()
+                                        }){
+                                            Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
+                                                .foregroundColor(.white)
+                                                .clipShape(
+                                                    
+                                                    // 2
+                                                    Capsule()
+                                                )
+                                        }.padding(.bottom)
+                                                    }
+
+                                })
+                                
+                            }
+//
+                            }
+                            
+//                            FullWidthButton(text: "Select Cannabis Aromas", destination: AnyView(MultipleSelectionList(data: TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: self.globalData.terpenes)),navigationBarTitle: "Aromas", action: {self.navigationUtil.navigationPath.removeLast(self.navigationUtil.navigationPath.count)})))
+                        }else{
+                            
+                            //                        List {
+                            ForEach(TerpeneUtil.loadAromaDataMap(aromas: self.globalData.terpeneProfile.aromas)) {(dm: DataMap) in
+                                
+                                BasicRow(title: dm.key, description: dm.value)
+                                
+                            }
+                            FullWidthButton(text: "Edit Cannabis Aromas", action: {self.isPresentingEditAromaSheet=true
+                                
+                            }).fullScreenCover(isPresented: $isPresentingEditAromaSheet){
+                             
+                                //        shouldPresentSheet=determineSheetPresentation()
+                            NavigationStack{
+                                //            VStack(alignment: .center){
+                                
+                                Section{
+                                    List {
+                                        ForEach(aromaSearchResults, id: \.self) { item in
+                                            
+                                            Button(action: {
+//                                                self.isPresentingEditEffectSheet=false
+                                                if !self.aromaSelections.contains(where: { $0.key == item.key }) {
+                                                    self.aromaSelections.append(item)
+                                                }else{
+                                                    self.aromaSelections.removeAll(where: { $0.key == item.key })
                                                 }
 //                                                }
 //                                                else {
@@ -224,15 +396,6 @@ struct TerpeneProfileView: View {
 //
                             }
                             
-//                            FullWidthButton(text: "Select Cannabis Aromas", destination: AnyView(MultipleSelectionList(data: TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: self.globalData.terpenes)),navigationBarTitle: "Aromas", action: {self.navigationUtil.navigationPath.removeLast(self.navigationUtil.navigationPath.count)})))
-                        }else{
-                            
-                            //                        List {
-                            ForEach(TerpeneUtil.loadAromaDataMap(aromas: self.globalData.terpeneProfile.aromas)) {(dm: DataMap) in
-                                
-                                BasicRow(title: dm.key, description: dm.value)
-                                
-                            }
                         }
                     }
                     //            Section{

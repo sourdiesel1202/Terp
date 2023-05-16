@@ -57,11 +57,11 @@ struct MultipleSelectionList: View {
             }.toolbar(content: {
                 
                 ToolbarItem(placement: .navigationBarLeading){
-                    BasicButton(text: "Back", font: .headline, action: self.action).padding(.bottom).padding(.bottom)
+                    BasicButton(text: "Back", font: .headline, action: self.action).padding(.bottom)
                     
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
-                                    BasicButton(text: "Done", font: .headline, action: self.action).padding(.bottom).padding(.bottom)
+                                    BasicButton(text: "Done", font: .headline, action: self.action).padding(.bottom)
                                 }
 
             })
