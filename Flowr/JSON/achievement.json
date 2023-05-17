@@ -1,0 +1,6 @@
+[{
+ "name":"Cake by the Pound",
+ "strains": ["London Pound Cake","Wedding Cake", "LA Kush Cake", "Divorce Cake", "Birthday Cake", "El Jefe"],
+ "requires": 3,
+ "description": "The Cake by the Pound achievement can be earned by rating 3 cake stains"
+}]

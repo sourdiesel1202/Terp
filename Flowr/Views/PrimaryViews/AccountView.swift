@@ -84,7 +84,13 @@ struct AccountView: View {
             NavigationLink {
                 ContentView()
             } label: {
-                BasicRow(title: "View Badges", description: "View your badge list")
+                BasicRow(title: "View Your Achievements", description: "View your achievement list")
+                //                    StrainSearchRow(strain: strain)
+            }
+            NavigationLink {
+                ListView(data: AchievementUtil.loadAchievementDataMap(), searchTitle: "Search Achievements")
+            } label: {
+                BasicRow(title: "View All Achievements", description: "View all achievements")
                 //                    StrainSearchRow(strain: strain)
             }
             NavigationLink {

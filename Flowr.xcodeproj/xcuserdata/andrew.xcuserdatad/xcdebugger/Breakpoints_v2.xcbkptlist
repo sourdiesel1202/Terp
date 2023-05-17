@@ -328,7 +328,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "12458E49-8F04-4406-9A4A-F1C2E28400BB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flowr/Views/SecondayViews/TerpeneProfileViews/TerpeneProfileView.swift"

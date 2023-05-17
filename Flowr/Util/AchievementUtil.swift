@@ -1,0 +1,28 @@
+//
+//  AchievementUtil.swift
+//  Flowr
+//
+//  Created by Andrew on 5/16/23.
+//
+
+import Foundation
+import Foundation
+struct AchievementUtil{
+    
+    static func loadAchievements() -> [Achievement]{
+        return Bundle.main.decode([Achievement].self, from: "achievement.json")
+            
+    }
+    static func loadAchievementByName(name: String)->Achievement{
+        return self.loadAchievements().filter({$0.name.lowercased()==name.lowercased()}).first!
+    }
+    static func loadAchievementDataMap()->[DataMap]{
+        var _res = [DataMap]()
+        self.loadAchievements().forEach(){ ach in
+            _res.append(DataMap(key: ach.name, value: "", view: AchievementDetailView(achievement: ach)))
+            
+        }
+        return _res
+    }
+}
+

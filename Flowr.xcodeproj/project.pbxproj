@@ -22,6 +22,10 @@
 		4926C2542A13CF46007B8D30 /* FullWidthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2532A13CF46007B8D30 /* FullWidthButton.swift */; };
 		4926C2562A140181007B8D30 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926C2552A140181007B8D30 /* strain_data.json */; };
 		4926C2582A141691007B8D30 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2572A141691007B8D30 /* BasicButton.swift */; };
+		4926C25A2A147824007B8D30 /* achievement.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926C2592A147824007B8D30 /* achievement.json */; };
+		4926C25C2A147845007B8D30 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C25B2A147845007B8D30 /* Achievement.swift */; };
+		4926C25F2A147977007B8D30 /* AchievementUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C25E2A147977007B8D30 /* AchievementUtil.swift */; };
+		4926C2612A147AC8007B8D30 /* AchievementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2602A147AC8007B8D30 /* AchievementDetailView.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -68,6 +72,10 @@
 		4926C2532A13CF46007B8D30 /* FullWidthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButton.swift; sourceTree = "<group>"; };
 		4926C2552A140181007B8D30 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		4926C2572A141691007B8D30 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		4926C2592A147824007B8D30 /* achievement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievement.json; sourceTree = "<group>"; };
+		4926C25B2A147845007B8D30 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		4926C25E2A147977007B8D30 /* AchievementUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementUtil.swift; sourceTree = "<group>"; };
+		4926C2602A147AC8007B8D30 /* AchievementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementDetailView.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 		4926C24A2A131DD6007B8D30 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				4926C2592A147824007B8D30 /* achievement.json */,
 				4926C24B2A131E4E007B8D30 /* terpene_profile.json */,
 				4926C2552A140181007B8D30 /* strain_data.json */,
 				4926C2392A10A847007B8D30 /* terpene.json */,
@@ -144,6 +153,19 @@
 				4926C2572A141691007B8D30 /* BasicButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		4926C25D2A1478C0007B8D30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49B37C1D2A0078A800C053FC /* Strain.swift */,
+				494195432A0DED7D000CEF39 /* Terpene.swift */,
+				494195552A0F8AE9000CEF39 /* DataMap.swift */,
+				4926C24D2A131E72007B8D30 /* TerpeneProfile.swift */,
+				4926C25B2A147845007B8D30 /* Achievement.swift */,
+				494195572A0F9F26000CEF39 /* GlobalData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		492C535029FF3AA400C55761 = {
@@ -232,6 +254,7 @@
 				494195512A0F07D6000CEF39 /* StrainListView.swift */,
 				494195472A0ECD9A000CEF39 /* TerpeneDetailView.swift */,
 				494195452A0ECD25000CEF39 /* TerpeneListView.swift */,
+				4926C2602A147AC8007B8D30 /* AchievementDetailView.swift */,
 			);
 			path = SecondayViews;
 			sourceTree = "<group>";
@@ -258,16 +281,13 @@
 		49746DC72A039C17002ED1B0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4926C25D2A1478C0007B8D30 /* Models */,
 				49B37C192A00753200C053FC /* JSONLoader.swift */,
-				49B37C1D2A0078A800C053FC /* Strain.swift */,
-				494195432A0DED7D000CEF39 /* Terpene.swift */,
-				494195552A0F8AE9000CEF39 /* DataMap.swift */,
-				494195572A0F9F26000CEF39 /* GlobalData.swift */,
 				4941954F2A0ED587000CEF39 /* StrainSearch.swift */,
 				4926C2332A1036D9007B8D30 /* TerpeneUtil.swift */,
 				4926C2352A10936B007B8D30 /* NavigationUtil.swift */,
 				4926C2372A109EBA007B8D30 /* StrainUtil.swift */,
-				4926C24D2A131E72007B8D30 /* TerpeneProfile.swift */,
+				4926C25E2A147977007B8D30 /* AchievementUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -335,6 +355,7 @@
 				492C536429FF3AA800C55761 /* Preview Assets.xcassets in Resources */,
 				4926C2562A140181007B8D30 /* strain_data.json in Resources */,
 				492C536129FF3AA800C55761 /* Assets.xcassets in Resources */,
+				4926C25A2A147824007B8D30 /* achievement.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +373,7 @@
 				498B530C2A0DBF1200488401 /* RatingView.swift in Sources */,
 				4926C2442A12A60E007B8D30 /* ImageRow.swift in Sources */,
 				4941955A2A0FCBDC000CEF39 /* ContentWithTitleDescView.swift in Sources */,
+				4926C25F2A147977007B8D30 /* AchievementUtil.swift in Sources */,
 				494195542A0F88A4000CEF39 /* ListView.swift in Sources */,
 				495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */,
 				4926C2342A1036D9007B8D30 /* TerpeneUtil.swift in Sources */,
@@ -359,12 +381,14 @@
 				4941953C2A0DE218000CEF39 /* SystemImageRow.swift in Sources */,
 				49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */,
 				4926C2382A109EBA007B8D30 /* StrainUtil.swift in Sources */,
+				4926C2612A147AC8007B8D30 /* AchievementDetailView.swift in Sources */,
 				494195402A0DE480000CEF39 /* AccountSettingsView.swift in Sources */,
 				492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */,
 				494195442A0DED7D000CEF39 /* Terpene.swift in Sources */,
 				4941953E2A0DE351000CEF39 /* AccountView.swift in Sources */,
 				494195482A0ECD9A000CEF39 /* TerpeneDetailView.swift in Sources */,
 				49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */,
+				4926C25C2A147845007B8D30 /* Achievement.swift in Sources */,
 				4926C2362A10936B007B8D30 /* NavigationUtil.swift in Sources */,
 				492C536929FF3AA800C55761 /* Flowr.xcdatamodeld in Sources */,
 				492C536629FF3AA800C55761 /* Persistence.swift in Sources */,

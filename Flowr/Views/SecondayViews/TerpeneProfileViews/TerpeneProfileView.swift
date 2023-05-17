@@ -51,7 +51,7 @@ struct TerpeneProfileView: View {
                         //                    BasicRow(title: "Dumb", description: "Description")
                         //                    BasicRow(title: "Dumb", description: "Description")
                     }
-                    Section(header: Text("Effects")){
+                    Section(header: Text("My Effects")){
                         if self.globalData.terpeneProfile.effects.count == 0 {
                             FullWidthButton(text: "Select Cannabis Effects", action: {self.isPresentingBuildEffectSheet=true
                                 setEffectSelection()
@@ -233,7 +233,7 @@ struct TerpeneProfileView: View {
                         
                     }
                     
-                    Section(header: Text("Aromas")){
+                    Section(header: Text("My Aromas")){
                         if self.globalData.terpeneProfile.aromas.count == 0 {
                             FullWidthButton(text: "Select Cannabis Aromas", action: {self.isPresentingBuildAromaSheet=true
                                 setAromaSelection()
