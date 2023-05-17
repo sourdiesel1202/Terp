@@ -329,7 +329,7 @@ struct TerpeneProfileView: View {
                             }
                             FullWidthButton(text: "Edit Cannabis Aromas", action: {self.isPresentingEditAromaSheet=true
                                 setAromaSelection()
-                            }).fullScreenCover(isPresented: $isPresentingEditAromaSheet){
+                                }).fullScreenCover(isPresented: $isPresentingEditAromaSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
                             NavigationStack{
