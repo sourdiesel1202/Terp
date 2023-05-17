@@ -37,7 +37,9 @@ struct TerpeneProfileView: View {
                         } else {
                             ForEach(TerpeneUtil.loadTerpeneDataMapFromStrings(terpenes: self.globalData.terpeneProfile.terpenes)) {(dm: DataMap) in
                                 
-                                BasicRow(title: dm.key, description: dm.value)
+                                NavigationLink{
+                                    TerpeneDetailView(terpene: TerpeneUtil.loadTerpeneByName(name: dm.key, terpenes: self.globalData.terpenes) )
+                                }label:{BasicRow(title: dm.key, description: dm.value)}
                                 
                             }
                             //                        BasicRow(title: "Dumb", description: "Description")
@@ -51,7 +53,9 @@ struct TerpeneProfileView: View {
                     }
                     Section(header: Text("Effects")){
                         if self.globalData.terpeneProfile.effects.count == 0 {
-                            FullWidthButton(text: "Select Cannabis Effects", action: {self.isPresentingBuildEffectSheet=true}).fullScreenCover(isPresented: $isPresentingBuildEffectSheet){
+                            FullWidthButton(text: "Select Cannabis Effects", action: {self.isPresentingBuildEffectSheet=true
+                                setEffectSelection()
+                            }).fullScreenCover(isPresented: $isPresentingBuildEffectSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
                             NavigationStack{
@@ -114,6 +118,8 @@ struct TerpeneProfileView: View {
                                         Button(action:{
                                             self.isPresentingBuildEffectSheet=false
                                             updateTerpeneProfileEffects()
+                                            resetTerpeneProfileTerpenes()
+                                            
                                         }){
                                             Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
                                                 .foregroundColor(.white)
@@ -139,7 +145,9 @@ struct TerpeneProfileView: View {
                                 BasicRow(title: dm.key, description: dm.value)
                                 
                             }
-                            FullWidthButton(text: "Edit Cannabis Effects", action: {self.isPresentingEditEffectSheet=true}).fullScreenCover(isPresented: $isPresentingEditEffectSheet){
+                            FullWidthButton(text: "Edit Cannabis Effects", action: {self.isPresentingEditEffectSheet=true
+                                setEffectSelection()
+                            }).fullScreenCover(isPresented: $isPresentingEditEffectSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
                             NavigationStack{
@@ -202,6 +210,8 @@ struct TerpeneProfileView: View {
                                         Button(action:{
                                             self.isPresentingEditEffectSheet=false
                                             updateTerpeneProfileEffects()
+                                            resetTerpeneProfileTerpenes()
+                                            
                                         }){
                                             Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
                                                 .foregroundColor(.white)
@@ -225,7 +235,9 @@ struct TerpeneProfileView: View {
                     
                     Section(header: Text("Aromas")){
                         if self.globalData.terpeneProfile.aromas.count == 0 {
-                            FullWidthButton(text: "Select Cannabis Aromas", action: {self.isPresentingBuildAromaSheet=true}).fullScreenCover(isPresented: $isPresentingBuildAromaSheet){
+                            FullWidthButton(text: "Select Cannabis Aromas", action: {self.isPresentingBuildAromaSheet=true
+                                setAromaSelection()
+                            }).fullScreenCover(isPresented: $isPresentingBuildAromaSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
                             NavigationStack{
@@ -288,6 +300,7 @@ struct TerpeneProfileView: View {
                                         Button(action:{
                                             self.isPresentingBuildAromaSheet=false
                                             updateTerpeneProfileAromas()
+                                            resetTerpeneProfileTerpenes()
                                         }){
                                             Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
                                                 .foregroundColor(.white)
@@ -315,7 +328,7 @@ struct TerpeneProfileView: View {
                                 
                             }
                             FullWidthButton(text: "Edit Cannabis Aromas", action: {self.isPresentingEditAromaSheet=true
-                                
+                                setAromaSelection()
                             }).fullScreenCover(isPresented: $isPresentingEditAromaSheet){
                              
                                 //        shouldPresentSheet=determineSheetPresentation()
@@ -379,6 +392,7 @@ struct TerpeneProfileView: View {
                                         Button(action:{
                                             self.isPresentingEditAromaSheet=false
                                             updateTerpeneProfileAromas()
+                                            resetTerpeneProfileTerpenes()
                                         }){
                                             Text("Done").font(.headline).fontWeight(.bold).padding(10).cornerRadius(15).background(.blue).cornerRadius(15)
                                                 .foregroundColor(.white)
@@ -430,9 +444,42 @@ struct TerpeneProfileView: View {
             self.globalData.terpeneProfile.effects.append(dm.key)
         }
         
-        
+//        updateTerpeneProfileAromas()
 //        return _res
         
+    }
+    func resetTerpeneProfileTerpenes(){
+        self.globalData.terpeneProfile.terpenes.removeAll()
+        self.globalData.terpeneProfile.aromas.forEach(){ aroma in
+            TerpeneUtil.loadTerpenesByAroma(aroma: aroma, terpenes: self.globalData.terpenes).forEach() { terpene in
+                if !self.globalData.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
+                    self.globalData.terpeneProfile.terpenes.append(terpene.name)
+                }
+            }
+        }
+        self.globalData.terpeneProfile.effects.forEach(){ effect in
+            TerpeneUtil.loadTerpenesByEffect(effect: effect, terpenes: self.globalData.terpenes).forEach() { terpene in
+                if !self.globalData.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
+                    self.globalData.terpeneProfile.terpenes.append(terpene.name)
+                }
+            }
+        }
+    }
+    func setEffectSelection(){
+        self.globalData.terpeneProfile.effects.forEach(){ effect in
+            if !self.effectSelections.contains(where: {$0.key.lowercased()==effect.lowercased()}){
+                self.effectSelections.append(DataMap(key: effect, value:"", view: ContentView()))
+            }
+        }
+    }
+    
+    func setAromaSelection(){
+        self.globalData.terpeneProfile.aromas.forEach(){ aroma in
+            if !self.aromaSelections.contains(where: {$0.key.lowercased()==aroma.lowercased()}){
+                self.aromaSelections.append(DataMap(key: aroma, value:"", view: ContentView()))
+            }
+            
+        }
     }
     func updateTerpeneProfileAromas(){
 //        var _res = [String]()
@@ -441,6 +488,7 @@ struct TerpeneProfileView: View {
             self.globalData.terpeneProfile.aromas.append(dm.key)
         }
         
+//        updateTerpeneProfileEffects()
         
 //        return _res
         

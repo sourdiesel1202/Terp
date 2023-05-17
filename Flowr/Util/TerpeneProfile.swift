@@ -23,8 +23,9 @@ struct TerpeneProfile: Codable, Identifiable, Hashable{
 //        var id = UUID()
 //        case url
         case terpenes
-        case aromas
         case effects
+        case aromas
+        
     //    var photoCredit: String
     //    var price: Int
     //    var restrictions: [String]
@@ -40,8 +41,8 @@ struct TerpeneProfile: Codable, Identifiable, Hashable{
     }
     var id = UUID()
     var terpenes: [String]
-    var aromas: [String]
     var effects: [String]
+    var aromas: [String]
     
 //    var children: [String]
 //    var parents: [String]
@@ -56,6 +57,6 @@ struct TerpeneProfile: Codable, Identifiable, Hashable{
 //    #endif
     
 #if DEBUG
-    static let example = TerpeneProfile(terpenes: ["Myrcene"], aromas: ["Diesel"], effects: ["Sedative"])
+    static let example = TerpeneProfile(terpenes: ["Myrcene"], effects: ["Sedative"],aromas: ["Diesel"])
 #endif
 }

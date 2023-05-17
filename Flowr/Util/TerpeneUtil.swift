@@ -20,6 +20,19 @@ struct TerpeneUtil{
         }
         
     }
+    static func loadTerpeneByName(name: String, terpenes: [Terpene]) -> Terpene{
+        return terpenes.filter({$0.name.lowercased()==name.lowercased()}).first!
+//        var _res = [Terpene]()
+//        terpenes.forEach { terpene in
+//            if !_res.contains(terpene) && terpene.aromas.contains(aroma){
+//                _res.append(terpene)
+//            }
+//        }
+//        return _res.sorted {
+//            $0.name < $1.name
+//        }
+        
+    }
     static func loadTerpenesByEffect(effect: String, terpenes: [Terpene]) -> [Terpene]
     {
         var _res = [Terpene]()
