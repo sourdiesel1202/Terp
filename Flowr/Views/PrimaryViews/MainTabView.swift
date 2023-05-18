@@ -12,18 +12,19 @@ struct MainTabView: View {
     var body: some View {
         
            TabView {
-               ContentView().tabItem{
+               FeedView().tabItem{
                    Label("Feed", systemImage: "person.fill")
                }
 
-               ExploreView().tabItem{
-                   Label("Explore", systemImage: "globe.americas")
-               }
                ListView(data: StrainUtil.loadStrainDataMap(strains: globalData.strains), searchTitle: "Search Strains")
 //               StrainSearchView()
                    .tabItem {
-                       Label("Strains", systemImage: "magnifyingglass.circle")
+                       Label("Search Strains", systemImage: "magnifyingglass.circle")
                    }
+               
+               DiscoverView().tabItem{
+                   Label("Discover", systemImage: "globe.americas")
+               }
                
                AccountView().tabItem{
                    Label("Account", systemImage: "person.fill")

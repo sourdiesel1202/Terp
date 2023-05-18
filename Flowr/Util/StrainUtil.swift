@@ -8,6 +8,9 @@
 import Foundation
 struct StrainUtil{
     
+    static func loadStrains() -> [Strain]{
+        return Bundle.main.decode([Strain].self, from: "strain_data.json")
+    }
     static func loadStrainsByTerpene(terpene: Terpene, strains: [Strain]) -> [Strain]{
         
         var _res = [Strain]()
@@ -45,6 +48,9 @@ struct StrainUtil{
     
     static func loadStrainByName(name: String, strains: [Strain]) -> Strain? {
         return strains.filter({$0.name.lowercased()==name.lowercased()}).first
+    }
+    static func loadStrainByName(name: String) -> Strain? {
+        return self.loadStrains().filter({$0.name.lowercased()==name.lowercased()}).first
     }
 //    static func loadStrains()->[Strain]{
 //        return Bundle.main.decode([Strain].self, from: "strain_data.json")

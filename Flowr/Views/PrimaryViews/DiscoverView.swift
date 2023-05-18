@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExploreView: View {
+struct DiscoverView: View {
     //    let
     @EnvironmentObject var globalData: GlobalData
 //    @State var terpeneList: [DataMap]
@@ -71,7 +71,7 @@ struct ExploreView: View {
             ToolbarItem(placement: .principal) {
                 VStack {
                     
-                    Text("Explore").font(.headline).padding(.top, 50)
+                    Text("Discover").font(.headline).padding(.top, 50)
                     
 //                    Text("Discover recommended strains, nearby dispensaries and more")
                 }
@@ -90,8 +90,8 @@ struct ExploreView: View {
     
     
 }
-struct ExploreView_Previews: PreviewProvider {
+struct DiscoverView_Previews: PreviewProvider {
     static var previews: some View {
-        ExploreView().environmentObject(GlobalData())
+        DiscoverView().environmentObject(GlobalData())
     }
 }
