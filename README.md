@@ -1,1 +1,2 @@
-# flowr
+## Terp
+A social cannabis experience

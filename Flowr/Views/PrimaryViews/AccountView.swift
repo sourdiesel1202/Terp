@@ -121,7 +121,7 @@ struct AccountView: View {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView().environmentObject(GlobalData()).environmentObject(NavigationUtil())
     }

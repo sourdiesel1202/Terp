@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TerpeneProfileView: View {
     @State private var searchText = ""
-    @Environment(\.dismiss) private var dismiss
+//    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var globalData: GlobalData
     @EnvironmentObject var navigationUtil: NavigationUtil
 //    @Binding var showingBuildProfile: Bool
