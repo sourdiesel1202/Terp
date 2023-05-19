@@ -13,9 +13,14 @@ struct AchievementUtil{
         return Bundle.main.decode([Achievement].self, from: "achievement.json")
             
     }
+    static func loadUserAchievements(user: User) -> [Achievement]? {
+        return Bundle.main.decode([UserAchievement].self, from: "user_achievements.json").filter({$0.user==user.id}).first?.achievements
+            
+    }
     static func loadAchievementByName(name: String)->Achievement{
         return self.loadAchievements().filter({$0.name.lowercased()==name.lowercased()}).first!
     }
+    
     static func loadAchievementDataMap()->[DataMap]{
         var _res = [DataMap]()
         self.loadAchievements().forEach(){ ach in

@@ -46,6 +46,16 @@
 		4926C28E2A15BA2B007B8D30 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C28D2A15BA2B007B8D30 /* ProfileView.swift */; };
 		4926C2912A1643E9007B8D30 /* ProfileHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2902A1643E9007B8D30 /* ProfileHeaderRow.swift */; };
 		4926C2932A16460E007B8D30 /* ProfileReviewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2922A16460E007B8D30 /* ProfileReviewsRow.swift */; };
+		4926C2952A1667C0007B8D30 /* ViewDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2942A1667C0007B8D30 /* ViewDivider.swift */; };
+		4926C2972A166AE1007B8D30 /* UserAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2962A166AE1007B8D30 /* UserAchievement.swift */; };
+		4926C2992A166F45007B8D30 /* user_achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926C2982A166F45007B8D30 /* user_achievements.json */; };
+		4926C29B2A16991C007B8D30 /* ProfileAchievementsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C29A2A16991C007B8D30 /* ProfileAchievementsRow.swift */; };
+		4926C29E2A169D16007B8D30 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C29D2A169D16007B8D30 /* URLImage.swift */; };
+		4926C2A12A16E8C5007B8D30 /* ProfileCircleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A02A16E8C5007B8D30 /* ProfileCircleRow.swift */; };
+		4926C2A32A16EAEE007B8D30 /* user_circle.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926C2A22A16EAEE007B8D30 /* user_circle.json */; };
+		4926C2A52A16EAFF007B8D30 /* CircleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A42A16EAFF007B8D30 /* CircleUtil.swift */; };
+		4926C2A72A16EB3F007B8D30 /* UserCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A62A16EB3F007B8D30 /* UserCircle.swift */; };
+		4926C2A92A16FAB1007B8D30 /* ProfileFeedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A82A16FAB1007B8D30 /* ProfileFeedRow.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -116,6 +126,16 @@
 		4926C28D2A15BA2B007B8D30 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4926C2902A1643E9007B8D30 /* ProfileHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderRow.swift; sourceTree = "<group>"; };
 		4926C2922A16460E007B8D30 /* ProfileReviewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewsRow.swift; sourceTree = "<group>"; };
+		4926C2942A1667C0007B8D30 /* ViewDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDivider.swift; sourceTree = "<group>"; };
+		4926C2962A166AE1007B8D30 /* UserAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAchievement.swift; sourceTree = "<group>"; };
+		4926C2982A166F45007B8D30 /* user_achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_achievements.json; sourceTree = "<group>"; };
+		4926C29A2A16991C007B8D30 /* ProfileAchievementsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAchievementsRow.swift; sourceTree = "<group>"; };
+		4926C29D2A169D16007B8D30 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		4926C2A02A16E8C5007B8D30 /* ProfileCircleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCircleRow.swift; sourceTree = "<group>"; };
+		4926C2A22A16EAEE007B8D30 /* user_circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_circle.json; sourceTree = "<group>"; };
+		4926C2A42A16EAFF007B8D30 /* CircleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleUtil.swift; sourceTree = "<group>"; };
+		4926C2A62A16EB3F007B8D30 /* UserCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCircle.swift; sourceTree = "<group>"; };
+		4926C2A82A16FAB1007B8D30 /* ProfileFeedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeedRow.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +189,8 @@
 		4926C24A2A131DD6007B8D30 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				4926C2A22A16EAEE007B8D30 /* user_circle.json */,
+				4926C2982A166F45007B8D30 /* user_achievements.json */,
 				4926C27E2A15433C007B8D30 /* feed.json */,
 				4926C27F2A15433C007B8D30 /* reviews.json */,
 				4926C2802A15433C007B8D30 /* users.json */,
@@ -215,6 +237,8 @@
 				4926C2662A152167007B8D30 /* Like.swift */,
 				4926C2682A152205007B8D30 /* Comment.swift */,
 				4926C26E2A152843007B8D30 /* User.swift */,
+				4926C2962A166AE1007B8D30 /* UserAchievement.swift */,
+				4926C2A62A16EB3F007B8D30 /* UserCircle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,8 +288,30 @@
 			children = (
 				4926C2902A1643E9007B8D30 /* ProfileHeaderRow.swift */,
 				4926C2922A16460E007B8D30 /* ProfileReviewsRow.swift */,
+				4926C29A2A16991C007B8D30 /* ProfileAchievementsRow.swift */,
+				4926C2A02A16E8C5007B8D30 /* ProfileCircleRow.swift */,
+				4926C2A82A16FAB1007B8D30 /* ProfileFeedRow.swift */,
 			);
 			path = ProfileRows;
+			sourceTree = "<group>";
+		};
+		4926C29C2A169D01007B8D30 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4926C29D2A169D16007B8D30 /* URLImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		4926C29F2A169D8C007B8D30 /* PostRows */ = {
+			isa = PBXGroup;
+			children = (
+				4926C2782A153E39007B8D30 /* PostContentRow.swift */,
+				4926C2842A154967007B8D30 /* PostHeaderRow.swift */,
+				4926C2882A1566A1007B8D30 /* PostFooterRow.swift */,
+				4926C28A2A1597AE007B8D30 /* PostStrainRow.swift */,
+			);
+			path = PostRows;
 			sourceTree = "<group>";
 		};
 		492C535029FF3AA400C55761 = {
@@ -312,17 +358,14 @@
 		4941953A2A0DE1F9000CEF39 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				4926C29F2A169D8C007B8D30 /* PostRows */,
 				4926C28F2A1643D4007B8D30 /* ProfileRows */,
 				49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */,
 				495C9DE92A0736A3006E3685 /* BasicRow.swift */,
 				4941953B2A0DE218000CEF39 /* SystemImageRow.swift */,
 				4926C22F2A102E11007B8D30 /* MultipleSelectionRow.swift */,
 				4926C2432A12A60E007B8D30 /* ImageRow.swift */,
-				4926C2782A153E39007B8D30 /* PostContentRow.swift */,
-				4926C2842A154967007B8D30 /* PostHeaderRow.swift */,
 				4926C2862A154F51007B8D30 /* FeedRow.swift */,
-				4926C2882A1566A1007B8D30 /* PostFooterRow.swift */,
-				4926C28A2A1597AE007B8D30 /* PostStrainRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -331,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				498B530B2A0DBF1200488401 /* RatingView.swift */,
+				4926C2942A1667C0007B8D30 /* ViewDivider.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -374,6 +418,7 @@
 		49746DC62A039BCE002ED1B0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4926C29C2A169D01007B8D30 /* Images */,
 				4926C2522A13CF34007B8D30 /* Buttons */,
 				4941954B2A0ECFB6000CEF39 /* PrimaryViews */,
 				4941953A2A0DE1F9000CEF39 /* Rows */,
@@ -396,6 +441,7 @@
 				4926C26A2A152340007B8D30 /* PostUtil.swift */,
 				4926C26C2A15234B007B8D30 /* ReviewUtil.swift */,
 				4926C27A2A153F72007B8D30 /* UserUtil.swift */,
+				4926C2A42A16EAFF007B8D30 /* CircleUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -458,6 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4926C2A32A16EAEE007B8D30 /* user_circle.json in Resources */,
 				4926C2832A15433C007B8D30 /* users.json in Resources */,
 				4926C2822A15433C007B8D30 /* reviews.json in Resources */,
 				4926C24C2A131E4E007B8D30 /* terpene_profile.json in Resources */,
@@ -466,6 +513,7 @@
 				4926C2562A140181007B8D30 /* strain_data.json in Resources */,
 				4926C2812A15433C007B8D30 /* feed.json in Resources */,
 				492C536129FF3AA800C55761 /* Assets.xcassets in Resources */,
+				4926C2992A166F45007B8D30 /* user_achievements.json in Resources */,
 				4926C25A2A147824007B8D30 /* achievement.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,9 +534,13 @@
 				4926C2542A13CF46007B8D30 /* FullWidthButton.swift in Sources */,
 				498B530C2A0DBF1200488401 /* RatingView.swift in Sources */,
 				4926C2442A12A60E007B8D30 /* ImageRow.swift in Sources */,
+				4926C29E2A169D16007B8D30 /* URLImage.swift in Sources */,
 				4926C2652A151DDE007B8D30 /* Post.swift in Sources */,
+				4926C29B2A16991C007B8D30 /* ProfileAchievementsRow.swift in Sources */,
 				4926C2872A154F51007B8D30 /* FeedRow.swift in Sources */,
 				4941955A2A0FCBDC000CEF39 /* ContentWithTitleDescView.swift in Sources */,
+				4926C2A92A16FAB1007B8D30 /* ProfileFeedRow.swift in Sources */,
+				4926C2A72A16EB3F007B8D30 /* UserCircle.swift in Sources */,
 				4926C25F2A147977007B8D30 /* AchievementUtil.swift in Sources */,
 				494195542A0F88A4000CEF39 /* ListView.swift in Sources */,
 				495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */,
@@ -502,6 +554,7 @@
 				494195402A0DE480000CEF39 /* AccountSettingsView.swift in Sources */,
 				492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */,
 				4926C26F2A152843007B8D30 /* User.swift in Sources */,
+				4926C2A52A16EAFF007B8D30 /* CircleUtil.swift in Sources */,
 				494195442A0DED7D000CEF39 /* Terpene.swift in Sources */,
 				4926C2852A154967007B8D30 /* PostHeaderRow.swift in Sources */,
 				4941953E2A0DE351000CEF39 /* AccountView.swift in Sources */,
@@ -510,6 +563,7 @@
 				4926C28B2A1597AE007B8D30 /* PostStrainRow.swift in Sources */,
 				4926C25C2A147845007B8D30 /* Achievement.swift in Sources */,
 				4926C2632A151DD0007B8D30 /* Review.swift in Sources */,
+				4926C2A12A16E8C5007B8D30 /* ProfileCircleRow.swift in Sources */,
 				4926C2692A152205007B8D30 /* Comment.swift in Sources */,
 				4926C2362A10936B007B8D30 /* NavigationUtil.swift in Sources */,
 				492C536929FF3AA800C55761 /* Flowr.xcdatamodeld in Sources */,
@@ -529,12 +583,14 @@
 				4926C2912A1643E9007B8D30 /* ProfileHeaderRow.swift in Sources */,
 				4926C2472A12A78A007B8D30 /* Row.swift in Sources */,
 				4926C24E2A131E72007B8D30 /* TerpeneProfile.swift in Sources */,
+				4926C2972A166AE1007B8D30 /* UserAchievement.swift in Sources */,
 				492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */,
 				4926C26B2A152340007B8D30 /* PostUtil.swift in Sources */,
 				4926C2492A130714007B8D30 /* TerpeneProfileView.swift in Sources */,
 				494195462A0ECD25000CEF39 /* TerpeneListView.swift in Sources */,
 				493796792A05E23800961978 /* MainTabView.swift in Sources */,
 				494195502A0ED587000CEF39 /* StrainSearch.swift in Sources */,
+				4926C2952A1667C0007B8D30 /* ViewDivider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

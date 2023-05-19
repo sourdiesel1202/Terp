@@ -17,7 +17,7 @@ struct FeedRow: View {
                         PostHeaderRow(user: UserUtil.loadUserById(id: post.review.user)!, postDate: "April 20th, 2023").padding(.bottom)
                     }
 //            StrainSearchRow(strain: StrainUtil.loadStrainByName(name: post.review.strain)!)
-            PostStrainRow(post: post)
+            PostStrainRow(review: post.review)
             Divider()
             PostContentRow(post: post).padding(.top)
             

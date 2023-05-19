@@ -12,46 +12,16 @@ struct ProfileView: View {
     var body: some View {
         ScrollView(.vertical){
             VStack(alignment: .center){
-                
-                
-                
-                        Image(systemName: "person.circle").resizable().scaledToFit().clipped().frame(width: 200, height: 200)
-                        Text(user.username)
-                HStack{
-                    Text("Reviews").foregroundColor(.gray).padding(.leading)
-                    Spacer()
-                }
-                
-                ForEach(1..<5 + 1, id: \.self) { number in
-                    
-                    Button(action: {}){
-                            NavigationLink{
-                                ContentView()
-                            }label: {
-                                
-                                HStack{
-                                    VStack{
-                                        Text("Title")
-                                        Text("")
-                                    }
-                                    Spacer()
-                                    
-                                }
-                                //                                BasicRow(title: "OG Kush", description: "5 stars")
-                                
-                            }
-                    }
-                
-                }
-                    
-                HStack{
-                    Text("Terpene Profile").foregroundColor(.gray).padding(.leading)
-                    Spacer()
-                }
-                
-                    FullWidthButton(text: "View Terpene Profile", action: {})
-                
-                
+                ProfileHeaderRow(user: self.user)
+                ViewDivider(height: 2)
+                ProfileReviewsRow(user: self.user)
+                ViewDivider(height: 2)
+                ProfileAchievemenstRow(user: self.user)
+                ViewDivider(height: 2)
+                ProfileCircleRow(user: self.user)
+                ViewDivider(height: 2)
+                ProfileFeedRow(user: self.user)
+                ViewDivider(height: 2)
             }
         }
     }

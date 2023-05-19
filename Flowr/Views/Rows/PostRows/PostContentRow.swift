@@ -18,7 +18,7 @@ struct PostContentRow: View {
                 Section{
                     
                     if post.review.image.count != 0{
-                        Text(post.review.description)
+                        Text(post.review.description).padding(.leading)
                         AsyncImage(
                             url: URL(string: post.review.image),
                             content: { image in
@@ -31,7 +31,7 @@ struct PostContentRow: View {
                             }
                         )
                     }else{
-                        Text(post.review.description)
+                        Text(post.review.description).padding(.leading)
                     }
                 }
             }

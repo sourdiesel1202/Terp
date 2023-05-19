@@ -1,33 +1,38 @@
 [{
-        "review": {
+
             "id": "1234",
             "user": "42069",
             "strain": "El Jefe",
+      "isPublic": true,
+      "isCircle": true,
             "rating": 5,
             "description": "With earthy aromas and a heavy body high, Pure Michigan has become one of my all time favorite strains",
             "image": "https://images.herb.co/wp-content/uploads/2018/09/Ricky-from-Trailer-Park-Boys-is-Dreading-Canadian-Cannabis-Legalization.jpg"
-        }
+
     },
   {
-          "review": {
+
               "id": "1235",
               "user": "6969",
               "strain": "El Jefe",
+        "isPublic": false,
+        "isCircle": true,
               "rating": 5,
               "description": "I loooooved this strain",
               "image": ""
-          }
+
       },
 
     {
-            "review": {
+
                 "id": "1235",
                 "user": "6969",
                 "strain": "Red Pop",
+          "isPublic": true,
+          "isCircle": true,
                 "rating": 2,
                 "description": "I didn't care for this strain much, too much body high 😢",
-                "image": "https://cdn.quotesgram.com/img/1/87/1922935124-ky4xws-l-610x610-sweater-tumblr-most-dope-smoking-crewneck-headphones-blanc-smoke-cannabis-pullover-dope-marijuana-dopefam-sweatshirt-asap-weed-shirt-weed-shirt-t-shirt.jpg"
-            }
+                "image": "https://www.weedgirls.com/wp-content/uploads/2019/01/hot-girl-smoking-weed-barcelona-balcony.jpg"
         }
 
 

@@ -26,6 +26,7 @@ struct Achievement: Codable, Identifiable, Hashable{
 //        case url
         case name
         case description
+        case image
 //        case description
         case strains
         case requires
@@ -40,7 +41,7 @@ struct Achievement: Codable, Identifiable, Hashable{
 //    var description: String
     var description: String
 
-//    var image: String
+    var image: String
     var strains: [String]
     var requires: Int
     
@@ -57,6 +58,6 @@ struct Achievement: Codable, Identifiable, Hashable{
 //    #endif
     
 #if DEBUG
-    static let example = Achievement(name: "Cake by the Pound", description: "The Cake by the Pound achievement can be earned by rating 3 cake stains", strains: ["London Pound Cake","Wedding Cake", "LA Kush Cake", "Divorce Cake", "Birthday Cake"], requires: 3)
+    static let example = Achievement(name: "Cake by the Pound", description: "The Cake by the Pound achievement can be earned by rating 3 cake stains", image: "https://external-preview.redd.it/yAvFGhUWDGAg_t93u6UtvXgk2SDMwPEUr9QX3T1mFto.jpg?auto=webp&s=c4fa72e3d795dc32e53e11e3d9f1ac8921272c59", strains: ["London Pound Cake","Wedding Cake", "LA Kush Cake", "Divorce Cake", "Birthday Cake"], requires: 3)
 #endif
 }

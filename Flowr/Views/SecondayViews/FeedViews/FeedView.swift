@@ -16,11 +16,7 @@ struct FeedView: View {
                 
                 ForEach(self.posts) { (post: Post) in
                     FeedRow(post: post).padding(.bottom).padding(.top)
-                    Rectangle()
-                        .fill(.gray)
-                                .frame(height: 4)
-                                .edgesIgnoringSafeArea(.horizontal)
-                    
+                    ViewDivider(height: 4)
                         
 //                        RoundedRectangle(cornerRadius: 16)
 //                            .stroke(.blue, lineWidth: 4)
@@ -43,8 +39,12 @@ struct FeedView: View {
                 })
                 Spacer()
                 Button(action: {}, label: {
-                    Image(systemName: "bubble.left.and.bubble.right.fill").resizable().frame(width: 30, height: 30)
+                    Image(systemName: "bell.fill").resizable().frame(width: 30, height: 30)
                 })
+                Button(action: {}, label: {
+                    Image(systemName: "bubble.left.and.bubble.right.fill").resizable().frame(width: 30, height: 30)
+                }).padding(.leading)
+                
             }.padding([.leading, .trailing])
 //            Text("Outside Safe Area")
 //                .font(.largeTitle)
@@ -63,7 +63,7 @@ struct FeedView: View {
     }
 //    var posts: [Post]
     var posts: [Post] {
-        return PostUtil.loadFeed()
+        return PostUtil.loadPublicFeed()
 //            if searchText.isEmpty {
 //                return data
 //            } else {

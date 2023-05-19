@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostStrainRow: View {
 //    let strain: Strain
-    let post: Post
+    let review: Review
     var body: some View {
 //        VStack(alignment: .center){
 //            Text("Strain")
@@ -23,11 +23,11 @@ struct PostStrainRow: View {
                     
                     HStack{
                         
-                        Text("Strain:").fontWeight(.bold)
-                        Text(post.review.strain)
+                        Text("Strain: ").fontWeight(.bold).padding(.leading)
+                        Text(review.strain)
                         Spacer()
                         ForEach(1..<5 + 1, id: \.self) { number in
-                            if number <= post.review.rating{
+                            if number <= review.rating{
                                 Image(systemName: "star.fill").foregroundColor(.blue)
                             }else{
                                 Image(systemName: "star").foregroundColor(.blue)
@@ -71,6 +71,6 @@ struct PostStrainRow: View {
 
 struct PostStrainRow_Previews: PreviewProvider {
     static var previews: some View {
-        PostStrainRow(post: Post.example)
+        PostStrainRow(review: Review.example)
     }
 }

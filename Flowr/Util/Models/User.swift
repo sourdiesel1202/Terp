@@ -52,6 +52,6 @@ struct User: Codable, Identifiable, Hashable{
     var circle: [String: [String]]
     
 #if DEBUG
-    static let example = User(id: "420669", username: "whosegonnausehername", firstname: "Ricky", lastname: "LaFleur", image: "", city: "Halifax", state: "Nova Scotia", country: "Canada", circle:["following": ["6969"], "followers":["6969"]] )
+    static let example = User(id: "42069", username: "whosegonnausehername", firstname: "Ricky", lastname: "LaFleur", image: "", city: "Halifax", state: "Nova Scotia", country: "Canada", circle:["following": ["6969"], "followers":["6969"]] )
 #endif
 }

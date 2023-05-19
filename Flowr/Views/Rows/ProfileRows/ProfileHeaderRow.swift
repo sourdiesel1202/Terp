@@ -14,10 +14,24 @@ struct ProfileHeaderRow: View {
             VStack(alignment: .center){
                 
                 
+                if self.user.image.count == 0{
+                    Image(systemName: "person.circle").resizable().scaledToFit().clipped().frame(width: 200, height: 200)
+                }else{
+                    URLImage(url: self.user.image, shape: AnyShape(Circle())).frame(width: 200, height: 200).scaledToFit()
+                }
                 
-                Image(systemName: "person.circle").resizable().scaledToFit().clipped().frame(width: 200, height: 200)
-                Text(user.username).padding(.top).fontWeight(.bold).font(.headline)
+                Text(user.username).fontWeight(.bold).font(.headline)
                 Text("\(user.firstname) \(user.lastname)").font(.subheadline)
+                
+                HStack{
+                    Text("\(user.city), \(user.state) ").font(.caption)
+                    Text("🇨🇦").font(.subheadline)
+                }
+            
+                //                Text("\(user.country)").font(.subheadline)
+                
+//                Text("🇺🇸").font(.title)
+                Text("Joined 2023").font(.caption2)
             }
         }
     }
