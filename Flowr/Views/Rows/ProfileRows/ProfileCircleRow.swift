@@ -28,7 +28,11 @@ struct ProfileCircleRow: View {
                 HStack(alignment: .top){
                     
                     ForEach(self.circle.followers){ follower in
-                        Button(action: {}){
+                        NavigationLink{
+                            ProfileView(user: follower)
+                        } label: {
+                        
+                        
                             VStack{
                                 URLImage(url: follower.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                 Text(follower.username).font(.caption).fontWeight(.bold)
@@ -70,7 +74,9 @@ struct ProfileCircleRow: View {
                 HStack(alignment: .top){
                     
                     ForEach(self.circle.following){ follower in
-                        Button(action: {}){
+                        NavigationLink{
+                            ProfileView(user: follower)
+                        } label: {
                             VStack{
                                 URLImage(url: follower.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                 Text(follower.username).font(.caption).fontWeight(.bold)

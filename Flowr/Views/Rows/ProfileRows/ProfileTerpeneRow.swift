@@ -34,7 +34,9 @@ struct ProfileTerpeneRow: View {
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     ForEach(self.terpeneProfile.terpenes, id: \.self){ (terpene: String) in
-                        Button(action: {}){
+                        NavigationLink{
+                            TerpeneDetailView(terpene: TerpeneUtil.loadTerpeneByName(name: terpene))
+                        } label: {
                             VStack{
                                 CircleText(text: terpene, color: .blue)
                                 Text(terpene).font(.caption).fontWeight(.bold)
@@ -61,7 +63,10 @@ struct ProfileTerpeneRow: View {
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     ForEach(self.terpeneProfile.aromas, id: \.self){ (aroma: String) in
-                        Button(action: {}){
+                        NavigationLink{
+                            TerpeneEffectAromaView(title: aroma, description: DictionaryUtil.loadDescription(text: aroma))
+                            
+                        } label: {
                             VStack{
                                 CircleText(text: aroma, color: .blue)
                                 Text(aroma).font(.caption).fontWeight(.bold)
@@ -91,7 +96,10 @@ struct ProfileTerpeneRow: View {
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     ForEach(self.terpeneProfile.effects, id: \.self){ (effect: String) in
-                        Button(action: {}){
+                        NavigationLink{
+                            TerpeneEffectAromaView(title: effect, description: DictionaryUtil.loadDescription(text: effect))
+                            
+                        } label: {
                             VStack{
                                 CircleText(text: effect, color: .blue)
                                 Text(effect).font(.caption).fontWeight(.bold)
@@ -103,7 +111,13 @@ struct ProfileTerpeneRow: View {
                 }
                 
             }.padding(.bottom)
-            FullWidthButton(text: "Edit Terpene Profile", action: {}).padding([ .leading,.trailing,.top])
+            NavigationLink{
+                TerpeneProfileView(user: self.user, terpeneProfile: TerpeneUtil.loadTerpeneProfileByUser(user: self.user))
+//                TerpeneProfileView(searchText: <#T##arg#>, globalData: <#T##GlobalData#>, navigationUtil: <#T##NavigationUtil#>, isPresentingEditEffectSheet: <#T##Bool#>, isPresentingBuildEffectSheet: <#T##Bool#>, isPresentingEditAromaSheet: <#T##Bool#>, isPresentingBuildAromaSheet: <#T##Bool#>, effectSelections: <#T##arg#>, aromaSelections: <#T##arg#>)
+            } label: {
+                FullWidthText(text: "Edit Terpene Profile")
+//                FullWidthButton(text: "Edit Terpene Profile", action: {}).padding([ .leading,.trailing,.top])
+            }
             }
         
 //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)

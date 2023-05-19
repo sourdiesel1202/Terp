@@ -26,7 +26,7 @@ struct MainTabView: View {
                    Label("Discover", systemImage: "globe.americas")
                }
                
-               ProfileView(user: UserUtil.loadUserById(id: "42069")!).tabItem{
+               NavigationView{ProfileView(user: UserUtil.loadUserById(id: "42069")!)}.tabItem{
                    Label("Profile", systemImage: "person.fill")
                }
                

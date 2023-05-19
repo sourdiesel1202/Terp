@@ -34,7 +34,9 @@ struct ProfileReviewsRow: View {
                     HStack(alignment: .top){
                         
                         ForEach(self.reviews){ review in
-                            Button(action: {}){
+                            NavigationLink {
+                                StrainDetailView(strain: StrainUtil.loadStrainByName(name: review.strain)!)
+                            }label: {
                                 VStack{
                                     URLImage(url: StrainUtil.loadStrainByName(name: review.strain)!.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                     

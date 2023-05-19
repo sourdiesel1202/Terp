@@ -8,6 +8,10 @@
 import Foundation
 //import SwiftUI
 struct TerpeneUtil{
+    static func loadTerpenes() -> [Terpene]  {
+        return Bundle.main.decode([Terpene].self, from: "terpene.json")
+        //    return strains.filter({$0.name.lowercased()==name.lowercased()}).first
+    }
     static func loadTerpenesByAroma(aroma: String, terpenes: [Terpene]) -> [Terpene]{
         var _res = [Terpene]()
         terpenes.forEach { terpene in
@@ -22,17 +26,13 @@ struct TerpeneUtil{
     }
     static func loadTerpeneByName(name: String, terpenes: [Terpene]) -> Terpene{
         return terpenes.filter({$0.name.lowercased()==name.lowercased()}).first!
-//        var _res = [Terpene]()
-//        terpenes.forEach { terpene in
-//            if !_res.contains(terpene) && terpene.aromas.contains(aroma){
-//                _res.append(terpene)
-//            }
-//        }
-//        return _res.sorted {
-//            $0.name < $1.name
-//        }
         
     }
+    static func loadTerpeneByName(name: String) -> Terpene{
+        return self.loadTerpenes().filter({$0.name.lowercased()==name.lowercased()}).first!
+        
+    }
+
     static func loadTerpenesByEffect(effect: String, terpenes: [Terpene]) -> [Terpene]
     {
         var _res = [Terpene]()

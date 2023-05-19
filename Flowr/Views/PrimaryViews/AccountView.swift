@@ -33,7 +33,7 @@ struct AccountView: View {
             }
             
             NavigationLink {
-                TerpeneProfileView()
+                TerpeneProfileView(user: User.example, terpeneProfile: TerpeneUtil.loadTerpeneProfileByUser(user: User.example))
 //                MultipleSelectionList( buttonText: "Next",  data: TerpeneUtil.loadTerpeneAromas(terpenes: globalData.terpenes),action:{}, destination: AnyView(MultipleSelectionList( buttonText: "Done", data: TerpeneUtil.loadTerpeneEffects(terpenes: globalData.terpenes), action:{
 ////                    $ = false
 ////                    self.navigationController.popToRootViewController(animated: true)

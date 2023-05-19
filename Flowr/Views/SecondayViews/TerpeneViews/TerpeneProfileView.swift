@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct TerpeneProfileView: View {
+    let user: User
+    @State var terpeneProfile: TerpeneProfile
     @State private var searchText = ""
-//    @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var globalData: GlobalData
-    @EnvironmentObject var navigationUtil: NavigationUtil
-//    @Binding var showingBuildProfile: Bool
-//    @State private var showingFullScreenCover: Bool = false
-//    @State private var showingSheet: Bool = false
     @State private var isPresentingEditEffectSheet: Bool = false
     @State private var isPresentingBuildEffectSheet: Bool = false
     @State private var isPresentingEditAromaSheet: Bool = false
     @State private var isPresentingBuildAromaSheet: Bool = false
-    @State var effectSelections = [DataMap]()
-    @State var aromaSelections = [DataMap]()
+    @State private var effectSelections = [DataMap]()
+    @State private var aromaSelections = [DataMap]()
+//    @State private var terpeneProfile: TerpeneProfile = TerpeneUtil.loadTerpeneProfileByUser(user: user)
+//        return
+//    }
 //    @State private var showingAromaHelp: Bool = false
 //    @State private var showingAromaList: Bool = false
 //    @State private var showingEffectList: Bool = false
@@ -30,15 +29,15 @@ struct TerpeneProfileView: View {
             VStack{
                 List{
                     Section(header: Text("My Terpenes")){
-                        if globalData.terpeneProfile.terpenes.count == 0 {
+                        if self.terpeneProfile.terpenes.count == 0 {
                             
                             BasicRow(title: "No Terpene Profile", description: "Setup a terpene profile by choosing cannabis effects and aromas below")
                             
                         } else {
-                            ForEach(TerpeneUtil.loadTerpeneDataMapFromStrings(terpenes: self.globalData.terpeneProfile.terpenes)) {(dm: DataMap) in
+                            ForEach(TerpeneUtil.loadTerpeneDataMapFromStrings(terpenes: self.terpeneProfile.terpenes)) {(dm: DataMap) in
                                 
                                 NavigationLink{
-                                    TerpeneDetailView(terpene: TerpeneUtil.loadTerpeneByName(name: dm.key, terpenes: self.globalData.terpenes) )
+                                    TerpeneDetailView(terpene: TerpeneUtil.loadTerpeneByName(name: dm.key) )
                                 }label:{BasicRow(title: dm.key, description: dm.value)}
                                 
                             }
@@ -52,7 +51,7 @@ struct TerpeneProfileView: View {
                         //                    BasicRow(title: "Dumb", description: "Description")
                     }
                     Section(header: Text("My Effects")){
-                        if self.globalData.terpeneProfile.effects.count == 0 {
+                        if self.terpeneProfile.effects.count == 0 {
                             FullWidthButton(text: "Select Cannabis Effects", action: {self.isPresentingBuildEffectSheet=true
                                 setEffectSelection()
                             }).fullScreenCover(isPresented: $isPresentingBuildEffectSheet){
@@ -140,7 +139,7 @@ struct TerpeneProfileView: View {
                         }else{
                             
                             //                        List {
-                            ForEach(TerpeneUtil.loadEffectDataMap(effects: self.globalData.terpeneProfile.effects)) {(dm: DataMap) in
+                            ForEach(TerpeneUtil.loadEffectDataMap(effects: self.terpeneProfile.effects)) {(dm: DataMap) in
                                 
                                 BasicRow(title: dm.key, description: dm.value)
                                 
@@ -234,7 +233,7 @@ struct TerpeneProfileView: View {
                     }
                     
                     Section(header: Text("My Aromas")){
-                        if self.globalData.terpeneProfile.aromas.count == 0 {
+                        if self.terpeneProfile.aromas.count == 0 {
                             FullWidthButton(text: "Select Cannabis Aromas", action: {self.isPresentingBuildAromaSheet=true
                                 setAromaSelection()
                             }).fullScreenCover(isPresented: $isPresentingBuildAromaSheet){
@@ -322,7 +321,7 @@ struct TerpeneProfileView: View {
                         }else{
                             
                             //                        List {
-                            ForEach(TerpeneUtil.loadAromaDataMap(aromas: self.globalData.terpeneProfile.aromas)) {(dm: DataMap) in
+                            ForEach(TerpeneUtil.loadAromaDataMap(aromas: self.terpeneProfile.aromas)) {(dm: DataMap) in
                                 
                                 BasicRow(title: dm.key, description: dm.value)
                                 
@@ -422,26 +421,26 @@ struct TerpeneProfileView: View {
     
     var effectSearchResults: [DataMap] {
             if searchText.isEmpty {
-                return TerpeneUtil.loadEffectDataMap(effects: TerpeneUtil.loadTerpeneEffects(terpenes: self.globalData.terpenes))
+                return TerpeneUtil.loadEffectDataMap(effects: TerpeneUtil.loadTerpeneEffects(terpenes: TerpeneUtil.loadTerpenes()))
             } else {
-                return TerpeneUtil.loadEffectDataMap(effects: TerpeneUtil.loadTerpeneEffects(terpenes: self.globalData.terpenes)).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
+                return TerpeneUtil.loadEffectDataMap(effects: TerpeneUtil.loadTerpeneEffects(terpenes: TerpeneUtil.loadTerpenes())).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
             }
         }
     
     var aromaSearchResults: [DataMap] {
             if searchText.isEmpty {
-                return TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: self.globalData.terpenes))
+                return TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: TerpeneUtil.loadTerpenes()))
             } else {
-                return TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: self.globalData.terpenes)).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
+                return TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: TerpeneUtil.loadTerpenes())).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
             }
         }
 
 
     func updateTerpeneProfileEffects(){
 //        var _res = [String]()
-        self.globalData.terpeneProfile.effects.removeAll()
+        self.terpeneProfile.effects.removeAll()
         self.effectSelections.forEach(){ dm in
-            self.globalData.terpeneProfile.effects.append(dm.key)
+            self.terpeneProfile.effects.append(dm.key)
         }
         
 //        updateTerpeneProfileAromas()
@@ -449,24 +448,24 @@ struct TerpeneProfileView: View {
         
     }
     func resetTerpeneProfileTerpenes(){
-        self.globalData.terpeneProfile.terpenes.removeAll()
-        self.globalData.terpeneProfile.aromas.forEach(){ aroma in
-            TerpeneUtil.loadTerpenesByAroma(aroma: aroma, terpenes: self.globalData.terpenes).forEach() { terpene in
-                if !self.globalData.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
-                    self.globalData.terpeneProfile.terpenes.append(terpene.name)
+        self.terpeneProfile.terpenes.removeAll()
+        self.terpeneProfile.aromas.forEach(){ aroma in
+            TerpeneUtil.loadTerpenesByAroma(aroma: aroma, terpenes: TerpeneUtil.loadTerpenes()).forEach() { terpene in
+                if !self.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
+                    self.terpeneProfile.terpenes.append(terpene.name)
                 }
             }
         }
-        self.globalData.terpeneProfile.effects.forEach(){ effect in
-            TerpeneUtil.loadTerpenesByEffect(effect: effect, terpenes: self.globalData.terpenes).forEach() { terpene in
-                if !self.globalData.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
-                    self.globalData.terpeneProfile.terpenes.append(terpene.name)
+        self.terpeneProfile.effects.forEach(){ effect in
+            TerpeneUtil.loadTerpenesByEffect(effect: effect, terpenes: TerpeneUtil.loadTerpenes()).forEach() { terpene in
+                if !self.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
+                    self.terpeneProfile.terpenes.append(terpene.name)
                 }
             }
         }
     }
     func setEffectSelection(){
-        self.globalData.terpeneProfile.effects.forEach(){ effect in
+        self.terpeneProfile.effects.forEach(){ effect in
             if !self.effectSelections.contains(where: {$0.key.lowercased()==effect.lowercased()}){
                 self.effectSelections.append(DataMap(key: effect, value:"", view: ContentView()))
             }
@@ -474,7 +473,7 @@ struct TerpeneProfileView: View {
     }
     
     func setAromaSelection(){
-        self.globalData.terpeneProfile.aromas.forEach(){ aroma in
+        self.terpeneProfile.aromas.forEach(){ aroma in
             if !self.aromaSelections.contains(where: {$0.key.lowercased()==aroma.lowercased()}){
                 self.aromaSelections.append(DataMap(key: aroma, value:"", view: ContentView()))
             }
@@ -483,9 +482,9 @@ struct TerpeneProfileView: View {
     }
     func updateTerpeneProfileAromas(){
 //        var _res = [String]()
-        self.globalData.terpeneProfile.aromas.removeAll()
+        self.terpeneProfile.aromas.removeAll()
         self.aromaSelections.forEach(){ dm in
-            self.globalData.terpeneProfile.aromas.append(dm.key)
+            self.terpeneProfile.aromas.append(dm.key)
         }
         
 //        updateTerpeneProfileEffects()
@@ -498,6 +497,6 @@ struct TerpeneProfileView: View {
 
 struct TerpeneProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        TerpeneProfileView().environmentObject(GlobalData()).environmentObject(NavigationUtil())
+        TerpeneProfileView(user: User.example, terpeneProfile: TerpeneUtil.loadTerpeneProfileByUser(user: User.example))
     }
 }
