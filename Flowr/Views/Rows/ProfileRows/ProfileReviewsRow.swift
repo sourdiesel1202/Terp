@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ProfileReviewsRow: View {
     let user: User
+    private var terpeneProfile: TerpeneProfile{
+        return TerpeneUtil.loadTerpeneProfileByUser(user: self.user)
+    }
     private var reviews: [Review] {
         return ReviewUtil.loadReviewsByUser(user: self.user)
     }
@@ -37,7 +40,7 @@ struct ProfileReviewsRow: View {
                                     
                                     Text(StrainUtil.loadStrainByName(name: review.strain)!.name).font(.caption).fontWeight(.bold)
                                     
-                                }.padding([.leading,.trailing])
+                                }.padding([.trailing])
                                 //                            VStack{
                                 //                                URLImage(url: achievement.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).border(.gray).frame(maxWidth: .infinity)
                                 //                                Text(achievement.name).font(.caption2).fontWeight(.bold)

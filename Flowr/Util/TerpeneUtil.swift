@@ -154,6 +154,11 @@ struct TerpeneUtil{
         }
         return _res
     }
+    static func loadTerpeneProfileByUser(user: User)->TerpeneProfile{
+        
+        return Bundle.main.decode(TerpeneProfile.self, from: "terpene_profile.json")
+        
+    }
     static func loadAromaDataMap(terpenes: [Terpene], strains: [Strain]) -> [DataMap]{
         var _aromas = [DataMap]()
         TerpeneUtil.loadTerpeneAromas(terpenes: terpenes).forEach { aroma in

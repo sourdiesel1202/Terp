@@ -56,6 +56,8 @@
 		4926C2A52A16EAFF007B8D30 /* CircleUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A42A16EAFF007B8D30 /* CircleUtil.swift */; };
 		4926C2A72A16EB3F007B8D30 /* UserCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A62A16EB3F007B8D30 /* UserCircle.swift */; };
 		4926C2A92A16FAB1007B8D30 /* ProfileFeedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2A82A16FAB1007B8D30 /* ProfileFeedRow.swift */; };
+		4926C2AB2A170D42007B8D30 /* ProfileTerpeneRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2AA2A170D42007B8D30 /* ProfileTerpeneRow.swift */; };
+		4926C2AD2A171760007B8D30 /* CircleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2AC2A171760007B8D30 /* CircleText.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -136,6 +138,8 @@
 		4926C2A42A16EAFF007B8D30 /* CircleUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleUtil.swift; sourceTree = "<group>"; };
 		4926C2A62A16EB3F007B8D30 /* UserCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCircle.swift; sourceTree = "<group>"; };
 		4926C2A82A16FAB1007B8D30 /* ProfileFeedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeedRow.swift; sourceTree = "<group>"; };
+		4926C2AA2A170D42007B8D30 /* ProfileTerpeneRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTerpeneRow.swift; sourceTree = "<group>"; };
+		4926C2AC2A171760007B8D30 /* CircleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleText.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				4926C29A2A16991C007B8D30 /* ProfileAchievementsRow.swift */,
 				4926C2A02A16E8C5007B8D30 /* ProfileCircleRow.swift */,
 				4926C2A82A16FAB1007B8D30 /* ProfileFeedRow.swift */,
+				4926C2AA2A170D42007B8D30 /* ProfileTerpeneRow.swift */,
 			);
 			path = ProfileRows;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 			children = (
 				498B530B2A0DBF1200488401 /* RatingView.swift */,
 				4926C2942A1667C0007B8D30 /* ViewDivider.swift */,
+				4926C2AC2A171760007B8D30 /* CircleText.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -555,6 +561,7 @@
 				492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */,
 				4926C26F2A152843007B8D30 /* User.swift in Sources */,
 				4926C2A52A16EAFF007B8D30 /* CircleUtil.swift in Sources */,
+				4926C2AB2A170D42007B8D30 /* ProfileTerpeneRow.swift in Sources */,
 				494195442A0DED7D000CEF39 /* Terpene.swift in Sources */,
 				4926C2852A154967007B8D30 /* PostHeaderRow.swift in Sources */,
 				4941953E2A0DE351000CEF39 /* AccountView.swift in Sources */,
@@ -570,6 +577,7 @@
 				4926C2892A1566A1007B8D30 /* PostFooterRow.swift in Sources */,
 				492C536629FF3AA800C55761 /* Persistence.swift in Sources */,
 				494195562A0F8AE9000CEF39 /* DataMap.swift in Sources */,
+				4926C2AD2A171760007B8D30 /* CircleText.swift in Sources */,
 				4926C2582A141691007B8D30 /* BasicButton.swift in Sources */,
 				4926C28E2A15BA2B007B8D30 /* ProfileView.swift in Sources */,
 				4926C2672A152167007B8D30 /* Like.swift in Sources */,
