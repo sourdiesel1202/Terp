@@ -10,6 +10,7 @@ import SwiftUI
 struct PostFooterRow: View {
     let post: Post
     @State private var isShowingLikesSheet: Bool = false
+    @State private var isShowingCommentSheet: Bool = false
     var body: some View {
         VStack{
             HStack{
@@ -63,9 +64,16 @@ struct PostFooterRow: View {
 //                Text("\(post.likes.co)")
                 Spacer()
                 if post.likes.count > 0{
-                    NavigationLink{}label:{
-                        Text("\(post.likes.count) comments").padding(.trailing)
-                    }
+                    Button(action: {self.isShowingCommentSheet=true}){
+                        Text("\(post.comments.count) comments").padding(.trailing)
+                    }.sheet(isPresented: self.$isShowingCommentSheet, content: {
+                        
+                        ForEach(self.post.comments){ comment in
+                            PostCommentRow(user: UserUtil.loadUserById(id: comment.user)!, text: comment.description).padding()
+                            
+                        }
+                        Spacer()
+                    }).padding(.top)
                 }else{
                     Text("")
                 }

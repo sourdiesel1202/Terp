@@ -12,7 +12,7 @@ struct MainTabView: View {
     var body: some View {
         
            TabView {
-               FeedView().tabItem{
+               NavigationView{FeedView()}.tabItem{
                    Label("Feed", systemImage: "person.fill")
                }
 

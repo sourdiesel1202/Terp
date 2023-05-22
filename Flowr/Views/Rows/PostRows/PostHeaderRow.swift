@@ -13,7 +13,9 @@ struct PostHeaderRow: View {
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Button(action: {}){
+                NavigationLink{
+                    ProfileView(user: self.user)
+                } label:{
                     if user.image.count == 0{
                         //use system image
                         Image(systemName: "person.fill").resizable().aspectRatio(contentMode: .fit)

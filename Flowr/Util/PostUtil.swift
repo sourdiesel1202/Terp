@@ -18,6 +18,9 @@ struct PostUtil {
     static func loadPublicUserFeed(user: User) -> [Post]{
         return Bundle.main.decode([Post].self, from: "feed.json").filter({$0.review.user==user.id && $0.review.isPublic})
     }
+    static func loadPublicStrainFeed(strain: Strain) -> [Post]{
+        return Bundle.main.decode([Post].self, from: "feed.json").filter({$0.review.strain==strain.name && $0.review.isPublic})
+    }
     
 //    static func loadPublicPostsByUser(user: User) -> [Post]{
 //

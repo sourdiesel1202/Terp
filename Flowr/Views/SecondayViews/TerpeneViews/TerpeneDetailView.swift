@@ -11,7 +11,12 @@ struct TerpeneDetailView: View {
     let terpene: Terpene
     var body: some View {
         VStack (alignment: .center){
-            Image(systemName: "atom").padding()
+//            if terpene..count==0{
+                Image(systemName: "atom").padding()
+//            } else{
+//                URLImage(url: terpene.image, shape: AnyShape(Circle()))
+//            }
+//            Image(systemName: "atom").padding()
             Text(terpene.name).font(.title).padding(.bottom)
             Text(terpene.description).font(.subheadline)
             //todo add list of strains with this terepene

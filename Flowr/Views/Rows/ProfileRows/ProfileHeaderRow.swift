@@ -13,7 +13,7 @@ struct ProfileHeaderRow: View {
         ScrollView(.vertical){
             VStack(alignment: .center){
                 
-                
+//                NavigationLink{} label
                 if self.user.image.count == 0{
                     Image(systemName: "person.circle").resizable().scaledToFit().clipped().frame(width: 200, height: 200)
                 }else{

@@ -16,14 +16,14 @@ struct RecommendedStrainsView: View {
                     NavigationStack {List {
                         ForEach(data[3...8]) {(strain: Strain) in
                             NavigationLink {
-                                StrainDetailView(strain: strain)
+                                StrainDetail2_0View(strain: strain)
                             } label: {
                                 
                                 StrainSearchRow(strain: strain)
                             }
                         }
                     }.navigationDestination(for: Strain.self) { strain in
-                        StrainDetailView(strain: strain)
+                        StrainDetail2_0View(strain: strain)
                         //        }.navigationDestination(for: StrainDetail.self) { strain in
                         //            StrainDetail(strain: (strain: Strain))
                         //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())

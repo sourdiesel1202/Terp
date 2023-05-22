@@ -25,8 +25,18 @@ struct StrainSearchRow: View {
             )
             VStack(alignment: .leading) {
                 Text(strain.name)
-                    .font(.headline)
-                Text(strain.type)
+                    .font(.subheadline).fontWeight(.bold)
+                
+                HStack{
+                    Text("Terpenes:").font(.caption2)
+                    ForEach(self.strain.terpenes, id: \.self){ terpene in
+                        Text(terpene).font(.caption2)
+                    }
+                }
+                HStack{
+                    Text("Type:").font(.caption2)
+                    Text(strain.type).font(.caption2)
+                }
 //                Text("$\(item.price)")
             }
             Spacer()

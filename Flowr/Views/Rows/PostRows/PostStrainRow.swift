@@ -18,7 +18,9 @@ struct PostStrainRow: View {
         VStack(){
 //            Divider().padding(.top)
 //            NavigationLink(desination: StrainDetailView(strain: strain)){
-                Button(action: {}){
+            NavigationLink{
+                StrainDetailView(strain: StrainUtil.loadStrainByName(name: review.strain)!) //todo handle this
+            }label: {
                     
                     
                     HStack{

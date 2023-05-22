@@ -11,6 +11,9 @@ struct StrainUtil{
     static func loadStrains() -> [Strain]{
         return Bundle.main.decode([Strain].self, from: "strain_data.json")
     }
+//    static func loadPublicReviewsByStrain(strain: Strain) -> [Review]{
+//        return ReviewUtil.loadReviewsByUser(user: <#T##User#>)
+//    }
     static func loadStrainsByTerpene(terpene: Terpene, strains: [Strain]) -> [Strain]{
         
         var _res = [Strain]()
@@ -18,9 +21,9 @@ struct StrainUtil{
             if strain.terpenes.contains(terpene.name){
                 _res.append(strain)
             }
-//            if strain.terpenes.
-//                _res.append(strain)
-//            }
+            //            if strain.terpenes.
+            //                _res.append(strain)
+            //            }
         }
         return _res
     }
@@ -52,6 +55,44 @@ struct StrainUtil{
     static func loadStrainByName(name: String) -> Strain? {
         return self.loadStrains().filter({$0.name.lowercased()==name.lowercased()}).first
     }
+    static func loadStrainAromas(strain: Strain) -> [String] {
+        var res  = [String]()
+        strain.terpenes.forEach { (strTerp: String) in
+            
+            //            var terp = TerpeneUtil.loadTerpeneByName(name: strTerp){}
+            
+            TerpeneUtil.loadTerpeneByName(name: strTerp).aromas.forEach(){ aroma in
+                if !res.contains(where:{ $0.lowercased() == aroma.lowercased() }){
+                    res.append(aroma)
+                }
+                
+                
+            }
+            
+            
+        }
+        return res
+    }
+    
+    static func loadStrainEffects(strain: Strain) -> [String] {
+        var res  = [String]()
+        strain.terpenes.forEach { (strTerp: String) in
+            
+            //            var terp = TerpeneUtil.loadTerpeneByName(name: strTerp){}
+            
+            TerpeneUtil.loadTerpeneByName(name: strTerp).effects.forEach(){ effect in
+                if !res.contains(where:{ $0.lowercased() == effect.lowercased() }){
+                    res.append(effect)
+                }
+                
+                
+            }
+            
+            
+        }
+        return res
+    }
+        
 //    static func loadStrains()->[Strain]{
 //        return Bundle.main.decode([Strain].self, from: "strain_data.json")
 //    }

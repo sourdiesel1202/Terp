@@ -7,10 +7,38 @@
 
 import Foundation
 struct ReviewUtil{
-    static func loadReviews(){
-        
+    static func loadReviews() -> [Review]{
+        Bundle.main.decode([Review].self, from: "reviews.json")
     }
     static func loadReviewsByUser(user: User) -> [Review] {
-        return Bundle.main.decode([Review].self, from: "reviews.json").filter({$0.user==user.id})
+        return self.loadReviews().filter({$0.user==user.id})
+    }
+//    static func loadPublicReviewsByStrainName(name: String) -> [Review]{
+//        var reviews = [Review]()
+//        self.loadReviews().filter({$0.strain.lowercased()==name.lowercased()}).forEach(){ review in
+//            if !reviews.contains(where: {$0.id == review.id}){
+//                reviews.append(review)
+//                
+//            }
+//        }
+//        return reviews
+//    }
+    static func loadAverageRatingByStrain(strain: Strain) -> Int{
+        var ratings = 0
+        var reviews = self.loadReviewsByStrainName(name: strain.name)
+        reviews.forEach(){ rating in
+            ratings += rating.rating
+        }
+        return Int(ratings/reviews.count)
+    }
+    static func loadReviewsByStrainName(name: String) -> [Review]{
+        var reviews = [Review]()
+        self.loadReviews().filter({$0.strain.lowercased()==name.lowercased()}).forEach(){ review in
+            if !reviews.contains(where: {$0.id == review.id}){
+                reviews.append(review)
+                
+            }
+        }
+        return reviews
     }
 }
