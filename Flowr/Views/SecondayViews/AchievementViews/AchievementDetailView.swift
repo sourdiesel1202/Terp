@@ -27,7 +27,7 @@ struct AchievementDetailView: View {
                             if StrainUtil.loadStrainByName(name: strain, strains: self.globalData.strains) != nil{
                                 NavigationLink{
                                     
-                                    StrainDetailView(strain: StrainUtil.loadStrainByName(name: strain, strains: self.globalData.strains)!)
+                                    StrainDetail2_0View(strain: StrainUtil.loadStrainByName(name: strain, strains: self.globalData.strains)!)
                                 }label: {
                                     BasicRow(title: strain, description: "")
                                 }

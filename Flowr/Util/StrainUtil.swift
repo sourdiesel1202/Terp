@@ -44,7 +44,7 @@ struct StrainUtil{
     static func loadStrainDataMap(strains: [Strain])->[DataMap]{
         var _res = [DataMap]()
         strains.forEach { strain in
-            _res.append(DataMap(key: strain.name, value: strain.type, view: StrainDetailView(strain: strain)))
+            _res.append(DataMap(key: strain.name, value: strain.type, view: StrainDetail2_0View(strain: strain)))
         }
         return _res
     }

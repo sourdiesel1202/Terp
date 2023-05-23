@@ -16,8 +16,9 @@ struct MainTabView: View {
                    Label("Feed", systemImage: "person.fill")
                }
 
-               ListView(data: StrainUtil.loadStrainDataMap(strains: globalData.strains), searchTitle: "Search Strains")
+//               ListView(data: StrainUtil.loadStrainDataMap(strains: globalData.strains), searchTitle: "Search Strains")
 //               StrainSearchView()
+               StrainSearchView(strains: StrainUtil.loadStrains())
                    .tabItem {
                        Label("Search Strains", systemImage: "magnifyingglass.circle")
                    }

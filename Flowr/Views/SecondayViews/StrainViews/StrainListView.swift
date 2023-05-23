@@ -12,25 +12,26 @@ struct StrainListView: View {
     @State private var searchText = ""
     let data: [Strain]
     var body: some View {
-        NavigationStack {List {
-            ForEach(data) {(strain: Strain) in
-                NavigationLink {
-                    StrainDetail2_0View(strain: strain)
-                } label: {
-                    
-                    StrainSearchRow(strain: strain)
-                }
+//        NavigationStack {List {
+        ForEach(data) {(strain: Strain) in
+            NavigationLink {
+                StrainDetail2_0View(strain: strain)
+            } label: {
+                
+                StrainSearchRow(strain: strain)
             }
-        }.navigationDestination(for: Strain.self) { strain in
-            StrainDetail2_0View(strain: strain)
+            //            }
+            //        }.navigationDestination(for: Strain.self) { strain in
+            //            StrainDetail2_0View(strain: strain)
             //        }.navigationDestination(for: StrainDetail.self) { strain in
             //            StrainDetail(strain: (strain: Strain))
-                
+            
             //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(inline).listStyle(GroupedListStyle())
+            //            //            //        .padding()
+            //        }.navigationTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
             //            //        .padding()
-        }.navigationTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
-            //        .padding()
-        }.searchable(text: $searchText, prompt: "search for strains")
+            //        }.searchable(text: $searchText, prompt: "search for strains")
+        }
     }
 }
 

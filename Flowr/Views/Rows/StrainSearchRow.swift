@@ -12,26 +12,30 @@ struct StrainSearchRow: View {
     let colors: [String: Color] = ["Indica": .blue, "Sativa": .red, "Hybrid": .green]
     var body: some View {
         HStack {
-            AsyncImage(
-                url: URL(string: strain.image),
-                content: { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 150, maxHeight:75).clipShape(Circle()).overlay(Circle().stroke(colors[strain.type, default: .green], lineWidth: 2))
-                },
-                placeholder: {
-                    ProgressView()
-                }
-            )
+            CircleText(text: strain.type.uppercased(), color: .blue)
+//            Image(systemName: "flower").resizable()
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(maxWidth: 150, maxHeight:75).clipShape(Circle()).overlay(Circle().stroke(colors[strain.type, default: .green], lineWidth: 2))
+//            AsyncImage(
+//                url: URL(string: strain.image),
+//                content: { image in
+//                    image.resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(maxWidth: 150, maxHeight:75).clipShape(Circle()).overlay(Circle().stroke(colors[strain.type, default: .green], lineWidth: 2))
+//                },
+//                placeholder: {
+//                    ProgressView()
+//                }
+//            )
             VStack(alignment: .leading) {
                 Text(strain.name)
                     .font(.subheadline).fontWeight(.bold)
                 
                 HStack{
                     Text("Terpenes:").font(.caption2)
-                    ForEach(self.strain.terpenes, id: \.self){ terpene in
-                        Text(terpene).font(.caption2)
-                    }
+//                    ForEach(self.strain.terpenes, id: \.self){ terpene in
+                    Text(strain.terpenes.joined(separator: ",")).font(.caption2)
+//                    }
                 }
                 HStack{
                     Text("Type:").font(.caption2)
@@ -40,6 +44,9 @@ struct StrainSearchRow: View {
 //                Text("$\(item.price)")
             }
             Spacer()
+            VStack{
+                
+            }
 //            Text(strain.type.uppercased().prefix(1)).font(.caption)
 //                .fontWeight(.black)
 //                .padding(5)

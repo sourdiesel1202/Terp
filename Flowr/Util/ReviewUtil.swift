@@ -25,11 +25,11 @@ struct ReviewUtil{
 //    }
     static func loadAverageRatingByStrain(strain: Strain) -> Int{
         var ratings = 0
-        var reviews = self.loadReviewsByStrainName(name: strain.name)
+        let reviews = self.loadReviewsByStrainName(name: strain.name)
         reviews.forEach(){ rating in
             ratings += rating.rating
         }
-        return Int(ratings/reviews.count)
+        return ratings > 0 ? Int(ratings/reviews.count) : 0
     }
     static func loadReviewsByStrainName(name: String) -> [Review]{
         var reviews = [Review]()

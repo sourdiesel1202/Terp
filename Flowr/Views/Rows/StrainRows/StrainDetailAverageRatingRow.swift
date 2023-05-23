@@ -9,6 +9,9 @@ import SwiftUI
 
 struct StrainDetailAverageRatingRow: View {
     let strain: Strain
+    @State private var userRating: Int = 1
+    @State private var userDescription: String = ""
+    @State private var isShowingReviewSheet: Bool = false
     var body: some View {
         VStack {
             HStack{
@@ -17,6 +20,12 @@ struct StrainDetailAverageRatingRow: View {
             }
             
             RatingView(rating: .constant(ReviewUtil.loadAverageRatingByStrain(strain: self.strain))).frame(height: 50).padding(.bottom)
+            FullWidthButton(text: "Review", action:{self.isShowingReviewSheet = true}
+            ).sheet(isPresented: self.$isShowingReviewSheet, content: {
+                
+                StrainRateView(strain: self.strain)
+                
+            }).padding()
             //                    HStack{
             //                        Text("Identified Terpenes (\(self.strain.terpenes.count))").padding([.leading,.bottom]).font(.caption)
             //                        Spacer()

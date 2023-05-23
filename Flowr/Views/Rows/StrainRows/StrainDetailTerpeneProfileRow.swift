@@ -99,7 +99,7 @@ struct StrainDetailTerpeneProfileRow: View {
                                 Text(effect).font(.caption).fontWeight(.bold)
                                 
                             }
-                        }.padding([.leading,.trailing])
+                        }.padding([.trailing])
                     }
                     
                 }

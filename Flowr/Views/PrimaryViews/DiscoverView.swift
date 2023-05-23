@@ -66,7 +66,7 @@ struct DiscoverView: View {
             
             //            }
         }.navigationDestination(for: Strain.self) { strain in
-            StrainDetailView(strain: strain)
+            StrainDetail2_0View(strain: strain)
         }.toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
