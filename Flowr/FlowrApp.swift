@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct FlowrApp: App {
     let persistenceController = PersistenceController.shared
-    @StateObject var globalData = GlobalData()
-    @StateObject var navigationUtil = NavigationUtil()
+//    @StateObject var globalData = GlobalData()
+//    @StateObject var navigationUtil = NavigationUtil()
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(GlobalData()).environmentObject(NavigationUtil())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

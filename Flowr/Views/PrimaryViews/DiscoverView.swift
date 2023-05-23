@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiscoverView: View {
     //    let
-    @EnvironmentObject var globalData: GlobalData
+//    @EnvironmentObject var globalData: GlobalData
 //    @State var terpeneList: [DataMap]
 //    var terpeneData = [DataMap]
     
@@ -37,13 +37,14 @@ struct DiscoverView: View {
                 //                    StrainSearchRow(strain: strain)
             }
             NavigationLink {
-                ListView(data: TerpeneUtil.loadEffectDataMap(terpenes: globalData.terpenes, strains: globalData.strains), searchTitle: "Search effects")
+                ContentView()
+//                ListView(data: TerpeneUtil.loadEffectDataMap(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "Search effects")
             } label: {
                 BasicRow(title: "Strains by Effect", description: "Find strains by effect (i.e. anti-depressant, dry-mouth, etc)")
                 //                    StrainSearchRow(strain: strain)
             }
             NavigationLink {
-                ListView(data: TerpeneUtil.loadAromaDataMap(terpenes: globalData.terpenes, strains: globalData.strains), searchTitle: "Search aromas")
+//                ListView(data: TerpeneUtil.loadAromaDataMap(terpenes: globalData.terpenes, strains: globalData.strains), searchTitle: "Search aromas")
             } label: {
                 BasicRow(title: "Strains by Aroma", description: "Find strains by aroma (i.e. earthy, grapefruit, diesel, etc)")
                 //                    StrainSearchRow(strain: strain)
@@ -58,7 +59,7 @@ struct DiscoverView: View {
             //this is gonna be gross but I want to see if this works
 //            ForEach(globalData.terpenes){terpene: Terpene}
             NavigationLink {
-                ListView(data: TerpeneUtil.loadTerpeneDataMap(terpenes: globalData.terpenes), searchTitle: "Search Terpenes")
+                ListView(data: TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "Search Terpenes")
             } label: {
                 BasicRow(title: "Terpene List", description: "Learn about the different terepenes")
                 //                    StrainSearchRow(strain: strain)
@@ -92,6 +93,6 @@ struct DiscoverView: View {
 }
 struct DiscoverView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverView().environmentObject(GlobalData())
+        DiscoverView()
     }
 }

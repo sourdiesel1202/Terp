@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AccountView: View {
     
-    @EnvironmentObject var globalData: GlobalData
-    @EnvironmentObject var navigationUtil: NavigationUtil
+//    @EnvironmentObject var globalData: GlobalData
+//    @EnvironmentObject var navigationUtil: NavigationUtil
     @State private var popToRoot =  false
     @State private var showingBuildTerpeneProfile: Bool = false
 //    @State var should = true
@@ -22,8 +22,8 @@ struct AccountView: View {
 //    @State var show = true
     var body: some View {
         
-//        Image(systemName: img)
-        NavigationStack(path: $navigationUtil.navigationPath) {List {
+//        Image(sysemName: img)
+        List {
             //            ForEach(data) {(strain: Strain) in
             NavigationLink {
                 AccountSettingsView()
@@ -34,48 +34,6 @@ struct AccountView: View {
             
             NavigationLink {
                 TerpeneProfileView(user: User.example, terpeneProfile: TerpeneUtil.loadTerpeneProfileByUser(user: User.example))
-//                MultipleSelectionList( buttonText: "Next",  data: TerpeneUtil.loadTerpeneAromas(terpenes: globalData.terpenes),action:{}, destination: AnyView(MultipleSelectionList( buttonText: "Done", data: TerpeneUtil.loadTerpeneEffects(terpenes: globalData.terpenes), action:{
-////                    $ = false
-////                    self.navigationController.popToRootViewController(animated: true)
-////                    NavigationUtil.popToRootView()
-////                    print("Something should have happened")
-//
-//                },destination: nil).sheet(isPresented: $showEffectHelp){
-//                    VStack(alignment: .center){
-//                        Text("Terpene Effects").font(.title)
-//                        Text("Next, select effets you are looking to experience when using cannabis").font(.subheadline).padding(.bottom)
-//                        Button(action:{
-//                            self.showEffectHelp.toggle()
-//                        }){
-//                            Text("Ok").frame(maxWidth: .infinity).font(.subheadline).padding().background(.blue)
-//                                .foregroundColor(.white)
-//                                .clipShape(
-//
-//                                    // 2
-//                                    Capsule()
-//                                )
-//                        }
-//                    }
-//
-//                })).sheet(isPresented: $showAromaHelp){
-//                    VStack(alignment: .center){
-//
-//                        Text("Terpene Aromas").font(.title)
-//                        Text("Start by selecting the aromas that you enjoy").font(.subheadline).padding(.bottom)
-//                        Button(action:{
-//                            self.showAromaHelp.toggle()
-//                        }){
-//                            Text("Let's go!").frame(maxWidth: .infinity).font(.subheadline).padding().background(.blue)
-//                                .foregroundColor(.white)
-//                                .clipShape(
-//
-//                                    // 2
-//                                    Capsule()
-//                                )
-//                        }
-//                    }
-////                    dumb.toggle()
-//                }
                 
             } label: {
                 BasicRow(title: "Build Terpene Profile", description: "Build your terpene profile")
@@ -118,11 +76,11 @@ struct AccountView: View {
         }
         }
         
-    }
+    
 }
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView().environmentObject(GlobalData()).environmentObject(NavigationUtil())
+        AccountView()
     }
 }

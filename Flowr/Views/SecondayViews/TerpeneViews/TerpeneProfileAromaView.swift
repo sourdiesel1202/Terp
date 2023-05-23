@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TerpeneProfileEditView: View {
     var data: [DataMap]
-    @EnvironmentObject var globalData: GlobalData
+//    @EnvironmentObject var globalData: GlobalData
     var body: some View {
         Section{
 //            MultipleSelectionList(data: TerpeneUtil.loadAromaDataMap(terpenes: globalData.terpenes, strains: globalData.strains) )
