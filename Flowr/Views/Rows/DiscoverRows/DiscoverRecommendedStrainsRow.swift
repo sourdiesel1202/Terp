@@ -13,12 +13,15 @@ struct DiscoverRecommendedStrainsRow: View {
     }
     var body: some View {
         VStack{
-            Text("Strains Based Upon Your Terpene Profile").padding([.top,.bottom])
+            Text("Strain Recommendations Based On Your Terpene Profile").fontWeight(.bold).padding().font(.title).multilineTextAlignment(.center)
+                .lineLimit(nil)
             RowHeaderViewAll(text: "Recommended Strains")
 //            Text("Recommened Strains")
             HorizontalStrainListRow(strains: Array(self.strains[0...5]))
+            ViewDivider(height: 0.25)
             RowHeaderViewAll(text: "Strains with Earthy aromas")
             HorizontalStrainListRow(strains: Array(self.strains[10...15]))
+            ViewDivider(height: 0.25)
             RowHeaderViewAll(text: "Strains with Sedative effects")
             HorizontalStrainListRow(strains: Array(self.strains[4...9]))
             

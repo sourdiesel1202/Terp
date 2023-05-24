@@ -38,11 +38,6 @@ struct ProfileAchievemenstRow: View {
                                             Text(achievement.name).font(.caption).fontWeight(.bold)
                                             
                                         }.padding([.leading,.trailing])
-                                        //                            VStack{
-                                        //                                URLImage(url: achievement.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).border(.gray).frame(maxWidth: .infinity)
-                                        //                                Text(achievement.name).font(.caption2).fontWeight(.bold)
-                                        //
-                                        //                            }.padding([.trailing, .leading])
                                     
                                 }
                             }

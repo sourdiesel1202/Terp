@@ -24,12 +24,18 @@ struct DataMap: Hashable, Identifiable, Equatable
         case id
         case key
         case value
+        case secondaryValue
+        case image
+        
 //        case view
     }
     var id = UUID()
     var key: String
     var value: String
     var view: any View
+    var secondaryValue: String?
+    var image: String?
+    
     
 //    init(@ViewBuilder view: () -> T){
 //        self.view = view()

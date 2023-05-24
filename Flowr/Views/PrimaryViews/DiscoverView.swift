@@ -12,13 +12,19 @@ struct DiscoverView: View {
 //    @EnvironmentObject var globalData: GlobalData
 //    @State var terpeneList: [DataMap]
 //    var terpeneData = [DataMap]
-    
+    private var terpeneProfile: TerpeneProfile {
+        return TerpeneUtil.loadTerpeneProfileByUser(user: User.example)
+    }
     var body: some View {
         ScrollView{
             VStack{
                 DiscoverHeaderRow().padding([.top, .bottom])
+//                ViewDivider(height: 4)
                 DiscoverRecommendedStrainsRow()
-                DiscoverTerpeneEffectsAromasRow(terpene: Terpene.example)
+                ViewDivider(height: 4)
+                DiscoverTerpeneEffectsAromasRow(terpene: TerpeneUtil.loadTerpeneByName(name: terpeneProfile.terpenes[Int.random(in: 0..<self.terpeneProfile.terpenes.count)]))
+                ViewDivider(height: 4)
+                DiscoverAchievementRow()
             }
         }
 //        NavigationStack {List {

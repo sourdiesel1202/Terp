@@ -29,5 +29,13 @@ struct AchievementUtil{
         }
         return _res
     }
+    static func loadAchievementDataMap(achievements: [Achievement])->[DataMap]{
+        var _res = [DataMap]()
+        achievements.forEach(){ ach in
+            _res.append(DataMap(key: ach.name, value: "", view: AchievementDetailView(achievement: ach), image: ach.image))
+            
+        }
+        return _res
+    }
 }
 

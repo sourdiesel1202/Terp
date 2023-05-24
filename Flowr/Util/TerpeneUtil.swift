@@ -130,6 +130,14 @@ struct TerpeneUtil{
         }
     }
     
+    static func loadAromaEffectDataMap(data: [String])-> [DataMap]{
+        var _res = [DataMap]()
+        data.forEach(){ ae in
+            _res.append(DataMap(key: ae, value: DictionaryUtil.loadDescription(text: ae), view: TerpeneEffectAromaView(title: ae, description: DictionaryUtil.loadDescription(text: ae))))
+            
+        }
+        return _res
+    }
     static func loadAromaDataMap(aromas: [String]) -> [DataMap]{
         var _res = [DataMap]()
         aromas.forEach(){ aroma in

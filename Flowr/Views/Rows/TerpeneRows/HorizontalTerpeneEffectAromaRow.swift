@@ -33,10 +33,14 @@ struct HorizontalTerpeneEffectAromaRow: View {
                 }
                 if self.data.count > 3{
                     Button(action: {}){
-                        VStack{
-                            Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.blue)
-                            Text("View All").font(.caption2).fontWeight(.bold)
-                            
+                        NavigationLink{
+                            ThumbnailListView(data: TerpeneUtil.loadAromaEffectDataMap(data: self.data), searchTitle: "Effects")
+                        }label: {
+                            VStack{
+                                Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.blue)
+                                Text("View All").font(.caption2).fontWeight(.bold)
+                                
+                            }
                         }
                     }.padding([.leading,.trailing])
                 }

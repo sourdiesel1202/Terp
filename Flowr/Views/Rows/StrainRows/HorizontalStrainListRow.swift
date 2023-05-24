@@ -31,10 +31,15 @@ struct HorizontalStrainListRow: View {
                 }
                 if self.strains.count > 3{
                     Button(action: {}){
-                        VStack{
-                            Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.gray)
-                            Text("View All").font(.caption2).fontWeight(.bold).foregroundColor(.gray)
-                            
+                        NavigationLink{
+                            ThumbnailListView(data: StrainUtil.loadStrainDataMap(strains: self.strains), searchTitle: "Strains")
+//                            StrainDetailView(strain: <#T##Strain#>)
+                        }label: {
+                            VStack{
+                                Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.gray)
+                                Text("View All").font(.caption2).fontWeight(.bold).foregroundColor(.gray)
+                                
+                            }
                         }
                     }.padding([.leading,.trailing])
                 }

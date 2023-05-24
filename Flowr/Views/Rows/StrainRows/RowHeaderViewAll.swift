@@ -11,7 +11,7 @@ struct RowHeaderViewAll: View {
     let text: String
     var body: some View {
         HStack{
-            Text(self.text).padding([.leading,.bottom]).font(.caption).fontWeight(.bold)
+            Text(self.text).padding([.leading,.bottom]).font(.caption)//.fontWeight(.bold)
             Spacer()
             NavigationLink{
                 ContentView()
