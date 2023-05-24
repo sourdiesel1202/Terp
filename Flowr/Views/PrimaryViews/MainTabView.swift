@@ -13,22 +13,26 @@ struct MainTabView: View {
         
            TabView {
                NavigationView{FeedView()}.tabItem{
-                   Label("Feed", systemImage: "person.fill")
+                   Label("Feed", systemImage: "house.fill")
                }
-
+               NavigationView{ProfileView(user: UserUtil.loadUserById(id: "42069")!)}.tabItem{
+                   Label("Profile", systemImage: "person.fill")
+               }
 //               ListView(data: StrainUtil.loadStrainDataMap(strains: globalData.strains), searchTitle: "Search Strains")
 //               StrainSearchView()
-               StrainSearchView(strains: StrainUtil.loadStrains())
-                   .tabItem {
-                       Label("Search Strains", systemImage: "magnifyingglass.circle")
+               
+               
+               NavigationView{StrainSearchView(strains: StrainUtil.loadStrains())}.tabItem {
+                       Label("Strain Search", systemImage: "magnifyingglass.circle")
                    }
                
-               DiscoverView().tabItem{
+               NavigationView{DiscoverView()}.tabItem{
                    Label("Discover", systemImage: "globe.americas")
                }
                
-               NavigationView{ProfileView(user: UserUtil.loadUserById(id: "42069")!)}.tabItem{
-                   Label("Profile", systemImage: "person.fill")
+               
+               NavigationView{ContentView()}.tabItem{
+                   Label("More", systemImage: "ellipsis")
                }
                
 
