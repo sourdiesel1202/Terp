@@ -13,17 +13,18 @@ struct ProfileCircleRow: View {
         return CircleUtil.loadUserCirlce(user: self.user)
     }
     var body: some View {
-        VStack{
-            HStack{
-                Text("Followers (\(self.circle.followers.count))").padding([.leading,.bottom]).font(.caption)
-                Spacer()
-                NavigationLink{
-                    ContentView()
-                }label: {
-                    Text("View All").font(.caption).padding([.bottom,.trailing])
-                }
-                
-            }
+        RowHeaderViewAll(text: "Followers", data: UserUtil.loadUserDataMap(users: circle.followers))
+//        VStack{
+//            HStack{
+//                Text("Followers (\(self.circle.followers.count))").padding([.leading,.bottom]).font(.caption)
+//                Spacer()
+//                NavigationLink{
+//                    ContentView()
+//                }label: {
+//                    Text("View All").font(.caption).padding([.bottom,.trailing])
+//                }
+//
+//            }
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     
@@ -59,17 +60,18 @@ struct ProfileCircleRow: View {
 //            }
         }
             ViewDivider(height: 0.5)
-            HStack{
-                Text("Following (\(self.circle.following.count))").padding([.leading,.bottom]).font(.caption)
-                Spacer()
-                NavigationLink{
-                    ContentView()
-                }label: {
-                    Text("View All").font(.caption).padding([.bottom,.trailing])
-                }
-                
-                
-            }
+        RowHeaderViewAll(text: "Following", data: UserUtil.loadUserDataMap(users: self.circle.following))
+//            HStack{
+//                Text("Following (\(self.circle.following.count))").padding([.leading,.bottom]).font(.caption)
+//                Spacer()
+//                NavigationLink{
+//                    ContentView()
+//                }label: {
+//                    Text("View All").font(.caption).padding([.bottom,.trailing])
+//                }
+//
+//
+//            }
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     
@@ -105,7 +107,7 @@ struct ProfileCircleRow: View {
         
         
         
-    }
+    
 }
 
 struct ProfileCircleRow_Previews: PreviewProvider {
