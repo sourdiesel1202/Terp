@@ -632,7 +632,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 492C535429FF3AA400C55761 /* Build configuration list for PBXProject "Terp" */;
+			buildConfigurationList = 492C535429FF3AA400C55761 /* Build configuration list for PBXProject "Flowr" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -954,7 +954,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		492C535429FF3AA400C55761 /* Build configuration list for PBXProject "Terp" */ = {
+		492C535429FF3AA400C55761 /* Build configuration list for PBXProject "Flowr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				492C536A29FF3AA800C55761 /* Debug */,
