@@ -27,7 +27,11 @@ struct ThumbnailListView: View {
                             ImageRow(title: dm.key, description: dm.value, secondaryDescription: dm.secondaryValue)
                         }
                     }else{
-                        ImageRow(title: dm.key, description: dm.value)
+                        if dm.image != nil{
+                            ImageRow(title: dm.key, description: dm.value, image: dm.image)
+                        }else{
+                            ImageRow(title: dm.key, description: dm.value)
+                        }
                     }
 //                    BasicRow(title: dm.key, description: dm.value)
 //                    ImageRow(title: <#T##String#>, description: <#T##String#>)

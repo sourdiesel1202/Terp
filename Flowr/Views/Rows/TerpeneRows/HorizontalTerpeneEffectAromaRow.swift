@@ -9,11 +9,14 @@ import SwiftUI
 
 struct HorizontalTerpeneEffectAromaRow: View {
     let data: [String]
+    private var limit: Int {
+        return self.data.count > 3 ? 3: self.data.count
+    }
     var body: some View {
         ScrollView(.horizontal){
             HStack(alignment: .top){
                 
-                ForEach(self.data[0...3], id: \.self){ (item:String) in
+                ForEach(self.data[0..<self.limit], id: \.self){ (item:String) in
                     Button(action: {}){
                         NavigationLink {
                             TerpeneEffectAromaView(title: item, description: DictionaryUtil.loadDescription(text: item))

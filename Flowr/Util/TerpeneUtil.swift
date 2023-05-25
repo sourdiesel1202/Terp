@@ -28,6 +28,20 @@ struct TerpeneUtil{
         return terpenes.filter({$0.name.lowercased()==name.lowercased()}).first!
         
     }
+    static func loadTerpenesByName(names: [String]) -> [Terpene]{
+        var _res = [Terpene]()
+        let terpenes = self.loadTerpenes()
+        names.forEach(){ name in
+            if terpenes.contains(where: {$0.name.lowercased() == name.lowercased()}){
+                _res.append(self.loadTerpeneByName(name: name))
+            }
+            
+            
+        }
+        return _res
+//        return self.loadTerpenes().filter(names.contains({$0.lowercased()==$1.name.lowercased()}))
+        
+    }
     static func loadTerpeneByName(name: String) -> Terpene{
         return self.loadTerpenes().filter({$0.name.lowercased()==name.lowercased()}).first!
         

@@ -99,6 +99,7 @@
 		49457CAA2A1EA3CB006AC383 /* ThumbnailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457CA92A1EA3CB006AC383 /* ThumbnailListView.swift */; };
 		49457CAE2A1EEDBD006AC383 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49457CAD2A1EEDBD006AC383 /* strain_data.json */; };
 		495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C9DE92A0736A3006E3685 /* BasicRow.swift */; };
+		496782F12A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782F02A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift */; };
 		49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */; };
 		498B530C2A0DBF1200488401 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B530B2A0DBF1200488401 /* RatingView.swift */; };
 		49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B37C192A00753200C053FC /* JSONLoader.swift */; };
@@ -209,6 +210,7 @@
 		49457CA92A1EA3CB006AC383 /* ThumbnailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailListView.swift; sourceTree = "<group>"; };
 		49457CAD2A1EEDBD006AC383 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		495C9DE92A0736A3006E3685 /* BasicRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
+		496782F02A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTerpeneRow.swift; sourceTree = "<group>"; };
 		49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchRow.swift; sourceTree = "<group>"; };
 		498B530B2A0DBF1200488401 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		49B37C192A00753200C053FC /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				49457CA22A1DA373006AC383 /* HorizontalTerpeneEffectAromaRow.swift */,
+				496782F02A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift */,
 			);
 			path = TerpeneRows;
 			sourceTree = "<group>";
@@ -750,6 +753,7 @@
 				4926C2932A16460E007B8D30 /* ProfileReviewsRow.swift in Sources */,
 				4926C2302A102E11007B8D30 /* MultipleSelectionRow.swift in Sources */,
 				4926C2322A10317A007B8D30 /* MultipleSelectionList.swift in Sources */,
+				496782F12A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift in Sources */,
 				492C535F29FF3AA400C55761 /* ContentView.swift in Sources */,
 				492C537229FF3B5800C55761 /* StrainSearchView.swift in Sources */,
 				49457CA02A1D9658006AC383 /* DiscoverTerpeneEffectsAromasRow.swift in Sources */,
