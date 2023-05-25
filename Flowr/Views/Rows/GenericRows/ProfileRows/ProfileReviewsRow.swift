@@ -19,6 +19,7 @@ struct ProfileReviewsRow: View {
         
         VStack{
             VStack(alignment: .leading){
+                //ok come back to this cause this is going to be a bit of work
                 HStack{
                     Text("Reviews (\(self.reviews.count))").padding([.leading,.bottom]).font(.caption)
                     Spacer()

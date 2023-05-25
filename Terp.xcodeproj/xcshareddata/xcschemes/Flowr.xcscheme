@@ -17,7 +17,7 @@
                BlueprintIdentifier = "492C535829FF3AA400C55761"
                BuildableName = "Flowr.app"
                BlueprintName = "Flowr"
-               ReferencedContainer = "container:Flowr.xcodeproj">
+               ReferencedContainer = "container:Terp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "492C535829FF3AA400C55761"
             BuildableName = "Flowr.app"
             BlueprintName = "Flowr"
-            ReferencedContainer = "container:Flowr.xcodeproj">
+            ReferencedContainer = "container:Terp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "492C535829FF3AA400C55761"
             BuildableName = "Flowr.app"
             BlueprintName = "Flowr"
-            ReferencedContainer = "container:Flowr.xcodeproj">
+            ReferencedContainer = "container:Terp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

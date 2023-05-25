@@ -11,17 +11,27 @@ struct DiscoverAchievementRow: View {
     var body: some View {
         
             Text("Achieve Something New").padding([.top,.bottom]).fontWeight(.bold).font(.title)
-        
-        RowHeaderViewAll(text: "Top 10 Achievements", data: AchievementUtil.loadAchievementDataMap())
+        VStack{
+            RowHeaderViewAll(text: "Top 10 Achievements", data: AchievementUtil.loadAchievementDataMap())
             HorizontalAchievementsRow(achievements: AchievementUtil.loadAchievements())
             ViewDivider(height: 0.25)
+        }
+        VStack{
             RowHeaderViewAll(text: "Achievements You've Almost Reached", data: AchievementUtil.loadAchievementDataMap())
             HorizontalAchievementsRow(achievements: AchievementUtil.loadAchievements())
             ViewDivider(height: 0.25)
+        }
+        VStack{
             RowHeaderViewAll(text: "Newest Terp Achievements", data: AchievementUtil.loadAchievementDataMap())
             HorizontalAchievementsRow(achievements: AchievementUtil.loadAchievements())
             ViewDivider(height: 0.25)
-        
+            NavigationLink{
+                ThumbnailListView(data: AchievementUtil.loadAchievementDataMap(), searchTitle: "All Achievements")
+                //            ThumbnailListView(data: AchievementUtil.loadAchievementDataMap(),searchTitle: "All Achievements")
+            }label: {
+                FullWidthText(text: "View All Achievements").padding()
+            }
+        }
     }
 }
 
