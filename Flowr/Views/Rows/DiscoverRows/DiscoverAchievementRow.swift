@@ -12,13 +12,13 @@ struct DiscoverAchievementRow: View {
         
             Text("Achieve Something New").padding([.top,.bottom]).fontWeight(.bold).font(.title)
         
-            RowHeaderViewAll(text: "Top 10 Achievements")
+        RowHeaderViewAll(text: "Top 10 Achievements", data: AchievementUtil.loadAchievementDataMap())
             HorizontalAchievementsRow(achievements: AchievementUtil.loadAchievements())
             ViewDivider(height: 0.25)
-            RowHeaderViewAll(text: "Achievements You've Almost Reached")
+            RowHeaderViewAll(text: "Achievements You've Almost Reached", data: AchievementUtil.loadAchievementDataMap())
             HorizontalAchievementsRow(achievements: AchievementUtil.loadAchievements())
             ViewDivider(height: 0.25)
-            RowHeaderViewAll(text: "Newest Terp Achievements")
+            RowHeaderViewAll(text: "Newest Terp Achievements", data: AchievementUtil.loadAchievementDataMap())
             HorizontalAchievementsRow(achievements: AchievementUtil.loadAchievements())
             ViewDivider(height: 0.25)
         

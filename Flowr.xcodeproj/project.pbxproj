@@ -20,7 +20,6 @@
 		4926C24E2A131E72007B8D30 /* TerpeneProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C24D2A131E72007B8D30 /* TerpeneProfile.swift */; };
 		4926C2512A132DBA007B8D30 /* TerpeneProfileAromaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2502A132DBA007B8D30 /* TerpeneProfileAromaView.swift */; };
 		4926C2542A13CF46007B8D30 /* FullWidthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2532A13CF46007B8D30 /* FullWidthButton.swift */; };
-		4926C2562A140181007B8D30 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926C2552A140181007B8D30 /* strain_data.json */; };
 		4926C2582A141691007B8D30 /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2572A141691007B8D30 /* BasicButton.swift */; };
 		4926C25A2A147824007B8D30 /* achievement.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926C2592A147824007B8D30 /* achievement.json */; };
 		4926C25C2A147845007B8D30 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C25B2A147845007B8D30 /* Achievement.swift */; };
@@ -98,6 +97,7 @@
 		49457CA52A1E7D9A006AC383 /* DiscoverAchievementRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457CA42A1E7D9A006AC383 /* DiscoverAchievementRow.swift */; };
 		49457CA82A1E7DC7006AC383 /* HorizontalAchievementsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457CA72A1E7DC7006AC383 /* HorizontalAchievementsRow.swift */; };
 		49457CAA2A1EA3CB006AC383 /* ThumbnailListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457CA92A1EA3CB006AC383 /* ThumbnailListView.swift */; };
+		49457CAE2A1EEDBD006AC383 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49457CAD2A1EEDBD006AC383 /* strain_data.json */; };
 		495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C9DE92A0736A3006E3685 /* BasicRow.swift */; };
 		49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */; };
 		498B530C2A0DBF1200488401 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B530B2A0DBF1200488401 /* RatingView.swift */; };
@@ -129,7 +129,6 @@
 		4926C24D2A131E72007B8D30 /* TerpeneProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneProfile.swift; sourceTree = "<group>"; };
 		4926C2502A132DBA007B8D30 /* TerpeneProfileAromaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneProfileAromaView.swift; sourceTree = "<group>"; };
 		4926C2532A13CF46007B8D30 /* FullWidthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButton.swift; sourceTree = "<group>"; };
-		4926C2552A140181007B8D30 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		4926C2572A141691007B8D30 /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
 		4926C2592A147824007B8D30 /* achievement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievement.json; sourceTree = "<group>"; };
 		4926C25B2A147845007B8D30 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
@@ -208,6 +207,7 @@
 		49457CA42A1E7D9A006AC383 /* DiscoverAchievementRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverAchievementRow.swift; sourceTree = "<group>"; };
 		49457CA72A1E7DC7006AC383 /* HorizontalAchievementsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalAchievementsRow.swift; sourceTree = "<group>"; };
 		49457CA92A1EA3CB006AC383 /* ThumbnailListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailListView.swift; sourceTree = "<group>"; };
+		49457CAD2A1EEDBD006AC383 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		495C9DE92A0736A3006E3685 /* BasicRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
 		49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchRow.swift; sourceTree = "<group>"; };
 		498B530B2A0DBF1200488401 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
@@ -247,6 +247,7 @@
 		4926C24A2A131DD6007B8D30 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				49457CAD2A1EEDBD006AC383 /* strain_data.json */,
 				4926C2A22A16EAEE007B8D30 /* user_circle.json */,
 				4926C2982A166F45007B8D30 /* user_achievements.json */,
 				4926C27E2A15433C007B8D30 /* feed.json */,
@@ -254,7 +255,6 @@
 				4926C2802A15433C007B8D30 /* users.json */,
 				4926C2592A147824007B8D30 /* achievement.json */,
 				4926C24B2A131E4E007B8D30 /* terpene_profile.json */,
-				4926C2552A140181007B8D30 /* strain_data.json */,
 				4926C2392A10A847007B8D30 /* terpene.json */,
 			);
 			path = JSON;
@@ -661,10 +661,10 @@
 				4926C24C2A131E4E007B8D30 /* terpene_profile.json in Resources */,
 				4926C23B2A10A847007B8D30 /* terpene.json in Resources */,
 				492C536429FF3AA800C55761 /* Preview Assets.xcassets in Resources */,
-				4926C2562A140181007B8D30 /* strain_data.json in Resources */,
 				4926C2812A15433C007B8D30 /* feed.json in Resources */,
 				492C536129FF3AA800C55761 /* Assets.xcassets in Resources */,
 				4926C2992A166F45007B8D30 /* user_achievements.json in Resources */,
+				49457CAE2A1EEDBD006AC383 /* strain_data.json in Resources */,
 				4926C25A2A147824007B8D30 /* achievement.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
