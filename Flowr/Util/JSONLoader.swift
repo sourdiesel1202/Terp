@@ -30,5 +30,25 @@ extension Bundle {
 
         
     }
+    func writeJson(filename: String, jsonData: String){
+//        let jsonData = try! JSONEncoder().encode(user)
+
+//        let jsonString = "{\"location\": \"the moon\"}"
+
+        if let documentDirectory = FileManager.default.urls(for: .documentDirectory,
+                                                            in: .userDomainMask).first {
+            let pathWithFilename = documentDirectory.appendingPathComponent(filename)
+            do {
+                try jsonData.write(to: pathWithFilename,
+                                     atomically: true,
+                                     encoding: .utf8)
+                print("wrote file \(filename)")
+            } catch {
+                print(error)
+                fatalError(error.localizedDescription)
+                // Handle error
+            }
+        }
+    }
     
 }

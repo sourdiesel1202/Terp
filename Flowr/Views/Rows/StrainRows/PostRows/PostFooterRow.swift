@@ -8,17 +8,38 @@
 import SwiftUI
 
 struct PostFooterRow: View {
-    let post: Post
+    @State var post: Post
+//    @State private var buttonClicked: Bool = false
     @State private var isShowingLikesSheet: Bool = false
     @State private var isShowingCommentSheet: Bool = false
     var body: some View {
         VStack{
             HStack{
-                Button(action: {}){
-                    Image(systemName: "hand.thumbsup").resizable().frame(width: 35, height: 30).padding(.leading).padding(.bottom).padding(.top)
+                
+                    if self.post.likes.contains(where:{$0.user == User.example.id}){
+                        Button(action: {
+                            print("unlike button pressed")
+//                            self.buttonClicked.toggle()
+                            PostUtil.unlikePost(post: self.post, user: User.example)
+                            self.post.likes.removeAll(where: {$0.user == User.example.id })
+//                            self.post.likes.removeAll(where: {$0.user == User.example })
+                            
+                        }){
+                            Image(systemName: "hand.thumbsup.fill").resizable().frame(width: 35, height: 30).padding(.leading).padding(.bottom).padding(.top)
+                        }
+                    }else{
+                        Button(action: {
+                            print("Like button pressed")
+//                            self.buttonClicked.toggle()
+                            PostUtil.likePost(post: self.post, user: User.example)
+                            self.post.likes.append(Like(user: User.example.id))
+                            
+                        }){
+                        Image(systemName: "hand.thumbsup").resizable().frame(width: 35, height: 30).padding(.leading).padding(.bottom).padding(.top)
+                    }
                     
                     
-                }
+                    }
                 Spacer()
                 Button(action: {}){
                     Image(systemName: "bubble.left").resizable().frame(width: 30, height: 30).padding(.trailing).padding(.bottom).padding(.top)
