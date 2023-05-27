@@ -100,6 +100,14 @@
 		49457CAE2A1EEDBD006AC383 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49457CAD2A1EEDBD006AC383 /* strain_data.json */; };
 		495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C9DE92A0736A3006E3685 /* BasicRow.swift */; };
 		496782F12A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782F02A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift */; };
+		496782F32A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782F22A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift */; };
+		496782F52A204F7000EB7CF6 /* TerpeneDetailStrainRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782F42A204F7000EB7CF6 /* TerpeneDetailStrainRow.swift */; };
+		496782F72A2051EE00EB7CF6 /* TerpeneDetailEffectAromaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782F62A2051EE00EB7CF6 /* TerpeneDetailEffectAromaRow.swift */; };
+		496782FA2A20D41900EB7CF6 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782F92A20D41900EB7CF6 /* MoreView.swift */; };
+		496782FD2A20D53A00EB7CF6 /* MoreHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782FC2A20D53A00EB7CF6 /* MoreHeaderRow.swift */; };
+		496782FF2A20D6C400EB7CF6 /* MoreAccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496782FE2A20D6C400EB7CF6 /* MoreAccountRow.swift */; };
+		496783012A20F70000EB7CF6 /* MoreTerpeneRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496783002A20F70000EB7CF6 /* MoreTerpeneRow.swift */; };
+		496783032A2107FA00EB7CF6 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496783022A2107FA00EB7CF6 /* FollowButton.swift */; };
 		49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */; };
 		498B530C2A0DBF1200488401 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498B530B2A0DBF1200488401 /* RatingView.swift */; };
 		49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B37C192A00753200C053FC /* JSONLoader.swift */; };
@@ -211,6 +219,14 @@
 		49457CAD2A1EEDBD006AC383 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		495C9DE92A0736A3006E3685 /* BasicRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRow.swift; sourceTree = "<group>"; };
 		496782F02A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTerpeneRow.swift; sourceTree = "<group>"; };
+		496782F22A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneDetailHeaderRow.swift; sourceTree = "<group>"; };
+		496782F42A204F7000EB7CF6 /* TerpeneDetailStrainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneDetailStrainRow.swift; sourceTree = "<group>"; };
+		496782F62A2051EE00EB7CF6 /* TerpeneDetailEffectAromaRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneDetailEffectAromaRow.swift; sourceTree = "<group>"; };
+		496782F92A20D41900EB7CF6 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		496782FC2A20D53A00EB7CF6 /* MoreHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreHeaderRow.swift; sourceTree = "<group>"; };
+		496782FE2A20D6C400EB7CF6 /* MoreAccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreAccountRow.swift; sourceTree = "<group>"; };
+		496783002A20F70000EB7CF6 /* MoreTerpeneRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTerpeneRow.swift; sourceTree = "<group>"; };
+		496783022A2107FA00EB7CF6 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
 		49746DC32A039B66002ED1B0 /* StrainSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchRow.swift; sourceTree = "<group>"; };
 		498B530B2A0DBF1200488401 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		49B37C192A00753200C053FC /* JSONLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
@@ -450,6 +466,7 @@
 		4941953A2A0DE1F9000CEF39 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				496782FB2A20D52E00EB7CF6 /* MoreRows */,
 				49457CA62A1E7DAD006AC383 /* AchievementRows */,
 				49457CA12A1DA354006AC383 /* TerpeneRows */,
 				49457C982A1D81F3006AC383 /* DiscoverRows */,
@@ -467,6 +484,7 @@
 				4926C2942A1667C0007B8D30 /* ViewDivider.swift */,
 				4926C2AC2A171760007B8D30 /* CircleText.swift */,
 				4926C2B22A1730FB007B8D30 /* FullWidthText.swift */,
+				496783022A2107FA00EB7CF6 /* FollowButton.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -484,6 +502,7 @@
 		4941954C2A0ECFD5000CEF39 /* SecondayViews */ = {
 			isa = PBXGroup;
 			children = (
+				496782F82A20D40C00EB7CF6 /* MoreViews */,
 				49457C942A1D5260006AC383 /* HelpViews */,
 				4926C28C2A15BA1B007B8D30 /* ProfileViews */,
 				4926C2732A153CE7007B8D30 /* FeedViews */,
@@ -522,6 +541,9 @@
 			children = (
 				49457CA22A1DA373006AC383 /* HorizontalTerpeneEffectAromaRow.swift */,
 				496782F02A1FB4FF00EB7CF6 /* HorizontalTerpeneRow.swift */,
+				496782F22A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift */,
+				496782F42A204F7000EB7CF6 /* TerpeneDetailStrainRow.swift */,
+				496782F62A2051EE00EB7CF6 /* TerpeneDetailEffectAromaRow.swift */,
 			);
 			path = TerpeneRows;
 			sourceTree = "<group>";
@@ -532,6 +554,24 @@
 				49457CA72A1E7DC7006AC383 /* HorizontalAchievementsRow.swift */,
 			);
 			path = AchievementRows;
+			sourceTree = "<group>";
+		};
+		496782F82A20D40C00EB7CF6 /* MoreViews */ = {
+			isa = PBXGroup;
+			children = (
+				496782F92A20D41900EB7CF6 /* MoreView.swift */,
+			);
+			path = MoreViews;
+			sourceTree = "<group>";
+		};
+		496782FB2A20D52E00EB7CF6 /* MoreRows */ = {
+			isa = PBXGroup;
+			children = (
+				496782FC2A20D53A00EB7CF6 /* MoreHeaderRow.swift */,
+				496782FE2A20D6C400EB7CF6 /* MoreAccountRow.swift */,
+				496783002A20F70000EB7CF6 /* MoreTerpeneRow.swift */,
+			);
+			path = MoreRows;
 			sourceTree = "<group>";
 		};
 		49746DC52A039BB6002ED1B0 /* Models */ = {
@@ -681,6 +721,8 @@
 			files = (
 				4926C2BE2A1851F7007B8D30 /* StrainDetailTerpeneProfileRow.swift in Sources */,
 				49C0C35E2A1D0DBF0046AB21 /* StrainRateView.swift in Sources */,
+				496782F52A204F7000EB7CF6 /* TerpeneDetailStrainRow.swift in Sources */,
+				496782FD2A20D53A00EB7CF6 /* MoreHeaderRow.swift in Sources */,
 				4926C2792A153E39007B8D30 /* PostContentRow.swift in Sources */,
 				4926C2752A153D0D007B8D30 /* FeedView.swift in Sources */,
 				4926C2B52A1837A4007B8D30 /* PostCommentRow.swift in Sources */,
@@ -700,12 +742,14 @@
 				4926C2B32A1730FB007B8D30 /* FullWidthText.swift in Sources */,
 				4941955A2A0FCBDC000CEF39 /* ContentWithTitleDescView.swift in Sources */,
 				4926C2A92A16FAB1007B8D30 /* ProfileFeedRow.swift in Sources */,
+				496782FF2A20D6C400EB7CF6 /* MoreAccountRow.swift in Sources */,
 				4926C2A72A16EB3F007B8D30 /* UserCircle.swift in Sources */,
 				4926C25F2A147977007B8D30 /* AchievementUtil.swift in Sources */,
 				494195542A0F88A4000CEF39 /* ListView.swift in Sources */,
 				495C9DEA2A0736A3006E3685 /* BasicRow.swift in Sources */,
 				4926C2342A1036D9007B8D30 /* TerpeneUtil.swift in Sources */,
 				494195582A0F9F26000CEF39 /* GlobalData.swift in Sources */,
+				496782F32A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift in Sources */,
 				4941953C2A0DE218000CEF39 /* SystemImageRow.swift in Sources */,
 				49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */,
 				4926C2382A109EBA007B8D30 /* StrainUtil.swift in Sources */,
@@ -724,6 +768,7 @@
 				494195482A0ECD9A000CEF39 /* TerpeneDetailView.swift in Sources */,
 				4926C2BC2A18507D007B8D30 /* StrainDetailHeaderRow.swift in Sources */,
 				49C0C3682A1D12E10046AB21 /* StrainRateDescriptionRow.swift in Sources */,
+				496782F72A2051EE00EB7CF6 /* TerpeneDetailEffectAromaRow.swift in Sources */,
 				49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */,
 				49B9F6022A1D3A2800FB86FB /* StrainRateHeaderRow.swift in Sources */,
 				4926C28B2A1597AE007B8D30 /* PostStrainRow.swift in Sources */,
@@ -735,6 +780,7 @@
 				49C0C36C2A1D2E470046AB21 /* StrainRateConsumptionRow.swift in Sources */,
 				4926C2362A10936B007B8D30 /* NavigationUtil.swift in Sources */,
 				492C536929FF3AA800C55761 /* Flowr.xcdatamodeld in Sources */,
+				496782FA2A20D41900EB7CF6 /* MoreView.swift in Sources */,
 				4926C2892A1566A1007B8D30 /* PostFooterRow.swift in Sources */,
 				492C536629FF3AA800C55761 /* Persistence.swift in Sources */,
 				49C0C3642A1D10840046AB21 /* StrainRateStarsRow.swift in Sources */,
@@ -749,6 +795,7 @@
 				4926C2582A141691007B8D30 /* BasicButton.swift in Sources */,
 				4926C28E2A15BA2B007B8D30 /* ProfileView.swift in Sources */,
 				4926C2672A152167007B8D30 /* Like.swift in Sources */,
+				496783032A2107FA00EB7CF6 /* FollowButton.swift in Sources */,
 				49457C9A2A1D8204006AC383 /* DiscoverHeaderRow.swift in Sources */,
 				4926C2932A16460E007B8D30 /* ProfileReviewsRow.swift in Sources */,
 				4926C2302A102E11007B8D30 /* MultipleSelectionRow.swift in Sources */,
@@ -758,6 +805,7 @@
 				492C537229FF3B5800C55761 /* StrainSearchView.swift in Sources */,
 				49457CA02A1D9658006AC383 /* DiscoverTerpeneEffectsAromasRow.swift in Sources */,
 				4926C2512A132DBA007B8D30 /* TerpeneProfileAromaView.swift in Sources */,
+				496783012A20F70000EB7CF6 /* MoreTerpeneRow.swift in Sources */,
 				494195522A0F07D6000CEF39 /* StrainListView.swift in Sources */,
 				4926C2912A1643E9007B8D30 /* ProfileHeaderRow.swift in Sources */,
 				49C0C35C2A1C0A800046AB21 /* StrainDetailAverageRatingRow.swift in Sources */,

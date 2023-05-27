@@ -39,7 +39,7 @@ struct PostHeaderRow: View {
                         Text(user.username).font(.subheadline).fontWeight(.bold)
                         Text(self.postDate).font(.caption)
                     }.padding(.trailing).padding(.trailing).padding(.trailing).padding(.trailing).padding(.trailing).padding(.trailing)
-                }.foregroundColor(.black)
+                }
             }
         }
     }

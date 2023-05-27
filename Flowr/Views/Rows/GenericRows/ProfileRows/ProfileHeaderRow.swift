@@ -31,7 +31,12 @@ struct ProfileHeaderRow: View {
                 //                Text("\(user.country)").font(.subheadline)
                 
 //                Text("🇺🇸").font(.title)
-                Text("Joined 2023").font(.caption2)
+                VStack{
+                    Text("Joined 2023").font(.caption2)
+                    FollowButton(user: self.user).padding(.bottom)
+//                    FullWidthText(text: "Follow").frame(width: 100,height: 10)
+                }
+                
             }
         }
     }

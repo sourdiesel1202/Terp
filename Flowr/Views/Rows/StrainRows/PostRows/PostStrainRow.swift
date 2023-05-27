@@ -62,7 +62,7 @@ struct PostStrainRow: View {
                         
                     }
                     
-                }.foregroundColor(.black)
+                }//.foregroundColor(.black)
 //                Divider().padding(.bottom)
                 
             }

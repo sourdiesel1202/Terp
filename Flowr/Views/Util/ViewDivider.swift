@@ -11,7 +11,7 @@ struct ViewDivider: View {
     var height: CGFloat
     var body: some View {
         Rectangle()
-            .fill(.gray)
+            .fill(.secondary)
             .frame(height: self.height)
                     .edgesIgnoringSafeArea(.horizontal)
         

@@ -30,7 +30,7 @@ struct MultipleSelectionRow: View {
                 }
                 
             }
-        }.foregroundColor(.black)
+        }//.foregroundColor(.black)
     }
 }
 struct MultipleSelectionRow_Previews: PreviewProvider {

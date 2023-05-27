@@ -163,7 +163,7 @@ struct TerpeneUtil{
     static func loadTerpeneDataMapFromStrings(terpenes: [String]) -> [DataMap]{
         var _res = [DataMap]()
         terpenes.forEach(){ terpene in
-            _res.append(DataMap(key: terpene, value: "", view: ContentView()))
+            _res.append(DataMap(key: terpene, value: DictionaryUtil.loadDescription(text: terpene), view: TerpeneDetailView(terpene: self.loadTerpeneByName(name: terpene))))
             
         }
         return _res

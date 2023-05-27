@@ -10,43 +10,50 @@ import SwiftUI
 struct TerpeneDetailView: View {
     let terpene: Terpene
     var body: some View {
-        VStack (alignment: .center){
-//            if terpene..count==0{
-                Image(systemName: "atom").padding()
-//            } else{
-//                URLImage(url: terpene.image, shape: AnyShape(Circle()))
-//            }
-//            Image(systemName: "atom").padding()
-            Text(terpene.name).font(.title).padding(.bottom)
-            Text(terpene.description).font(.subheadline)
-            //todo add list of strains with this terepene
-            NavigationStack {List {
-                //            ForEach(data) {(strain: Strain) in
-                NavigationLink {
-                    StrainListView(data: Bundle.main.searchStrainByTerpene(terpene: terpene))
-                } label: {
-                    
-                    BasicRow(title: "Strains Containing \(terpene.name)", description: "Discover strains containing \(terpene.name)")
-                    //                    StrainSearchRow(strain: strain)
-                }
+        ScrollView(.vertical){
+            VStack(alignment: .center){
+                TerpeneDetailHeaderRow(terpene: self.terpene)
+            }
+        ViewDivider(height: 4)
+            VStack (alignment: .leading){
+                TerpeneDetailStrainRow(terpene: self.terpene)
+                ViewDivider(height: 0.25)
+                TerpeneDetailEffectAromaRow(terpene: self.terpene)
                 
-                NavigationLink {
-                    ListView(data: self.loadTerpeneEffects(), searchTitle: "Search Effects")
-//
-                    
-                } label: {
-                    BasicRow(title: "View Effects", description: "Discover the effects of \(terpene.name)")
-                    //                    StrainSearchRow(strain: strain)
-                }
                 
-                NavigationLink {
-                    ListView(data: self.loadTerpeneAromas(), searchTitle: "Search Aromas")
-                } label: {
-                    BasicRow(title: "View Aromas", description: "Explore the aromas of \(terpene.name)")
-                    //                    StrainSearchRow(strain: strain)
-                }
+                
+                //            if terpene..count==0{
+                
+                //todo add list of strains with this terepene
+                
+                //            NavigationStack {List {
+                //                //            ForEach(data) {(strain: Strain) in
+                //                NavigationLink {
+                //                    StrainListView(data: Bundle.main.searchStrainByTerpene(terpene: terpene))
+                //                } label: {
+                //
+                //                    BasicRow(title: "Strains Containing \(terpene.name)", description: "Discover strains containing \(terpene.name)")
+                //                    //                    StrainSearchRow(strain: strain)
+                //                }
+                //
+                //                NavigationLink {
+                //                    ListView(data: self.loadTerpeneEffects(), searchTitle: "Search Effects")
+                ////
+                //
+                //                } label: {
+                //                    BasicRow(title: "View Effects", description: "Discover the effects of \(terpene.name)")
+                //                    //                    StrainSearchRow(strain: strain)
+                //                }
+                //
+                //                NavigationLink {
+                //                    ListView(data: self.loadTerpeneAromas(), searchTitle: "Search Aromas")
+                //                } label: {
+                //                    BasicRow(title: "View Aromas", description: "Explore the aromas of \(terpene.name)")
+                //                    //                    StrainSearchRow(strain: strain)
+                //                }
+                //                //            }
+                //            }.navigationTitle("More").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
                 //            }
-            }.navigationTitle("More").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
             }
         }
     }

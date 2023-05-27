@@ -18,10 +18,6 @@ struct MainTabView: View {
                NavigationView{ProfileView(user: UserUtil.loadUserById(id: "42069")!)}.tabItem{
                    Label("Profile", systemImage: "person.fill")
                }
-//               ListView(data: StrainUtil.loadStrainDataMap(strains: globalData.strains), searchTitle: "Search Strains")
-//               StrainSearchView()
-               
-               
                NavigationView{StrainSearchView(strains: StrainUtil.loadStrains())}.tabItem {
                        Label("Strain Search", systemImage: "magnifyingglass.circle")
                    }
@@ -31,7 +27,7 @@ struct MainTabView: View {
                }
                
                
-               NavigationView{ContentView()}.tabItem{
+               MoreView().tabItem{
                    Label("More", systemImage: "ellipsis")
                }
                

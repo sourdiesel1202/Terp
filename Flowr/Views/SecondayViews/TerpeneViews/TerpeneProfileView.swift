@@ -90,7 +90,7 @@ struct TerpeneProfileView: View {
                                                     }
                                                     
                                                 }
-                                            }.foregroundColor(.black)
+                                            }//.foregroundColor(.black)
                                             
                                         }
                                     }.searchable(text: $searchText)
@@ -182,7 +182,7 @@ struct TerpeneProfileView: View {
                                                     }
                                                     
                                                 }
-                                            }.foregroundColor(.black)
+                                            }//.foregroundColor(.black)
                                             
                                         }
                                     }.searchable(text: $searchText)
@@ -272,7 +272,7 @@ struct TerpeneProfileView: View {
                                                     }
                                                     
                                                 }
-                                            }.foregroundColor(.black)
+                                            }//.foregroundColor(.black)
                                             
                                         }
                                     }.searchable(text: $searchText)
@@ -364,7 +364,7 @@ struct TerpeneProfileView: View {
                                                     }
                                                     
                                                 }
-                                            }.foregroundColor(.black)
+                                            }//.foregroundColor(.black)
                                             
                                         }
                                     }.searchable(text: $searchText)
