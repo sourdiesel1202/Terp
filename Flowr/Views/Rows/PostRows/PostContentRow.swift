@@ -39,7 +39,7 @@ struct PostContentRow: View {
     }
     
     var user: User {
-        return UserUtil.loadUserById(id: post.review.user)!
+        return UserUtil.loadUserById(id: post.review.user)
         
     }
 }

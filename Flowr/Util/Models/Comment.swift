@@ -23,14 +23,18 @@ struct Comment: Codable, Identifiable, Hashable{
 //    var name: String
     enum CodingKeys: CodingKey{
 //        case post
+        case id
         case user
         case description
+        case replies
     }
-    var id = UUID()
+    var uuid = UUID()
+    var id: String
     var user: String
     var description: String
+    var replies: [Comment]?
     
 #if DEBUG
-    static let example = Comment(user: "123456", description: "Fuck Ricky, they can't arrest you now, you're stoned!")
+    static let example = Comment(id: "1234",user: "123456", description: "Fuck Ricky, they can't arrest you now, you're stoned!")
 #endif
 }

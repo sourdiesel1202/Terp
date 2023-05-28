@@ -10,8 +10,10 @@ import SwiftUI
 struct PostFooterRow: View {
     @State var post: Post
 //    @State private var buttonClicked: Bool = false
+    @State private var comment: String = ""
     @State private var isShowingLikesSheet: Bool = false
     @State private var isShowingCommentSheet: Bool = false
+    @FocusState private var isCommentEditorActive: Bool
     var body: some View {
         VStack{
             HStack{
@@ -61,7 +63,7 @@ struct PostFooterRow: View {
                                     
                                     HStack{
                                         Image(systemName: "hand.thumbsup.fill").foregroundColor(.blue)
-                                        PostHeaderRow(user: UserUtil.loadUserById(id: like.user)!, postDate: "")
+                                        PostHeaderRow(user: UserUtil.loadUserById(id: like.user), postDate: "")
                                         
                                         
                                     }.padding(.leading)
@@ -84,16 +86,38 @@ struct PostFooterRow: View {
                 }
 //                Text("\(post.likes.co)")
                 Spacer()
-                if post.likes.count > 0{
-                    Button(action: {self.isShowingCommentSheet=true}){
+                if post.comments.count > 0{
+                    Button(action: {
+                        self.isShowingCommentSheet=true
+                        self.isCommentEditorActive=true
+                    }){
                         Text("\(post.comments.count) comments").padding(.trailing)
                     }.sheet(isPresented: self.$isShowingCommentSheet, content: {
-                        
-                        ForEach(self.post.comments){ comment in
-                            PostCommentRow(user: UserUtil.loadUserById(id: comment.user)!, text: comment.description).padding()
-                            
+                        ScrollView(.vertical){
+                            CommentView(post: self.post, replyingTo: self.post.comments[0])
+//                            ForEach(self.post.comments){ comment in
+//                                UserCommentRow(user: UserUtil.loadUserById(id: comment.user)!, text: comment.description).padding()
+//
+//                            }
+//                            NewCommentRow(user: User.example)
+//                            KeyboardTextField()
+//                            TextField("Enter your name", text: )
+//                                        .textFieldStyle(.roundedBorder)
+//                                        .toolbar {
+//                                            ToolbarItemGroup(placement: .keyboard) {
+//                                                Button("Click me!") {
+//                                                    print("Clicked")
+//                                                }
+//                                            }
+//                                        }
+//                            VStack(alignment: .trailing){
+//                                TextField("Post your reply", text: self.$comment).focused(self.$isCommentEditorActive)
+//
+//                            }
                         }
-                        Spacer()
+                        
+//                        Spacer()
+                        
                     }).padding(.top)
                 }else{
                     Text("")

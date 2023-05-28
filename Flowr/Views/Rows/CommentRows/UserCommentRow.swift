@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct PostCommentRow: View {
-    let user: User
-    let text: String
+struct UserCommentRow: View {
+//    let user: User
+//    let text: String
+    let comment: Comment
+    @Binding var reply: Comment
     @State private var isShowingProfileSheet: Bool = false
     var body: some View {
         VStack(alignment: .leading){
@@ -17,8 +19,8 @@ struct PostCommentRow: View {
                 Button(action: {self.isShowingProfileSheet=true}, label: {
                     
                 
-                if self.user.image.count > 0{
-                    URLImage(url: self.user.image, shape: AnyShape(Circle()))
+                    if UserUtil.loadUserById(id: self.comment.user).image.count > 0{
+                    URLImage(url: UserUtil.loadUserById(id: self.comment.user).image, shape: AnyShape(Circle()))
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: 90, maxHeight: 40)
                 }else{
@@ -33,18 +35,20 @@ struct PostCommentRow: View {
                         
                     })
                     {
-                        Text(user.username).font(.caption).fontWeight(.bold)
+                        Text(UserUtil.loadUserById(id: self.comment.user).username).font(.caption).fontWeight(.bold)
                         
                     }.sheet(isPresented: self.$isShowingProfileSheet, content: {
-                        ProfileView(user: self.user)
+                        ProfileView(user: UserUtil.loadUserById(id: self.comment.user))
                     })
-                    Text(self.text).font(.caption2)
+                    Text(self.comment.description).font(.caption2)
                     Text("")
                     HStack(alignment: .center){
                         Image(systemName: "heart")
                         Text("69").font(.caption2).padding(.trailing)
-                        Button(action: {}){
-                            Text("Like").font(.caption)
+                        Button(action: {
+                            self.reply=self.comment
+                        }){
+                            Text("Reply").font(.caption)
                             //                            Image(systemName: "heart").frame(width: 10, height: 20)
                         }.padding([.trailing])
                         
@@ -53,18 +57,17 @@ struct PostCommentRow: View {
                             //                            Image(systemName: "message").frame(width: 10, height: 20)
                         }
                         
-                        
                     }
                 }
                 
                 Spacer()
-            }.padding(text.contains("@") ? [.leading] : [])
+            }
         }
     }
 }
 
-struct PostCommentRow_Previews: PreviewProvider {
+struct UserCommentRow_Previews: PreviewProvider {
     static var previews: some View {
-        PostCommentRow(user: User.example, text: "This is a test comment")
+        UserCommentRow(comment: Comment.example, reply: .constant(Comment.example))
     }
 }

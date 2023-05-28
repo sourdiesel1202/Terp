@@ -15,7 +15,7 @@ struct MainTabView: View {
                NavigationView{FeedView()}.tabItem{
                    Label("Feed", systemImage: "house.fill")
                }
-               NavigationView{ProfileView(user: UserUtil.loadUserById(id: "42069")!)}.tabItem{
+               NavigationView{ProfileView(user: UserUtil.loadUserById(id: "42069"))}.tabItem{
                    Label("Profile", systemImage: "person.fill")
                }
                NavigationView{StrainSearchView(strains: StrainUtil.loadStrains())}.tabItem {
