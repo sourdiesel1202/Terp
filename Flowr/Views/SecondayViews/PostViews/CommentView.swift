@@ -32,7 +32,8 @@ struct CommentView: View {
                         if self.replyingTo.id == commentReply.id{
                             CommentReplyRow(user: User.example, replyTo: UserUtil.loadUserById(id: commentReply.user), text: self.$commentReply, action: {
                                 print("replied")
-                                self.rebuildPost(newComment: Comment(id: "\(commentReply.id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
+                                self.rebuildPost(newComment: Comment(id: "\(commentReply.id)\(Int.random(in: 50..<100))", user: User.example.id, description: "@\(UserUtil.loadUserById(id: self.replyingTo.user).username) \(self.commentReply)"))
+                                self.commentReply=""
                                 //ok annoying but a hack
 //                                self.post.comments.forEach(){ _comment in
 //                                    _comment.replies.forEach(){ _reply in
@@ -53,7 +54,7 @@ struct CommentView: View {
                         print("Replied")
 //                        let reply = self.commentReply
 //                        self.post.comments.append(Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
-                        self.rebuildPost(newComment: Comment(id: "\(comment.id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
+                        self.rebuildPost(newComment: Comment(id: "\(comment.id)\(Int.random(in: 50..<100))", user: User.example.id, description: "@\(UserUtil.loadUserById(id: self.replyingTo.user).username) \(self.commentReply)"))
                         self.commentReply=""
 //                        post.comments.first(where: {$0.id==comment.id}).append(Comment(id: "\(self.post.comments[0].id)69", user: User.example.id, description: self.commentReply))
                         
@@ -103,6 +104,7 @@ struct CommentView: View {
         }
         
         self.post = _post
+        self.replyingTo = Comment.example
     }
 }
 
