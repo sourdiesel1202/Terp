@@ -94,7 +94,7 @@ struct PostFooterRow: View {
                         Text("\(post.comments.count) comments").padding(.trailing)
                     }.sheet(isPresented: self.$isShowingCommentSheet, content: {
                         ScrollView(.vertical){
-                            CommentView(post: self.post, replyingTo: self.post.comments[0])
+                            CommentView(post: self.post, replyingTo: Comment.example)
 //                            ForEach(self.post.comments){ comment in
 //                                UserCommentRow(user: UserUtil.loadUserById(id: comment.user)!, text: comment.description).padding()
 //

@@ -65,6 +65,7 @@
 		4926C2BA2A184D33007B8D30 /* StrainDetail2_0View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2B92A184D33007B8D30 /* StrainDetail2_0View.swift */; };
 		4926C2BC2A18507D007B8D30 /* StrainDetailHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2BB2A18507D007B8D30 /* StrainDetailHeaderRow.swift */; };
 		4926C2BE2A1851F7007B8D30 /* StrainDetailTerpeneProfileRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926C2BD2A1851F7007B8D30 /* StrainDetailTerpeneProfileRow.swift */; };
+		4927E6252A2411D7004C818F /* NewCommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6242A2411D7004C818F /* NewCommentRow.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -74,7 +75,7 @@
 		492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C536F29FF3B2D00C55761 /* StrainDetailView.swift */; };
 		492C537229FF3B5800C55761 /* StrainSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C537129FF3B5800C55761 /* StrainSearchView.swift */; };
 		492FA7452A22C0E000BE1414 /* KeyboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FA7442A22C0E000BE1414 /* KeyboardTextField.swift */; };
-		492FA7482A22DBAB00BE1414 /* NewCommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FA7472A22DBAB00BE1414 /* NewCommentRow.swift */; };
+		492FA7482A22DBAB00BE1414 /* CommentReplyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FA7472A22DBAB00BE1414 /* CommentReplyRow.swift */; };
 		493796792A05E23800961978 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493796782A05E23800961978 /* MainTabView.swift */; };
 		4937967B2A05E53500961978 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937967A2A05E53500961978 /* DiscoverView.swift */; };
 		4937967D2A05E8EC00961978 /* RecommendedStrainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4937967C2A05E8EC00961978 /* RecommendedStrainsView.swift */; };
@@ -186,6 +187,7 @@
 		4926C2B92A184D33007B8D30 /* StrainDetail2_0View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetail2_0View.swift; sourceTree = "<group>"; };
 		4926C2BB2A18507D007B8D30 /* StrainDetailHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailHeaderRow.swift; sourceTree = "<group>"; };
 		4926C2BD2A1851F7007B8D30 /* StrainDetailTerpeneProfileRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailTerpeneProfileRow.swift; sourceTree = "<group>"; };
+		4927E6242A2411D7004C818F /* NewCommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentRow.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		492C536F29FF3B2D00C55761 /* StrainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailView.swift; sourceTree = "<group>"; };
 		492C537129FF3B5800C55761 /* StrainSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchView.swift; sourceTree = "<group>"; };
 		492FA7442A22C0E000BE1414 /* KeyboardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTextField.swift; sourceTree = "<group>"; };
-		492FA7472A22DBAB00BE1414 /* NewCommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentRow.swift; sourceTree = "<group>"; };
+		492FA7472A22DBAB00BE1414 /* CommentReplyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyRow.swift; sourceTree = "<group>"; };
 		493796782A05E23800961978 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		4937967A2A05E53500961978 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		4937967C2A05E8EC00961978 /* RecommendedStrainsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedStrainsView.swift; sourceTree = "<group>"; };
@@ -465,7 +467,8 @@
 			isa = PBXGroup;
 			children = (
 				4926C2B42A1837A4007B8D30 /* UserCommentRow.swift */,
-				492FA7472A22DBAB00BE1414 /* NewCommentRow.swift */,
+				492FA7472A22DBAB00BE1414 /* CommentReplyRow.swift */,
+				4927E6242A2411D7004C818F /* NewCommentRow.swift */,
 			);
 			path = CommentRows;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 				4926C2792A153E39007B8D30 /* PostContentRow.swift in Sources */,
 				4926C2752A153D0D007B8D30 /* FeedView.swift in Sources */,
 				4926C2B52A1837A4007B8D30 /* UserCommentRow.swift in Sources */,
+				4927E6252A2411D7004C818F /* NewCommentRow.swift in Sources */,
 				4926C26D2A15234B007B8D30 /* ReviewUtil.swift in Sources */,
 				4937967B2A05E53500961978 /* DiscoverView.swift in Sources */,
 				4937967D2A05E8EC00961978 /* RecommendedStrainsView.swift in Sources */,
@@ -777,7 +781,7 @@
 				494195582A0F9F26000CEF39 /* GlobalData.swift in Sources */,
 				496782F32A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift in Sources */,
 				4941953C2A0DE218000CEF39 /* SystemImageRow.swift in Sources */,
-				492FA7482A22DBAB00BE1414 /* NewCommentRow.swift in Sources */,
+				492FA7482A22DBAB00BE1414 /* CommentReplyRow.swift in Sources */,
 				49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */,
 				4926C2382A109EBA007B8D30 /* StrainUtil.swift in Sources */,
 				4926C27B2A153F72007B8D30 /* UserUtil.swift in Sources */,

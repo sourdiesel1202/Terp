@@ -1,5 +1,6 @@
 [
-  {"user": "42069",
+    {"user":"42069", "achievements":[]},
+  {"user": "420",
         "achievements": [
           {
             "name": "Cake by the Pound",

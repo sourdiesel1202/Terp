@@ -2,17 +2,16 @@
 //  NewCommentRow.swift
 //  Flowr
 //
-//  Created by Andrew on 5/28/23.
+//  Created by Andrew on 5/27/23.
 //
 
 import SwiftUI
 
-struct NewCommentRow: View {
-    let post: Post
+struct CommentReplyRow: View {
+    let user: User
+    let replyTo: User
     @State var text: Binding<String>
     let action: () -> Void
-//    @State private var text: String = ""
-    
     var body: some View {
         VStack(alignment: .leading){
             HStack(alignment: .top){
@@ -27,7 +26,6 @@ struct NewCommentRow: View {
                         .frame(maxWidth: 90, maxHeight: 40)
                 }
                 })
-                
                 VStack(alignment: .leading){
                     Button(action: {
                         
@@ -38,22 +36,36 @@ struct NewCommentRow: View {
                     }
 //                    Text(self.text).font(.caption2)
                     HStack{
-                        TextField("Comment",text: self.text)
+                        TextField("Replying to @\(self.replyTo.username)'s comment",text: self.text)
                         Button(action: self.action, label: {
                             Text("Post").font(.caption)
                         })
                     }
+//                    Text("")
+//                    HStack(alignment: .center){
+//                        Image(systemName: "heart")
+//                        Text("69").font(.caption2).padding(.trailing)
+//                        Button(action: {}){
+//                            Text("Like").font(.caption)
+//                            //                            Image(systemName: "heart").frame(width: 10, height: 20)
+//                        }.padding([.trailing])
+//
+//                        Button(action: {}){
+//                            Text("Comment").font(.caption)
+//                            //                            Image(systemName: "message").frame(width: 10, height: 20)
+//                        }
+//
+//                    }
                 }
                 
                 Spacer()
             }
         }
     }
-
 }
 
-struct NewCommentRow_Previews: PreviewProvider {
+struct CommentReplyRow_Previews: PreviewProvider {
     static var previews: some View {
-        NewCommentRow(post: Post.example,text: .constant(""), action: {})
+        CommentReplyRow( user: User.example, replyTo: User.example, text: .constant(""), action: {})
     }
 }
