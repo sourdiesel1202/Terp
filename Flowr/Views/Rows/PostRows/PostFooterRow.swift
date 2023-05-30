@@ -12,7 +12,7 @@ struct PostFooterRow: View {
 //    @State private var buttonClicked: Bool = false
     @State private var comment: String = ""
     @State private var isShowingLikesSheet: Bool = false
-    @State private var isShowingCommentSheet: Bool = false
+//    @State private var isShowingCommentSheet: Bool = false
     @FocusState private var isCommentEditorActive: Bool
     var body: some View {
         VStack{
@@ -87,14 +87,14 @@ struct PostFooterRow: View {
 //                Text("\(post.likes.co)")
                 Spacer()
                 if post.comments.count > 0{
-                    Button(action: {
-                        self.isShowingCommentSheet=true
-                        self.isCommentEditorActive=true
-                    }){
-                        Text("\(post.comments.count) comments").padding(.trailing)
-                    }.sheet(isPresented: self.$isShowingCommentSheet, content: {
-                        ScrollView(.vertical){
+                    Button(action: {}){
+                        
+                        NavigationLink{
                             CommentView(post: self.post, replyingTo: Comment.example)
+                        }label:{
+                            Text("\(post.comments.count) comments").padding(.trailing)
+                        }
+                    }
 //                            ForEach(self.post.comments){ comment in
 //                                UserCommentRow(user: UserUtil.loadUserById(id: comment.user)!, text: comment.description).padding()
 //
@@ -114,11 +114,11 @@ struct PostFooterRow: View {
 //                                TextField("Post your reply", text: self.$comment).focused(self.$isCommentEditorActive)
 //
 //                            }
-                        }
+//                        }
                         
 //                        Spacer()
                         
-                    }).padding(.top)
+//                    }).padding(.top)
                 }else{
                     Text("")
                 }

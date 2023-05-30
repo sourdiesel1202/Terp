@@ -42,7 +42,11 @@ struct FeedView: View {
                     Image(systemName: "bell.fill").resizable().frame(width: 30, height: 30)
                 })
                 Button(action: {}, label: {
-                    Image(systemName: "bubble.left.and.bubble.right.fill").resizable().frame(width: 30, height: 30)
+                    NavigationLink{
+                        MessagesView(user: User.example)
+                    }label:{
+                        Image(systemName: "bubble.left.and.bubble.right.fill").resizable().frame(width: 30, height: 30)
+                    }
                 }).padding(.leading)
                 
             }.padding([.leading, .trailing])
