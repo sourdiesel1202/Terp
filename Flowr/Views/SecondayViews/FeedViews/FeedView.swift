@@ -34,7 +34,11 @@ struct FeedView: View {
             HStack{
                 
                 Button(action: {}, label: {
-                    Image(systemName: "magnifyingglass").resizable().frame(width: 30, height: 30)
+                    NavigationLink{
+                        SearchView()
+                    }label: {
+                        Image(systemName: "magnifyingglass").resizable().frame(width: 30, height: 30)
+                    }
                     
                 })
                 Spacer()

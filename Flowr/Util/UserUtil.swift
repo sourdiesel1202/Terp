@@ -12,6 +12,10 @@ struct UserUtil {
         //    return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
     
+    static func searchUsersByUsername(username: String)-> [User]{
+        return Bundle.main.decode([User].self, from: "users.json").filter({$0.username.contains(username)})
+//        return self.)
+    }
     static func loadUserDataMap(users: [String])->[DataMap]{
         var _res = [DataMap]()
         users.forEach(){ userId in

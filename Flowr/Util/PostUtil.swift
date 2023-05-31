@@ -11,8 +11,25 @@ struct PostUtil {
         return Bundle.main.decode([Post].self, from: "feed.json")
         //    return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
+    static func searchPostByHashtag(hashtag: String) -> [Post]{
+        self.loadPublicFeed().filter({$0.review.description.lowercased().contains(hashtag.lowercased()) && $0.review.isPublic})
+    }
     static func loadCircleFeed(user: User) -> [Post]{
         return [Post]()
+    }
+    
+    static func loadPostDataMap(posts: [Post]) -> [DataMap]{
+        var _res = [DataMap]()
+        posts.forEach(){ post in
+            if post.review.image.count > 0{
+                _res.append(DataMap(key: UserUtil.loadUserById(id: post.review.user).username , value: post.review.strain, view: PostDetailView(post: post), secondaryValue: post.review.description, image: post.review.image))
+                
+            }else{
+                _res.append(DataMap(key: UserUtil.loadUserById(id: post.review.user).username , value: post.review.strain, view: PostDetailView(post: post), secondaryValue: post.review.description))
+            }
+            
+        }
+        return _res
     }
     static func loadPostById(id: String)-> Post{
         var _post = Post.example
