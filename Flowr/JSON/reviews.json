@@ -10,6 +10,16 @@
             "image": "https://images.herb.co/wp-content/uploads/2018/09/Ricky-from-Trailer-Park-Boys-is-Dreading-Canadian-Cannabis-Legalization.jpg"
 
     },
+    {
+                "id": "1236",
+                "user": "420",
+                "strain": "Red Pop",
+                "rating": 2,
+                "isPublic": true,
+                "isCircle": true,
+                "description": "Not really my thing unfortunately",
+                "image": ""
+            },
   {
 
               "id": "1235",

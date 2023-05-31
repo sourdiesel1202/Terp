@@ -78,6 +78,14 @@
 		4927E63C2A269B76004C818F /* MessageSentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E63B2A269B76004C818F /* MessageSentRow.swift */; };
 		4927E63E2A269B84004C818F /* MessageRecievedRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E63D2A269B84004C818F /* MessageRecievedRow.swift */; };
 		4927E6402A269C36004C818F /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E63F2A269C36004C818F /* ChatBubble.swift */; };
+		4927E6422A26A66F004C818F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6412A26A66F004C818F /* Notification.swift */; };
+		4927E6452A26A881004C818F /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6442A26A881004C818F /* NotificationsView.swift */; };
+		4927E6482A26A8A9004C818F /* NotificationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6472A26A8A9004C818F /* NotificationRow.swift */; };
+		4927E64A2A26A8B5004C818F /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6492A26A8B5004C818F /* NotificationUtil.swift */; };
+		4927E64C2A26A917004C818F /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E64B2A26A917004C818F /* NotificationType.swift */; };
+		4927E64E2A26AC20004C818F /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E64D2A26AC20004C818F /* PostDetailView.swift */; };
+		4927E6502A26AD2B004C818F /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 4927E64F2A26AD2B004C818F /* notifications.json */; };
+		4927E6542A26C8F2004C818F /* ProfileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6532A26C8F2004C818F /* ProfileListView.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -212,6 +220,14 @@
 		4927E63B2A269B76004C818F /* MessageSentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSentRow.swift; sourceTree = "<group>"; };
 		4927E63D2A269B84004C818F /* MessageRecievedRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRecievedRow.swift; sourceTree = "<group>"; };
 		4927E63F2A269C36004C818F /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		4927E6412A26A66F004C818F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		4927E6442A26A881004C818F /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		4927E6472A26A8A9004C818F /* NotificationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRow.swift; sourceTree = "<group>"; };
+		4927E6492A26A8B5004C818F /* NotificationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
+		4927E64B2A26A917004C818F /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
+		4927E64D2A26AC20004C818F /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		4927E64F2A26AD2B004C818F /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
+		4927E6532A26C8F2004C818F /* ProfileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListView.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -298,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4927E6372A265399004C818F /* messages.json */,
+				4927E64F2A26AD2B004C818F /* notifications.json */,
 				49457CAD2A1EEDBD006AC383 /* strain_data.json */,
 				4926C2A22A16EAEE007B8D30 /* user_circle.json */,
 				4926C2982A166F45007B8D30 /* user_achievements.json */,
@@ -351,6 +368,7 @@
 				4926C2A62A16EB3F007B8D30 /* UserCircle.swift */,
 				4927E6292A2647A8004C818F /* Message.swift */,
 				4927E62B2A26497C004C818F /* MessageThread.swift */,
+				4927E6412A26A66F004C818F /* Notification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				4926C28D2A15BA2B007B8D30 /* ProfileView.swift */,
+				4927E6532A26C8F2004C818F /* ProfileListView.swift */,
 			);
 			path = ProfileViews;
 			sourceTree = "<group>";
@@ -476,6 +495,22 @@
 			path = MessageRows;
 			sourceTree = "<group>";
 		};
+		4927E6432A26A86F004C818F /* NotificationViews */ = {
+			isa = PBXGroup;
+			children = (
+				4927E6442A26A881004C818F /* NotificationsView.swift */,
+			);
+			path = NotificationViews;
+			sourceTree = "<group>";
+		};
+		4927E6462A26A896004C818F /* NotificationRows */ = {
+			isa = PBXGroup;
+			children = (
+				4927E6472A26A8A9004C818F /* NotificationRow.swift */,
+			);
+			path = NotificationRows;
+			sourceTree = "<group>";
+		};
 		492C535029FF3AA400C55761 = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +565,7 @@
 		4941953A2A0DE1F9000CEF39 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				4927E6462A26A896004C818F /* NotificationRows */,
 				4927E6322A264E0B004C818F /* MessageRows */,
 				492FA7462A22DB5E00BE1414 /* CommentRows */,
 				49C0C3692A1D2DE80046AB21 /* RatingRows */,
@@ -573,6 +609,7 @@
 		4941954C2A0ECFD5000CEF39 /* SecondayViews */ = {
 			isa = PBXGroup;
 			children = (
+				4927E6432A26A86F004C818F /* NotificationViews */,
 				4927E62F2A264DDD004C818F /* MessageViews */,
 				4927E6262A257268004C818F /* SearchViews */,
 				49B2FB402A22E2E100F1B545 /* PostViews */,
@@ -685,6 +722,7 @@
 				4926C2A42A16EAFF007B8D30 /* CircleUtil.swift */,
 				4926C2B02A172BB1007B8D30 /* DictionaryUtil.swift */,
 				4927E62D2A264CE1004C818F /* MessageUtil.swift */,
+				4927E6492A26A8B5004C818F /* NotificationUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -693,6 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				49B2FB412A22E2EC00F1B545 /* CommentView.swift */,
+				4927E64D2A26AC20004C818F /* PostDetailView.swift */,
 			);
 			path = PostViews;
 			sourceTree = "<group>";
@@ -724,6 +763,7 @@
 			isa = PBXGroup;
 			children = (
 				49C0C36E2A1D2F3B0046AB21 /* ConsumptionType.swift */,
+				4927E64B2A26A917004C818F /* NotificationType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -787,6 +827,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4926C2A32A16EAEE007B8D30 /* user_circle.json in Resources */,
+				4927E6502A26AD2B004C818F /* notifications.json in Resources */,
 				4927E6382A265399004C818F /* messages.json in Resources */,
 				4926C2832A15433C007B8D30 /* users.json in Resources */,
 				4926C2822A15433C007B8D30 /* reviews.json in Resources */,
@@ -819,6 +860,7 @@
 				4926C26D2A15234B007B8D30 /* ReviewUtil.swift in Sources */,
 				4937967B2A05E53500961978 /* DiscoverView.swift in Sources */,
 				4937967D2A05E8EC00961978 /* RecommendedStrainsView.swift in Sources */,
+				4927E64A2A26A8B5004C818F /* NotificationUtil.swift in Sources */,
 				49B37C1E2A0078A800C053FC /* Strain.swift in Sources */,
 				49457C9C2A1D82F8006AC383 /* DiscoverRecommendedStrainsRow.swift in Sources */,
 				4926C2542A13CF46007B8D30 /* FullWidthButton.swift in Sources */,
@@ -844,14 +886,17 @@
 				496782F32A204EE800EB7CF6 /* TerpeneDetailHeaderRow.swift in Sources */,
 				4941953C2A0DE218000CEF39 /* SystemImageRow.swift in Sources */,
 				492FA7482A22DBAB00BE1414 /* CommentReplyRow.swift in Sources */,
+				4927E6452A26A881004C818F /* NotificationsView.swift in Sources */,
 				4927E63A2A269B0B004C818F /* MessagesRow.swift in Sources */,
 				49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */,
+				4927E6542A26C8F2004C818F /* ProfileListView.swift in Sources */,
 				4926C2382A109EBA007B8D30 /* StrainUtil.swift in Sources */,
 				4926C27B2A153F72007B8D30 /* UserUtil.swift in Sources */,
 				4926C2612A147AC8007B8D30 /* AchievementDetailView.swift in Sources */,
 				494195402A0DE480000CEF39 /* AccountSettingsView.swift in Sources */,
 				492C537029FF3B2D00C55761 /* StrainDetailView.swift in Sources */,
 				4926C26F2A152843007B8D30 /* User.swift in Sources */,
+				4927E64E2A26AC20004C818F /* PostDetailView.swift in Sources */,
 				4926C2A52A16EAFF007B8D30 /* CircleUtil.swift in Sources */,
 				4926C2AB2A170D42007B8D30 /* ProfileTerpeneRow.swift in Sources */,
 				49457C962A1D5282006AC383 /* ShowInPublicFeedHelpView.swift in Sources */,
@@ -866,6 +911,7 @@
 				49C0C3682A1D12E10046AB21 /* StrainRateDescriptionRow.swift in Sources */,
 				496782F72A2051EE00EB7CF6 /* TerpeneDetailEffectAromaRow.swift in Sources */,
 				49B37C1A2A00753200C053FC /* JSONLoader.swift in Sources */,
+				4927E6482A26A8A9004C818F /* NotificationRow.swift in Sources */,
 				4927E6342A264E2D004C818F /* MessageThreadRow.swift in Sources */,
 				4927E6362A264F72004C818F /* UserImageThumbnail.swift in Sources */,
 				49B9F6022A1D3A2800FB86FB /* StrainRateHeaderRow.swift in Sources */,
@@ -875,6 +921,7 @@
 				4926C2A12A16E8C5007B8D30 /* ProfileCircleRow.swift in Sources */,
 				4926C2692A152205007B8D30 /* Comment.swift in Sources */,
 				49C0C36F2A1D2F3B0046AB21 /* ConsumptionType.swift in Sources */,
+				4927E64C2A26A917004C818F /* NotificationType.swift in Sources */,
 				49C0C36C2A1D2E470046AB21 /* StrainRateConsumptionRow.swift in Sources */,
 				4926C2362A10936B007B8D30 /* NavigationUtil.swift in Sources */,
 				492C536929FF3AA800C55761 /* Flowr.xcdatamodeld in Sources */,
@@ -924,6 +971,7 @@
 				4926C2AF2A1729E3007B8D30 /* TerpeneEffectAromaView.swift in Sources */,
 				494195462A0ECD25000CEF39 /* TerpeneListView.swift in Sources */,
 				493796792A05E23800961978 /* MainTabView.swift in Sources */,
+				4927E6422A26A66F004C818F /* Notification.swift in Sources */,
 				494195502A0ED587000CEF39 /* StrainSearch.swift in Sources */,
 				49457CA82A1E7DC7006AC383 /* HorizontalAchievementsRow.swift in Sources */,
 				4926C2952A1667C0007B8D30 /* ViewDivider.swift in Sources */,

@@ -35,6 +35,6 @@ struct Comment: Codable, Identifiable, Hashable{
     var replies: [Comment]?
     
 #if DEBUG
-    static let example = Comment(id: "1234",user: "123456", description: "Fuck Ricky, they can't arrest you now, you're stoned!")
+    static let example = Comment(id: "1234",user: User.example.id, description: "Fuck Ricky, they can't arrest you now, you're stoned!")
 #endif
 }

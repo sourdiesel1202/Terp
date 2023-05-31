@@ -14,6 +14,16 @@ struct PostUtil {
     static func loadCircleFeed(user: User) -> [Post]{
         return [Post]()
     }
+    static func loadPostById(id: String)-> Post{
+        var _post = Post.example
+        self.loadPublicFeed().forEach(){ post in
+            if post.id == id{
+                _post = post
+            }
+            
+        }
+        return _post
+    }
     
     static func loadPublicUserFeed(user: User) -> [Post]{
         return Bundle.main.decode([Post].self, from: "feed.json").filter({$0.review.user==user.id && $0.review.isPublic})
@@ -25,7 +35,7 @@ struct PostUtil {
         //ok so this is a hack until we can call lambda
         var feed = [Post]()
         self.loadPublicFeed().forEach(){ p in
-            var tmpPost = Post(review: p.review, likes: p.likes, comments: p.comments)
+            var tmpPost = Post(id: p.id, review: p.review, likes: p.likes, comments: p.comments)
             if p.id==post.id{
                 if !p.likes.contains(where: {$0.user == user.id}){
                     print("Liking Post")
@@ -45,7 +55,7 @@ struct PostUtil {
         //ok so this is a hack until we can call lambda
         var feed = [Post]()
         self.loadPublicFeed().forEach(){ p in
-            var tmpPost = Post(review: p.review, likes: p.likes, comments: p.comments)
+            var tmpPost = Post(id: p.id,review: p.review, likes: p.likes, comments: p.comments)
             if p.review.id==post.review.id && p.review.user == post.review.user{
                 print("UnLiking Post")
                 if p.likes.contains(where: {$0.user == user.id}){

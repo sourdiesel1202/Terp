@@ -39,7 +39,11 @@ struct FeedView: View {
                 })
                 Spacer()
                 Button(action: {}, label: {
-                    Image(systemName: "bell.fill").resizable().frame(width: 30, height: 30)
+                    NavigationLink{
+                        NotificationsView()
+                    }label:{
+                        Image(systemName: "bell.fill").resizable().frame(width: 30, height: 30)
+                    }
                 })
                 Button(action: {}, label: {
                     NavigationLink{

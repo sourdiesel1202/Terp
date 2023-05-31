@@ -22,16 +22,17 @@ import SwiftUI
 struct Post: Codable, Identifiable, Hashable{
 //    var name: String
     enum CodingKeys: CodingKey{
+        case id
         case review
         case likes
         case comments
         
     }
-    var id = UUID()
+    var id: String
     var review: Review
     var likes: [Like]
     var comments: [Comment]
 #if DEBUG
-    static let example = Post(review: Review.example, likes: [Like.example], comments: [Comment.example])
+    static let example = Post(id: "1234", review: Review.example, likes: [Like.example], comments: [Comment.example])
 #endif
 }

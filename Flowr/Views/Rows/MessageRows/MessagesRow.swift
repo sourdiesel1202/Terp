@@ -10,10 +10,18 @@ import SwiftUI
 struct MessagesRow: View {
     let messageThread: MessageThread
     var body: some View {
-        VStack(alignment: .center){
-            UserImageThumbnail(user: self.messageThread.user).frame(width: 200, height: 200)
-            Text("\(self.messageThread.user.username)").font(.headline).fontWeight(.bold)
-            ScrollView(.vertical){
+        ScrollView(.vertical){
+            VStack(alignment: .center){
+                Button(action: {}){
+                    NavigationLink{
+                        ProfileView(user: self.messageThread.user)
+                    } label: {
+                        UserImageThumbnail(user: self.messageThread.user).frame(width: 200, height: 200)
+                        
+                    }
+                }.padding()
+                Text("\(self.messageThread.user.username)").font(.headline).fontWeight(.bold).padding(.bottom)
+                
                 //            Spacer()
                 ForEach(self.messageThread.messages){ message in
                     HStack{

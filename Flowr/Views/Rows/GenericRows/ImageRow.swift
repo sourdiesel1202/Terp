@@ -16,7 +16,7 @@ struct ImageRow: Row, View {
             HStack(){
                 if self.image != nil{
                     if self.image!.contains("http"){
-                        URLImage(url: self.image!, shape: AnyShape(Circle())).frame(width: 75, height: 75)
+                        URLImage(url: self.image!, shape: AnyShape(Circle())).frame(width: 90, height: 90)
                     }
                 }else{
                     CircleText(text: self.title, color: .blue)

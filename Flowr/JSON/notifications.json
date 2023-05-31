@@ -1,0 +1,33 @@
+[
+  {
+    "id": "123",
+    "type": "system",
+    "content": "This is a test",
+    "read": true,
+    "date": "04-20-2023 16:20:45"
+  },
+  {
+    "id": "124",
+    "type": "comment",
+    "content": "@hotchick420 replied to your comment on @whosegonnausehername's post",
+    "read": false,
+    "objectId": "123",
+    "date": "04-20-2023 16:20:45"
+  },
+  {
+    "id": "125",
+    "type": "follower",
+    "content": "@whosegonnauserhername started following you!",
+    "read": false,
+    "objectId": "42069",
+    "date": "04-20-2023 16:20:55"
+  },
+  {
+    "id": "126",
+    "type": "like",
+    "content": "@whosegonnauserhername liked your post",
+    "read": false,
+    "objectId": "42069",
+    "date": "04-20-2023 16:20:55"
+  }
+]
