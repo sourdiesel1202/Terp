@@ -18,7 +18,7 @@ struct MainTabView: View {
                NavigationView{ProfileView(user: User.example)}.tabItem{
                    Label("Profile", systemImage: "person.fill")
                }
-               NavigationView{StrainSearchView(strains: StrainUtil.loadStrains())}.tabItem {
+               NavigationView{StrainSearchView()}.tabItem {
                        Label("Strain Search", systemImage: "magnifyingglass.circle")
                    }
                

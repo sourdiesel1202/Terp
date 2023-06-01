@@ -86,6 +86,7 @@
 		4927E64E2A26AC20004C818F /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E64D2A26AC20004C818F /* PostDetailView.swift */; };
 		4927E6502A26AD2B004C818F /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 4927E64F2A26AD2B004C818F /* notifications.json */; };
 		4927E6542A26C8F2004C818F /* ProfileReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6532A26C8F2004C818F /* ProfileReviewList.swift */; };
+		4927E6592A28F885004C818F /* StrainSearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6582A28F885004C818F /* StrainSearchResultRow.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -228,6 +229,7 @@
 		4927E64D2A26AC20004C818F /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		4927E64F2A26AD2B004C818F /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
 		4927E6532A26C8F2004C818F /* ProfileReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewList.swift; sourceTree = "<group>"; };
+		4927E6582A28F885004C818F /* StrainSearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchResultRow.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -511,6 +513,14 @@
 			path = NotificationRows;
 			sourceTree = "<group>";
 		};
+		4927E6572A28F86F004C818F /* StrainSearchRows */ = {
+			isa = PBXGroup;
+			children = (
+				4927E6582A28F885004C818F /* StrainSearchResultRow.swift */,
+			);
+			path = StrainSearchRows;
+			sourceTree = "<group>";
+		};
 		492C535029FF3AA400C55761 = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +575,7 @@
 		4941953A2A0DE1F9000CEF39 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				4927E6572A28F86F004C818F /* StrainSearchRows */,
 				4927E6462A26A896004C818F /* NotificationRows */,
 				4927E6322A264E0B004C818F /* MessageRows */,
 				492FA7462A22DB5E00BE1414 /* CommentRows */,
@@ -919,6 +930,7 @@
 				4926C25C2A147845007B8D30 /* Achievement.swift in Sources */,
 				4926C2632A151DD0007B8D30 /* Review.swift in Sources */,
 				4926C2A12A16E8C5007B8D30 /* ProfileCircleRow.swift in Sources */,
+				4927E6592A28F885004C818F /* StrainSearchResultRow.swift in Sources */,
 				4926C2692A152205007B8D30 /* Comment.swift in Sources */,
 				49C0C36F2A1D2F3B0046AB21 /* ConsumptionType.swift in Sources */,
 				4927E64C2A26A917004C818F /* NotificationType.swift in Sources */,
