@@ -27,6 +27,9 @@ struct StrainUtil{
         }
         return _res
     }
+    static func searchStrainByName(name: String)-> [Strain]{
+        return self.loadStrains().filter({$0.name.lowercased().contains(name.lowercased())})
+    }
     static func loadStrainsByTerpene(terpene: Terpene, strains: [Strain]) -> [Strain]{
         
         var _res = [Strain]()

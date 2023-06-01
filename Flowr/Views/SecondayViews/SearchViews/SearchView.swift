@@ -44,14 +44,14 @@ struct SearchView: View {
                 
             //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(inline).listStyle(GroupedListStyle())
             //            //        .padding()
-        }.navigationBarTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle()).searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search")
+        }.navigationBarTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle()).searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "use @ to search users, # to search posts")
     }
     
     var searchResults: [DataMap] {
             if searchText.isEmpty {
                 return data
             } else {
-                if self.searchText.count < 2{
+                if self.searchText.count < 3{
                     return [DataMap]()
                 }
                 
@@ -60,8 +60,19 @@ struct SearchView: View {
                     return UserUtil.loadUserDataMap(users: UserUtil.searchUsersByUsername(username: self.searchText.replacingOccurrences(of: "@", with: "")))
                 } else if self.searchText.hasPrefix("#"){ //post search
                     return PostUtil.loadPostDataMap(posts: PostUtil.searchPostByHashtag(hashtag: searchText.replacingOccurrences(of: "#", with: "")))
+                }else{
+                    // ok so here we're going to load strains, terpenes, aromas and effects
+                    var _res = [DataMap]()
+                    StrainUtil.loadStrainDataMap(strains: StrainUtil.searchStrainByName(name: self.searchText)).forEach(){ dm in
+                        _res.append(dm)
+                    }
+                    //do terpenes next
+                    TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.searchTerpenesByName(name: self.searchText)).forEach(){ dm in
+                        _res.append(dm)
+                    }
+                    return _res
                 }
-                return data.filter { $0.key.lowercased().contains(searchText.lowercased())  ||  $0.value.lowercased().contains(searchText.lowercased()) }
+//                return data.filter { $0.key.lowercased().contains(searchText.lowercased())  ||  $0.value.lowercased().contains(searchText.lowercased()) }
             }
         }
 

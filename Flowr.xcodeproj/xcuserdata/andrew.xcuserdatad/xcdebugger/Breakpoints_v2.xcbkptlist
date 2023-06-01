@@ -452,5 +452,53 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "099F1C46-78D3-429E-B7FE-550F3738D48A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Flowr/Views/SecondayViews/SearchViews/SearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "searchResults"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "099F1C46-78D3-429E-B7FE-550F3738D48A - a8f73587ec338041"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Flowr.SearchView.searchResults.getter : Swift.Array&lt;Flowr.DataMap&gt;"
+                  moduleName = "Flowr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Flowr/Views/SecondayViews/SearchViews/SearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "2550">
+               </Location>
+               <Location
+                  uuid = "099F1C46-78D3-429E-B7FE-550F3738D48A - c80d7f76ab6a352"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Flowr.DataMap) -&gt; () in Flowr.SearchView.searchResults.getter : Swift.Array&lt;Flowr.DataMap&gt;"
+                  moduleName = "Flowr"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Flowr/Views/SecondayViews/SearchViews/SearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

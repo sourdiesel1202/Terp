@@ -12,6 +12,9 @@ struct TerpeneUtil{
         return Bundle.main.decode([Terpene].self, from: "terpene.json")
         //    return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
+    static func searchTerpenesByName(name: String) -> [Terpene]{
+        return self.loadTerpenes().filter({$0.name.lowercased().contains(name.lowercased())})
+    }
     static func loadTerpenesByAroma(aroma: String, terpenes: [Terpene]) -> [Terpene]{
         var _res = [Terpene]()
         terpenes.forEach { terpene in
