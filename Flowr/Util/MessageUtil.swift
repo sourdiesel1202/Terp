@@ -12,6 +12,16 @@ struct MessageUtil {
     static func sendMessage(messageThread: MessageThread, message: Message){
         
     }
+    static func generateMessageThreadId()-> String{
+        return "123\(Int.random(in: 50...100))"
+    }
+    static func loadMessageThreadByUser(user: User, target: User) -> MessageThread{
+        if loadUserMessageThreads(user: user).filter({$0.user.id == target.id}).count == 0{
+            return MessageThread(id: generateMessageThreadId(), user: target, messages: [Message]())
+        } else{
+            return loadUserMessageThreads(user: user).filter({$0.user.id == target.id}).first!
+        }
+    }
 }
 //import SwiftUI
 //

@@ -33,7 +33,32 @@ struct ProfileHeaderRow: View {
 //                Text("🇺🇸").font(.title)
                 VStack{
                     Text("Joined 2023").font(.caption2)
-                    FollowButton(user: self.user).padding(.bottom)
+                    
+                    HStack{
+                        Button(action: {
+                            print("Follow button clicked")
+                        }){
+                            
+                                FollowMessageButton(user: self.user, text: "Follow", action: {}).padding(.bottom)
+                            
+                        }
+                        
+                        
+                        Button(action: {
+                            print("Message button clicked")
+                        }){
+                            NavigationLink{
+                                MessagesRow(messageThread: MessageUtil.loadMessageThreadByUser(user: User.example, target: self.user))
+                            }label:{
+                                
+                                FollowMessageButton(user: self.user, text: "Message", action: {}).padding(.bottom)
+                            }
+                        }
+                        
+                    }
+//                    Button(action: {}){
+//                        Text("Follow").font(.subheadline)
+//                    }
 //                    FullWidthText(text: "Follow").frame(width: 100,height: 10)
                 }
                 
