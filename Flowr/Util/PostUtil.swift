@@ -88,6 +88,10 @@ struct PostUtil {
         Bundle.main.writeJson(filename: "feed.json", jsonData: jsonString)
     }
     
+    static func loadPostsByUser(user: User) -> [Post]{
+        return Bundle.main.decode([Post].self, from: "feed.json").filter({$0.review.user==user.id})
+    }
+    
 //    static func loadPublicPostsByUser(user: User) -> [Post]{
 //
 //    }

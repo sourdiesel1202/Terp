@@ -24,8 +24,9 @@ struct ProfileReviewsRow: View {
                     Text("Reviews (\(self.reviews.count))").padding([.leading,.bottom]).font(.caption)
                     Spacer()
                     NavigationLink{
-                        ContentView()
+                        ProfileReviewList(user: self.user)
                     }label: {
+//                        NavigationLink{}label"
                         Text("View All").font(.caption).padding([.bottom,.trailing])
                     }
                 }
@@ -54,10 +55,14 @@ struct ProfileReviewsRow: View {
                         }
                         if self.reviews.count > 3{
                             Button(action: {}){
-                                VStack{
-                                    Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.gray)
-                                    Text("View All").font(.caption2).fontWeight(.bold).foregroundColor(.gray)
-                                    
+                                NavigationLink{
+                                    ProfileReviewList(user: self.user)
+                                }label:{
+                                    VStack{
+                                        Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.gray)
+                                        Text("View All").font(.caption2).fontWeight(.bold).foregroundColor(.gray)
+                                        
+                                    }
                                 }
                             }.padding([.leading,.trailing])
                         }

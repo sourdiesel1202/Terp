@@ -23,6 +23,7 @@ struct ProfileView: View {
                     ViewDivider(height: 2)
                     ProfileCircleRow(user: self.user)
                     ViewDivider(height: 2)
+                    
                     ProfileFeedRow(user: self.user)
                     ViewDivider(height: 2)
                 }

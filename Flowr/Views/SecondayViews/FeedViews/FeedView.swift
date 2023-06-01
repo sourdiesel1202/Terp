@@ -17,17 +17,6 @@ struct FeedView: View {
                 ForEach(self.posts) { (post: Post) in
                     FeedRow(post: post).padding(.bottom).padding(.top)
                     ViewDivider(height: 4)
-                        
-//                        RoundedRectangle(cornerRadius: 16)
-//                            .stroke(.blue, lineWidth: 4)
-                    
-                    //                PostHeaderRow(user: UserUtil.loadUserById(id: post.review.user), postDate: "April 20th, 2023")
-                    //                    HStack{
-                    //                        PostHeaderRow(user: UserUtil.loadUserById(id: post.review.user)!, postDate: "April 20th, 2023").padding(.bottom)
-                    //                    }
-                    //                PostContentRow(post: post)
-                    
-                    
                 }
             }
         }.safeAreaInset(edge: .top) {
