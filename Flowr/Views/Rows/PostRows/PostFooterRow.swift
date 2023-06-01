@@ -44,10 +44,16 @@ struct PostFooterRow: View {
                     }
                 Spacer()
                 Button(action: {}){
-                    Image(systemName: "bubble.left").resizable().frame(width: 30, height: 30).padding(.trailing).padding(.bottom).padding(.top)
                     
                     
+                    NavigationLink{
+                        CommentView(post: self.post, replyingTo: Comment.example)
+                    }label:{
+                        Image(systemName: "bubble.left").resizable().frame(width: 30, height: 30).padding(.trailing).padding(.bottom).padding(.top)
+                    }
                 }
+                    
+                
                 
             }
             Divider()
@@ -95,30 +101,6 @@ struct PostFooterRow: View {
                             Text("\(post.comments.count) comments").padding(.trailing)
                         }
                     }
-//                            ForEach(self.post.comments){ comment in
-//                                UserCommentRow(user: UserUtil.loadUserById(id: comment.user)!, text: comment.description).padding()
-//
-//                            }
-//                            NewCommentRow(user: User.example)
-//                            KeyboardTextField()
-//                            TextField("Enter your name", text: )
-//                                        .textFieldStyle(.roundedBorder)
-//                                        .toolbar {
-//                                            ToolbarItemGroup(placement: .keyboard) {
-//                                                Button("Click me!") {
-//                                                    print("Clicked")
-//                                                }
-//                                            }
-//                                        }
-//                            VStack(alignment: .trailing){
-//                                TextField("Post your reply", text: self.$comment).focused(self.$isCommentEditorActive)
-//
-//                            }
-//                        }
-                        
-//                        Spacer()
-                        
-//                    }).padding(.top)
                 }else{
                     Text("")
                 }
