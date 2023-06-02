@@ -15,6 +15,7 @@ struct TerpeneUtil{
     static func searchTerpenesByName(name: String) -> [Terpene]{
         return self.loadTerpenes().filter({$0.name.lowercased().contains(name.lowercased())})
     }
+//    static func search
     static func loadTerpenesByAroma(aroma: String, terpenes: [Terpene]) -> [Terpene]{
         var _res = [Terpene]()
         terpenes.forEach { terpene in
@@ -60,6 +61,36 @@ struct TerpeneUtil{
         }
         return _res.sorted {
             $0.name < $1.name
+        }
+    }
+    
+    static func loadAromas()->[String]{
+        var _res = [String]()
+        self.loadTerpenes().forEach { terpene in
+            terpene.aromas.forEach { aroma in
+                if !_res.contains(aroma){
+                    _res.append(aroma)
+                }
+            }
+        }
+//        }
+        return _res.sorted {
+            $0 < $1
+        }
+    }
+    
+    static func loadEffects()->[String]{
+        var _res = [String]()
+        self.loadTerpenes().forEach { terpene in
+            terpene.effects.forEach { effect in
+                if !_res.contains(effect){
+                    _res.append(effect)
+                }
+            }
+        }
+//        }
+        return _res.sorted {
+            $0 < $1
         }
     }
     
@@ -127,7 +158,7 @@ struct TerpeneUtil{
     static func loadTerpeneDataMap(terpenes: [Terpene]) -> [DataMap]{
         var _terpenes = [DataMap]()
         terpenes.forEach {
-            _terpenes.append(DataMap(key: $0.name, value: "", view: TerpeneDetailView(terpene: $0)))
+            _terpenes.append(DataMap(key: $0.name, value: DictionaryUtil.loadDescription(text: $0.name), view: TerpeneDetailView(terpene: $0)))
         }
         return _terpenes.sorted {
             $0.key < $1.value
@@ -147,6 +178,14 @@ struct TerpeneUtil{
         }
     }
     
+    static func searchEffects(query: String)->[String]{
+        return self.loadEffects().filter({$0.lowercased() == query.lowercased()})
+//        self.loadAromas().forEach(<#T##body: (String) throws -> Void##(String) throws -> Void#>)
+    }
+    static func searchAromas(query: String)->[String]{
+//        var _res = [String]()
+        return self.loadAromas().filter({$0.lowercased() == query.lowercased()})
+    }
     static func loadAromaEffectDataMap(data: [String])-> [DataMap]{
         var _res = [DataMap]()
         data.forEach(){ ae in

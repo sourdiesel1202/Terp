@@ -12,25 +12,37 @@ struct ImageRow: Row, View {
     var secondaryDescription: String?
     var image: String?
     var body: some View {
-        VStack (alignment: .leading){
-            HStack(){
-                if self.image != nil{
-                    if self.image!.contains("http"){
-                        URLImage(url: self.image!, shape: AnyShape(Circle())).frame(width: 90, height: 90)
+        VStack{
+            VStack (alignment: .leading){
+                HStack(){
+                    if self.image != nil{
+                        if self.image!.contains("http"){
+                            URLImage(url: self.image!, shape: AnyShape(Circle())).frame(width: 90, height: 90)
+                        }
+                    }else{
+                        CircleText(text: self.title, color: .blue)
                     }
-                }else{
-                    CircleText(text: self.title, color: .blue)
+                    VStack(alignment: .leading){
+                        Text(self.title).fontWeight(.bold)
+                        
+                        if self.secondaryDescription != nil{
+                            Text(self.secondaryDescription!).font(.caption)
+                        }
+                    }
+                    
                 }
-                VStack(alignment: .leading){
-                    Text(self.title).fontWeight(.bold)
-                    Text(self.description)
-                    if self.secondaryDescription != nil{
-                        Text(self.secondaryDescription!)
-                    }
-                }.padding([.leading])
+                
+                Text(self.description)
             }
+//            VStack(alignment: .leading){
+                
+//            }
+            
+            
+            
         }
     }
+    
 }
 
 struct ImageRow_Previews: PreviewProvider {

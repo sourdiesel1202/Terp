@@ -70,6 +70,15 @@ struct SearchView: View {
                     TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.searchTerpenesByName(name: self.searchText)).forEach(){ dm in
                         _res.append(dm)
                     }
+                    
+//                    TerpeneUtil.search
+                    TerpeneUtil.loadAromaEffectDataMap(data: TerpeneUtil.searchEffects(query: self.searchText)).forEach(){ dm in
+//                        dm.secondaryValue = "Aroma"
+                        _res.append(DataMap(key: dm.key, value: dm.value, view: dm.view, secondaryValue: "Effect"))
+                    }
+                    TerpeneUtil.loadAromaEffectDataMap(data: TerpeneUtil.searchAromas(query: self.searchText)).forEach(){ dm in
+                        _res.append(DataMap(key: dm.key, value: dm.value, view: dm.view, secondaryValue: "Aroma"))
+                    }
                     return _res
                 }
 //                return data.filter { $0.key.lowercased().contains(searchText.lowercased())  ||  $0.value.lowercased().contains(searchText.lowercased()) }

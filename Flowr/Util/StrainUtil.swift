@@ -83,7 +83,7 @@ struct StrainUtil{
     static func loadStrainDataMap(strains: [Strain])->[DataMap]{
         var _res = [DataMap]()
         strains.forEach { strain in
-            _res.append(DataMap(key: strain.name, value: strain.type, view: StrainDetail2_0View(strain: strain)))
+            _res.append(DataMap(key: strain.name, value: "\(strain.description.prefix(150))...", view: StrainDetail2_0View(strain: strain), secondaryValue: strain.terpenes.count > 0 ? "Terpenes: \(strain.terpenes.joined(separator: ",")) ": "", image: strain.image))
         }
         return _res
     }
