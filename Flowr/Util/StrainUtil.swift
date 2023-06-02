@@ -14,6 +14,29 @@ struct StrainUtil{
 //    static func loadPublicReviewsByStrain(strain: Strain) -> [Review]{
 //        return ReviewUtil.loadReviewsByUser(user: <#T##User#>)
 //    }
+    static func loadStrainChildren(strain: Strain) -> [Strain]{
+        return self.loadStrains().filter({$0.parents.contains(where: {$0.lowercased() == strain.name.lowercased()})})
+    }
+    static func loadStrainParents(strain: Strain) -> [Strain]{
+        var _res = [Strain]()
+        strain.parents.forEach(){ name in
+            if self.loadStrains().contains(where: {$0.name.lowercased()==name.lowercased()}){
+                _res.append(self.loadStrainByName(name: name)!)
+            }
+//            do{
+//
+//                let strain = try self.loadStrainByName(name: name)!
+//                _res.append(strain)
+//
+//            } catch{
+//                _res.append(Strain(url: "//URL Information Not Available", name: name, description: "Description Not Available", image: "", terpenes: [String](), children: [strain.name], parents: [String](), aliases: [String](), type: "Not Available"))
+//
+//            }
+            
+        }
+        return _res
+        
+    }
     static func loadStrainsByTerpene(terpene: Terpene) -> [Strain]{
         
         var _res = [Strain]()

@@ -87,6 +87,8 @@
 		4927E6502A26AD2B004C818F /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 4927E64F2A26AD2B004C818F /* notifications.json */; };
 		4927E6542A26C8F2004C818F /* ProfileReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6532A26C8F2004C818F /* ProfileReviewList.swift */; };
 		4927E6592A28F885004C818F /* StrainSearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E6582A28F885004C818F /* StrainSearchResultRow.swift */; };
+		4927E65B2A2961F7004C818F /* StrainDetailLineageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E65A2A2961F7004C818F /* StrainDetailLineageRow.swift */; };
+		4927E65D2A297389004C818F /* StrainDetailSourcesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927E65C2A297389004C818F /* StrainDetailSourcesRow.swift */; };
 		492C535D29FF3AA400C55761 /* FlowrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535C29FF3AA400C55761 /* FlowrApp.swift */; };
 		492C535F29FF3AA400C55761 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492C535E29FF3AA400C55761 /* ContentView.swift */; };
 		492C536129FF3AA800C55761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 492C536029FF3AA800C55761 /* Assets.xcassets */; };
@@ -230,6 +232,8 @@
 		4927E64F2A26AD2B004C818F /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
 		4927E6532A26C8F2004C818F /* ProfileReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReviewList.swift; sourceTree = "<group>"; };
 		4927E6582A28F885004C818F /* StrainSearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainSearchResultRow.swift; sourceTree = "<group>"; };
+		4927E65A2A2961F7004C818F /* StrainDetailLineageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailLineageRow.swift; sourceTree = "<group>"; };
+		4927E65C2A297389004C818F /* StrainDetailSourcesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainDetailSourcesRow.swift; sourceTree = "<group>"; };
 		492C535929FF3AA400C55761 /* Flowr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		492C535C29FF3AA400C55761 /* FlowrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowrApp.swift; sourceTree = "<group>"; };
 		492C535E29FF3AA400C55761 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 				49C0C3632A1D10840046AB21 /* StrainRateStarsRow.swift */,
 				49C0C3672A1D12E10046AB21 /* StrainRateDescriptionRow.swift */,
 				49457C9D2A1D8445006AC383 /* HorizontalStrainListRow.swift */,
+				4927E65A2A2961F7004C818F /* StrainDetailLineageRow.swift */,
+				4927E65C2A297389004C818F /* StrainDetailSourcesRow.swift */,
 			);
 			path = StrainRows;
 			sourceTree = "<group>";
@@ -900,6 +906,8 @@
 				4927E6452A26A881004C818F /* NotificationsView.swift in Sources */,
 				4927E63A2A269B0B004C818F /* MessagesRow.swift in Sources */,
 				49746DC42A039B66002ED1B0 /* StrainSearchRow.swift in Sources */,
+				4927E65B2A2961F7004C818F /* StrainDetailLineageRow.swift in Sources */,
+				4927E65D2A297389004C818F /* StrainDetailSourcesRow.swift in Sources */,
 				4927E6542A26C8F2004C818F /* ProfileReviewList.swift in Sources */,
 				4926C2382A109EBA007B8D30 /* StrainUtil.swift in Sources */,
 				4926C27B2A153F72007B8D30 /* UserUtil.swift in Sources */,

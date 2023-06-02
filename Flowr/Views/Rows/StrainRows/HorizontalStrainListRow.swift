@@ -12,23 +12,41 @@ struct HorizontalStrainListRow: View {
     var body: some View {
         ScrollView(.horizontal){
             HStack(alignment: .top){
-                
-                ForEach(self.strains[0...3]){ (strain:Strain) in
-                    Button(action: {}){
-                        NavigationLink {
-                            StrainDetail2_0View(strain: strain)
-                        }label: {
-                            VStack{
-                                URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                
-                                Text(strain.name).font(.caption).fontWeight(.bold)
-                                
-                            }.padding([.trailing])
+                if self.strains.count > 3 {
+                    ForEach(self.strains[0...3]){ (strain:Strain) in
+                        Button(action: {}){
+                            NavigationLink {
+                                StrainDetail2_0View(strain: strain)
+                            }label: {
+                                VStack{
+                                    URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
+                                    
+                                    Text(strain.name).font(.caption).fontWeight(.bold)
+                                    
+                                }.padding([.trailing])
+                            }
                         }
+                        
                     }
-                    
-                    
+                }else{
+                    ForEach(self.strains[0..<self.strains.count]){ (strain:Strain) in
+                        Button(action: {}){
+                            NavigationLink {
+                                StrainDetail2_0View(strain: strain)
+                            }label: {
+                                VStack{
+                                    URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
+                                    
+                                    Text(strain.name).font(.caption).fontWeight(.bold)
+                                    
+                                }.padding([.trailing])
+                            }
+                        }
+                        
+                    }
                 }
+                
+                
                 if self.strains.count > 3{
                     Button(action: {}){
                         NavigationLink{
