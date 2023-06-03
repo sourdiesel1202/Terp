@@ -67,7 +67,7 @@ struct SearchView: View {
                         _res.append(dm)
                     }
                     //do terpenes next
-                    TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.searchTerpenesByName(name: self.searchText)).forEach(){ dm in
+                    TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.searchTerpenesByName(name:   self.searchText)).forEach(){ dm in
                         _res.append(dm)
                     }
                     
