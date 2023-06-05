@@ -10,10 +10,10 @@ import SwiftUI
 struct TerpeneListView: View {
     
     @State private var searchText = ""
-    let data = Bundle.main.decode([Terpene].self, from: "terpene.json")
+    let data = Bundle.main.decode([TerpeneJSON].self, from: "terpene.json")
     var body: some View {
         NavigationStack {List {
-            ForEach(data) {(terpene: Terpene) in
+            ForEach(data) {(terpene: TerpeneJSON) in
                 NavigationLink {
                     TerpeneDetailView(terpene: terpene)
                 } label: {
@@ -21,7 +21,7 @@ struct TerpeneListView: View {
                     BasicRow(title: terpene.name, description: "")
                 }
             }
-        }.navigationDestination(for: Terpene.self) { terpene in
+        }.navigationDestination(for: TerpeneJSON.self) { terpene in
             TerpeneDetailView(terpene: terpene)
             //        }.navigationDestination(for: StrainDetail.self) { strain in
             //            StrainDetail(strain: (strain: Strain))

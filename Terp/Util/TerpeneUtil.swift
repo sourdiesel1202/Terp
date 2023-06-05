@@ -6,18 +6,22 @@
 //
 
 import Foundation
-//import SwiftUI
+import SwiftUI
+import CoreData
+
 struct TerpeneUtil{
-    static func loadTerpenes() -> [Terpene]  {
-        return Bundle.main.decode([Terpene].self, from: "terpene.json")
+//    @Environment(\.managedObjectContext) private var viewContext
+    
+    static func loadTerpenes() -> [TerpeneJSON]  {
+        return Bundle.main.decode([TerpeneJSON].self, from: "terpene.json")
         //    return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
-    static func searchTerpenesByName(name: String) -> [Terpene]{
+    static func searchTerpenesByName(name: String) -> [TerpeneJSON]{
         return self.loadTerpenes().filter({$0.name.lowercased().contains(name.lowercased())})
     }
 //    static func search
-    static func loadTerpenesByAroma(aroma: String, terpenes: [Terpene]) -> [Terpene]{
-        var _res = [Terpene]()
+    static func loadTerpenesByAroma(aroma: String, terpenes: [TerpeneJSON]) -> [TerpeneJSON]{
+        var _res = [TerpeneJSON]()
         terpenes.forEach { terpene in
             if !_res.contains(terpene) && terpene.aromas.contains(aroma){
                 _res.append(terpene)
@@ -28,12 +32,12 @@ struct TerpeneUtil{
         }
         
     }
-    static func loadTerpeneByName(name: String, terpenes: [Terpene]) -> Terpene{
+    static func loadTerpeneByName(name: String, terpenes: [TerpeneJSON]) -> TerpeneJSON{
         return terpenes.filter({$0.name.lowercased()==name.lowercased()}).first!
         
     }
-    static func loadTerpenesByName(names: [String]) -> [Terpene]{
-        var _res = [Terpene]()
+    static func loadTerpenesByName(names: [String]) -> [TerpeneJSON]{
+        var _res = [TerpeneJSON]()
         let terpenes = self.loadTerpenes()
         names.forEach(){ name in
             if terpenes.contains(where: {$0.name.lowercased() == name.lowercased()}){
@@ -46,14 +50,14 @@ struct TerpeneUtil{
 //        return self.loadTerpenes().filter(names.contains({$0.lowercased()==$1.name.lowercased()}))
         
     }
-    static func loadTerpeneByName(name: String) -> Terpene{
+    static func loadTerpeneByName(name: String) -> TerpeneJSON{
         return self.loadTerpenes().filter({$0.name.lowercased()==name.lowercased()}).first!
         
     }
 
-    static func loadTerpenesByEffect(effect: String, terpenes: [Terpene]) -> [Terpene]
+    static func loadTerpenesByEffect(effect: String, terpenes: [TerpeneJSON]) -> [TerpeneJSON]
     {
-        var _res = [Terpene]()
+        var _res = [TerpeneJSON]()
         terpenes.forEach { terpene in
             if !_res.contains(terpene) && terpene.effects.contains(effect){
                 _res.append(terpene)
@@ -94,7 +98,7 @@ struct TerpeneUtil{
         }
     }
     
-    static func loadTerpeneAromas(terpenes: [Terpene])->[String]{
+    static func loadTerpeneAromas(terpenes: [TerpeneJSON])->[String]{
         var _res = [String]()
         terpenes.forEach { terpene in
             terpene.aromas.forEach { aroma in
@@ -108,7 +112,7 @@ struct TerpeneUtil{
             $0 < $1
         }
     }
-    static func loadTerpeneAromas(terpenes: [Terpene])->[DataMap]{
+    static func loadTerpeneAromas(terpenes: [TerpeneJSON])->[DataMap]{
         var _res = [DataMap]()
         loadTerpeneAromas(terpenes: terpenes).forEach { aroma in
 //            terpene.effects.forEach { effect in
@@ -124,7 +128,7 @@ struct TerpeneUtil{
         }
     }
     
-    static func loadTerpeneEffects(terpenes: [Terpene])->[String]{
+    static func loadTerpeneEffects(terpenes: [TerpeneJSON])->[String]{
         var _res = [String]()
         terpenes.forEach { terpene in
             terpene.effects.forEach { effect in
@@ -138,7 +142,7 @@ struct TerpeneUtil{
             $0 < $1
         }
     }
-    static func loadTerpeneEffects(terpenes: [Terpene])->[DataMap]{
+    static func loadTerpeneEffects(terpenes: [TerpeneJSON])->[DataMap]{
         var _res = [DataMap]()
         loadTerpeneEffects(terpenes: terpenes).forEach { effect in
 //            terpene.effects.forEach { effect in
@@ -155,7 +159,7 @@ struct TerpeneUtil{
     }
     
     
-    static func loadTerpeneDataMap(terpenes: [Terpene]) -> [DataMap]{
+    static func loadTerpeneDataMap(terpenes: [TerpeneJSON]) -> [DataMap]{
         var _terpenes = [DataMap]()
         terpenes.forEach {
             _terpenes.append(DataMap(key: $0.name, value: DictionaryUtil.loadDescription(text: $0.name), view: TerpeneDetailView(terpene: $0)))
@@ -164,7 +168,7 @@ struct TerpeneUtil{
             $0.key < $1.value
         }
     }
-    static func loadEffectDataMap(terpenes: [Terpene], strains: [Strain]) -> [DataMap]{
+    static func loadEffectDataMap(terpenes: [TerpeneJSON], strains: [Strain]) -> [DataMap]{
         var _effects = [DataMap]()
         TerpeneUtil.loadTerpeneEffects(terpenes: terpenes).forEach { effect in
             _effects.append(DataMap(key: effect, value: "", view: ListView(data: StrainUtil.loadStrainDataMap(strains: StrainUtil.loadStrainsByTerpenes(terpenes: TerpeneUtil.loadTerpenesByEffect(effect: effect, terpenes: terpenes), strains: strains)), searchTitle: "Strains With \(effect) Effects")))
@@ -223,7 +227,7 @@ struct TerpeneUtil{
         return Bundle.main.decode(TerpeneProfile.self, from: "terpene_profile.json")
         
     }
-    static func loadAromaDataMap(terpenes: [Terpene], strains: [Strain]) -> [DataMap]{
+    static func loadAromaDataMap(terpenes: [TerpeneJSON], strains: [Strain]) -> [DataMap]{
         var _aromas = [DataMap]()
         TerpeneUtil.loadTerpeneAromas(terpenes: terpenes).forEach { aroma in
             _aromas.append(DataMap(key: aroma, value: "", view: ListView(data: StrainUtil.loadStrainDataMap(strains: StrainUtil.loadStrainsByTerpenes(terpenes: TerpeneUtil.loadTerpenesByAroma(aroma: aroma, terpenes: terpenes), strains: strains)), searchTitle: "Strains With \(aroma) Aromas`")))
@@ -236,6 +240,51 @@ struct TerpeneUtil{
             $0.key < $1.value
         }
     }
+    
+//    static func buildEffectCoreData(viewContext: NSManagedObjectContext){
+////        @FetchRequest(sortDescriptors: []) var aromas: FetchedResults<Aroma>
+//        @FetchRequest(sortDescriptors: []) var effects: FetchedResults<Effect>
+//        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//        privateContext.parent = viewContext
+//
+//        if effects.count == 0 {
+//            print("No effects have been loaded, loading effects")
+//            self.loadEffects().forEach { effectStr in
+//                var _effect = Effect(context: viewContext)
+////                _effect.desc
+//                _effect.name = effectStr
+//                _effect.desc = DictionaryUtil.loadDescription(text: effectStr)
+//                _effect.id = String(Int.random(in: 1000...5000))
+//                privateContext.perform {
+//
+//                    do {
+//
+//                        try privateContext.save()
+//                            viewContext.performAndWait {
+//                                do{
+//                                    try viewContext.save()
+//                                    print("Wrote effect \(effectStr)")
+//                                } catch{
+//                                    let nsError = error as NSError
+//                                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//                                }
+//                        }
+//
+//                    } catch {
+//                        // Replace this implementation with code to handle the error appropriately.
+//                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                        let nsError = error as NSError
+//                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//
+//    }
+
+    
 //    static func loadTerpenes()->[Terpene]{
 //        return Bundle.main.decode([Terpene].self, from: "terpene.json")
 //    }

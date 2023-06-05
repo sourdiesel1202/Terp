@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct HorizontalTerpeneRow: View {
-    let terpenes: [Terpene]
+    let terpenes: [TerpeneJSON]
     var body: some View {
                     ScrollView(.horizontal){
                         HStack(alignment: .top){
-                            ForEach(terpenes, id: \.self){ (terpene: Terpene) in
+                            ForEach(terpenes, id: \.self){ (terpene: TerpeneJSON) in
                                 NavigationLink{
                                     TerpeneDetailView(terpene: terpene)
                                 } label: {
@@ -32,6 +32,6 @@ struct HorizontalTerpeneRow: View {
 
 struct HorizontalTerpeneRow_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalTerpeneRow(terpenes: [Terpene.example])
+        HorizontalTerpeneRow(terpenes: [TerpeneJSON.example])
     }
 }

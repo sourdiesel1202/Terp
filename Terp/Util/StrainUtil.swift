@@ -37,7 +37,7 @@ struct StrainUtil{
         return _res
         
     }
-    static func loadStrainsByTerpene(terpene: Terpene) -> [Strain]{
+    static func loadStrainsByTerpene(terpene: TerpeneJSON) -> [Strain]{
         
         var _res = [Strain]()
         self.loadStrains().forEach { strain in
@@ -53,7 +53,7 @@ struct StrainUtil{
     static func searchStrainByName(name: String)-> [Strain]{
         return self.loadStrains().filter({$0.name.lowercased().contains(name.lowercased())})
     }
-    static func loadStrainsByTerpene(terpene: Terpene, strains: [Strain]) -> [Strain]{
+    static func loadStrainsByTerpene(terpene: TerpeneJSON, strains: [Strain]) -> [Strain]{
         
         var _res = [Strain]()
         strains.forEach { strain in
@@ -66,7 +66,7 @@ struct StrainUtil{
         }
         return _res
     }
-    static func loadStrainsByTerpenes(terpenes: [Terpene], strains: [Strain]) -> [Strain]{
+    static func loadStrainsByTerpenes(terpenes: [TerpeneJSON], strains: [Strain]) -> [Strain]{
         var _res = [Strain]()
         strains.forEach { strain in
             terpenes.forEach { terpene in

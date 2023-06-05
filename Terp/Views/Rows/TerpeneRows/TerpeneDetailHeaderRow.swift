@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TerpeneDetailHeaderRow: View {
-    let terpene: Terpene
+    let terpene: TerpeneJSON
     var body: some View {
         
         VStack(alignment: .center){
@@ -27,6 +27,6 @@ struct TerpeneDetailHeaderRow: View {
 
 struct TerpeneDetailHeaderRow_Previews: PreviewProvider {
     static var previews: some View {
-        TerpeneDetailHeaderRow(terpene: Terpene.example)
+        TerpeneDetailHeaderRow(terpene: TerpeneJSON.example)
     }
 }

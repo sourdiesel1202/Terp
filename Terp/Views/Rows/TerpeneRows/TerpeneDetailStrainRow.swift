@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TerpeneDetailStrainRow: View {
-    let terpene: Terpene
+    let terpene: TerpeneJSON
     private var strains: [Strain]{
         return StrainUtil.loadStrainsByTerpene(terpene: self.terpene)
     }
@@ -20,6 +20,6 @@ struct TerpeneDetailStrainRow: View {
 
 struct TerpeneDetailStrainRow_Previews: PreviewProvider {
     static var previews: some View {
-        TerpeneDetailStrainRow(terpene: Terpene.example)
+        TerpeneDetailStrainRow(terpene: TerpeneJSON.example)
     }
 }

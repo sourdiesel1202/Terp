@@ -19,7 +19,7 @@ struct Strains: Codable {
     var results = [Strain]()
 }
 //
-struct Terpene: Codable, Identifiable, Hashable{
+struct TerpeneJSON: Codable, Identifiable, Hashable{
 //    var name: String
     enum CodingKeys: CodingKey{
 //        var id = UUID()
@@ -35,7 +35,7 @@ struct Terpene: Codable, Identifiable, Hashable{
 //        case description
 //    //    var description: String
 //
-//        case image
+        case image
 //        case terpenes
 //        case children
 //        case parents
@@ -51,9 +51,10 @@ struct Terpene: Codable, Identifiable, Hashable{
 //    var description: String
     var description: String
 
-//    var image: String
+    
     var aromas: [String]
     var effects: [String]
+    var image: String?
     
 //    var children: [String]
 //    var parents: [String]
@@ -68,7 +69,7 @@ struct Terpene: Codable, Identifiable, Hashable{
 //    #endif
     
 #if DEBUG
-    static let example = Terpene(id: UUID(), name: "Myrcene", description: "Myrcene, also known as alpha-Myrcene and beta-Myrcene, is a monoterpene commonly found in lemongrass, hop (Humulus Lupulus), mango, verbena, bay leaves, and thyme, among others. It is the most abundant terpene in cannabis. According to a study conducted by the Swiss Federal Research Station for Agroecology and Agriculture, Myrcene contains 65% of the terpene content in a cannabis plant (Mediavilla & Steinemann, 1997). It is described as herbal or earthy and is commonly used as an intermediate by the fragrance industry to produce derivative terpenes. It is also acknowledged as a potent muscle relaxant, anti-inflammatory, pain reliever, and sedative. In the case of cannabinoids, Myrcene is believed to increase the speed of action, and the desired effects can be felt faster.", aromas: [
+    static let example = TerpeneJSON(id: UUID(), name: "Myrcene", description: "Myrcene, also known as alpha-Myrcene and beta-Myrcene, is a monoterpene commonly found in lemongrass, hop (Humulus Lupulus), mango, verbena, bay leaves, and thyme, among others. It is the most abundant terpene in cannabis. According to a study conducted by the Swiss Federal Research Station for Agroecology and Agriculture, Myrcene contains 65% of the terpene content in a cannabis plant (Mediavilla & Steinemann, 1997). It is described as herbal or earthy and is commonly used as an intermediate by the fragrance industry to produce derivative terpenes. It is also acknowledged as a potent muscle relaxant, anti-inflammatory, pain reliever, and sedative. In the case of cannabinoids, Myrcene is believed to increase the speed of action, and the desired effects can be felt faster.", aromas: [
         "Hops",
         "Mango",
         "Lemongrass",

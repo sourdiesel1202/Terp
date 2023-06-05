@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DiscoverTerpeneEffectsAromasRow: View {
-    let terpene: Terpene
+    let terpene: TerpeneJSON
 //    private var terpeneSection: some View{
 //
 //    }
@@ -51,6 +51,6 @@ struct DiscoverTerpeneEffectsAromasRow: View {
 
 struct DiscoverTerpeneEffectsAromasRow_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverTerpeneEffectsAromasRow(terpene: Terpene.example)
+        DiscoverTerpeneEffectsAromasRow(terpene: TerpeneJSON.example)
     }
 }

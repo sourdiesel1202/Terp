@@ -10,7 +10,7 @@ import SwiftUI
 struct TerpeneDetailEffectAromaRow: View {
 //    let text: String
 //    let data: [String]
-    let terpene: Terpene
+    let terpene: TerpeneJSON
     var body: some View {
         VStack{
             RowHeaderViewAll(text: "Aromas (\(self.terpene.aromas.count))", data: TerpeneUtil.loadAromaEffectDataMap(data: self.terpene.aromas))
@@ -26,6 +26,6 @@ struct TerpeneDetailEffectAromaRow: View {
 
 struct TerpeneDetailEffectAromaRow_Previews: PreviewProvider {
     static var previews: some View {
-        TerpeneDetailEffectAromaRow(terpene: Terpene.example)
+        TerpeneDetailEffectAromaRow(terpene: TerpeneJSON.example)
     }
 }

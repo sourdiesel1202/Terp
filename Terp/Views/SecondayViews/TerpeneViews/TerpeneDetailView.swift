@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TerpeneDetailView: View {
-    let terpene: Terpene
+    let terpene: TerpeneJSON
     var body: some View {
         ScrollView(.vertical){
             VStack(alignment: .center){
@@ -77,6 +77,6 @@ struct TerpeneDetailView: View {
 
 struct TerpeneDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TerpeneDetailView(terpene: Terpene.example)
+        TerpeneDetailView(terpene: TerpeneJSON.example)
     }
 }
