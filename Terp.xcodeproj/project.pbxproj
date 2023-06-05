@@ -42,7 +42,7 @@
 		49603C882A2C1C8500CBFBA4 /* DictionaryUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */; };
 		49603C892A2C1C8500CBFBA4 /* StrainUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6A2A2C1C8500CBFBA4 /* StrainUtil.swift */; };
 		49603C8A2A2C1C8500CBFBA4 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */; };
-		49603C8B2A2C1C8500CBFBA4 /* TerpeneUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6C2A2C1C8500CBFBA4 /* TerpeneUtil.swift */; };
+		49603C8B2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */; };
 		49603C972A2C1C9700CBFBA4 /* achievement.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8D2A2C1C9700CBFBA4 /* achievement.json */; };
 		49603C982A2C1C9700CBFBA4 /* terpene.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8E2A2C1C9700CBFBA4 /* terpene.json */; };
 		49603C992A2C1C9700CBFBA4 /* reviews.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8F2A2C1C9700CBFBA4 /* reviews.json */; };
@@ -156,6 +156,7 @@
 		49603DCD2A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */; };
 		49603DCE2A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */; };
 		49603DD22A2D57EA00CBFBA4 /* TerpeneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */; };
+		49603DD52A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,7 +196,7 @@
 		49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryUtil.swift; sourceTree = "<group>"; };
 		49603C6A2A2C1C8500CBFBA4 /* StrainUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrainUtil.swift; sourceTree = "<group>"; };
 		49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
-		49603C6C2A2C1C8500CBFBA4 /* TerpeneUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerpeneUtil.swift; sourceTree = "<group>"; };
+		49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerpeneJSONUtil.swift; sourceTree = "<group>"; };
 		49603C8D2A2C1C9700CBFBA4 /* achievement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievement.json; sourceTree = "<group>"; };
 		49603C8E2A2C1C9700CBFBA4 /* terpene.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = terpene.json; sourceTree = "<group>"; };
 		49603C8F2A2C1C9700CBFBA4 /* reviews.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reviews.json; sourceTree = "<group>"; };
@@ -309,6 +310,7 @@
 		49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataClass.swift"; sourceTree = "<group>"; };
 		49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneViewModel.swift; sourceTree = "<group>"; };
+		49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneCoreDataUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 		49603C4B2A2C1C8500CBFBA4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				49603DD32A2E11D000CBFBA4 /* CoreData */,
 				49603C582A2C1C8500CBFBA4 /* Models */,
 				49603C532A2C1C8500CBFBA4 /* Enums */,
 				49603C4C2A2C1C8500CBFBA4 /* AchievementUtil.swift */,
@@ -381,7 +384,7 @@
 				49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */,
 				49603C6A2A2C1C8500CBFBA4 /* StrainUtil.swift */,
 				49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */,
-				49603C6C2A2C1C8500CBFBA4 /* TerpeneUtil.swift */,
+				49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -822,6 +825,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		49603DD32A2E11D000CBFBA4 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -931,7 +942,7 @@
 				49603D2B2A2C1CAF00CBFBA4 /* FollowButton.swift in Sources */,
 				49603D4F2A2C1CAF00CBFBA4 /* ProfileCircleRow.swift in Sources */,
 				49603D662A2C1CAF00CBFBA4 /* ThumbnailListView.swift in Sources */,
-				49603C8B2A2C1C8500CBFBA4 /* TerpeneUtil.swift in Sources */,
+				49603C8B2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift in Sources */,
 				49603D5B2A2C1CAF00CBFBA4 /* StrainSearchResultRow.swift in Sources */,
 				49603D492A2C1CAF00CBFBA4 /* BasicRow.swift in Sources */,
 				49603D682A2C1CAF00CBFBA4 /* MultipleSelectionList.swift in Sources */,
@@ -973,6 +984,7 @@
 				49603D642A2C1CAF00CBFBA4 /* MoreView.swift in Sources */,
 				49603C762A2C1C8500CBFBA4 /* StrainSearch.swift in Sources */,
 				49603D2E2A2C1CAF00CBFBA4 /* DiscoverView.swift in Sources */,
+				49603DD52A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift in Sources */,
 				49603D452A2C1CAF00CBFBA4 /* NotificationRow.swift in Sources */,
 				49603C732A2C1C8500CBFBA4 /* CircleUtil.swift in Sources */,
 				49603C6D2A2C1C8500CBFBA4 /* AchievementUtil.swift in Sources */,

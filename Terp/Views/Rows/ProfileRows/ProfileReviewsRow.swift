@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileReviewsRow: View {
     let user: User
     private var terpeneProfile: TerpeneProfile{
-        return TerpeneUtil.loadTerpeneProfileByUser(user: self.user)
+        return TerpeneJSONUtil.loadTerpeneProfileByUser(user: self.user)
     }
     private var reviews: [Review] {
         return ReviewUtil.loadReviewsByUser(user: self.user)

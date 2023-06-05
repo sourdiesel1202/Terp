@@ -15,20 +15,20 @@ struct DiscoverTerpeneEffectsAromasRow: View {
     var body: some View {
         Text("Explore Your Terpene Profile").padding([.top,.bottom]).fontWeight(.bold).font(.title)
         VStack{
-            RowHeaderViewAll(text: "Explore Other Effects of \(terpene.name)",data: TerpeneUtil.loadAromaEffectDataMap(data: TerpeneUtil.loadTerpeneEffects(terpenes: [self.terpene])))
-            HorizontalTerpeneEffectAromaRow(data: TerpeneUtil.loadTerpeneEffects(terpenes: [self.terpene] ))
+            RowHeaderViewAll(text: "Explore Other Effects of \(terpene.name)",data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: [self.terpene])))
+            HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: [self.terpene] ))
             NavigationLink{
-                ThumbnailListView(data: TerpeneUtil.loadTerpeneEffects(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "All Terpene Effects")
+                ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpene Effects")
             }label: {
                 FullWidthText(text: "View All Terpene Effects").padding()
             }
         }
             VStack{
                 ViewDivider(height: 0.25)
-                RowHeaderViewAll(text: "Explore Other Aromas of \(terpene.name)", data: TerpeneUtil.loadAromaDataMap(aromas: TerpeneUtil.loadTerpeneAromas(terpenes: [self.terpene])))
-                HorizontalTerpeneEffectAromaRow(data: TerpeneUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
+                RowHeaderViewAll(text: "Explore Other Aromas of \(terpene.name)", data: TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene])))
+                HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
                 NavigationLink{
-                    ThumbnailListView(data: TerpeneUtil.loadTerpeneAromas(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "All Terpene Aromas")
+                    ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpene Aromas")
                 }label: {
                     FullWidthText(text: "View All Terpene Aromas").padding()
                 }
@@ -36,10 +36,10 @@ struct DiscoverTerpeneEffectsAromasRow: View {
 //            ViewDivider(height: 0.25)
         VStack{
             ViewDivider(height: 0.25)
-            RowHeaderViewAll(text: "Terpenes similar to \(terpene.name)", data:TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.loadTerpenes()))
-            HorizontalTerpeneEffectAromaRow(data: TerpeneUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
+            RowHeaderViewAll(text: "Terpenes similar to \(terpene.name)", data:TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.loadTerpenes()))
+            HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
             NavigationLink{
-                ThumbnailListView(data: TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "All Terpenes")
+                ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpenes")
             }label: {
                 FullWidthText(text: "View All Terpenes").padding()
             }

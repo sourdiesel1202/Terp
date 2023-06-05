@@ -26,8 +26,8 @@ struct StrainDetailTerpeneProfileRow: View {
 //                }
 //
 //            }
-            RowHeaderViewAll(text: "Terpenes (\(self.strain.terpenes.count))", data: TerpeneUtil.loadTerpeneDataMapFromStrings(terpenes:self.strain.terpenes))
-            HorizontalTerpeneRow(terpenes: TerpeneUtil.loadTerpenesByName(names: self.strain.terpenes))
+            RowHeaderViewAll(text: "Terpenes (\(self.strain.terpenes.count))", data: TerpeneJSONUtil.loadTerpeneDataMapFromStrings(terpenes:self.strain.terpenes))
+            HorizontalTerpeneRow(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))
 //            ScrollView(.horizontal){
 //                HStack(alignment: .top){
 //                    ForEach(self.strain.terpenes, id: \.self){ (terpene: String) in
@@ -47,12 +47,12 @@ struct StrainDetailTerpeneProfileRow: View {
             
             //            ViewDivider(height: 0.25)
             ViewDivider(height: 0.5)
-            RowHeaderViewAll(text: "Aromas (\(StrainUtil.loadStrainAromas(strain: self.strain) .count))", data: TerpeneUtil.loadAromaEffectDataMap(data: TerpeneUtil.loadTerpeneAromas(terpenes: TerpeneUtil.loadTerpenesByName(names: self.strain.terpenes))))
-            HorizontalTerpeneEffectAromaRow(data: TerpeneUtil.loadTerpeneAromas(terpenes: TerpeneUtil.loadTerpenesByName(names: self.strain.terpenes)))
+            RowHeaderViewAll(text: "Aromas (\(StrainUtil.loadStrainAromas(strain: self.strain) .count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))))
+            HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)))
             
             ViewDivider(height: 0.5)
-            RowHeaderViewAll(text: "Effects (\(StrainUtil.loadStrainEffects(strain: self.strain).count))", data: TerpeneUtil.loadAromaEffectDataMap(data: TerpeneUtil.loadTerpeneEffects(terpenes: TerpeneUtil.loadTerpenesByName(names: self.strain.terpenes))))
-            HorizontalTerpeneEffectAromaRow(data: TerpeneUtil.loadTerpeneEffects(terpenes: TerpeneUtil.loadTerpenesByName(names: self.strain.terpenes)))
+            RowHeaderViewAll(text: "Effects (\(StrainUtil.loadStrainEffects(strain: self.strain).count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))))
+            HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)))
             
             
         }

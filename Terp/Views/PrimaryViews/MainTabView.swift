@@ -32,7 +32,7 @@ struct MainTabView: View {
                    Label("Discover", systemImage: "globe.americas")
                }.tag(4)
                
-               
+//               /Users/andrew/XcodeProjects/Terp/Terp/Preview Content
                MoreView().tabItem{
                    Label("More", systemImage: "ellipsis")
                }.tag(5)
@@ -46,13 +46,13 @@ struct MainTabView: View {
                //ok so here is where we need to load in our data into core data if it doesn't exist
                
                print("Clearing old data")
-               TerpeneUtil.deleteAromas(viewContext: self.viewContext)
-               TerpeneUtil.deleteEffects(viewContext: self.viewContext)
-               TerpeneUtil.deleteTerepenes(viewContext: self.viewContext)
+               TerpeneCoreDataUtil.deleteAromas(viewContext: self.viewContext)
+               TerpeneCoreDataUtil.deleteEffects(viewContext: self.viewContext)
+               TerpeneCoreDataUtil.deleteTerepenes(viewContext: self.viewContext)
                print("Loading data")
-               TerpeneUtil.buildAromaCoreData(viewContext: self.viewContext)
-               TerpeneUtil.buildEffectCoreData(viewContext: self.viewContext)
-               TerpeneUtil.buildTerpeneCoreData(viewContext: self.viewContext)
+               TerpeneCoreDataUtil.buildAromaCoreData(viewContext: self.viewContext)
+               TerpeneCoreDataUtil.buildEffectCoreData(viewContext: self.viewContext)
+               TerpeneCoreDataUtil.buildTerpeneCoreData(viewContext: self.viewContext)
                
            })
        

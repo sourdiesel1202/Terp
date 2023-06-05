@@ -26,6 +26,6 @@ struct RowHeaderViewAll: View {
 
 struct RowHeaderViewAll_Previews: PreviewProvider {
     static var previews: some View {
-        RowHeaderViewAll(text: "Terpene Profile", data:  TerpeneUtil.loadAromaDataMap(aromas: ["Blueberry"]))
+        RowHeaderViewAll(text: "Terpene Profile", data:  TerpeneJSONUtil.loadAromaDataMap(aromas: ["Blueberry"]))
     }
 }

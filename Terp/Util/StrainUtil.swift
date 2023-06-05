@@ -100,7 +100,7 @@ struct StrainUtil{
             
             //            var terp = TerpeneUtil.loadTerpeneByName(name: strTerp){}
             
-            TerpeneUtil.loadTerpeneByName(name: strTerp).aromas.forEach(){ aroma in
+            TerpeneJSONUtil.loadTerpeneByName(name: strTerp).aromas.forEach(){ aroma in
                 if !res.contains(where:{ $0.lowercased() == aroma.lowercased() }){
                     res.append(aroma)
                 }
@@ -119,7 +119,7 @@ struct StrainUtil{
             
             //            var terp = TerpeneUtil.loadTerpeneByName(name: strTerp){}
             
-            TerpeneUtil.loadTerpeneByName(name: strTerp).effects.forEach(){ effect in
+            TerpeneJSONUtil.loadTerpeneByName(name: strTerp).effects.forEach(){ effect in
                 if !res.contains(where:{ $0.lowercased() == effect.lowercased() }){
                     res.append(effect)
                 }

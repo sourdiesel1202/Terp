@@ -37,7 +37,7 @@ struct HorizontalTerpeneEffectAromaRow: View {
                 if self.data.count > 3{
                     Button(action: {}){
                         NavigationLink{
-                            ThumbnailListView(data: TerpeneUtil.loadAromaEffectDataMap(data: self.data), searchTitle: "Effects")
+                            ThumbnailListView(data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.data), searchTitle: "Effects")
                         }label: {
                             VStack{
                                 Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.blue)

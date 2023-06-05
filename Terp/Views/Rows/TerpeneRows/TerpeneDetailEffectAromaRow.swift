@@ -13,10 +13,10 @@ struct TerpeneDetailEffectAromaRow: View {
     let terpene: TerpeneJSON
     var body: some View {
         VStack{
-            RowHeaderViewAll(text: "Aromas (\(self.terpene.aromas.count))", data: TerpeneUtil.loadAromaEffectDataMap(data: self.terpene.aromas))
+            RowHeaderViewAll(text: "Aromas (\(self.terpene.aromas.count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.terpene.aromas))
             HorizontalTerpeneEffectAromaRow(data: self.terpene.aromas)
             ViewDivider(height: 0.25)
-            RowHeaderViewAll(text: "Effects (\(self.terpene.effects.count))", data: TerpeneUtil.loadAromaEffectDataMap(data: self.terpene.effects))
+            RowHeaderViewAll(text: "Effects (\(self.terpene.effects.count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.terpene.effects))
             HorizontalTerpeneEffectAromaRow(data: self.terpene.effects)
 //            RowHeaderViewAll(text: , data: TerpeneUtil.loadAromaEffectDataMap(data: self.data))
             

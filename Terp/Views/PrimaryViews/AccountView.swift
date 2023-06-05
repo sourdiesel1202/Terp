@@ -33,7 +33,7 @@ struct AccountView: View {
             }
             
             NavigationLink {
-                TerpeneProfileView(user: User.example, terpeneProfile: TerpeneUtil.loadTerpeneProfileByUser(user: User.example))
+                TerpeneProfileView(user: User.example, terpeneProfile: TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example))
                 
             } label: {
                 BasicRow(title: "Build Terpene Profile", description: "Build your terpene profile")

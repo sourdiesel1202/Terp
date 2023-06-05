@@ -6,7 +6,7 @@
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="terpenes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Terpene" inverseName="aromas" inverseEntity="Terpene"/>
+        <relationship name="terpenes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Terpene" inverseName="aromas" inverseEntity="Terpene"/>
     </entity>
     <entity name="Effect" representedClassName="Effect" syncable="YES">
         <attribute name="desc" attributeType="String"/>
@@ -14,7 +14,7 @@
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="terpenes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Terpene" inverseName="effects" inverseEntity="Terpene"/>
+        <relationship name="terpenes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Terpene" inverseName="effects" inverseEntity="Terpene"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -21,8 +21,8 @@ extension Terpene {
     @NSManaged public var name: String?
     @NSManaged public var desc: String?
     @NSManaged public var image: String?
-    @NSManaged public var effects: NSSet?
-    @NSManaged public var aromas: NSSet?
+    @NSManaged public var effects: Set<Effect>?
+    @NSManaged public var aromas: Set<Aroma>?
 
 }
 
@@ -36,10 +36,10 @@ extension Terpene {
     @NSManaged public func removeFromEffects(_ value: Effect)
 
     @objc(addEffects:)
-    @NSManaged public func addToEffects(_ values: NSSet)
+    @NSManaged public func addToEffects(_ values: Set<Effect>)
 
     @objc(removeEffects:)
-    @NSManaged public func removeFromEffects(_ values: NSSet)
+    @NSManaged public func removeFromEffects(_ values: Set<Effect>)
 
 }
 
@@ -53,10 +53,10 @@ extension Terpene {
     @NSManaged public func removeFromAromas(_ value: Aroma)
 
     @objc(addAromas:)
-    @NSManaged public func addToAromas(_ values: NSSet)
+    @NSManaged public func addToAromas(_ values: Set<Aroma>)
 
     @objc(removeAromas:)
-    @NSManaged public func removeFromAromas(_ values: NSSet)
+    @NSManaged public func removeFromAromas(_ values: Set<Aroma>)
 
 }
 

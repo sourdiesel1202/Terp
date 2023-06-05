@@ -13,7 +13,7 @@ struct DiscoverView: View {
 //    @State var terpeneList: [DataMap]
 //    var terpeneData = [DataMap]
     private var terpeneProfile: TerpeneProfile {
-        return TerpeneUtil.loadTerpeneProfileByUser(user: User.example)
+        return TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example)
     }
     var body: some View {
         ScrollView{
@@ -22,7 +22,7 @@ struct DiscoverView: View {
 //                ViewDivider(height: 4)
                 DiscoverRecommendedStrainsRow()
                 ViewDivider(height: 4)
-                DiscoverTerpeneEffectsAromasRow(terpene: TerpeneUtil.loadTerpeneByName(name: terpeneProfile.terpenes[Int.random(in: 0..<self.terpeneProfile.terpenes.count)]))
+                DiscoverTerpeneEffectsAromasRow(terpene: TerpeneJSONUtil.loadTerpeneByName(name: terpeneProfile.terpenes[Int.random(in: 0..<self.terpeneProfile.terpenes.count)]))
                 ViewDivider(height: 4)
                 DiscoverAchievementRow()
             }
