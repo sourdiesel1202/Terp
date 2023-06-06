@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainDetail2_0View: View {
-    let strain: Strain
+    let strain: StrainJSON
     private var posts: [Post]{
         return PostUtil.loadPublicStrainFeed(strain: self.strain)
     }
@@ -64,6 +64,6 @@ struct StrainDetail2_0View: View {
 
 struct StrainDetail2_0View_Previews: PreviewProvider {
     static var previews: some View {
-        StrainDetail2_0View(strain: Strain.example)
+        StrainDetail2_0View(strain: StrainJSON.example)
     }
 }

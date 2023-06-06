@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainDetailSourcesRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     @Environment(\.openURL) var openURL
     var body: some View {
 //        RowHeader(text: "Sources")
@@ -40,6 +40,6 @@ struct StrainDetailSourcesRow: View {
 
 struct StrainDetailSourcesRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainDetailSourcesRow(strain: Strain.example)
+        StrainDetailSourcesRow(strain: StrainJSON.example)
     }
 }

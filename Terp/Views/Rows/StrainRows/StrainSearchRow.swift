@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainSearchRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     let colors: [String: Color] = ["Indica": .blue, "Sativa": .red, "Hybrid": .green]
     var body: some View {
         HStack {
@@ -65,6 +65,6 @@ struct StrainSearchRow: View {
 
 struct StrainSearchRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainSearchRow(strain: Strain.example)
+        StrainSearchRow(strain: StrainJSON.example)
     }
 }

@@ -63,7 +63,7 @@ struct SearchView: View {
                 }else{
                     // ok so here we're going to load strains, terpenes, aromas and effects
                     var _res = [DataMap]()
-                    StrainUtil.loadStrainDataMap(strains: StrainUtil.searchStrainByName(name: self.searchText)).forEach(){ dm in
+                    StrainJSONUtil.loadStrainDataMap(strains: StrainJSONUtil.searchStrainByName(name: self.searchText)).forEach(){ dm in
                         _res.append(dm)
                     }
                     //do terpenes next

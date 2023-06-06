@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainSearchResultRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     var body: some View {
         VStack(alignment: .leading){
         
@@ -30,6 +30,6 @@ struct StrainSearchResultRow: View {
 
 struct StrainSearchResultRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainSearchResultRow(strain: Strain.example)
+        StrainSearchResultRow(strain: StrainJSON.example)
     }
 }

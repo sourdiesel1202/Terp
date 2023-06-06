@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainHeaderRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -16,6 +16,6 @@ struct StrainHeaderRow: View {
 
 struct StrainHeaderRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainHeaderRow(strain: Strain.example)
+        StrainHeaderRow(strain: StrainJSON.example)
     }
 }

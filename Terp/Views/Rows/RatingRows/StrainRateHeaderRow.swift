@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainRateHeaderRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     var body: some View {
         VStack(alignment: .center){
             Text(strain.name).fontWeight(.bold).font(.headline).padding([.top, .bottom])
@@ -21,6 +21,6 @@ struct StrainRateHeaderRow: View {
 
 struct StrainRateHeaderRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainRateHeaderRow(strain: Strain.example)
+        StrainRateHeaderRow(strain: StrainJSON.example)
     }
 }

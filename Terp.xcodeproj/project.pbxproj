@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		493F9E252A2EC9FD0080546C /* strain_data_demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 493F9E242A2EC9FD0080546C /* strain_data_demo.json */; };
 		49603C372A2C1C1500CBFBA4 /* TerpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C362A2C1C1500CBFBA4 /* TerpApp.swift */; };
 		49603C392A2C1C1500CBFBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C382A2C1C1500CBFBA4 /* ContentView.swift */; };
 		49603C3B2A2C1C1700CBFBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49603C3A2A2C1C1700CBFBA4 /* Assets.xcassets */; };
@@ -37,17 +38,16 @@
 		49603C832A2C1C8500CBFBA4 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C642A2C1C8500CBFBA4 /* Achievement.swift */; };
 		49603C842A2C1C8500CBFBA4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C652A2C1C8500CBFBA4 /* Post.swift */; };
 		49603C852A2C1C8500CBFBA4 /* UserAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C662A2C1C8500CBFBA4 /* UserAchievement.swift */; };
-		49603C862A2C1C8500CBFBA4 /* Strain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C672A2C1C8500CBFBA4 /* Strain.swift */; };
+		49603C862A2C1C8500CBFBA4 /* StrainJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C672A2C1C8500CBFBA4 /* StrainJSON.swift */; };
 		49603C872A2C1C8500CBFBA4 /* TerpeneJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C682A2C1C8500CBFBA4 /* TerpeneJSON.swift */; };
 		49603C882A2C1C8500CBFBA4 /* DictionaryUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */; };
-		49603C892A2C1C8500CBFBA4 /* StrainUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6A2A2C1C8500CBFBA4 /* StrainUtil.swift */; };
+		49603C892A2C1C8500CBFBA4 /* StrainJSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6A2A2C1C8500CBFBA4 /* StrainJSONUtil.swift */; };
 		49603C8A2A2C1C8500CBFBA4 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */; };
 		49603C8B2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */; };
 		49603C972A2C1C9700CBFBA4 /* achievement.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8D2A2C1C9700CBFBA4 /* achievement.json */; };
 		49603C982A2C1C9700CBFBA4 /* terpene.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8E2A2C1C9700CBFBA4 /* terpene.json */; };
 		49603C992A2C1C9700CBFBA4 /* reviews.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8F2A2C1C9700CBFBA4 /* reviews.json */; };
 		49603C9A2A2C1C9700CBFBA4 /* messages.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C902A2C1C9700CBFBA4 /* messages.json */; };
-		49603C9B2A2C1C9700CBFBA4 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C912A2C1C9700CBFBA4 /* strain_data.json */; };
 		49603C9C2A2C1C9700CBFBA4 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C922A2C1C9700CBFBA4 /* users.json */; };
 		49603C9D2A2C1C9700CBFBA4 /* user_achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C932A2C1C9700CBFBA4 /* user_achievements.json */; };
 		49603C9E2A2C1C9700CBFBA4 /* notifications.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C942A2C1C9700CBFBA4 /* notifications.json */; };
@@ -157,9 +157,14 @@
 		49603DCE2A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */; };
 		49603DD22A2D57EA00CBFBA4 /* TerpeneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */; };
 		49603DD52A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */; };
+		49603DDC2A2E23EC00CBFBA4 /* Strain+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DDA2A2E23EC00CBFBA4 /* Strain+CoreDataClass.swift */; };
+		49603DDD2A2E23EC00CBFBA4 /* Strain+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DDB2A2E23EC00CBFBA4 /* Strain+CoreDataProperties.swift */; };
+		49603DDF2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DDE2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift */; };
+		49603DE52A2E364200CBFBA4 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603DE42A2E364200CBFBA4 /* strain_data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		493F9E242A2EC9FD0080546C /* strain_data_demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data_demo.json; sourceTree = "<group>"; };
 		49603C332A2C1C1500CBFBA4 /* Terp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Terp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49603C362A2C1C1500CBFBA4 /* TerpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpApp.swift; sourceTree = "<group>"; };
 		49603C382A2C1C1500CBFBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -191,17 +196,16 @@
 		49603C642A2C1C8500CBFBA4 /* Achievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		49603C652A2C1C8500CBFBA4 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		49603C662A2C1C8500CBFBA4 /* UserAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAchievement.swift; sourceTree = "<group>"; };
-		49603C672A2C1C8500CBFBA4 /* Strain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strain.swift; sourceTree = "<group>"; };
+		49603C672A2C1C8500CBFBA4 /* StrainJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrainJSON.swift; sourceTree = "<group>"; };
 		49603C682A2C1C8500CBFBA4 /* TerpeneJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerpeneJSON.swift; sourceTree = "<group>"; };
 		49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryUtil.swift; sourceTree = "<group>"; };
-		49603C6A2A2C1C8500CBFBA4 /* StrainUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrainUtil.swift; sourceTree = "<group>"; };
+		49603C6A2A2C1C8500CBFBA4 /* StrainJSONUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrainJSONUtil.swift; sourceTree = "<group>"; };
 		49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
 		49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerpeneJSONUtil.swift; sourceTree = "<group>"; };
 		49603C8D2A2C1C9700CBFBA4 /* achievement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievement.json; sourceTree = "<group>"; };
 		49603C8E2A2C1C9700CBFBA4 /* terpene.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = terpene.json; sourceTree = "<group>"; };
 		49603C8F2A2C1C9700CBFBA4 /* reviews.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reviews.json; sourceTree = "<group>"; };
 		49603C902A2C1C9700CBFBA4 /* messages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messages.json; sourceTree = "<group>"; };
-		49603C912A2C1C9700CBFBA4 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		49603C922A2C1C9700CBFBA4 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		49603C932A2C1C9700CBFBA4 /* user_achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_achievements.json; sourceTree = "<group>"; };
 		49603C942A2C1C9700CBFBA4 /* notifications.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notifications.json; sourceTree = "<group>"; };
@@ -311,6 +315,10 @@
 		49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneViewModel.swift; sourceTree = "<group>"; };
 		49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneCoreDataUtil.swift; sourceTree = "<group>"; };
+		49603DDA2A2E23EC00CBFBA4 /* Strain+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataClass.swift"; sourceTree = "<group>"; };
+		49603DDB2A2E23EC00CBFBA4 /* Strain+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49603DDE2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainCoreDataUtil.swift; sourceTree = "<group>"; };
+		49603DE42A2E364200CBFBA4 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +332,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		493F9E262A2ED3290080546C /* Published */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Published;
+			sourceTree = "<group>";
+		};
 		49603C2A2A2C1C1500CBFBA4 = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +384,7 @@
 		49603C4B2A2C1C8500CBFBA4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				493F9E262A2ED3290080546C /* Published */,
 				49603DD32A2E11D000CBFBA4 /* CoreData */,
 				49603C582A2C1C8500CBFBA4 /* Models */,
 				49603C532A2C1C8500CBFBA4 /* Enums */,
@@ -382,7 +398,7 @@
 				49603C562A2C1C8500CBFBA4 /* StrainSearch.swift */,
 				49603C572A2C1C8500CBFBA4 /* MessageUtil.swift */,
 				49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */,
-				49603C6A2A2C1C8500CBFBA4 /* StrainUtil.swift */,
+				49603C6A2A2C1C8500CBFBA4 /* StrainJSONUtil.swift */,
 				49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */,
 				49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */,
 			);
@@ -410,12 +426,13 @@
 		49603C8C2A2C1C9700CBFBA4 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				493F9E242A2EC9FD0080546C /* strain_data_demo.json */,
+				49603DE42A2E364200CBFBA4 /* strain_data.json */,
 				49603D802A2C1D8700CBFBA4 /* feed.json */,
 				49603C8D2A2C1C9700CBFBA4 /* achievement.json */,
 				49603C8E2A2C1C9700CBFBA4 /* terpene.json */,
 				49603C8F2A2C1C9700CBFBA4 /* reviews.json */,
 				49603C902A2C1C9700CBFBA4 /* messages.json */,
-				49603C912A2C1C9700CBFBA4 /* strain_data.json */,
 				49603C922A2C1C9700CBFBA4 /* users.json */,
 				49603C932A2C1C9700CBFBA4 /* user_achievements.json */,
 				49603C942A2C1C9700CBFBA4 /* notifications.json */,
@@ -784,6 +801,8 @@
 		49603D822A2C27B100CBFBA4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				49603DDA2A2E23EC00CBFBA4 /* Strain+CoreDataClass.swift */,
+				49603DDB2A2E23EC00CBFBA4 /* Strain+CoreDataProperties.swift */,
 				49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */,
 				49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */,
 				49603DC52A2C3DC300CBFBA4 /* Terpene+CoreDataClass.swift */,
@@ -811,7 +830,7 @@
 				49603C642A2C1C8500CBFBA4 /* Achievement.swift */,
 				49603C652A2C1C8500CBFBA4 /* Post.swift */,
 				49603C662A2C1C8500CBFBA4 /* UserAchievement.swift */,
-				49603C672A2C1C8500CBFBA4 /* Strain.swift */,
+				49603C672A2C1C8500CBFBA4 /* StrainJSON.swift */,
 				49603C682A2C1C8500CBFBA4 /* TerpeneJSON.swift */,
 			);
 			path = JSON;
@@ -829,6 +848,7 @@
 			isa = PBXGroup;
 			children = (
 				49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */,
+				49603DDE2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -897,11 +917,12 @@
 				49603C992A2C1C9700CBFBA4 /* reviews.json in Resources */,
 				49603C9D2A2C1C9700CBFBA4 /* user_achievements.json in Resources */,
 				49603C3E2A2C1C1700CBFBA4 /* Preview Assets.xcassets in Resources */,
+				49603DE52A2E364200CBFBA4 /* strain_data.json in Resources */,
 				49603C3B2A2C1C1700CBFBA4 /* Assets.xcassets in Resources */,
 				49603C9C2A2C1C9700CBFBA4 /* users.json in Resources */,
 				49603C982A2C1C9700CBFBA4 /* terpene.json in Resources */,
-				49603C9B2A2C1C9700CBFBA4 /* strain_data.json in Resources */,
 				49603D812A2C1D8700CBFBA4 /* feed.json in Resources */,
+				493F9E252A2EC9FD0080546C /* strain_data_demo.json in Resources */,
 				49603C9A2A2C1C9700CBFBA4 /* messages.json in Resources */,
 				49603CA02A2C1C9700CBFBA4 /* terpene_profile.json in Resources */,
 			);
@@ -948,6 +969,7 @@
 				49603D682A2C1CAF00CBFBA4 /* MultipleSelectionList.swift in Sources */,
 				49603C8A2A2C1C8500CBFBA4 /* UserUtil.swift in Sources */,
 				49603D6F2A2C1CAF00CBFBA4 /* TerpeneProfileView.swift in Sources */,
+				49603DDC2A2E23EC00CBFBA4 /* Strain+CoreDataClass.swift in Sources */,
 				49603D422A2C1CAF00CBFBA4 /* MessageThreadRow.swift in Sources */,
 				49603C742A2C1C8500CBFBA4 /* ConsumptionType.swift in Sources */,
 				49603D3D2A2C1CAF00CBFBA4 /* StrainDetailTerpeneProfileRow.swift in Sources */,
@@ -956,7 +978,7 @@
 				49603D332A2C1CAF00CBFBA4 /* HorizontalStrainListRow.swift in Sources */,
 				49603C6E2A2C1C8500CBFBA4 /* ReviewUtil.swift in Sources */,
 				49603C852A2C1C8500CBFBA4 /* UserAchievement.swift in Sources */,
-				49603C862A2C1C8500CBFBA4 /* Strain.swift in Sources */,
+				49603C862A2C1C8500CBFBA4 /* StrainJSON.swift in Sources */,
 				49603D542A2C1CAF00CBFBA4 /* UserCommentRow.swift in Sources */,
 				49603D7E2A2C1CB000CBFBA4 /* MessagesView.swift in Sources */,
 				49603D252A2C1CAF00CBFBA4 /* KeyboardTextField.swift in Sources */,
@@ -1041,6 +1063,7 @@
 				49603D3E2A2C1CAF00CBFBA4 /* StrainRateHeaderRow.swift in Sources */,
 				49603D572A2C1CAF00CBFBA4 /* TerpeneDetailEffectAromaRow.swift in Sources */,
 				49603D632A2C1CAF00CBFBA4 /* DiscoverRecommendedStrainsRow.swift in Sources */,
+				49603DDD2A2E23EC00CBFBA4 /* Strain+CoreDataProperties.swift in Sources */,
 				49603D692A2C1CAF00CBFBA4 /* SearchView.swift in Sources */,
 				49603D782A2C1CB000CBFBA4 /* ShowInPublicFeedHelpView.swift in Sources */,
 				49603D712A2C1CAF00CBFBA4 /* StrainDetailView.swift in Sources */,
@@ -1049,7 +1072,8 @@
 				49603C7F2A2C1C8500CBFBA4 /* User.swift in Sources */,
 				49603D582A2C1CAF00CBFBA4 /* TerpeneDetailHeaderRow.swift in Sources */,
 				49603D532A2C1CAF00CBFBA4 /* NewCommentRow.swift in Sources */,
-				49603C892A2C1C8500CBFBA4 /* StrainUtil.swift in Sources */,
+				49603DDF2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift in Sources */,
+				49603C892A2C1C8500CBFBA4 /* StrainJSONUtil.swift in Sources */,
 				49603D372A2C1CAF00CBFBA4 /* StrainDetailHeaderRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1176,16 +1200,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Terp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1193,6 +1218,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sourdiesel1202.Terp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1204,16 +1230,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Terp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1221,6 +1248,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sourdiesel1202.Terp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

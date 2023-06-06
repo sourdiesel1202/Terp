@@ -9,45 +9,49 @@ import SwiftUI
 
 struct StrainSearchView: View {
     @State private var searchText = ""
+    @EnvironmentObject var globalData: GlobalData
+//    @State var reload: Binding<Bool>
 //    let strains: [Strain]
 //    let searchTitle: String?
     var body: some View {
 //        self.presentat
-        NavigationView {
-            if self.searchText.count < 3{
-                VStack{
-                    Text("Search Cannabis Strains").font(.title).fontWeight(.bold)
-                    Text("\(StrainUtil.loadStrains().count) different strains found and counting").font(.subheadline)
-                }
-            }else{
-                List {
-                    ForEach(searchResults) {(strain: Strain) in
-                        
-                        NavigationLink {
-                            StrainDetail2_0View(strain: strain)
-                        } label: {
-                            StrainSearchResultRow(strain: strain)
-                        }
+        if self.globalData.doubleTappedMainTabView || !self.globalData.doubleTappedMainTabView{
+            NavigationView {
+                if self.searchText.count < 3{
+                    VStack{
+                        Text("Search Cannabis Strains").font(.title).fontWeight(.bold)
+                        Text("\(StrainJSONUtil.loadStrains().count) different strains found and counting").font(.subheadline)
                     }
-                                            
-                }.navigationDestination(for: Strain.self) { strain in
-                    StrainDetail2_0View(strain: strain)
-                    //        }.navigationDestination(for: StrainDetail.self) { strain in
-                    //            StrainDetail(strain: (strain: Strain))
-                        
-                    //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(inline).listStyle(GroupedListStyle())
-                    //            //        .padding()
-                }.navigationBarTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
-                    //        .padding()
-                }
-            }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search")
+                }else{
+                    List {
+                        ForEach(searchResults) {(strain: StrainJSON) in
+                            
+                            NavigationLink {
+                                StrainDetail2_0View(strain: strain)
+                            } label: {
+                                StrainSearchResultRow(strain: strain)
+                            }
+                        }
+                                                
+                    }.navigationDestination(for: StrainJSON.self) { strain in
+                        StrainDetail2_0View(strain: strain)
+                        //        }.navigationDestination(for: StrainDetail.self) { strain in
+                        //            StrainDetail(strain: (strain: Strain))
+                            
+                        //        }.navigationTitle("Menu").navigationBarTitleDisplayMode(inline).listStyle(GroupedListStyle())
+                        //            //        .padding()
+                    }.navigationBarTitle("Search").navigationBarTitleDisplayMode(.inline).listStyle(GroupedListStyle())
+                        //        .padding()
+                    }
+                }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search")
+        }
     }
     
-    var searchResults: [Strain] {
+    var searchResults: [StrainJSON] {
         if searchText.isEmpty || searchText.count < 3 {
-                return [Strain]()
+                return [StrainJSON]()
             } else {
-                return StrainUtil.searchStrainByName(name: self.searchText)
+                return StrainJSONUtil.searchStrainByName(name: self.searchText)
             }
         }
 
@@ -56,6 +60,6 @@ struct StrainSearchView: View {
 
 struct StrainSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        StrainSearchView()
+        StrainSearchView().environmentObject(GlobalData())
     }
 }

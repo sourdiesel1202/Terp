@@ -93,9 +93,6 @@ struct TerpeneCoreDataUtil{
     
     
     static func buildEffectCoreData(viewContext: NSManagedObjectContext){
-//        @FetchRequest(sortDescriptors: []) var aromas: FetchedResults<Aroma>
-//        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-//        privateContext.parent = viewContext
         
         if self.loadEffects(viewContext: viewContext).count == 0 {
             print("No effects have been loaded, loading effects")
@@ -118,16 +115,6 @@ struct TerpeneCoreDataUtil{
                         let nsError = error as NSError
                         fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                     }
-                    //                        }
-                    
-                    //                    } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    //                        let nsError = error as NSError
-                    //                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                    //                    }
-                    
-                    //                }
                 }
             }
             
@@ -165,7 +152,7 @@ struct TerpeneCoreDataUtil{
     }
     
     
-    
+//    static 
     static func buildTerpeneCoreData(viewContext: NSManagedObjectContext){
         //load data in here
         

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MoreView: View {
+    @EnvironmentObject var globalData: GlobalData
     var body: some View {
 //        ScrollView(.vertical){
 //            Section{
@@ -28,6 +29,6 @@ struct MoreView: View {
 
 struct MoreView_Previews: PreviewProvider {
     static var previews: some View {
-        MoreView()
+        MoreView().environmentObject(GlobalData())
     }
 }

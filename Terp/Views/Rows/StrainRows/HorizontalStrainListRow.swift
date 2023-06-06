@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HorizontalStrainListRow: View {
-    let strains: [Strain]
+    let strains: [StrainJSON]
     var body: some View {
         ScrollView(.horizontal){
             HStack(alignment: .top){
                 if self.strains.count > 3 {
-                    ForEach(self.strains[0...3]){ (strain:Strain) in
+                    ForEach(self.strains[0...3]){ (strain:StrainJSON) in
                         Button(action: {}){
                             NavigationLink {
                                 StrainDetail2_0View(strain: strain)
@@ -29,7 +29,7 @@ struct HorizontalStrainListRow: View {
                         
                     }
                 }else{
-                    ForEach(self.strains[0..<self.strains.count]){ (strain:Strain) in
+                    ForEach(self.strains[0..<self.strains.count]){ (strain:StrainJSON) in
                         Button(action: {}){
                             NavigationLink {
                                 StrainDetail2_0View(strain: strain)
@@ -50,7 +50,7 @@ struct HorizontalStrainListRow: View {
                 if self.strains.count > 3{
                     Button(action: {}){
                         NavigationLink{
-                            ThumbnailListView(data: StrainUtil.loadStrainDataMap(strains: self.strains), searchTitle: "Strains")
+                            ThumbnailListView(data: StrainJSONUtil.loadStrainDataMap(strains: self.strains), searchTitle: "Strains")
 //                            StrainDetailView(strain: <#T##Strain#>)
                         }label: {
                             VStack{
@@ -70,6 +70,6 @@ struct HorizontalStrainListRow: View {
 
 struct HorizontalStrainListRow_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalStrainListRow(strains: [Strain.example, Strain.example, Strain.example, Strain.example])
+        HorizontalStrainListRow(strains: [StrainJSON.example, StrainJSON.example, StrainJSON.example, StrainJSON.example])
     }
 }

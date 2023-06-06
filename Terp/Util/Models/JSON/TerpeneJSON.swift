@@ -16,7 +16,7 @@ import SwiftUI
 
 
 struct Strains: Codable {
-    var results = [Strain]()
+    var results = [StrainJSON]()
 }
 //
 struct TerpeneJSON: Codable, Identifiable, Hashable{

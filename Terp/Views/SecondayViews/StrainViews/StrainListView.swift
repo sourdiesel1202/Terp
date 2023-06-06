@@ -10,10 +10,10 @@ import SwiftUI
 struct StrainListView: View {
     //ok so the idea here is that we can re-use this view by passing in a listing of strains
     @State private var searchText = ""
-    let data: [Strain]
+    let data: [StrainJSON]
     var body: some View {
 //        NavigationStack {List {
-        ForEach(data) {(strain: Strain) in
+        ForEach(data) {(strain: StrainJSON) in
             NavigationLink {
                 StrainDetail2_0View(strain: strain)
             } label: {
@@ -37,6 +37,6 @@ struct StrainListView: View {
 
 struct StrainListView_Previews: PreviewProvider {
     static var previews: some View {
-        StrainListView( data: [Strain.example])
+        StrainListView( data: [StrainJSON.example])
     }
 }

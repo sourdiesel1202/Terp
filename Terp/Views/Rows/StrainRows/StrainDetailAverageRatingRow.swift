@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainDetailAverageRatingRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     @State private var userRating: Int = 1
     @State private var userDescription: String = ""
     @State private var isShowingReviewSheet: Bool = false
@@ -43,6 +43,6 @@ struct StrainDetailAverageRatingRow: View {
 
 struct StrainDetailAverageRatingRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainDetailAverageRatingRow(strain: Strain.example)
+        StrainDetailAverageRatingRow(strain: StrainJSON.example)
     }
 }

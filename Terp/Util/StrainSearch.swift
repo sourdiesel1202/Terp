@@ -7,8 +7,8 @@
 
 import Foundation
 extension Bundle{
-    func searchStrainByTerpene(terpene: TerpeneJSON)->[Strain]{
-        let data = Bundle.main.decode([Strain].self, from: "strain_data.json")
+    func searchStrainByTerpene(terpene: TerpeneJSON)->[StrainJSON]{
+        let data = Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
         return data.filter{$0.terpenes.contains(terpene.name)}
 //        forEach(<#T##(Element) -> Void#>)
     }

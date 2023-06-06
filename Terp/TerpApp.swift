@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct TerpApp: App {
     let persistenceController = PersistenceController.shared
-
+    @StateObject var globalData = GlobalData()
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(GlobalData())
         }
     }
 }

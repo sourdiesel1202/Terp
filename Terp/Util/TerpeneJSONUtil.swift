@@ -196,10 +196,10 @@ struct TerpeneJSONUtil{
             $0.key < $1.value
         }
     }
-    static func loadEffectDataMap(terpenes: [TerpeneJSON], strains: [Strain]) -> [DataMap]{
+    static func loadEffectDataMap(terpenes: [TerpeneJSON], strains: [StrainJSON]) -> [DataMap]{
         var _effects = [DataMap]()
         TerpeneJSONUtil.loadTerpeneEffects(terpenes: terpenes).forEach { effect in
-            _effects.append(DataMap(key: effect, value: "", view: ListView(data: StrainUtil.loadStrainDataMap(strains: StrainUtil.loadStrainsByTerpenes(terpenes: TerpeneJSONUtil.loadTerpenesByEffect(effect: effect, terpenes: terpenes), strains: strains)), searchTitle: "Strains With \(effect) Effects")))
+            _effects.append(DataMap(key: effect, value: "", view: ListView(data: StrainJSONUtil.loadStrainDataMap(strains: StrainJSONUtil.loadStrainsByTerpenes(terpenes: TerpeneJSONUtil.loadTerpenesByEffect(effect: effect, terpenes: terpenes), strains: strains)), searchTitle: "Strains With \(effect) Effects")))
         }
 //        var _effect = [DataMap]()
 //        terpenes.forEach { terpene in
@@ -255,10 +255,10 @@ struct TerpeneJSONUtil{
         return Bundle.main.decode(TerpeneProfile.self, from: "terpene_profile.json")
         
     }
-    static func loadAromaDataMap(terpenes: [TerpeneJSON], strains: [Strain]) -> [DataMap]{
+    static func loadAromaDataMap(terpenes: [TerpeneJSON], strains: [StrainJSON]) -> [DataMap]{
         var _aromas = [DataMap]()
         TerpeneJSONUtil.loadTerpeneAromas(terpenes: terpenes).forEach { aroma in
-            _aromas.append(DataMap(key: aroma, value: "", view: ListView(data: StrainUtil.loadStrainDataMap(strains: StrainUtil.loadStrainsByTerpenes(terpenes: TerpeneJSONUtil.loadTerpenesByAroma(aroma: aroma, terpenes: terpenes), strains: strains)), searchTitle: "Strains With \(aroma) Aromas`")))
+            _aromas.append(DataMap(key: aroma, value: "", view: ListView(data: StrainJSONUtil.loadStrainDataMap(strains: StrainJSONUtil.loadStrainsByTerpenes(terpenes: TerpeneJSONUtil.loadTerpenesByAroma(aroma: aroma, terpenes: terpenes), strains: strains)), searchTitle: "Strains With \(aroma) Aromas`")))
         }
 //        var _effect = [DataMap]()
 //        terpenes.forEach { terpene in

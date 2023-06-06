@@ -37,12 +37,12 @@ struct ProfileReviewsRow: View {
                         
                         ForEach(self.reviews){ review in
                             NavigationLink {
-                                StrainDetail2_0View(strain: StrainUtil.loadStrainByName(name: review.strain)!)
+                                StrainDetail2_0View(strain: StrainJSONUtil.loadStrainByName(name: review.strain)!)
                             }label: {
                                 VStack{
-                                    URLImage(url: StrainUtil.loadStrainByName(name: review.strain)!.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
+                                    URLImage(url: StrainJSONUtil.loadStrainByName(name: review.strain)!.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                     
-                                    Text(StrainUtil.loadStrainByName(name: review.strain)!.name).font(.caption).fontWeight(.bold)
+                                    Text(StrainJSONUtil.loadStrainByName(name: review.strain)!.name).font(.caption).fontWeight(.bold)
                                     
                                 }.padding([.trailing])
                                 //                            VStack{

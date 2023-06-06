@@ -10,7 +10,7 @@ import SwiftUI
 struct DiscoverView: View {
     //    let
 //    @EnvironmentObject var globalData: GlobalData
-//    @State var terpeneList: [DataMap]
+    @State var reload: Binding<Bool>
 //    var terpeneData = [DataMap]
     private var terpeneProfile: TerpeneProfile {
         return TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example)
@@ -92,6 +92,6 @@ struct DiscoverView: View {
 
 struct DiscoverView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverView()
+        DiscoverView(reload: .constant(false))
     }
 }

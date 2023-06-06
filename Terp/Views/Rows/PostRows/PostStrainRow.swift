@@ -19,7 +19,7 @@ struct PostStrainRow: View {
 //            Divider().padding(.top)
 //            NavigationLink(desination: StrainDetailView(strain: strain)){
             NavigationLink{
-                StrainDetail2_0View(strain: StrainUtil.loadStrainByName(name: review.strain)!) //todo handle this
+                StrainDetail2_0View(strain: StrainJSONUtil.loadStrainByName(name: review.strain)!) //todo handle this
             }label: {
                     
                     

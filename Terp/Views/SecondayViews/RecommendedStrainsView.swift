@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct RecommendedStrainsView: View {
-    let data = Bundle.main.decode([Strain].self, from: "strain_data.json")
+    let data = Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
     var body: some View {
                 VStack(alignment: .leading){
                     
                     
                     NavigationStack {List {
-                        ForEach(data[3...8]) {(strain: Strain) in
+                        ForEach(data[3...8]) {(strain: StrainJSON) in
                             NavigationLink {
                                 StrainDetail2_0View(strain: strain)
                             } label: {
@@ -22,7 +22,7 @@ struct RecommendedStrainsView: View {
                                 StrainSearchRow(strain: strain)
                             }
                         }
-                    }.navigationDestination(for: Strain.self) { strain in
+                    }.navigationDestination(for: StrainJSON.self) { strain in
                         StrainDetail2_0View(strain: strain)
                         //        }.navigationDestination(for: StrainDetail.self) { strain in
                         //            StrainDetail(strain: (strain: Strain))

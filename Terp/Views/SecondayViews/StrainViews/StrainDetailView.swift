@@ -10,7 +10,7 @@ import SwiftUI
 struct StrainDetailView: View {
     //    var jsonUtil =
 //    let data = Bundle.main.decode([Strain].self, from: "strain_data.json")
-    let strain: Strain
+    let strain: StrainJSON
     @State private var showingPopover = false
     @State private var showAlert = false
     @State private var alertMessage = ""
@@ -107,7 +107,7 @@ struct StrainDetailView: View {
 struct StrainDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            StrainDetailView(strain: Strain.example)
+            StrainDetailView(strain: StrainJSON.example)
         }
     }
 }

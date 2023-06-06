@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainRateView: View {
-    let strain: Strain
+    let strain: StrainJSON
     @State private var rating: Int = 1
     @State private var description: String = ""
     @State private var isPublic: Bool = false
@@ -37,6 +37,6 @@ struct StrainRateView: View {
 
 struct StrainRateView_Previews: PreviewProvider {
     static var previews: some View {
-        StrainRateView(strain: Strain.example)
+        StrainRateView(strain: StrainJSON.example)
     }
 }

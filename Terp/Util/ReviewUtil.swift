@@ -23,7 +23,7 @@ struct ReviewUtil{
 //        }
 //        return reviews
 //    }
-    static func loadAverageRatingByStrain(strain: Strain) -> Int{
+    static func loadAverageRatingByStrain(strain: StrainJSON) -> Int{
         var ratings = 0
         let reviews = self.loadReviewsByStrainName(name: strain.name)
         reviews.forEach(){ rating in

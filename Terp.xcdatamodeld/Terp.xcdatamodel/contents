@@ -19,6 +19,18 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Strain" representedClassName="Strain" syncable="YES">
+        <attribute name="aliases" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="desc" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="type" attributeType="String" defaultValueString="&quot;Hybrid&quot;"/>
+        <attribute name="url" attributeType="String"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Strain" inverseName="children" inverseEntity="Strain"/>
+        <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Strain" inverseName="parents" inverseEntity="Strain"/>
+        <relationship name="terpenes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Terpene" inverseName="strains" inverseEntity="Terpene"/>
+    </entity>
     <entity name="Terpene" representedClassName="Terpene" syncable="YES">
         <attribute name="desc" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
@@ -27,5 +39,6 @@
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="aromas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Aroma" inverseName="terpenes" inverseEntity="Aroma"/>
         <relationship name="effects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Effect" inverseName="terpenes" inverseEntity="Effect"/>
+        <relationship name="strains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Strain" inverseName="terpenes" inverseEntity="Strain"/>
     </entity>
 </model>

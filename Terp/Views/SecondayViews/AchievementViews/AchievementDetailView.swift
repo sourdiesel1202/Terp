@@ -24,10 +24,10 @@ struct AchievementDetailView: View {
                     Section(header: Text("Eligible Strains")){
                         
                         ForEach(achievement.strains, id: \.self) { strain in
-                            if StrainUtil.loadStrainByName(name: strain) != nil{
+                            if StrainJSONUtil.loadStrainByName(name: strain) != nil{
                                 NavigationLink{
                                     
-                                    StrainDetail2_0View(strain: StrainUtil.loadStrainByName(name: strain)!)
+                                    StrainDetail2_0View(strain: StrainJSONUtil.loadStrainByName(name: strain)!)
                                 }label: {
                                     BasicRow(title: strain, description: "")
                                 }

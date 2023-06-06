@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StrainDetailTerpeneProfileRow: View {
-    let strain: Strain
+    let strain: StrainJSON
     var body: some View {
         Text("Terpene Profile").padding([.top,.bottom]).fontWeight(.bold)
         VStack(alignment: .leading){
@@ -47,11 +47,11 @@ struct StrainDetailTerpeneProfileRow: View {
             
             //            ViewDivider(height: 0.25)
             ViewDivider(height: 0.5)
-            RowHeaderViewAll(text: "Aromas (\(StrainUtil.loadStrainAromas(strain: self.strain) .count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))))
+            RowHeaderViewAll(text: "Aromas (\(StrainJSONUtil.loadStrainAromas(strain: self.strain) .count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))))
             HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)))
             
             ViewDivider(height: 0.5)
-            RowHeaderViewAll(text: "Effects (\(StrainUtil.loadStrainEffects(strain: self.strain).count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))))
+            RowHeaderViewAll(text: "Effects (\(StrainJSONUtil.loadStrainEffects(strain: self.strain).count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes))))
             HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)))
             
             
@@ -61,6 +61,6 @@ struct StrainDetailTerpeneProfileRow: View {
 
 struct StrainDetailProfileRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainDetailTerpeneProfileRow(strain: Strain.example)
+        StrainDetailTerpeneProfileRow(strain: StrainJSON.example)
     }
 }
