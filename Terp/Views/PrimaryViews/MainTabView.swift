@@ -67,7 +67,10 @@ struct MainTabView: View {
                }
            }.onAppear(perform: {
 //               StrainCoreDataUtil.deleteStrains(viewContext: self.viewContext)
-               StrainCoreDataUtil.buildStrainCoreData(viewContext: self.viewContext)
+                TerpeneCoreDataUtil.buildAromaCoreData(viewContext: self.viewContext)
+                TerpeneCoreDataUtil.buildEffectCoreData(viewContext: self.viewContext)
+                TerpeneCoreDataUtil.buildTerpeneCoreData(viewContext: self.viewContext)
+               StrainCoreDataUtil.buildStrainCoreData()
                //ok so here is where we need to load in our data into core data if it doesn't exist
 //               DispatchQueue.global(qos: .userInteractive).async {
 //                 // fetch animation based on status

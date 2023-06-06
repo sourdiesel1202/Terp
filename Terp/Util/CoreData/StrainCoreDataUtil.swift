@@ -8,7 +8,12 @@
 import Foundation
 import CoreData
 struct StrainCoreDataUtil{
-    static func loadStrains(viewContext: NSManagedObjectContext)->[Strain]{
+    static func loadStrains()->[Strain]{
+        let viewContext: NSManagedObjectContext = {
+            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            moc.parent = PersistenceController.shared.container.viewContext
+            return moc
+        }()
         let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
 //        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
         do{
@@ -20,7 +25,7 @@ struct StrainCoreDataUtil{
         return [Strain]()
     }
     static func deleteStrains(viewContext: NSManagedObjectContext){
-        let strains = self.loadStrains(viewContext: viewContext)
+        let strains = self.loadStrains()
         print("Strain count: \(strains.count)")
         strains.forEach(){strain in
             viewContext.delete(strain)
@@ -32,11 +37,16 @@ struct StrainCoreDataUtil{
         }catch let error as NSError{
             print("Could not delete aromas \(error.userInfo)")
         }
-        print("Strain Count: \(self.loadStrains(viewContext: viewContext).count)")
+        print("Strain Count: \(self.loadStrains().count)")
 
     }
     
-    static func searchStrainByName(name: String, viewContext: NSManagedObjectContext)->Strain? {
+    static func searchStrainByName(name: String)->Strain? {
+        let viewContext: NSManagedObjectContext = {
+            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            moc.parent = PersistenceController.shared.container.viewContext
+            return moc
+        }()
         let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         do{
@@ -54,13 +64,13 @@ struct StrainCoreDataUtil{
             moc.parent = PersistenceController.shared.container.viewContext
             return moc
         }()
-        let _strain = self.searchStrainByName(name: strain.name, viewContext: viewContext)!
+        let _strain = self.searchStrainByName(name: strain.name)!
 //        if self.searchStrainByName(name: strain.name, viewContext: viewContext) == nil{
         print("\(strain.name) has \(strain.parents.count) parents and \(strain.children.count) children")
             for i in 0..<strain.parents.count{
                 print("Checking parents of \(strain.name)")
                 let parent  = strain.parents[i]
-                let _parentObj = self.searchStrainByName(name: parent, viewContext: viewContext)
+                let _parentObj = self.searchStrainByName(name: parent)
                 if _parentObj == nil{
                     print("Parent of \(strain.name): \(parent) is not in CoreData yet, inserting")
 
@@ -68,7 +78,7 @@ struct StrainCoreDataUtil{
                     if strainJSON != nil{
                         insertNewStrain(strain:strainJSON! )
                         print("Attempting to write new strain: \(parent)")
-                        let _newParentObj = self.searchStrainByName(name: parent,viewContext: viewContext)
+                        let _newParentObj = self.searchStrainByName(name: parent)
                         if _newParentObj != nil{
                             print("Wrote new strain \(parent)")
                             _strain.addToChildren(_newParentObj!)
@@ -87,13 +97,13 @@ struct StrainCoreDataUtil{
             for i in 0..<strain.children.count{
                 let child = strain.children[i]
                 print("Checking children of \(strain.name)")
-                let _childObj = self.searchStrainByName(name: child,viewContext: viewContext)
+                let _childObj = self.searchStrainByName(name: child)
                 if _childObj == nil{
                     print("Child of \(strain.name): \(child) is not in CoreData yet, inserting")
                     let strainJSON = StrainJSONUtil.loadStrainByName(name: child)
                     if strainJSON != nil{
                         insertNewStrain(strain: strainJSON!)
-                        let _newChildObj = self.searchStrainByName(name: child,viewContext: viewContext)
+                        let _newChildObj = self.searchStrainByName(name: child)
                         if _newChildObj != nil{
                             _strain.addToChildren(_newChildObj!)
                         }
@@ -124,7 +134,7 @@ struct StrainCoreDataUtil{
             moc.parent = PersistenceController.shared.container.viewContext
             return moc
         }()
-        if self.searchStrainByName(name: strain.name, viewContext: viewContext) == nil{
+        if self.searchStrainByName(name: strain.name) == nil{
             let terpenes = TerpeneCoreDataUtil.loadTerpenes(viewContext: viewContext)
             print("Working with \(terpenes.count) terpenes")
             let _strain = Strain(context: viewContext)
@@ -150,8 +160,13 @@ struct StrainCoreDataUtil{
         }
     }
     
-    static func buildStrainCoreData(viewContext: NSManagedObjectContext){
+    static func buildStrainCoreData(){
         //load data in here
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
             let strains = StrainJSONUtil.loadInitalStrainData()
             var batches = [[StrainJSON]]()
             let batchSize = 2000
@@ -176,14 +191,15 @@ struct StrainCoreDataUtil{
                         //                 let animation = getAnimation(status)
                         print(Thread.current)
                         print("Spawing new thread to process \(batch.count) strains")
-                        
-                        for iStrain in 0..<batch.count{
-                            let strain = batch[iStrain]
-                            print("Processing \(iStrain)/\(batch.count) strains (insert) in batch \(iBatch)/\(batches.count)")
-                            insertNewStrain(strain: strain)
-//                            processStrainLineage(strain: strain)
-                            
-                        }
+                        if count != self.loadStrains().count{
+                            for iStrain in 0..<batch.count{
+                                let strain = batch[iStrain]
+                                print("Processing \(iStrain)/\(batch.count) strains (insert) in batch \(iBatch)/\(batches.count)")
+                                insertNewStrain(strain: strain)
+                                //                            processStrainLineage(strain: strain)
+                                
+                            }
+                        } //ok so if all strains are mapped just check lineage
                         for iStrain in 0..<batch.count{
                             let strain = batch[iStrain]
                             print("Processing \(iStrain)/\(batch.count) strains (lineage) in batch \(iBatch)/\(batches.count)")

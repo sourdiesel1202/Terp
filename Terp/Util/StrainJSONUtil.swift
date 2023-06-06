@@ -11,16 +11,16 @@ struct StrainJSONUtil{
         return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
     }
     static func loadStrains() -> [StrainJSON]{
-        print("Strain Count in Core Data: \(StrainCoreDataUtil.loadStrains(viewContext: PersistenceController.shared.container.viewContext).count)")
+        print("Strain Count in Core Data: \(StrainCoreDataUtil.loadStrains().count)")
         //basically the idea here is that if we have more in core data than we do in the demo file, we should use the demo file
-        if StrainCoreDataUtil.loadStrains(viewContext: PersistenceController.shared.container.viewContext).count < Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json").count {
+        if StrainCoreDataUtil.loadStrains().count < Bundle.main.decode([StrainJSON].self, from: "strain_data.json").count {
             print("returning demo strain data")
-            return Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json")
+            return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
         }else{
             //otherwise, we can use core data
             print("returning data from core data")
             var _strains = [StrainJSON]()
-            StrainCoreDataUtil.loadStrains(viewContext: PersistenceController.shared.container.viewContext).forEach(){ _strain in
+            StrainCoreDataUtil.loadStrains().forEach(){ _strain in
                 var terpenes = [String]()
                 _strain.terpenes!.forEach(){ terpene in
                     terpenes.append(terpene.name!)
