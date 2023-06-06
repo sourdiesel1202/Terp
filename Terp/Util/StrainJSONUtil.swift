@@ -7,7 +7,9 @@
 
 import Foundation
 struct StrainJSONUtil{
-    
+    static func loadInitalStrainData() -> [StrainJSON]{
+        return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
+    }
     static func loadStrains() -> [StrainJSON]{
         print("Strain Count in Core Data: \(StrainCoreDataUtil.loadStrains(viewContext: PersistenceController.shared.container.viewContext).count)")
         //basically the idea here is that if we have more in core data than we do in the demo file, we should use the demo file

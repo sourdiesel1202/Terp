@@ -67,9 +67,12 @@ struct StrainCoreDataUtil{
                     let strainJSON = StrainJSONUtil.loadStrainByName(name: parent)
                     if strainJSON != nil{
                         insertNewStrain(strain:strainJSON! )
+                        print("Attempting to write new strain: \(parent)")
                         let _newParentObj = self.searchStrainByName(name: parent,viewContext: viewContext)
                         if _newParentObj != nil{
+                            print("Wrote new strain \(parent)")
                             _strain.addToChildren(_newParentObj!)
+                            print("Creating parent relationship between \(strain.name) <==> \(_newParentObj!.name!)")
                         }
                         
                     }
@@ -149,7 +152,7 @@ struct StrainCoreDataUtil{
     
     static func buildStrainCoreData(viewContext: NSManagedObjectContext){
         //load data in here
-            let strains = StrainJSONUtil.loadStrains()
+            let strains = StrainJSONUtil.loadInitalStrainData()
             var batches = [[StrainJSON]]()
             let batchSize = 2000
             var count = 0
