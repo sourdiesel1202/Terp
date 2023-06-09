@@ -24,16 +24,17 @@ struct StrainJSONUtil{
     }
     static func convertCoreDataToJSON(_strain: Strain)->StrainJSON{
         var terpenes = [String]()
+//        for i in 0.._strain.ter
         _strain.terpenes!.forEach(){ terpene in
             terpenes.append(terpene.name!)
         }
         var parents = [String]()
         _strain.parents!.forEach(){ parent in
-            parents.append(parent.strain!.name!)
+            parents.append(parent.name!)
         }
         var children = [String]()
         _strain.children!.forEach(){ child in
-            children.append(child.strain!.name!)
+            children.append(child.name!)
         }
         return  StrainJSON( id: _strain.id,url: _strain.url!, name: _strain.name!, description: _strain.desc!, image: _strain.image!, terpenes: terpenes, children: children, parents: parents, aliases: _strain.aliases!.components(separatedBy: ","), type: _strain.type!)
 //        _strains.append(strainJson)
@@ -65,7 +66,8 @@ struct StrainJSONUtil{
     static func loadStrainChildren(strain: StrainJSON) -> [StrainJSON]{
         var strainDict: [String:Strain]? = [String:Strain]()
         if self.shouldUseCoreData(){
-            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict )!))
+            return self.convertCoreDataToJSON(strains: Array(StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!.children!))
+//            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict )!))
         }else{
             return self.loadStrains().filter({$0.parents.contains(where: {$0.lowercased() == strain.name.lowercased()})})
         }
@@ -73,7 +75,8 @@ struct StrainJSONUtil{
     static func loadStrainParents(strain: StrainJSON) -> [StrainJSON]{
         var strainDict: [String:Strain]? = [String:Strain]()
         if self.shouldUseCoreData(){
-            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!))
+//            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!))
+            return self.convertCoreDataToJSON(strains: Array(StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!.parents!))
         }else{
             var _res = [StrainJSON]()
             strain.parents.forEach(){ name in

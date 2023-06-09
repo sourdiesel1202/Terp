@@ -109,23 +109,15 @@ struct StrainCoreDataUtil{
         }()
         
         //ok so we're going to rethink this
-        let fetchRequest = NSFetchRequest<StrainChild>(entityName: "StrainChild")
-        fetchRequest.predicate = NSPredicate(format: "strain == %@", strain)
+        let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
+        fetchRequest.predicate = NSPredicate(format: "children CONTAINS %@", strain)
         //fetch all strain children where the strain is the strain we are loading children for
+        var strainDict: [String : Strain]? = [String:Strain]()
         do{
             var res = [Strain]()
             let parentStrains = try viewContext.fetch(fetchRequest)
             parentStrains.forEach(){ parent in
-                let childFR = NSFetchRequest<Strain>(entityName: "Strain")
-                childFR.predicate = NSPredicate(format: "%@ IN children", parent)
-                do {
-                    let results = try viewContext.fetch(childFR)
-                    results.forEach(){ tmp in
-                        res.append(tmp)
-                    }
-                } catch let err as NSError{
-                    print("Could not load aromas \(err.localizedDescription)")
-                }
+                res.append(self.loadStrainByName(name: parent.name!, viewContext: viewContext, strainDict:&strainDict )!)
             }
             
             return res
@@ -143,23 +135,15 @@ struct StrainCoreDataUtil{
         }()
         
         //ok so we're going to rethink this
-        let fetchRequest = NSFetchRequest<StrainParent>(entityName: "StrainParent")
-        fetchRequest.predicate = NSPredicate(format: "strain == %@", strain)
+        let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
+        fetchRequest.predicate = NSPredicate(format: "parents CONTAINS %@", strain)
         //fetch all strain children where the strain is the strain we are loading children for
+        var strainDict: [String : Strain]? = [String:Strain]()
         do{
             var res = [Strain]()
             let childStrains = try viewContext.fetch(fetchRequest)
             childStrains.forEach(){ child in
-                let parentFR = NSFetchRequest<Strain>(entityName: "Strain")
-                parentFR.predicate = NSPredicate(format: "%@ IN children", child)
-                do {
-                    let results = try viewContext.fetch(parentFR)
-                    results.forEach(){ tmp in
-                        res.append(tmp)
-                    }
-                } catch let err as NSError{
-                    print("Could not load aromas \(err.localizedDescription)")
-                }
+                res.append(self.loadStrainByName(name: child.name!, viewContext: viewContext, strainDict:&strainDict )!)
             }
             
             return res
@@ -212,23 +196,24 @@ struct StrainCoreDataUtil{
                         let _newParentObj = self.loadStrainByName(name: parent, viewContext: viewContext, strainDict: &strainDict)
                         if _newParentObj != nil{
                             print("Found \(parent) in core data")
-                            let parentStrain = StrainParent(context: viewContext)
-                            parentStrain.setValue(UUID(), forKey: "id")
-                            parentStrain.strain = _newParentObj
+//                            let parentStrain = StrainParent(context: viewContext)
+//                            parentStrain.setValue(UUID(), forKey: "id")
+//                            parentStrain.strain = _newParentObj
 //                            parentStrain.child = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
-                            _strain!.addToParents(parentStrain)
+                            _strain!.addToParents(_newParentObj!)
                             print("Creating parent relationship between \(strain.name) <==> \(_newParentObj!.name!)")
                         }
                         
                     }
                 }else{
                     print("Checking for existing relationship between \(strain.name) and \(_parentObj!.name!) ")
-                    if !_strain!.parents!.contains(where: {$0.strain!.name!.lowercased() == _parentObj!.name!.lowercased() }){
-                        let parentStrain = StrainParent(context: viewContext)
-                        parentStrain.setValue(UUID(), forKey: "id")
-                        parentStrain.strain = _parentObj
-//                        parentStrain.child = coreDataStrain// loadStrainByName(name: strain.name, viewContext: viewContext)
-                        _strain!.addToParents(parentStrain)
+                    if !_strain!.parents!.contains(where: {$0.name!.lowercased() == _parentObj!.name!.lowercased() }){
+//                    if !_strain!.parents!.contains(where: {$0.strain!.name!.lowercased() == _parentObj!.name!.lowercased() }){
+//                        let parentStrain = StrainParent(context: viewContext)
+//                        parentStrain.setValue(UUID(), forKey: "id")
+//                        parentStrain.strain = _parentObj
+////                        parentStrain.child = coreDataStrain// loadStrainByName(name: strain.name, viewContext: viewContext)
+                        _strain!.addToParents(_parentObj!)
                         print("Creating parent relationship between \(strain.name) <==> \(_parentObj!.name!)")
                     }
                     
@@ -250,21 +235,21 @@ struct StrainCoreDataUtil{
                         if _newChildObj != nil{
 //                            _strain.addToChildren(<#T##value: StrainChild##StrainChild#>)
                             print("Found \(strainJSON!.name) in core data")
-                            let childStrain = StrainChild(context: viewContext)
-                            childStrain.setValue(UUID(), forKey: "id")
-                            childStrain.strain = _newChildObj
-//                            childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
-                            _strain!.addToChildren(childStrain)
+//                            let childStrain = StrainChild(context: viewContext)
+//                            childStrain.setValue(UUID(), forKey: "id")
+//                            childStrain.strain = _newChildObj
+////                            childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
+                            _strain!.addToChildren(_newChildObj!)
                             print("Creating child relationship between \(strain.name) <==> \(_newChildObj!.name!)")
                         }
 
                     }
                 }else{
-                    let childStrain = StrainChild(context: viewContext)
-                    childStrain.setValue(UUID(), forKey: "id")
-                    childStrain.strain = _childObj
-//                    childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
-                    _strain!.addToChildren(childStrain)
+//                    let childStrain = StrainChild(context: viewContext)
+//                    childStrain.setValue(UUID(), forKey: "id")
+//                    childStrain.strain = _childObj
+////                    childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
+                    _strain!.addToChildren(_childObj!)
                     print("Creating child relationship between \(strain.name) <==> \(_childObj!.name!)")
                     
             

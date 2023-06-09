@@ -67,6 +67,10 @@ struct MainTabView: View {
                }
            }.onAppear(perform: {
 //               StrainCoreDataUtil.deleteStrains(viewContext: self.viewContext)
+                TerpeneCoreDataUtil.deleteAromas(viewContext: self.viewContext)
+                TerpeneCoreDataUtil.deleteEffects(viewContext: self.viewContext)
+                TerpeneCoreDataUtil.deleteTerepenes(viewContext: self.viewContext)
+
                 TerpeneCoreDataUtil.buildAromaCoreData(viewContext: self.viewContext)
                 TerpeneCoreDataUtil.buildEffectCoreData(viewContext: self.viewContext)
                 TerpeneCoreDataUtil.buildTerpeneCoreData(viewContext: self.viewContext)

@@ -27,17 +27,9 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="type" attributeType="String" defaultValueString="&quot;Hybrid&quot;"/>
         <attribute name="url" attributeType="String"/>
-        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StrainChild"/>
-        <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StrainParent"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Strain" inverseName="parents" inverseEntity="Strain"/>
+        <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Strain" inverseName="children" inverseEntity="Strain"/>
         <relationship name="terpenes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Terpene" inverseName="strains" inverseEntity="Terpene"/>
-    </entity>
-    <entity name="StrainChild" representedClassName="StrainChild" syncable="YES">
-        <attribute name="id" attributeType="UUID" defaultValueString="&quot;&quot;" usesScalarValueType="NO"/>
-        <relationship name="strain" maxCount="1" deletionRule="Nullify" destinationEntity="Strain"/>
-    </entity>
-    <entity name="StrainParent" representedClassName="StrainParent" syncable="YES">
-        <attribute name="id" attributeType="UUID" defaultValueString="&quot;&quot;" usesScalarValueType="NO"/>
-        <relationship name="strain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strain"/>
     </entity>
     <entity name="Terpene" representedClassName="Terpene" syncable="YES">
         <attribute name="desc" attributeType="String"/>

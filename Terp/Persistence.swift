@@ -31,10 +31,18 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
+        
         container = NSPersistentContainer(name: "Terp")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
+//        let psc = container.persistentStoreCoordinator
+//        let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+//        do {
+//            try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: container.persistentStoreDescriptions.first!.url, options: options)
+//        } catch {
+//            fatalError("Failed to add persistent store: \(error)")
+//        }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -52,5 +60,7 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+        
+
     }
 }

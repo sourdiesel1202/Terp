@@ -2,7 +2,7 @@
 //  Strain+CoreDataProperties.swift
 //  Terp
 //
-//  Created by Andrew on 6/6/23.
+//  Created by Andrew on 6/8/23.
 //
 //
 
@@ -23,8 +23,8 @@ extension Strain {
     @NSManaged public var name: String?
     @NSManaged public var type: String?
     @NSManaged public var url: String?
-    @NSManaged public var children: Set<StrainChild>?
-    @NSManaged public var parents: Set<StrainParent>?
+    @NSManaged public var children: Set<Strain>?
+    @NSManaged public var parents: Set<Strain>?
     @NSManaged public var terpenes: Set<Terpene>?
 
 }
@@ -33,10 +33,10 @@ extension Strain {
 extension Strain {
 
     @objc(addChildrenObject:)
-    @NSManaged public func addToChildren(_ value: StrainChild)
+    @NSManaged public func addToChildren(_ value: Strain)
 
     @objc(removeChildrenObject:)
-    @NSManaged public func removeFromChildren(_ value: StrainChild)
+    @NSManaged public func removeFromChildren(_ value: Strain)
 
     @objc(addChildren:)
     @NSManaged public func addToChildren(_ values: NSSet)
@@ -50,10 +50,10 @@ extension Strain {
 extension Strain {
 
     @objc(addParentsObject:)
-    @NSManaged public func addToParents(_ value: StrainParent)
+    @NSManaged public func addToParents(_ value: Strain)
 
     @objc(removeParentsObject:)
-    @NSManaged public func removeFromParents(_ value: StrainParent)
+    @NSManaged public func removeFromParents(_ value: Strain)
 
     @objc(addParents:)
     @NSManaged public func addToParents(_ values: NSSet)
