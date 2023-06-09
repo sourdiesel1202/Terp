@@ -43,27 +43,6 @@ struct StrainCoreDataUtil{
         print("Strain Count: \(self.loadStrains().count)")
 
     }
-//    func loadStrainByName(name: String, viewContext: NSManagedObjectContext)->Strain? {
-////        let viewContext: NSManagedObjectContext = {
-////            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-////            moc.parent = PersistenceController.shared.container.viewContext
-////            return moc
-////        }()
-//        let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
-//        fetchRequest.predicate = NSPredicate(format: "name == %@", name)
-//        if strainsMapped.keys.contains(where: {$0.lowercased() == name.lowercased() }){
-//            return self.strainsMapped[name]
-//        } else{
-//            do{
-//                let strains = try viewContext.fetch(fetchRequest)
-////                self.strainsMapped.updateValue(strains.first!, forKey: name)
-//                return strains.first
-//            }catch let error as NSError{
-//                print("Could not load aromas \(error.userInfo)")
-//            }
-//            return nil
-//        }
-//    }
     
     static func loadStrainByName(name: String, viewContext: NSManagedObjectContext, strainDict: inout [String:Strain]?)->Strain? {
 //        let viewContext: NSManagedObjectContext = {
@@ -330,7 +309,7 @@ struct StrainCoreDataUtil{
             let batch = batches[iBatch]
             let timer = Date.now
      
-            DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.global(qos: .utility).async {
                 let viewContext: NSManagedObjectContext = {
                     let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
                     moc.parent = PersistenceController.shared.container.viewContext
@@ -339,6 +318,7 @@ struct StrainCoreDataUtil{
                 // fetch animation based on status
                 // on global background thread so as not to block the main thread
                 //                 let animation = getAnimation(status)
+                //                viewContext.parent
                 var strainDict: [String : Strain]? = [String:Strain]()
                 print(Thread.current)
                 print("Spawing new thread to process \(batch.count) strains")
@@ -347,14 +327,14 @@ struct StrainCoreDataUtil{
                         let strain = batch[iStrain]
                         print("Processing \(iStrain)/\(batch.count) strains (insert) in batch \(iBatch)/\(batches.count)")
                         insertNewStrain(strain: strain, viewContext: viewContext, strainDict: &strainDict)
-//                        processStrainLineage(strain: strain, viewContext: viewContext)
+                        //                        processStrainLineage(strain: strain, viewContext: viewContext)
                         //                            processStrainLineage(strain: strain)
                         
                     }
                     for iStrain in 0..<batch.count{
                         let strain = batch[iStrain]
                         print("Processing \(iStrain)/\(batch.count) strains (lineage) in batch \(iBatch)/\(batches.count)")
-//                        insertNewStrain(strain: strain, viewContext: viewContext)
+                        //                        insertNewStrain(strain: strain, viewContext: viewContext)
                         processStrainLineage(strain: strain, viewContext: viewContext, strainDict: &strainDict)
                         //                            processStrainLineage(strain: strain)
                         
@@ -365,6 +345,12 @@ struct StrainCoreDataUtil{
                 }
                 
                 print("Completed strain data load in \(timer.timeAgo())")
+                do{
+                    try viewContext.parent!.save()
+                    
+                }catch let error as NSError{
+                    fatalError("Could not save core data persistently \(error.localizedDescription): \(error.userInfo) ")
+                }
             }
             print("Threads completed")
             

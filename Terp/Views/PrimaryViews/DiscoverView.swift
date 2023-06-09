@@ -16,6 +16,7 @@ struct DiscoverView: View {
         return TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example)
     }
     var body: some View {
+        ProgressView()
         ScrollView{
             VStack{
                 DiscoverHeaderRow().padding([.top, .bottom])

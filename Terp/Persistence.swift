@@ -29,10 +29,11 @@ struct PersistenceController {
     }()
 
     let container: NSPersistentContainer
-
+    
     init(inMemory: Bool = false) {
         
         container = NSPersistentContainer(name: "Terp")
+//        self.container.
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
@@ -43,6 +44,7 @@ struct PersistenceController {
 //        } catch {
 //            fatalError("Failed to add persistent store: \(error)")
 //        }
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -62,5 +64,6 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
         
 
+        
     }
 }
