@@ -7,35 +7,50 @@
 
 import Foundation
 struct StrainJSONUtil{
+    static func shouldUseCoreData()-> Bool{
+        return StrainCoreDataUtil.loadStrains().count >= Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json").count
+    }
     static func loadInitalStrainData() -> [StrainJSON]{
         return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
+    }
+    static func convertCoreDataToJSON(strains: [Strain])->[StrainJSON]{
+        var res = [StrainJSON]()
+        strains.forEach(){ strain in
+            res.append(convertCoreDataToJSON(_strain: strain))
+        }
+        
+        return res
+        
+    }
+    static func convertCoreDataToJSON(_strain: Strain)->StrainJSON{
+        var terpenes = [String]()
+        _strain.terpenes!.forEach(){ terpene in
+            terpenes.append(terpene.name!)
+        }
+        var parents = [String]()
+        _strain.parents!.forEach(){ parent in
+            parents.append(parent.strain!.name!)
+        }
+        var children = [String]()
+        _strain.children!.forEach(){ child in
+            children.append(child.strain!.name!)
+        }
+        return  StrainJSON( id: _strain.id,url: _strain.url!, name: _strain.name!, description: _strain.desc!, image: _strain.image!, terpenes: terpenes, children: children, parents: parents, aliases: _strain.aliases!.components(separatedBy: ","), type: _strain.type!)
+//        _strains.append(strainJson)
+        
     }
     static func loadStrains() -> [StrainJSON]{
         print("Strain Count in Core Data: \(StrainCoreDataUtil.loadStrains().count)")
         //basically the idea here is that if we have more in core data than we do in the demo file, we should use the demo file
-        if StrainCoreDataUtil.loadStrains().count < Bundle.main.decode([StrainJSON].self, from: "strain_data.json").count {
+        if !self.shouldUseCoreData() {
             print("returning demo strain data")
-            return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
+            return Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json")
         }else{
             //otherwise, we can use core data
             print("returning data from core data")
             var _strains = [StrainJSON]()
             StrainCoreDataUtil.loadStrains().forEach(){ _strain in
-                var terpenes = [String]()
-                _strain.terpenes!.forEach(){ terpene in
-                    terpenes.append(terpene.name!)
-                }
-                var parents = [String]()
-                _strain.parents!.forEach(){ parent in
-                    parents.append(parent.name!)
-                }
-                var children = [String]()
-                _strain.children!.forEach(){ child in
-                    children.append(child.name!)
-                }
-                let strainJson = StrainJSON( id: _strain.id,url: _strain.url!, name: _strain.name!, description: _strain.desc!, image: _strain.image!, terpenes: terpenes, children: children, parents: parents, aliases: _strain.aliases!.components(separatedBy: ","), type: _strain.type!)
-                _strains.append(strainJson)
-                
+                _strains.append(self.convertCoreDataToJSON(_strain: _strain))
             }
             print("returning \(_strains.count) strains")
             return _strains
@@ -48,26 +63,28 @@ struct StrainJSONUtil{
 //        return ReviewUtil.loadReviewsByUser(user: <#T##User#>)
 //    }
     static func loadStrainChildren(strain: StrainJSON) -> [StrainJSON]{
-        return self.loadStrains().filter({$0.parents.contains(where: {$0.lowercased() == strain.name.lowercased()})})
+        var strainDict: [String:Strain]? = [String:Strain]()
+        if self.shouldUseCoreData(){
+            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict )!))
+        }else{
+            return self.loadStrains().filter({$0.parents.contains(where: {$0.lowercased() == strain.name.lowercased()})})
+        }
     }
     static func loadStrainParents(strain: StrainJSON) -> [StrainJSON]{
-        var _res = [StrainJSON]()
-        strain.parents.forEach(){ name in
-            if self.loadStrains().contains(where: {$0.name.lowercased()==name.lowercased()}){
-                _res.append(self.loadStrainByName(name: name)!)
+        var strainDict: [String:Strain]? = [String:Strain]()
+        if self.shouldUseCoreData(){
+            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!))
+        }else{
+            var _res = [StrainJSON]()
+            strain.parents.forEach(){ name in
+                if self.loadStrains().contains(where: {$0.name.lowercased()==name.lowercased()}){
+                    _res.append(self.loadStrainByName(name: name)!)
+                }
+                
             }
-//            do{
-//
-//                let strain = try self.loadStrainByName(name: name)!
-//                _res.append(strain)
-//
-//            } catch{
-//                _res.append(Strain(url: "//URL Information Not Available", name: name, description: "Description Not Available", image: "", terpenes: [String](), children: [strain.name], parents: [String](), aliases: [String](), type: "Not Available"))
-//
-//            }
-            
+            return _res
+
         }
-        return _res
         
     }
     static func loadStrainsByTerpene(terpene: TerpeneJSON) -> [StrainJSON]{
@@ -84,7 +101,11 @@ struct StrainJSONUtil{
         return _res
     }
     static func searchStrainByName(name: String)-> [StrainJSON]{
-        return self.loadStrains().filter({$0.name.lowercased().contains(name.lowercased())})
+        if self.shouldUseCoreData(){
+            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.searchStrainsByName(name: name))
+        }else{
+            return self.loadStrains().filter({$0.name.lowercased().contains(name.lowercased())})
+        }
     }
     static func loadStrainsByTerpene(terpene: TerpeneJSON, strains: [StrainJSON]) -> [StrainJSON]{
         
@@ -125,7 +146,14 @@ struct StrainJSONUtil{
         return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
     static func loadStrainByName(name: String) -> StrainJSON? {
-        return self.loadStrains().filter({$0.name.lowercased()==name.lowercased()}).first
+        var strainDict: [String:Strain]? = [String:Strain]()
+        if self.shouldUseCoreData(){
+            return convertCoreDataToJSON(_strain: StrainCoreDataUtil.loadStrainByName(name: name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!)
+        }else{
+            
+            return self.loadStrains().filter({$0.name.lowercased()==name.lowercased()}).first
+            
+        }
     }
     static func loadStrainAromas(strain: StrainJSON) -> [String] {
         var res  = [String]()

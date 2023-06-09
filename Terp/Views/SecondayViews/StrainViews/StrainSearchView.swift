@@ -51,7 +51,11 @@ struct StrainSearchView: View {
         if searchText.isEmpty || searchText.count < 3 {
                 return [StrainJSON]()
             } else {
-                return StrainJSONUtil.searchStrainByName(name: self.searchText)
+                if StrainJSONUtil.shouldUseCoreData(){
+                    return StrainJSONUtil.convertCoreDataToJSON(strains: StrainCoreDataUtil.searchStrainsByName(name: self.searchText.lowercased()))
+                }else{
+                    return StrainJSONUtil.searchStrainByName(name: self.searchText)
+                }
             }
         }
 

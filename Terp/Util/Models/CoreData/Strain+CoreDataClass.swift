@@ -2,7 +2,7 @@
 //  Strain+CoreDataClass.swift
 //  Terp
 //
-//  Created by Andrew on 6/5/23.
+//  Created by Andrew on 6/6/23.
 //
 //
 

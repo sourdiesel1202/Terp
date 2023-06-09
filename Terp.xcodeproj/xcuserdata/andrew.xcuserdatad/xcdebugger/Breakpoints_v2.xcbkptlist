@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BEF71CA0-0926-45E7-9914-FE838B0FCA34"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "buildStrainCoreData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "00E7EC9A-1E95-4DE5-BC18-320C3642867B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -30,9 +14,9 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "processStrainLineage(strain:)"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "processStrainLineage(strain:viewContext:strainDict:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -46,10 +30,90 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "processStrainLineage(strain:)"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "processStrainLineage(strain:viewContext:strainDict:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4A0730D-E889-4FE0-9EE0-105A4CA914C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Terp/Util/StrainJSONUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "loadStrainChildren(strain:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EEFA8387-32DC-4F94-BED3-077A477321C4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BF58C78-C22F-4B4F-9BE2-6D8F1D8010D2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2BF58C78-C22F-4B4F-9BE2-6D8F1D8010D2 - 61610944b957409f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Terp.StrainCoreDataUtil.loadStrainByName(name: Swift.String, viewContext: __C.NSManagedObjectContext, strainDict: inout Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Terp.Strain&gt;&gt;) -&gt; Swift.Optional&lt;Terp.Strain&gt;"
+                  moduleName = "Terp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Terp/Util/CoreData/StrainCoreDataUtil.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "331">
+               </Location>
+               <Location
+                  uuid = "2BF58C78-C22F-4B4F-9BE2-6D8F1D8010D2 - 6129438b9492eee3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in static Terp.StrainCoreDataUtil.loadStrainByName(name: Swift.String, viewContext: __C.NSManagedObjectContext, strainDict: inout Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Terp.Strain&gt;&gt;) -&gt; Swift.Optional&lt;Terp.Strain&gt;"
+                  moduleName = "Terp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Terp/Util/CoreData/StrainCoreDataUtil.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
