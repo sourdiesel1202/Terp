@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MoreTerpeneRow: View {
+    @State private var dumb: String = ""
     var body: some View {
         Section(header: Text("Terp Settings")){
             NavigationLink{
@@ -18,6 +19,11 @@ struct MoreTerpeneRow: View {
             
             NavigationLink{
                 ContentView()
+            }label:{
+                BasicRow(title: "Strain Settings", description: "Manage strain settings")
+            }
+            NavigationLink{
+                KeyboardTextField(hint: "Sending message to @whosgonnausehername", buttonText: "Send", text: self.$dumb)
             }label:{
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }

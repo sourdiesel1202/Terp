@@ -18,11 +18,6 @@ struct ProfileFeedRow: View {
                 HStack{
                     Text("Public Posts (\(self.posts.count))").padding([.leading,.bottom]).font(.caption)
                     Spacer()
-//                    NavigationLink{
-//                        ContentView()
-//                    }label: {
-//                        Text("View All").font(.caption).padding([.bottom,.trailing])
-//                    }
                 }
             
             ForEach(self.posts) { (post: Post) in

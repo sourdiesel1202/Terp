@@ -162,6 +162,7 @@
 		49A751662A32A3C000715B76 /* strain_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 49A751652A32A3C000715B76 /* strain_data.json */; };
 		49A751692A32B3EB00715B76 /* Strain+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751672A32B3EB00715B76 /* Strain+CoreDataClass.swift */; };
 		49A7516A2A32B3EB00715B76 /* Strain+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */; };
+		49A7516E2A34A20C00715B76 /* KeyboardCommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -321,6 +322,7 @@
 		49A751652A32A3C000715B76 /* strain_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data.json; sourceTree = "<group>"; };
 		49A751672A32B3EB00715B76 /* Strain+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataClass.swift"; sourceTree = "<group>"; };
 		49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommentRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,8 +490,8 @@
 		49603CA82A2C1CAF00CBFBA4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				49A7516B2A34A1BB00715B76 /* Keyboards */,
 				49603CA92A2C1CAF00CBFBA4 /* CircleText.swift */,
-				49603CAA2A2C1CAF00CBFBA4 /* KeyboardTextField.swift */,
 				49603CAB2A2C1CAF00CBFBA4 /* ViewDivider.swift */,
 				49603CAC2A2C1CAF00CBFBA4 /* RatingView.swift */,
 				49603CAD2A2C1CAF00CBFBA4 /* UserImageThumbnail.swift */,
@@ -521,6 +523,7 @@
 		49603CB72A2C1CAF00CBFBA4 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				49A7516C2A34A1CD00715B76 /* KeyboardRows */,
 				49603CB82A2C1CAF00CBFBA4 /* MoreRows */,
 				49603CBC2A2C1CAF00CBFBA4 /* StrainRows */,
 				49603CC82A2C1CAF00CBFBA4 /* RatingRows */,
@@ -864,6 +867,22 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		49A7516B2A34A1BB00715B76 /* Keyboards */ = {
+			isa = PBXGroup;
+			children = (
+				49603CAA2A2C1CAF00CBFBA4 /* KeyboardTextField.swift */,
+			);
+			path = Keyboards;
+			sourceTree = "<group>";
+		};
+		49A7516C2A34A1CD00715B76 /* KeyboardRows */ = {
+			isa = PBXGroup;
+			children = (
+				49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */,
+			);
+			path = KeyboardRows;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1059,6 +1078,7 @@
 				49603D552A2C1CAF00CBFBA4 /* CommentReplyRow.swift in Sources */,
 				49603D5C2A2C1CAF00CBFBA4 /* PostStrainRow.swift in Sources */,
 				49603C7A2A2C1C8500CBFBA4 /* TerpeneProfile.swift in Sources */,
+				49A7516E2A34A20C00715B76 /* KeyboardCommentRow.swift in Sources */,
 				49603D322A2C1CAF00CBFBA4 /* MoreHeaderRow.swift in Sources */,
 				49603D752A2C1CAF00CBFBA4 /* RecommendedStrainsView.swift in Sources */,
 				49603D462A2C1CAF00CBFBA4 /* HorizontalAchievementsRow.swift in Sources */,

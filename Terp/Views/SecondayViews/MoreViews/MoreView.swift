@@ -16,7 +16,7 @@ struct MoreView: View {
 //            MoreAccountRow()
 //        }
 //        MoreHeaderRow()
-        NavigationStack{
+        NavigationView{
             List{
                 MoreAccountRow()
                 MoreTerpeneRow()

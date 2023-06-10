@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MessagesRow: View {
     let messageThread: MessageThread
+    @State private var messageContent: String = ""
     var body: some View {
         ScrollView(.vertical){
             VStack(alignment: .center){
@@ -35,9 +36,18 @@ struct MessagesRow: View {
                         }
                     }.padding([.trailing,.leading])
                 }
+                
+//                Spacer().padding(.bottom).padding(.bottom)
+//                Spacer().padding(.bottom).padding(.bottom)
             }
+            
+            HStack{
+                KeyboardTextField(hint: "Chatting with @\(messageThread.user.username)", buttonText: "Send", text: self.$messageContent)
+            }.safeAreaInset(edge: .top, content: {})
         }
-    }
+        
+        
+        }
 }
 
 struct MessagesRow_Previews: PreviewProvider {
