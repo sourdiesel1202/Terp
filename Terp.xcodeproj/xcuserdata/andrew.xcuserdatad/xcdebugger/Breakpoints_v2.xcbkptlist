@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "searchStrainsByName(name:)"
+            landmarkName = "processStrainLineage(strain:viewContext:strainDict:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -32,7 +32,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
             endingLineNumber = "163"
-            landmarkName = "searchStrainsByName(name:)"
+            landmarkName = "processStrainLineage(strain:viewContext:strainDict:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -64,8 +64,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "StrainCoreDataUtil"
-            landmarkType = "14">
+            landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,8 +80,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
             endingLineNumber = "58"
-            landmarkName = "StrainCoreDataUtil"
-            landmarkType = "14">
+            landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "2BF58C78-C22F-4B4F-9BE2-6D8F1D8010D2 - 61610944b957409f"
@@ -128,7 +128,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
             endingLineNumber = "84"
-            landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
+            landmarkName = "loadStrainParents(strain:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -144,7 +144,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
                   endingLineNumber = "84"
-                  offsetFromSymbolStart = "96">
+                  offsetFromSymbolStart = "86">
                </Location>
                <Location
                   uuid = "129A0744-6108-4603-9EF9-8DA895B3451E - fcd23d3b54c0a9e5"
@@ -159,7 +159,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
                   endingLineNumber = "85"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "22">
                </Location>
             </Locations>
          </BreakpointContent>

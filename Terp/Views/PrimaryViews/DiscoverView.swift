@@ -10,13 +10,16 @@ import SwiftUI
 struct DiscoverView: View {
     //    let
 //    @EnvironmentObject var globalData: GlobalData
-    @State var reload: Binding<Bool>
+//    @State var reload: Binding<Bool>
 //    var terpeneData = [DataMap]
+    @State private var loading: Bool = true
     private var terpeneProfile: TerpeneProfile {
-        return TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example)
+//        DispatchQueue.global(qos: .utility).async {
+            return TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example)
+//        }
     }
     var body: some View {
-        ProgressView()
+//        ProgressView()
         ScrollView{
             VStack{
                 DiscoverHeaderRow().padding([.top, .bottom])
@@ -28,56 +31,6 @@ struct DiscoverView: View {
                 DiscoverAchievementRow()
             }
         }
-//        NavigationStack {List {
-//            //            ForEach(data) {(strain: Strain) in
-//            NavigationLink {
-//                RecommendedStrainsView()
-//            } label: {
-//                BasicRow(title: "Recommended Strains", description: "Discover recommened strains")
-//                //                    StrainSearchRow(strain: strain)
-//            }
-//            NavigationLink {
-//                ContentView()
-////                ListView(data: TerpeneUtil.loadEffectDataMap(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "Search effects")
-//            } label: {
-//                BasicRow(title: "Strains by Effect", description: "Find strains by effect (i.e. anti-depressant, dry-mouth, etc)")
-//                //                    StrainSearchRow(strain: strain)
-//            }
-//            NavigationLink {
-////                ListView(data: TerpeneUtil.loadAromaDataMap(terpenes: globalData.terpenes, strains: globalData.strains), searchTitle: "Search aromas")
-//            } label: {
-//                BasicRow(title: "Strains by Aroma", description: "Find strains by aroma (i.e. earthy, grapefruit, diesel, etc)")
-//                //                    StrainSearchRow(strain: strain)
-//            }
-//
-//            NavigationLink {
-//                ContentView()
-//            } label: {
-//                BasicRow(title: "Nearby Dispensaries", description: "Explore nearby dispensaries")
-//                //                    StrainSearchRow(strain: strain)
-//            }
-//            //this is gonna be gross but I want to see if this works
-////            ForEach(globalData.terpenes){terpene: Terpene}
-//            NavigationLink {
-//                ListView(data: TerpeneUtil.loadTerpeneDataMap(terpenes: TerpeneUtil.loadTerpenes()), searchTitle: "Search Terpenes")
-//            } label: {
-//                BasicRow(title: "Terpene List", description: "Learn about the different terepenes")
-//                //                    StrainSearchRow(strain: strain)
-//            }
-//
-//            //            }
-//        }.navigationDestination(for: Strain.self) { strain in
-//            StrainDetail2_0View(strain: strain)
-//        }.toolbar {
-//            ToolbarItem(placement: .principal) {
-//                VStack {
-//
-//                    Text("Discover").font(.headline).padding(.top, 50)
-//
-////                    Text("Discover recommended strains, nearby dispensaries and more")
-//                }
-//            }
-//        }
         }
     }
     
@@ -93,6 +46,6 @@ struct DiscoverView: View {
 
 struct DiscoverView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverView(reload: .constant(false))
+        DiscoverView()
     }
 }

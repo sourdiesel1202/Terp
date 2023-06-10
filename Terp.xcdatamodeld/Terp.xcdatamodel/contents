@@ -39,6 +39,6 @@
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="aromas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Aroma" inverseName="terpenes" inverseEntity="Aroma"/>
         <relationship name="effects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Effect" inverseName="terpenes" inverseEntity="Effect"/>
-        <relationship name="strains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Strain" inverseName="terpenes" inverseEntity="Strain"/>
+        <relationship name="strains" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Strain" inverseName="terpenes" inverseEntity="Strain"/>
     </entity>
 </model>

@@ -30,7 +30,7 @@ struct MainTabView: View {
                        Label("Strain Search", systemImage: "magnifyingglass.circle")
                }.tag(Tab.search)
                
-            NavigationView{DiscoverView(reload: self.$reload)}.tabItem{
+            NavigationView{DiscoverView()}.tabItem{
                    Label("Discover", systemImage: "globe.americas")
                }.tag(Tab.discover)
                
@@ -67,10 +67,10 @@ struct MainTabView: View {
                }
            }.onAppear(perform: {
 //               StrainCoreDataUtil.deleteStrains(viewContext: self.viewContext)
-                TerpeneCoreDataUtil.deleteAromas(viewContext: self.viewContext)
-                TerpeneCoreDataUtil.deleteEffects(viewContext: self.viewContext)
-                TerpeneCoreDataUtil.deleteTerepenes(viewContext: self.viewContext)
-
+//                TerpeneCoreDataUtil.deleteAromas(viewContext: self.viewContext)
+//                TerpeneCoreDataUtil.deleteEffects(viewContext: self.viewContext)
+//                TerpeneCoreDataUtil.deleteTerepenes(viewContext: self.viewContext)
+//
                 TerpeneCoreDataUtil.buildAromaCoreData(viewContext: self.viewContext)
                 TerpeneCoreDataUtil.buildEffectCoreData(viewContext: self.viewContext)
                 TerpeneCoreDataUtil.buildTerpeneCoreData(viewContext: self.viewContext)
