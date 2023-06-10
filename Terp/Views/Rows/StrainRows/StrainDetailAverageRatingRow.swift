@@ -12,6 +12,7 @@ struct StrainDetailAverageRatingRow: View {
     @State private var userRating: Int = 1
     @State private var userDescription: String = ""
     @State private var isShowingReviewSheet: Bool = false
+    @State private var loading: Bool = true
     var body: some View {
         VStack {
             HStack{
@@ -19,24 +20,30 @@ struct StrainDetailAverageRatingRow: View {
                 Spacer()
             }
             
-            RatingView(rating: .constant(ReviewUtil.loadAverageRatingByStrain(strain: self.strain))).frame(height: 50).padding(.bottom)
-            FullWidthButton(text: "Review", action:{self.isShowingReviewSheet = true}
-            ).sheet(isPresented: self.$isShowingReviewSheet, content: {
-                
-                StrainRateView(strain: self.strain)
-                
-            }).padding()
-            //                    HStack{
-            //                        Text("Identified Terpenes (\(self.strain.terpenes.count))").padding([.leading,.bottom]).font(.caption)
-            //                        Spacer()
-            //                        NavigationLink{
-            //                            ContentView()
-            //                        }label: {
-            //                            Text("View All").font(.caption).padding([.bottom,.trailing])
-            //                        }
-            //                    }
+            if self.loading{
+                ProgressView().padding()
+            }else{
+                RatingView(rating: .constant(self.userRating)).frame(height: 50).padding(.bottom)
+                FullWidthButton(text: "Review", action:{self.isShowingReviewSheet = true}
+                ).sheet(isPresented: self.$isShowingReviewSheet, content: {
+                    
+                    StrainRateView(strain: self.strain)
+                    
+                }).padding()
+            }
             
-            
+        }.onAppear{
+            DispatchQueue.global(qos: .utility).async {
+//                    let strainData = StrainJSONUtil.loadStrains()
+//                let _searchResults = loadSearchResults()
+                let tmpRating = ReviewUtil.loadAverageRatingByStrain(strain: self.strain)
+                DispatchQueue.main.async {
+//                    self.searchResults = _searchResults
+                    self.userRating=tmpRating
+//                        self.strains = strainData
+                    self.loading = false
+                }
+            }
         }
     }
 }
