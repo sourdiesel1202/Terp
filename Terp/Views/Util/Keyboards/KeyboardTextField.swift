@@ -11,9 +11,12 @@ struct KeyboardTextField: View {
     enum FocusedField{
         case hide, textField
     }
+    
     let hint: String
     let buttonText: String
     @State var text: Binding<String>
+    let action: ()->Void
+    
 //    @State private var text: String = ""
     @State private var name: String = ""
     @State private var reload: Bool = false
@@ -25,10 +28,13 @@ struct KeyboardTextField: View {
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
                             HStack{
-                                TextField(self.hint, text: text).focused(self.$focusToolbar)
-                                Button(self.buttonText) {
-                                    print("Clicked")
+                                TextField(self.hint, text: text).focused(self.$focusToolbar).padding([.trailing])
+                                Button(action: self.action) {
+                                    Text(self.buttonText)
                                 }
+//                                Button(self.buttonText) {
+//                                    print("Clicked")
+//                                }
                             }
                         }
                     }.onAppear{
@@ -45,6 +51,6 @@ struct KeyboardTextField: View {
 
 struct KeyboardTextField_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardTextField(hint: "Fuck", buttonText: "Post", text: .constant("Test"))
+        KeyboardTextField(hint: "Fuck", buttonText: "Post", text: .constant("Test"), action:{print("Fuck")})
     }
 }

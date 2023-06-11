@@ -64,7 +64,7 @@ struct StrainSearchView: View {
                         self.subTitle = newString
                     }
                 }
-            }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search").onChange(of: self.searchText){ newValue in
+            }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search").disableAutocorrection(true).onChange(of: self.searchText){ newValue in
                 self.loading = true
 //                print("foo")
                 DispatchQueue.global(qos: .utility).async {

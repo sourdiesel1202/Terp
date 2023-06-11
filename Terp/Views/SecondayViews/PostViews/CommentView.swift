@@ -31,7 +31,7 @@ struct CommentView: View {
                         }
                         ForEach(comment.replies!){ commentReply in
                             if self.replyingTo.id == commentReply.id{
-                                CommentReplyRow(user: User.example, replyTo: UserUtil.loadUserById(id: commentReply.user), text: self.$commentReply, action: {
+                                KeyboardTextField(hint: "Replying to comment", buttonText: "Post", text: self.$commentReply, action: {
                                     print("replied")
                                     self.rebuildPost(newComment: Comment(id: "\(commentReply.id)\(Int.random(in: 50..<100))", user: User.example.id, description: "@\(UserUtil.loadUserById(id: self.replyingTo.user).username) \(self.commentReply)"))
                                     self.commentReply=""
@@ -42,23 +42,37 @@ struct CommentView: View {
                     }
                     
                     if self.replyingTo.id == comment.id {
-                        CommentReplyRow(user: User.example, replyTo: UserUtil.loadUserById(id: comment.user),text: self.$commentReply, action: {
+                        KeyboardTextField(hint: "Replying to comment", buttonText: "Post", text: self.$commentReply, action: {
                             print("Replied")
                             self.rebuildPost(newComment: Comment(id: "\(comment.id)\(Int.random(in: 50..<100))", user: User.example.id, description: "@\(UserUtil.loadUserById(id: self.replyingTo.user).username) \(self.commentReply)"))
                             self.commentReply=""
-                        }).padding([.leading])
+                        })
+//                        CommentReplyRow(user: User.example, replyTo: UserUtil.loadUserById(id: comment.user),text: self.$commentReply, action: {
+//                            print("Replied")
+//                            self.rebuildPost(newComment: Comment(id: "\(comment.id)\(Int.random(in: 50..<100))", user: User.example.id, description: "@\(UserUtil.loadUserById(id: self.replyingTo.user).username) \(self.commentReply)"))
+//                            self.commentReply=""
+//                        }).padding([.leading])
                     }
                 }
                 if self.replyingTo.id == Comment.example.id {
-                    NewCommentRow(post: self.post,text: self.$commentReply, action:{
-                        print("New comment posted")
-                        //                    let reply = self.commentReply
-                        //so here we call the backend to update
-                        //                    self.post.comments.append(Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
-                        self.rebuildPost(newComment: Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
-                        self.commentReply=""
-                        
-                    })//.padding([.leading])
+                    KeyboardTextField(hint: "Replying to post", buttonText: "Comment", text: self.$commentReply, action:{
+                            print("New comment posted")
+                            //                    let reply = self.commentReply
+                            //so here we call the backend to update
+                            //                    self.post.comments.append(Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
+                            self.rebuildPost(newComment: Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
+                            self.commentReply=""
+    
+                        })
+//                    NewCommentRow(post: self.post,text: self.$commentReply, action:{
+//                        print("New comment posted")
+//                        //                    let reply = self.commentReply
+//                        //so here we call the backend to update
+//                        //                    self.post.comments.append(Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
+//                        self.rebuildPost(newComment: Comment(id: "\(self.post.comments[0].id)\(Int.random(in: 50..<100))", user: User.example.id, description: self.commentReply))
+//                        self.commentReply=""
+//
+//                    })//.padding([.leading])
                 }
             }
         }.padding([.top, .leading, .trailing])

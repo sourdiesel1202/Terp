@@ -23,7 +23,7 @@ struct MoreTerpeneRow: View {
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }
             NavigationLink{
-                KeyboardTextField(hint: "Sending message to @whosgonnausehername", buttonText: "Send", text: self.$dumb)
+                KeyboardTextField(hint: "Sending message to @whosgonnausehername", buttonText: "Send", text: self.$dumb, action: {})
             }label:{
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }
