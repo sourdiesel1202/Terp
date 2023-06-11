@@ -9,42 +9,81 @@ import SwiftUI
 
 struct DiscoverTerpeneEffectsAromasRow: View {
     let terpene: TerpeneJSON
+    @State var loading: Bool = true
+    @State private var aromas: [String] = [String]()
+    @State private var effects: [String] = [String]()
+    @State private var terpenes: [TerpeneJSON] = [TerpeneJSON]()
 //    private var terpeneSection: some View{
 //
 //    }
     var body: some View {
-        Text("Explore Your Terpene Profile").padding([.top,.bottom]).fontWeight(.bold).font(.title)
         VStack{
-            RowHeaderViewAll(text: "Explore Other Effects of \(terpene.name)",data: TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: [self.terpene])))
-            HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: [self.terpene] ))
-            NavigationLink{
-                ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpene Effects")
-            }label: {
-                FullWidthText(text: "View All Terpene Effects").padding()
-            }
-        }
+            if self.loading{
+                ProgressView()
+                
+            }else{
+            Text("Explore Your Terpene Profile").padding([.top,.bottom]).fontWeight(.bold).font(.title)
             VStack{
-                ViewDivider(height: 0.25)
-                RowHeaderViewAll(text: "Explore Other Aromas of \(terpene.name)", data: TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene])))
-                HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
+                RowHeaderViewAll(text: "Explore Effects of \(terpene.name)",data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.terpene.effects))
+                HorizontalTerpeneEffectAromaRow(data: self.terpene.effects)
                 NavigationLink{
-                    ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpene Aromas")
+                    ThumbnailListView(data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.effects), searchTitle: "All Terpene Effects (\(self.effects.count)")
                 }label: {
-                    FullWidthText(text: "View All Terpene Aromas").padding()
+                    FullWidthText(text: "View All Terpene Effects").padding()
                 }
             }
-//            ViewDivider(height: 0.25)
-        VStack{
-            ViewDivider(height: 0.25)
-            RowHeaderViewAll(text: "Terpenes similar to \(terpene.name)", data:TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.loadTerpenes()))
-            HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
-            NavigationLink{
-                ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpenes")
-            }label: {
-                FullWidthText(text: "View All Terpenes").padding()
+            //            VStack{
+            //                ViewDivider(height: 0.25)
+            //                RowHeaderViewAll(text: "Explore Other Aromas of \(terpene.name)", data: TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene])))
+            //                HorizontalTerpeneEffectAromaRow(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: [self.terpene] ))
+            //                NavigationLink{
+            //                    ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "All Terpene Aromas")
+            //                }label: {
+            //                    FullWidthText(text: "View All Terpene Aromas").padding()
+            //                }
+            //            }
+            //            ViewDivider(height: 0.25)
+            VStack{
+                RowHeaderViewAll(text: "Explore Aromas of \(terpene.name)",data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.terpene.aromas))
+                HorizontalTerpeneEffectAromaRow(data: self.terpene.aromas)
+                NavigationLink{
+                    ThumbnailListView(data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.effects), searchTitle: "All Terpene Aromas (\(self.aromas.count))")
+                }label: {
+                    FullWidthText(text: "View All Terpene Effects").padding()
+                }
             }
-
-            
+            VStack{
+                ViewDivider(height: 0.25)
+                RowHeaderViewAll(text: "Terpenes similar to \(terpene.name)", data:TerpeneJSONUtil.loadTerpeneDataMap(terpenes: self.terpenes))
+                HorizontalTerpeneRow(terpenes:  self.terpenes)
+                NavigationLink{
+                    ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes:self.terpenes), searchTitle: "All Terpenes (\(self.terpenes.count))")
+                }label: {
+                    FullWidthText(text: "View All Terpenes").padding()
+                }
+                
+                
+            }}
+        }.onAppear{
+            DispatchQueue.global(qos: .utility).async {
+//                    let strainData = StrainJSONUtil.loadStrains()
+//                let _searchResults = loadSearchResults()
+                let terpenes = TerpeneJSONUtil.loadTerpenes()
+                let aromas = TerpeneJSONUtil.loadAromas()
+                let effects = TerpeneJSONUtil.loadEffects()
+//                let parents = StrainJSONUtil.loadStrainParents(strain: self.strain)
+//                let children = StrainJSONUtil.loadStrainChildren(strain: self.strain)
+                DispatchQueue.main.async {
+                    self.terpenes = terpenes
+                    self.aromas = aromas
+                    self.effects = effects
+//                    self.children = children/
+//                    self.parents = parents
+//                    self.searchResults = _searchResults
+//                        self.strains = strainData
+                    self.loading = false
+                }
+            }
         }
     }
 }

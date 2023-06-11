@@ -9,12 +9,29 @@ import SwiftUI
 
 struct TerpeneDetailStrainRow: View {
     let terpene: TerpeneJSON
-    private var strains: [StrainJSON]{
-        return StrainJSONUtil.loadStrainsByTerpene(terpene: self.terpene)
-    }
+    @State private var loading: Bool = true
+    @State private var strains: [StrainJSON] = [StrainJSON]()
+//    private var strains: [StrainJSON]{
+//        return StrainJSONUtil.loadStrainsByTerpene(terpene: self.terpene)
+//    }
     var body: some View {
-        RowHeaderViewAll(text: "Strains Containing \(self.terpene.name)", data: StrainJSONUtil.loadStrainDataMap(strains: self.strains))
-        HorizontalStrainListRow(strains: self.strains)
+        VStack{
+            RowHeaderViewAll(text: "Strains Containing \(self.terpene.name)", data: StrainJSONUtil.loadStrainDataMap(strains: self.strains))
+            if loading{
+                ProgressView()
+            }else{
+                
+                HorizontalStrainListRow(strains: self.strains)
+            }
+        }.onAppear{
+            DispatchQueue.global(qos: .utility).async {
+                let _strains = StrainJSONUtil.loadStrainsByTerpene(terpene: self.terpene)
+                DispatchQueue.main.async {
+                    self.strains = _strains
+                    self.loading = false
+                }
+        }
+        }
     }
 }
 

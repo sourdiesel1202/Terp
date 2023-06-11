@@ -9,10 +9,14 @@ import SwiftUI
 
 struct HorizontalTerpeneRow: View {
     let terpenes: [TerpeneJSON]
+    private var limit: Int {
+        return self.terpenes.count > 3 ? 3: self.terpenes.count
+    }
     var body: some View {
                     ScrollView(.horizontal){
                         HStack(alignment: .top){
-                            ForEach(terpenes, id: \.self){ (terpene: TerpeneJSON) in
+                            ForEach(self.terpenes[0..<self.limit], id: \.self){ (terpene:TerpeneJSON) in
+//                            ForEach(terpenes, id: \.self){ (terpene: TerpeneJSON) in
                                 NavigationLink{
                                     TerpeneDetailView(terpene: terpene)
                                 } label: {
@@ -23,8 +27,23 @@ struct HorizontalTerpeneRow: View {
                                     }
                                 }.padding([.leading,.trailing])
                             }
+                            if self.terpenes.count > 3{
+                                Button(action: {}){
+                                    NavigationLink{
+                                        ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: self.terpenes), searchTitle: "Terpenes (\(self.terpenes.count))")
+                                    }label: {
+                                        VStack{
+                                            Image(systemName: "ellipsis").resizable().scaledToFit().frame(width: 75, height: 75).frame(maxWidth: .infinity).foregroundColor(.blue)
+                                            Text("View All").font(.caption2).fontWeight(.bold)
+                                            
+                                        }
+                                    }
+                                }.padding([.leading,.trailing])
+                            }
         
                         }
+                        
+                        
                     }
 
     }
