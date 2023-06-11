@@ -163,6 +163,7 @@
 		49A751692A32B3EB00715B76 /* Strain+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751672A32B3EB00715B76 /* Strain+CoreDataClass.swift */; };
 		49A7516A2A32B3EB00715B76 /* Strain+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */; };
 		49A7516E2A34A20C00715B76 /* KeyboardCommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */; };
+		49A751702A3569E600715B76 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49A7516F2A3569E600715B76 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -323,6 +324,7 @@
 		49A751672A32B3EB00715B76 /* Strain+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataClass.swift"; sourceTree = "<group>"; };
 		49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommentRow.swift; sourceTree = "<group>"; };
+		49A7516F2A3569E600715B76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +356,7 @@
 		49603C2A2A2C1C1500CBFBA4 = {
 			isa = PBXGroup;
 			children = (
+				49A7516F2A3569E600715B76 /* README.md */,
 				49A751672A32B3EB00715B76 /* Strain+CoreDataClass.swift */,
 				49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */,
 				49603DC02A2C3A5B00CBFBA4 /* Terp.xcdatamodeld */,
@@ -953,6 +956,7 @@
 				49603C982A2C1C9700CBFBA4 /* terpene.json in Resources */,
 				49603D812A2C1D8700CBFBA4 /* feed.json in Resources */,
 				49603C9A2A2C1C9700CBFBA4 /* messages.json in Resources */,
+				49A751702A3569E600715B76 /* README.md in Resources */,
 				49A751662A32A3C000715B76 /* strain_data.json in Resources */,
 				49603CA02A2C1C9700CBFBA4 /* terpene_profile.json in Resources */,
 			);
