@@ -39,6 +39,7 @@ struct User: Codable, Identifiable, Hashable{
         case state
         case country
         case circle
+        case bio
     }
     var uid = UUID()
     var id: String
@@ -50,6 +51,7 @@ struct User: Codable, Identifiable, Hashable{
     var state: String
     var country: String
     var circle: [String: [String]]
+    var bio: String = ""
     
 #if DEBUG
     static let example = User(id: "420", username: "sourdiesel", firstname: "Andrew", lastname: "Pridemore", image: "https://scontent.fosu2-2.fna.fbcdn.net/v/t39.30808-6/282559662_5459718397417862_6239982502179608476_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SqzAjFoJQaYAX9Ah9hN&_nc_ht=scontent.fosu2-2.fna&oh=00_AfDlkpuCO9kTZUTOdF40Az_7sru7qxNB7URuHJ8BjVVpyQ&oe=647893A3", city: "Naples", state: "Florida", country: "USA", circle:["following": ["42069"], "followers":["6969"]] )
