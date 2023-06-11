@@ -152,8 +152,6 @@
 		49603DC22A2C3A5B00CBFBA4 /* Terp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC02A2C3A5B00CBFBA4 /* Terp.xcdatamodeld */; };
 		49603DC92A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */; };
 		49603DCA2A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */; };
-		49603DCB2A2C3DC300CBFBA4 /* Terpene+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC52A2C3DC300CBFBA4 /* Terpene+CoreDataClass.swift */; };
-		49603DCC2A2C3DC300CBFBA4 /* Terpene+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC62A2C3DC300CBFBA4 /* Terpene+CoreDataProperties.swift */; };
 		49603DCD2A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */; };
 		49603DCE2A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */; };
 		49603DD22A2D57EA00CBFBA4 /* TerpeneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */; };
@@ -164,6 +162,8 @@
 		49A7516A2A32B3EB00715B76 /* Strain+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */; };
 		49A7516E2A34A20C00715B76 /* KeyboardCommentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */; };
 		49A751702A3569E600715B76 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49A7516F2A3569E600715B76 /* README.md */; };
+		49A751772A35725700715B76 /* Terpene+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751752A35725700715B76 /* Terpene+CoreDataClass.swift */; };
+		49A751782A35725700715B76 /* Terpene+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -313,8 +313,6 @@
 		49603DC12A2C3A5B00CBFBA4 /* Terp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Terp.xcdatamodel; sourceTree = "<group>"; };
 		49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataClass.swift"; sourceTree = "<group>"; };
 		49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		49603DC52A2C3DC300CBFBA4 /* Terpene+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataClass.swift"; sourceTree = "<group>"; };
-		49603DC62A2C3DC300CBFBA4 /* Terpene+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataClass.swift"; sourceTree = "<group>"; };
 		49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneViewModel.swift; sourceTree = "<group>"; };
@@ -325,6 +323,8 @@
 		49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strain+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49A7516D2A34A20C00715B76 /* KeyboardCommentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommentRow.swift; sourceTree = "<group>"; };
 		49A7516F2A3569E600715B76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		49A751752A35725700715B76 /* Terpene+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataClass.swift"; sourceTree = "<group>"; };
+		49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +356,8 @@
 		49603C2A2A2C1C1500CBFBA4 = {
 			isa = PBXGroup;
 			children = (
+				49A751752A35725700715B76 /* Terpene+CoreDataClass.swift */,
+				49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */,
 				49A7516F2A3569E600715B76 /* README.md */,
 				49A751672A32B3EB00715B76 /* Strain+CoreDataClass.swift */,
 				49A751682A32B3EB00715B76 /* Strain+CoreDataProperties.swift */,
@@ -822,8 +824,6 @@
 			children = (
 				49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */,
 				49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */,
-				49603DC52A2C3DC300CBFBA4 /* Terpene+CoreDataClass.swift */,
-				49603DC62A2C3DC300CBFBA4 /* Terpene+CoreDataProperties.swift */,
 				49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */,
 				49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */,
 			);
@@ -1056,19 +1056,19 @@
 				49603D562A2C1CAF00CBFBA4 /* HorizontalTerpeneRow.swift in Sources */,
 				49603C772A2C1C8500CBFBA4 /* MessageUtil.swift in Sources */,
 				49603D272A2C1CAF00CBFBA4 /* RatingView.swift in Sources */,
-				49603DCB2A2C3DC300CBFBA4 /* Terpene+CoreDataClass.swift in Sources */,
 				49603C792A2C1C8500CBFBA4 /* Review.swift in Sources */,
+				49A751782A35725700715B76 /* Terpene+CoreDataProperties.swift in Sources */,
 				49603D702A2C1CAF00CBFBA4 /* StrainSearchView.swift in Sources */,
 				49603D6A2A2C1CAF00CBFBA4 /* TerpeneProfileAromaView.swift in Sources */,
 				49603C842A2C1C8500CBFBA4 /* Post.swift in Sources */,
 				49603DD22A2D57EA00CBFBA4 /* TerpeneViewModel.swift in Sources */,
 				49603D3A2A2C1CAF00CBFBA4 /* StrainDetailSourcesRow.swift in Sources */,
+				49A751772A35725700715B76 /* Terpene+CoreDataClass.swift in Sources */,
 				49603C7C2A2C1C8500CBFBA4 /* Like.swift in Sources */,
 				49603D5E2A2C1CAF00CBFBA4 /* PostFooterRow.swift in Sources */,
 				49603D742A2C1CAF00CBFBA4 /* StrainListView.swift in Sources */,
 				49603D792A2C1CB000CBFBA4 /* FeedView.swift in Sources */,
 				49603D2D2A2C1CAF00CBFBA4 /* MainTabView.swift in Sources */,
-				49603DCC2A2C3DC300CBFBA4 /* Terpene+CoreDataProperties.swift in Sources */,
 				49603D622A2C1CAF00CBFBA4 /* DiscoverHeaderRow.swift in Sources */,
 				49603D4A2A2C1CAF00CBFBA4 /* SystemImageRow.swift in Sources */,
 				49603D7D2A2C1CB000CBFBA4 /* CommentView.swift in Sources */,
