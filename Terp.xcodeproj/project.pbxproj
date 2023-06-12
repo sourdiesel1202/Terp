@@ -164,6 +164,8 @@
 		49A751702A3569E600715B76 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49A7516F2A3569E600715B76 /* README.md */; };
 		49A751772A35725700715B76 /* Terpene+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751752A35725700715B76 /* Terpene+CoreDataClass.swift */; };
 		49A751782A35725700715B76 /* Terpene+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */; };
+		49A7517A2A36726500715B76 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751792A36726500715B76 /* Location.swift */; };
+		49A7517C2A36A0ED00715B76 /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7517B2A36A0ED00715B76 /* LocationUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -325,6 +327,8 @@
 		49A7516F2A3569E600715B76 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		49A751752A35725700715B76 /* Terpene+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataClass.swift"; sourceTree = "<group>"; };
 		49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49A751792A36726500715B76 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		49A7517B2A36A0ED00715B76 /* LocationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +425,7 @@
 				49603C6A2A2C1C8500CBFBA4 /* StrainJSONUtil.swift */,
 				49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */,
 				49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */,
+				49A7517B2A36A0ED00715B76 /* LocationUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -849,6 +854,7 @@
 				49603C662A2C1C8500CBFBA4 /* UserAchievement.swift */,
 				49603C672A2C1C8500CBFBA4 /* StrainJSON.swift */,
 				49603C682A2C1C8500CBFBA4 /* TerpeneJSON.swift */,
+				49A751792A36726500715B76 /* Location.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1014,6 +1020,7 @@
 				49603C6E2A2C1C8500CBFBA4 /* ReviewUtil.swift in Sources */,
 				49603C852A2C1C8500CBFBA4 /* UserAchievement.swift in Sources */,
 				49603C862A2C1C8500CBFBA4 /* StrainJSON.swift in Sources */,
+				49A7517A2A36726500715B76 /* Location.swift in Sources */,
 				49603D542A2C1CAF00CBFBA4 /* UserCommentRow.swift in Sources */,
 				49603D7E2A2C1CB000CBFBA4 /* MessagesView.swift in Sources */,
 				49603D252A2C1CAF00CBFBA4 /* KeyboardTextField.swift in Sources */,
@@ -1068,6 +1075,7 @@
 				49603D5E2A2C1CAF00CBFBA4 /* PostFooterRow.swift in Sources */,
 				49603D742A2C1CAF00CBFBA4 /* StrainListView.swift in Sources */,
 				49603D792A2C1CB000CBFBA4 /* FeedView.swift in Sources */,
+				49A7517C2A36A0ED00715B76 /* LocationUtil.swift in Sources */,
 				49603D2D2A2C1CAF00CBFBA4 /* MainTabView.swift in Sources */,
 				49603D622A2C1CAF00CBFBA4 /* DiscoverHeaderRow.swift in Sources */,
 				49603D4A2A2C1CAF00CBFBA4 /* SystemImageRow.swift in Sources */,

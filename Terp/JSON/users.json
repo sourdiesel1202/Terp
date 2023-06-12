@@ -4,10 +4,8 @@
         "firstname": "Hot",
         "lastname": "Chick",
         "image": "https://i0.wp.com/www.society19.com/uk/wp-content/uploads/sites/5/2018/04/smoking-weed-is-good-for-you.jpg?fit=1600%2C1200&ssl=1",
-        "city": "Las Vegas",
-        "state": "Nevada",
+        "location":{"id": "67428", "country": {"name": "United States", "emoji": "🇺🇸", "code": "US", "id": "233"}, "state": {"id": "1458", "name": "Nevada", "code": "NV"}, "city": {"id": "120163", "name": "Las Vegas", "latitude": "36.17497000", "longitude": "-115.13722000"}},
         "bio": "Hotchick420 from Nevada",
-        "country": "United States",
         "circle": {
             "following": ["42069"],
             "followers": ["42069"]
@@ -20,10 +18,8 @@
         "firstname": "Ricky",
         "lastname": "LaFleur",
         "image": "https://pbs.twimg.com/media/Ew7Ys3eWEAA99P-?format=jpg&name=4096x4096",
-        "city": "Halifax",
         "bio": "",
-        "state": "Nova Scotia",
-        "country": "Canada",
+        "location": {"id": "74212", "country": {"name": "Canada", "emoji": "🇨🇦", "code": "CA", "id": "39"}, "state": {"id": "874", "name": "Nova Scotia", "code": "NS"}, "city": {"id": "16482", "name": "Halifax", "latitude": "44.64533000", "longitude": "-63.57239000"}},
         "circle": {
             "following": ["6969"],
             "followers": ["6969"]
@@ -38,9 +34,8 @@
         "lastname": "Pridemore",
         "image": "https://scontent.fosu2-2.fna.fbcdn.net/v/t39.30808-6/282559662_5459718397417862_6239982502179608476_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SqzAjFoJQaYAX9Ah9hN&_nc_ht=scontent.fosu2-2.fna&oh=00_AfDlkpuCO9kTZUTOdF40Az_7sru7qxNB7URuHJ8BjVVpyQ&oe=647893A3",
         "city": "Naples",
-        "state": "Floride",
-        "country": "USA",
         "bio": "Founder of terp, enjoyer of myrcene heavy strains",
+        "location":{"id": "45998", "country": {"name": "United States", "emoji": "🇺🇸", "code": "US", "id": "233"}, "state": {"id": "4851", "name": "Ohio", "code": "OH"}, "city": {"id": "141217", "name": "Cincinnati", "latitude": "39.12711000", "longitude": "-84.51439000"}},
         "circle": {
             "following": ["42069"],
             "followers": ["6969"]

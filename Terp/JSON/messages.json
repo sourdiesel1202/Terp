@@ -11,6 +11,7 @@
       "state": "Nova Scotia",
       "country": "Canada",
       "bio": "",
+      "location": {"id": "74212", "country": {"name": "Canada", "emoji": "🇨🇦", "code": "CA", "id": "39"}, "state": {"id": "874", "name": "Nova Scotia", "code": "NS"}, "city": {"id": "16482", "name": "Halifax", "latitude": "44.64533000", "longitude": "-63.57239000"}},
       "circle": {
         "following": [
           "6969"
@@ -33,6 +34,7 @@
           "state": "Nova Scotia",
           "country": "Canada",
           "bio": "",
+          "location":{"id": "74212", "country": {"name": "Canada", "emoji": "🇨🇦", "code": "CA", "id": "39"}, "state": {"id": "874", "name": "Nova Scotia", "code": "NS"}, "city": {"id": "16482", "name": "Halifax", "latitude": "44.64533000", "longitude": "-63.57239000"}},
           "circle": {
             "following": [
               "6969"
@@ -55,9 +57,7 @@
           "firstname": "Andrew",
           "lastname": "Pridemore",
           "image": "https://scontent.fosu2-2.fna.fbcdn.net/v/t39.30808-6/282559662_5459718397417862_6239982502179608476_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=SqzAjFoJQaYAX9Ah9hN&_nc_ht=scontent.fosu2-2.fna&oh=00_AfDlkpuCO9kTZUTOdF40Az_7sru7qxNB7URuHJ8BjVVpyQ&oe=647893A3",
-          "city": "Naples",
-          "state": "Floride",
-          "country": "USA",
+          "location":{"id": "45998", "country": {"name": "United States", "emoji": "🇺🇸", "code": "US", "id": "233"}, "state": {"id": "4851", "name": "Ohio", "code": "OH"}, "city": {"id": "141217", "name": "Cincinnati", "latitude": "39.12711000", "longitude": "-84.51439000"}},
           "bio": "Founder of terp, enjoyer of myrcene heavy strains",
           "circle": {
             "following": [
@@ -85,6 +85,7 @@
           "state": "Nova Scotia",
           "country": "Canada",
           "bio": "",
+          "location": {"id": "74212", "country": {"name": "Canada", "emoji": "🇨🇦", "code": "CA", "id": "39"}, "state": {"id": "874", "name": "Nova Scotia", "code": "NS"}, "city": {"id": "16482", "name": "Halifax", "latitude": "44.64533000", "longitude": "-63.57239000"}},
           "circle": {
             "following": [
               "6969"

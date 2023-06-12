@@ -30,8 +30,8 @@ struct ProfileHeaderRow: View {
 //                Text("🇺🇸").font(.title)
             VStack(alignment: .center){
                 HStack{
-                    Text("\(user.city), \(user.state) ").font(.caption2)
-                    Text("🇨🇦").font(.subheadline)
+                    Text("\(user.location.city.name), \(user.location.state.name) ").font(.caption2)
+                    Text("\(user.location.country.emoji)").font(.subheadline)
                 }.padding(.bottom)
                 if self.user.bio.count > 0{
                     Text("About").font(.caption2).fontWeight(.bold)

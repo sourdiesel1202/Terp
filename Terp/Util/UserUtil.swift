@@ -21,7 +21,7 @@ struct UserUtil {
         users.forEach(){ userId in
             let user = self.loadUserById(id: userId)
             if !_res.contains(where: {$0.key == user.username}){
-                _res.append(DataMap(key: user.username, value: user.country, view: ProfileView(user: user), image: user.image))
+                _res.append(DataMap(key: user.username, value: user.location.country.name, view: ProfileView(user: user), image: user.image))
             }
         }
         return _res
@@ -32,7 +32,7 @@ struct UserUtil {
         users.forEach(){ user in
 //            var user = self.loadUserById(id: userId)
             if !_res.contains(where: {$0.key == user.username}){
-                _res.append(DataMap(key: user.username, value: user.country, view: ProfileView(user: user), image: user.image))
+                _res.append(DataMap(key: user.username, value: user.location.country.name, view: ProfileView(user: user), image: user.image))
             }
         }
         return _res
