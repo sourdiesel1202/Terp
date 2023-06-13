@@ -46,12 +46,12 @@ struct EditProfileView: View {
                                     isPresented: $showSelection,
                                     titleVisibility: .hidden) {
                     
-                    Button("Camera") {
+                    Button("Take Photo") {
                         showPicker = true
                         type = .camera
                     }
                     
-                    Button("Photo Library") {
+                    Button("Upload Existing") {
                         showPicker = true
                         type = .photoLibrary
                         
@@ -88,7 +88,7 @@ struct EditProfileView: View {
                 self.bio = self.user.bio
                 self.location = self.user.location
             }.fullScreenCover(isPresented: self.$showFilters, content: {
-                FilterSelectionView(image: self.newProfilePicture!)
+                FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
             })
             ////        PhotosPicker(
             //                selection: $selectedItem,

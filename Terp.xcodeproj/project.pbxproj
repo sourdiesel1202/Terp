@@ -170,6 +170,7 @@
 		49A751812A37679500715B76 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751802A37679500715B76 /* ImagePickerView.swift */; };
 		49A751832A37BF6F00715B76 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751822A37BF6F00715B76 /* ImageUtil.swift */; };
 		49A751852A37D5CD00715B76 /* FilterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751842A37D5CD00715B76 /* FilterSelectionView.swift */; };
+		49A751872A38B57F00715B76 /* ImageFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751862A38B57F00715B76 /* ImageFilters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -337,6 +338,7 @@
 		49A751802A37679500715B76 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		49A751822A37BF6F00715B76 /* ImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		49A751842A37D5CD00715B76 /* FilterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionView.swift; sourceTree = "<group>"; };
+		49A751862A38B57F00715B76 /* ImageFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +446,7 @@
 			children = (
 				49603C542A2C1C8500CBFBA4 /* ConsumptionType.swift */,
 				49603C552A2C1C8500CBFBA4 /* NotificationType.swift */,
+				49A751862A38B57F00715B76 /* ImageFilters.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -1124,6 +1127,7 @@
 				49603D222A2C1CAF00CBFBA4 /* BasicButton.swift in Sources */,
 				49603D7A2A2C1CB000CBFBA4 /* ProfileView.swift in Sources */,
 				49603D2F2A2C1CAF00CBFBA4 /* AccountView.swift in Sources */,
+				49A751872A38B57F00715B76 /* ImageFilters.swift in Sources */,
 				49603C802A2C1C8500CBFBA4 /* Notification.swift in Sources */,
 				49603D5D2A2C1CAF00CBFBA4 /* PostHeaderRow.swift in Sources */,
 				49603D402A2C1CAF00CBFBA4 /* StrainRatePublicFeedRow.swift in Sources */,

@@ -48,7 +48,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
         public func imagePickerController(_ picker: UIImagePickerController,
                                           didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
             if let image = info[.originalImage] as? UIImage {
-                self.onImagePicked(image)
+                self.onImagePicked(image.fixOrientation())
             }
             self.onDismiss()
         }

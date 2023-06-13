@@ -7,7 +7,7 @@ A social cannabis experience
 <tr><th>Number</th><th>Description</th><th>Status</th></tr>
 <tr><td>1</td><td>Sign up flow</td><td>Open</td></tr>
 <tr><td>2</td><td>Convert `User.example` usages to use current logged in user</td><td>Open</td></tr>
-<tr><td>3</td><td>Add bio field to profilev view</td><td>Closed</td></tr>
+<tr><td>3</td><td>Add bio field to profilev view</td><td>In-Progress</td></tr>
 <tr><td>4</td><td>Add upload profile picture flow</td><td>Open</td></tr>
 <tr><td>5</td><td>Update review view to handle image upload</td><td>Open</td></tr>
 <tr><td>6</td><td>Double tap MainTabView to reset current view</td><td>Open</td></tr>
@@ -20,6 +20,18 @@ A social cannabis experience
 <tr><td>13</td><td>Report User Flow</td><td>Open</td></tr>
 <tr><td>14</td><td>Edit Profile View (name, location, bio, profile pic)</td><td>Open</td></tr>
 <tr><td>15</td><td>Implement more view</td><td>Open</td></tr>
+<tr><td>16</td><td>Implement filter selection view</td><td>Closed</td></tr>
+<tr><td>17</td><td>Implement 20 filters</td><td>Open</td></tr>
+<tr><td>18</td><td>Implement account settings</td><td>Open</td></tr>
+<tr><td>19</td><td>Implement post settings</td><td>Open</td></tr>
+<tr><td>20</td><td>Clean-up review view</td><td>Open</td></tr>
+<tr><td>21</td><td>Clean-up terpene profile view</td><td>Open</td></tr>
+<tr><td>22</td><td>No error handling displayed to user</td><td>Open</td></tr>
+<tr><td>23</td><td>Add information views for user</td><td>Open</td></tr>
+<tr><td>24</td><td>Scroll down to refresh feed</td><td>Open</td></tr>
+<tr><td>25</td><td>Scroll down to refresh messages</td><td>Open</td></tr>
+<tr><td>26</td><td>Endless scroll for view view</td><td>Open</td></tr>
+
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 

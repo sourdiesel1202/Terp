@@ -23,7 +23,8 @@ struct MoreTerpeneRow: View {
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }
             NavigationLink{
-                FilterSelectionView(image: UIImage(systemName: "person.fill")!)
+                ContentView()
+//                FilterSelectionView(image: UIImage(systemName: "person.fill")!)
             }label:{
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }

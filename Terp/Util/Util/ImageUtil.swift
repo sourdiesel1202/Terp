@@ -8,7 +8,32 @@
 import Foundation
 import CoreImage
 import SwiftUI
-struct ImageUtil {
+extension UIImage {
+    func fixOrientation() -> UIImage {
+        if self.imageOrientation == UIImage.Orientation.up {
+            return self
+        }
+
+    
+
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        
+        self.draw(in: CGRectMake(0, 0, self.size.width, self.size.height))
+
+        let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+
+        UIGraphicsEndImageContext()
+
+        return normalizedImage;
+
+    }
+
+}
+
+
+struct FilterPreview: Hashable{
+    let preview: UIImage
+    let filterName: String
     static func loadFilterList()->[CIFilter]{
         let filterList = ["CIPhotoEffectChrome", "CISepiaTone", "CIUnsharpMask", "CIVignette","CIPhotoEffectNoir", "CIPhotoEffectInstant","CIComicEffect",]
         var res = [CIFilter]()
@@ -19,6 +44,30 @@ struct ImageUtil {
         }
         return res
     }
+
+    static func loadFilterName(name: String)->String{
+    switch(name){
+    case ImageFilters.CIComicEffect.rawValue:
+        return ImageFilters.CIComicEffect.description
+    case ImageFilters.CIPhotoEffectChrome.rawValue:
+        return ImageFilters.CIPhotoEffectChrome.description
+    case ImageFilters.CISepiaTone.rawValue:
+        return ImageFilters.CISepiaTone.description
+    case ImageFilters.CIPhotoEffectNoir.rawValue:
+        return ImageFilters.CIPhotoEffectNoir.description
+    case ImageFilters.CIUnsharpMask.rawValue:
+        return ImageFilters.CIUnsharpMask.description
+    case ImageFilters.CIPhotoEffectInstant.rawValue:
+        return ImageFilters.CIPhotoEffectInstant.description
+    case ImageFilters.CIVignette.rawValue:
+        return ImageFilters.CIVignette.description
+    default:
+        return ""
+    }
+    }
+}
+struct ImageUtil {
+    
     private func applyBuiltInEffect(input: CIImage) {
       // 2
       let noir = CIFilter(
@@ -45,11 +94,11 @@ struct ImageUtil {
         ])
     }
     
-    static func generateFilterPreviews(input: CIImage, intensity: Double, context: CIContext) ->[UIImage]{
-        var res = [UIImage]()
-        self.loadFilterList().forEach(){ filter in
+    static func generateFilterPreviews(input: CIImage, intensity: Double, context: CIContext) ->[FilterPreview]{
+        var res = [FilterPreview]()
+        FilterPreview.loadFilterList().forEach(){ filter in
             if let image = self.applyBuiltInFilter(input: input, filter: filter, intensity: intensity, context: context){
-                res.append(image)
+                res.append(FilterPreview(preview: image, filterName: FilterPreview.loadFilterName(name: filter.name)))
             }
             
         }
