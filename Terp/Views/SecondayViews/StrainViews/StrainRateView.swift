@@ -10,6 +10,7 @@ import SwiftUI
 struct StrainRateView: View {
     let strain: StrainJSON
     @State private var rating: Int = 1
+    @State private var image: UIImage = UIImage(systemName: "person.fill")!
     @State private var description: String = ""
     @State private var isPublic: Bool = false
     @State private var consumptionType: ConsumptionType = .flower
@@ -24,6 +25,7 @@ struct StrainRateView: View {
                 StrainRateConsumptionRow(selectedOption: self.$consumptionType)
 //                ViewDivider(height: 0.25)
                 StrainRateDescriptionRow(text: self.$description)
+                StrainRatePhotoRow(image: self.image)
                 StrainRatePublicFeedRow(isPublic: self.$isPublic)
                 FullWidthButton(text: "Rate", action: {
                     

@@ -7,9 +7,9 @@ A social cannabis experience
 <tr><th>Number</th><th>Description</th><th>Status</th></tr>
 <tr><td>1</td><td>Sign up flow</td><td>Open</td></tr>
 <tr><td>2</td><td>Convert `User.example` usages to use current logged in user</td><td>Open</td></tr>
-<tr><td>3</td><td>Add bio field to profilev view</td><td>In-Progress</td></tr>
-<tr><td>4</td><td>Add upload profile picture flow</td><td>Open</td></tr>
-<tr><td>5</td><td>Update review view to handle image upload</td><td>Open</td></tr>
+<tr><td>3</td><td>Add bio field to profilev view</td><td>Closed</td></tr>
+<tr><td>4</td><td>Add upload profile picture flow</td><td>Closed</td></tr>
+<tr><td>5</td><td>Update review view to handle image upload</td><td>Closed</td></tr>
 <tr><td>6</td><td>Double tap MainTabView to reset current view</td><td>Open</td></tr>
 <tr><td>7</td><td>Country to Emoji conversion</td><td>Closed</td></tr>
 <tr><td>8</td><td>User Creation Date</td><td>Open</td></tr>
@@ -31,6 +31,7 @@ A social cannabis experience
 <tr><td>24</td><td>Scroll down to refresh feed</td><td>Open</td></tr>
 <tr><td>25</td><td>Scroll down to refresh messages</td><td>Open</td></tr>
 <tr><td>26</td><td>Endless scroll for view view</td><td>Open</td></tr>
+<tr><td>27</td><td>Implement re-usable take/upload photo view</td><td>Open</td></tr>
 
 </table>                                                                                                                                                                                                                                                                                                                                                       
 

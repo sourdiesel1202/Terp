@@ -171,6 +171,7 @@
 		49A751832A37BF6F00715B76 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751822A37BF6F00715B76 /* ImageUtil.swift */; };
 		49A751852A37D5CD00715B76 /* FilterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751842A37D5CD00715B76 /* FilterSelectionView.swift */; };
 		49A751872A38B57F00715B76 /* ImageFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751862A38B57F00715B76 /* ImageFilters.swift */; };
+		49A751892A38C6A700715B76 /* StrainRatePhotoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751882A38C6A700715B76 /* StrainRatePhotoRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -339,6 +340,7 @@
 		49A751822A37BF6F00715B76 /* ImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
 		49A751842A37D5CD00715B76 /* FilterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionView.swift; sourceTree = "<group>"; };
 		49A751862A38B57F00715B76 /* ImageFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilters.swift; sourceTree = "<group>"; };
+		49A751882A38C6A700715B76 /* StrainRatePhotoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainRatePhotoRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -599,6 +601,7 @@
 				49603CC92A2C1CAF00CBFBA4 /* StrainRateHeaderRow.swift */,
 				49603CCA2A2C1CAF00CBFBA4 /* StrainRateConsumptionRow.swift */,
 				49603CCB2A2C1CAF00CBFBA4 /* StrainRatePublicFeedRow.swift */,
+				49A751882A38C6A700715B76 /* StrainRatePhotoRow.swift */,
 			);
 			path = RatingRows;
 			sourceTree = "<group>";
@@ -1122,6 +1125,7 @@
 				49603D5A2A2C1CAF00CBFBA4 /* HorizontalTerpeneEffectAromaRow.swift in Sources */,
 				49603D392A2C1CAF00CBFBA4 /* StrainRateDescriptionRow.swift in Sources */,
 				49603D602A2C1CAF00CBFBA4 /* DiscoverTerpeneEffectsAromasRow.swift in Sources */,
+				49A751892A38C6A700715B76 /* StrainRatePhotoRow.swift in Sources */,
 				49603C7B2A2C1C8500CBFBA4 /* Comment.swift in Sources */,
 				49603D762A2C1CAF00CBFBA4 /* AccountSettingsView.swift in Sources */,
 				49603D222A2C1CAF00CBFBA4 /* BasicButton.swift in Sources */,
