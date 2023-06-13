@@ -12,19 +12,28 @@ struct URLImage: View {
 //    let width: CGFloat
 //    let height: CGFloat
     let shape: AnyShape
+    let alt: String? = ""
     
     var body: some View {
-        AsyncImage(
-            url: URL(string: url),
-            content: { image in
-                image.resizable()
-                    .aspectRatio(contentMode: .fit)
-//                    .frame(maxWidth: self.width, maxHeight: self.height)
-            },
-            placeholder: {
-                ProgressView()
+        if self.url.count > 0{
+            AsyncImage(
+                url: URL(string: url),
+                content: { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                    //                    .frame(maxWidth: self.width, maxHeight: self.height)
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            ).clipShape(self.shape)
+        }else{
+            if self.alt != nil{
+                CircleText(text: self.alt!, color: .blue)
+            }else{
+                CircleText(color: .blue)
             }
-        ).clipShape(self.shape)
+        }
     }
     
     

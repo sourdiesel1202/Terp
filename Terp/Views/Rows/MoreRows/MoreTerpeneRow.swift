@@ -23,7 +23,7 @@ struct MoreTerpeneRow: View {
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }
             NavigationLink{
-                KeyboardTextField(hint: "Sending message to @whosgonnausehername", buttonText: "Send", text: self.$dumb, action: {})
+                FilterSelectionView(image: UIImage(systemName: "person.fill")!)
             }label:{
                 BasicRow(title: "Strain Settings", description: "Manage strain settings")
             }

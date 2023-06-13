@@ -14,11 +14,12 @@ struct ProfileHeaderRow: View {
             VStack(alignment: .center){
                 
                 //                NavigationLink{} label
-                if self.user.image.count == 0{
-                    Image(systemName: "person.circle").resizable().scaledToFit().clipped().frame(width: 200, height: 200)
-                }else{
-                    URLImage(url: self.user.image, shape: AnyShape(Circle())).frame(width: 200, height: 200).scaledToFit()
-                }
+                UserImageThumbnail(user: self.user).frame(width: 200, height: 200)
+//                if self.user.image.count == 0{
+//                    Image(systemName: "person.circle").resizable().scaledToFit().clipped().frame(width: 200, height: 200)
+//                }else{
+//                    URLImage(url: self.user.image, shape: AnyShape(Circle())).frame(width: 200, height: 200).scaledToFit()
+//                }
                 
                 Text(user.username).fontWeight(.bold).font(.headline)
                 Text("\(user.firstname) \(user.lastname)").font(.subheadline)

@@ -166,6 +166,10 @@
 		49A751782A35725700715B76 /* Terpene+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */; };
 		49A7517A2A36726500715B76 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751792A36726500715B76 /* Location.swift */; };
 		49A7517C2A36A0ED00715B76 /* LocationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7517B2A36A0ED00715B76 /* LocationUtil.swift */; };
+		49A7517E2A375F4200715B76 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7517D2A375F4200715B76 /* EditProfileView.swift */; };
+		49A751812A37679500715B76 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751802A37679500715B76 /* ImagePickerView.swift */; };
+		49A751832A37BF6F00715B76 /* ImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751822A37BF6F00715B76 /* ImageUtil.swift */; };
+		49A751852A37D5CD00715B76 /* FilterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751842A37D5CD00715B76 /* FilterSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -329,6 +333,10 @@
 		49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Terpene+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49A751792A36726500715B76 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		49A7517B2A36A0ED00715B76 /* LocationUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtil.swift; sourceTree = "<group>"; };
+		49A7517D2A375F4200715B76 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		49A751802A37679500715B76 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		49A751822A37BF6F00715B76 /* ImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtil.swift; sourceTree = "<group>"; };
+		49A751842A37D5CD00715B76 /* FilterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,7 +353,22 @@
 		492A21772A3114C400F3DBE3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				49603C4C2A2C1C8500CBFBA4 /* AchievementUtil.swift */,
+				49603C4D2A2C1C8500CBFBA4 /* ReviewUtil.swift */,
+				49603C4E2A2C1C8500CBFBA4 /* NotificationUtil.swift */,
+				49603C4F2A2C1C8500CBFBA4 /* NavigationUtil.swift */,
+				49603C502A2C1C8500CBFBA4 /* PostUtil.swift */,
+				49603C512A2C1C8500CBFBA4 /* JSONLoader.swift */,
+				49603C522A2C1C8500CBFBA4 /* CircleUtil.swift */,
+				49603C562A2C1C8500CBFBA4 /* StrainSearch.swift */,
+				49603C572A2C1C8500CBFBA4 /* MessageUtil.swift */,
+				49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */,
+				49603C6A2A2C1C8500CBFBA4 /* StrainJSONUtil.swift */,
+				49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */,
+				49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */,
+				49A7517B2A36A0ED00715B76 /* LocationUtil.swift */,
 				492A21782A3114CC00F3DBE3 /* TimeAgo.swift */,
+				49A751822A37BF6F00715B76 /* ImageUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -412,20 +435,6 @@
 				49603DD32A2E11D000CBFBA4 /* CoreData */,
 				49603C582A2C1C8500CBFBA4 /* Models */,
 				49603C532A2C1C8500CBFBA4 /* Enums */,
-				49603C4C2A2C1C8500CBFBA4 /* AchievementUtil.swift */,
-				49603C4D2A2C1C8500CBFBA4 /* ReviewUtil.swift */,
-				49603C4E2A2C1C8500CBFBA4 /* NotificationUtil.swift */,
-				49603C4F2A2C1C8500CBFBA4 /* NavigationUtil.swift */,
-				49603C502A2C1C8500CBFBA4 /* PostUtil.swift */,
-				49603C512A2C1C8500CBFBA4 /* JSONLoader.swift */,
-				49603C522A2C1C8500CBFBA4 /* CircleUtil.swift */,
-				49603C562A2C1C8500CBFBA4 /* StrainSearch.swift */,
-				49603C572A2C1C8500CBFBA4 /* MessageUtil.swift */,
-				49603C692A2C1C8500CBFBA4 /* DictionaryUtil.swift */,
-				49603C6A2A2C1C8500CBFBA4 /* StrainJSONUtil.swift */,
-				49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */,
-				49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */,
-				49A7517B2A36A0ED00715B76 /* LocationUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -500,6 +509,7 @@
 		49603CA82A2C1CAF00CBFBA4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				49A7517F2A37677C00715B76 /* Images */,
 				49A7516B2A34A1BB00715B76 /* Keyboards */,
 				49603CA92A2C1CAF00CBFBA4 /* CircleText.swift */,
 				49603CAB2A2C1CAF00CBFBA4 /* ViewDivider.swift */,
@@ -516,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				49603CB22A2C1CAF00CBFBA4 /* URLImage.swift */,
+				49A751842A37D5CD00715B76 /* FilterSelectionView.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -638,6 +649,7 @@
 				49603CE02A2C1CAF00CBFBA4 /* ProfileTerpeneRow.swift */,
 				49603CE12A2C1CAF00CBFBA4 /* ProfileHeaderRow.swift */,
 				49603CE22A2C1CAF00CBFBA4 /* ProfileAchievementsRow.swift */,
+				49A7517D2A375F4200715B76 /* EditProfileView.swift */,
 			);
 			path = ProfileRows;
 			sourceTree = "<group>";
@@ -892,6 +904,14 @@
 			path = KeyboardRows;
 			sourceTree = "<group>";
 		};
+		49A7517F2A37677C00715B76 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				49A751802A37679500715B76 /* ImagePickerView.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1005,6 +1025,7 @@
 				49603D2B2A2C1CAF00CBFBA4 /* FollowButton.swift in Sources */,
 				49603D4F2A2C1CAF00CBFBA4 /* ProfileCircleRow.swift in Sources */,
 				49603D662A2C1CAF00CBFBA4 /* ThumbnailListView.swift in Sources */,
+				49A751812A37679500715B76 /* ImagePickerView.swift in Sources */,
 				49603C8B2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift in Sources */,
 				49603D5B2A2C1CAF00CBFBA4 /* StrainSearchResultRow.swift in Sources */,
 				49603D492A2C1CAF00CBFBA4 /* BasicRow.swift in Sources */,
@@ -1053,6 +1074,7 @@
 				49603C732A2C1C8500CBFBA4 /* CircleUtil.swift in Sources */,
 				49603C6D2A2C1C8500CBFBA4 /* AchievementUtil.swift in Sources */,
 				49603C392A2C1C1500CBFBA4 /* ContentView.swift in Sources */,
+				49A751852A37D5CD00715B76 /* FilterSelectionView.swift in Sources */,
 				49603D442A2C1CAF00CBFBA4 /* MessagesRow.swift in Sources */,
 				49603C712A2C1C8500CBFBA4 /* PostUtil.swift in Sources */,
 				49603D612A2C1CAF00CBFBA4 /* DiscoverAchievementRow.swift in Sources */,
@@ -1105,6 +1127,7 @@
 				49603C802A2C1C8500CBFBA4 /* Notification.swift in Sources */,
 				49603D5D2A2C1CAF00CBFBA4 /* PostHeaderRow.swift in Sources */,
 				49603D402A2C1CAF00CBFBA4 /* StrainRatePublicFeedRow.swift in Sources */,
+				49A7517E2A375F4200715B76 /* EditProfileView.swift in Sources */,
 				49603D3E2A2C1CAF00CBFBA4 /* StrainRateHeaderRow.swift in Sources */,
 				49603D572A2C1CAF00CBFBA4 /* TerpeneDetailEffectAromaRow.swift in Sources */,
 				49603D632A2C1CAF00CBFBA4 /* DiscoverRecommendedStrainsRow.swift in Sources */,
@@ -1114,6 +1137,7 @@
 				49603C372A2C1C1500CBFBA4 /* TerpApp.swift in Sources */,
 				49603C6F2A2C1C8500CBFBA4 /* NotificationUtil.swift in Sources */,
 				49603C7F2A2C1C8500CBFBA4 /* User.swift in Sources */,
+				49A751832A37BF6F00715B76 /* ImageUtil.swift in Sources */,
 				49603D582A2C1CAF00CBFBA4 /* TerpeneDetailHeaderRow.swift in Sources */,
 				49603D532A2C1CAF00CBFBA4 /* NewCommentRow.swift in Sources */,
 				49603DDF2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift in Sources */,
@@ -1251,6 +1275,9 @@
 				DEVELOPMENT_TEAM = HSU76X58CA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera to update profile photos, send images and create reviews";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use photo library to save images";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use photo library to update profile photos, send images and create reviews";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1281,6 +1308,9 @@
 				DEVELOPMENT_TEAM = HSU76X58CA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use camera to update profile photos, send images and create reviews";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use photo library to save images";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use photo library to update profile photos, send images and create reviews";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

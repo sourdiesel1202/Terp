@@ -15,9 +15,9 @@ struct UserImageThumbnail: View {
             .aspectRatio(contentMode: .fit)
 //            .frame(maxWidth: 90, maxHeight: 40)
     }else{
-        Image(systemName: "person.fill").resizable()
+        CircleText(text: self.user.username, color: .blue, letterLimit: 1)
             .aspectRatio(contentMode: .fit)
-//            .frame(maxWidth: 90, maxHeight: 40)
+            
     }
     }
 }

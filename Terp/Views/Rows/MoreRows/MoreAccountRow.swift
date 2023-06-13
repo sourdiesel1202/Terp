@@ -24,7 +24,7 @@ struct MoreAccountRow: View {
                     BasicRow(title: "Post Settings", description: "Manage post settings")
                 }
                 NavigationLink{
-                    ContentView()
+                    EditProfileView(user: User.example)
                 }label:{
                     BasicRow(title: "Edit Profile", description: "Edit your profile")
                 }
