@@ -32,6 +32,8 @@ A social cannabis experience
 <tr><td>25</td><td>Scroll down to refresh messages</td><td>Open</td></tr>
 <tr><td>26</td><td>Endless scroll for view view</td><td>Open</td></tr>
 <tr><td>27</td><td>Implement re-usable take/upload photo view</td><td>Open</td></tr>
+<tr><td>28</td><td>Implement video take/upload view | support for video</td><td>Open</td></tr>
+<tr><td>29</td><td>Implement hashtag support</td><td>Open</td></tr>
 
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
@@ -41,5 +43,5 @@ A social cannabis experience
 <table>
 <tr><th>Number</th><th>Description</th><th>Status</th></tr>
 <tr><td>1</td><td>Terpenes not reflecting properly on strain detail views when pulling via core data</td><td>Closed</td></tr>
-<tr><td>2</td><td>Search results resetting when chosing a result (i.e. searching ortega gives the full list of strains when selecting Ortega) </td><td>Open</td></tr>
+<tr><td>2</td><td>Search results resetting when chosing a result (i.e. searching ortega gives the full list of strains when selecting Ortega) </td><td>Closed</td></tr>
 </table>

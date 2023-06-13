@@ -65,15 +65,17 @@ struct StrainSearchView: View {
                     }
                 }
             }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search").disableAutocorrection(true).onChange(of: self.searchText){ newValue in
-                self.loading = true
-//                print("foo")
-                DispatchQueue.global(qos: .utility).async {
-//                    let strainData = StrainJSONUtil.loadStrains()
-                    let _searchResults = loadSearchResults()
-                    DispatchQueue.main.async {
-                        self.searchResults = _searchResults
-//                        self.strains = strainData
-                        self.loading = false
+                  print("foo")
+                if newValue.count >= 3{
+                    self.loading = true
+                    DispatchQueue.global(qos: .utility).async {
+                        //                    let strainData = StrainJSONUtil.loadStrains()
+                        let _searchResults = loadSearchResults()
+                        DispatchQueue.main.async {
+                            self.searchResults = _searchResults
+                            //                        self.strains = strainData
+                            self.loading = false
+                        }
                     }
                 }
             }
@@ -90,6 +92,7 @@ struct StrainSearchView: View {
 //        }
 
     func loadSearchResults() -> [StrainJSON]{
+            
                 if StrainJSONUtil.shouldUseCoreData(){
 //                    DispatchQueue.global(qos: .utility).async {
 //                        let strainData = StrainJSONUtil.loadStrains()
