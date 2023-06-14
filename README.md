@@ -18,7 +18,7 @@ A social cannabis experience
 <tr><td>11</td><td>Delete Review Flow</td><td>Open</td></tr>
 <tr><td>12</td><td>Report Review/Post Flow</td><td>Open</td></tr>
 <tr><td>13</td><td>Report User Flow</td><td>Open</td></tr>
-<tr><td>14</td><td>Edit Profile View (name, location, bio, profile pic)</td><td>Open</td></tr>
+<tr><td>14</td><td>Edit Profile View (name, location, bio, profile pic)</td><td>In-progress</td></tr>
 <tr><td>15</td><td>Implement more view</td><td>Open</td></tr>
 <tr><td>16</td><td>Implement filter selection view</td><td>Closed</td></tr>
 <tr><td>17</td><td>Implement 20 filters</td><td>Open</td></tr>
@@ -34,7 +34,14 @@ A social cannabis experience
 <tr><td>27</td><td>Implement re-usable take/upload photo view</td><td>Open</td></tr>
 <tr><td>28</td><td>Implement video take/upload view | support for video</td><td>Open</td></tr>
 <tr><td>29</td><td>Implement hashtag support</td><td>Open</td></tr>
-
+<tr><td>30</td><td>Implement wiring behind follow/unfollow button</td><td>Open</td></tr>
+<tr><td>31</td><td>Rebuild achievement view to match app style</td><td>Open</td></tr>
+<tr><td>32</td><td>Implement mechanism to post in-app without adding a review</td><td>Open</td></tr>
+<tr><td>33</td><td>Add recommendation logic</td><td>Open</td></tr>
+<tr><td>34</td><td>Push notifications</td><td>Open</td></tr>
+<tr><td>35</td><td>Implement Aroma detail view</td><td>Open</td></tr>
+<tr><td>36</td><td>Implement Effect detail view</td><td>Open</td></tr>
+<tr><td>37</td><td>Clean-up terpene detail view</td><td>Open</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 
@@ -44,4 +51,5 @@ A social cannabis experience
 <tr><th>Number</th><th>Description</th><th>Status</th></tr>
 <tr><td>1</td><td>Terpenes not reflecting properly on strain detail views when pulling via core data</td><td>Closed</td></tr>
 <tr><td>2</td><td>Search results resetting when chosing a result (i.e. searching ortega gives the full list of strains when selecting Ortega) </td><td>Closed</td></tr>
+<tr><td>2</td><td>Adding the first comment to a post results in an app crash</td><td>Closed</td></tr>
 </table>

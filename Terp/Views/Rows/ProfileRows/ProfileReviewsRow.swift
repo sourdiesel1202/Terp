@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ProfileReviewsRow: View {
     let user: User
-    @State private var reviewStrains: [StrainJSON] = [StrainJSON]()
+    @State private var reviewStrains: [StrainReview] = [StrainReview]()
     @State private var loading: Bool = true
     private var terpeneProfile: TerpeneProfile{
         return TerpeneJSONUtil.loadTerpeneProfileByUser(user: self.user)
     }
     @State private var reviews: [Review] = [Review]()
+    @EnvironmentObject var errorHandler: ErrorHandler
     var body: some View {
         
         VStack{
@@ -40,14 +41,14 @@ struct ProfileReviewsRow: View {
                     ScrollView(.horizontal){
                         HStack(alignment: .top){
                             
-                            ForEach(self.reviews){ review in
+                            ForEach(self.reviewStrains, id: \.self){ review in
                                 NavigationLink {
-                                    StrainDetail2_0View(strain: StrainJSONUtil.loadStrainByName(name: review.strain)!)
+                                    StrainDetail2_0View(strain: review.strain)
                                 }label: {
                                     VStack{
-                                        URLImage(url: StrainJSONUtil.loadStrainByName(name: review.strain)!.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
+                                        URLImage(url: review.strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                         
-                                        Text(StrainJSONUtil.loadStrainByName(name: review.strain)!.name).font(.caption).fontWeight(.bold)
+                                        Text(review.strain.name).font(.caption).fontWeight(.bold)
                                         
                                     }.padding([.trailing])
                                     //                            VStack{
@@ -87,9 +88,15 @@ struct ProfileReviewsRow: View {
                 let _reviews = ReviewUtil.loadReviewsByUser(user: self.user)
 //                let strainData = StrainJSONUtil.loadStrainByName(name: self.review.strain)
 //                let _strain = StrainJSONUtil.loadStrainByName(name: T##String)
-                var _strainReviews = [StrainJSON]()
-                _reviews.forEach(){ review in
-                    _strainReviews.append(StrainJSONUtil.loadStrainByName(name: review.strain)!)
+                var _strainReviews = [StrainReview]()
+                do{
+                    try _reviews.forEach(){ review in
+                        
+                        let strainReview = try StrainReview(strain: StrainJSONUtil.loadStrainByName(name: review.strain), review: review)
+                        _strainReviews.append(strainReview)
+                    }
+                }catch{
+                    self.errorHandler.handle(error: error)
                 }
                 DispatchQueue.main.async {
 //                    self.strain = strainData!

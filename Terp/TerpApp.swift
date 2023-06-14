@@ -14,7 +14,7 @@ struct TerpApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(GlobalData())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext).environmentObject(GlobalData()).withErrorHandling()
         }
     }
 }

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		492A216D2A303CDB00F3DBE3 /* strain_data_demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */; };
 		492A21792A3114CC00F3DBE3 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A21782A3114CC00F3DBE3 /* TimeAgo.swift */; };
+		49457FA72A393517009B50E6 /* AchievementHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */; };
+		49457FA92A393DB6009B50E6 /* AchievementRequirementsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FA82A393DB6009B50E6 /* AchievementRequirementsRow.swift */; };
+		49457FAB2A3945C0009B50E6 /* AchievementStrainsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FAA2A3945C0009B50E6 /* AchievementStrainsRow.swift */; };
+		49457FAD2A395D7F009B50E6 /* StrainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FAC2A395D7F009B50E6 /* StrainError.swift */; };
+		49457FB02A3969C8009B50E6 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FAF2A3969C8009B50E6 /* ErrorHandler.swift */; };
 		49603C372A2C1C1500CBFBA4 /* TerpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C362A2C1C1500CBFBA4 /* TerpApp.swift */; };
 		49603C392A2C1C1500CBFBA4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C382A2C1C1500CBFBA4 /* ContentView.swift */; };
 		49603C3B2A2C1C1700CBFBA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49603C3A2A2C1C1700CBFBA4 /* Assets.xcassets */; };
@@ -177,6 +182,11 @@
 /* Begin PBXFileReference section */
 		492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data_demo.json; sourceTree = "<group>"; };
 		492A21782A3114CC00F3DBE3 /* TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
+		49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementHeaderRow.swift; sourceTree = "<group>"; };
+		49457FA82A393DB6009B50E6 /* AchievementRequirementsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRequirementsRow.swift; sourceTree = "<group>"; };
+		49457FAA2A3945C0009B50E6 /* AchievementStrainsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementStrainsRow.swift; sourceTree = "<group>"; };
+		49457FAC2A395D7F009B50E6 /* StrainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainError.swift; sourceTree = "<group>"; };
+		49457FAF2A3969C8009B50E6 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		49603C332A2C1C1500CBFBA4 /* Terp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Terp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49603C362A2C1C1500CBFBA4 /* TerpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpApp.swift; sourceTree = "<group>"; };
 		49603C382A2C1C1500CBFBA4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -384,6 +394,14 @@
 			path = Published;
 			sourceTree = "<group>";
 		};
+		49457FAE2A3969B7009B50E6 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				49457FAF2A3969C8009B50E6 /* ErrorHandler.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		49603C2A2A2C1C1500CBFBA4 = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +452,7 @@
 		49603C4B2A2C1C8500CBFBA4 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				49457FAE2A3969B7009B50E6 /* Error */,
 				492A21772A3114C400F3DBE3 /* Util */,
 				493F9E262A2ED3290080546C /* Published */,
 				49603DD32A2E11D000CBFBA4 /* CoreData */,
@@ -449,6 +468,7 @@
 				49603C542A2C1C8500CBFBA4 /* ConsumptionType.swift */,
 				49603C552A2C1C8500CBFBA4 /* NotificationType.swift */,
 				49A751862A38B57F00715B76 /* ImageFilters.swift */,
+				49457FAC2A395D7F009B50E6 /* StrainError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -629,6 +649,9 @@
 			isa = PBXGroup;
 			children = (
 				49603CD42A2C1CAF00CBFBA4 /* HorizontalAchievementsRow.swift */,
+				49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */,
+				49457FA82A393DB6009B50E6 /* AchievementRequirementsRow.swift */,
+				49457FAA2A3945C0009B50E6 /* AchievementStrainsRow.swift */,
 			);
 			path = AchievementRows;
 			sourceTree = "<group>";
@@ -1013,6 +1036,7 @@
 				49603D312A2C1CAF00CBFBA4 /* MoreTerpeneRow.swift in Sources */,
 				49603D482A2C1CAF00CBFBA4 /* RowHeader.swift in Sources */,
 				49603D232A2C1CAF00CBFBA4 /* FullWidthButton.swift in Sources */,
+				49457FA72A393517009B50E6 /* AchievementHeaderRow.swift in Sources */,
 				49603D672A2C1CAF00CBFBA4 /* ListView.swift in Sources */,
 				49603D242A2C1CAF00CBFBA4 /* CircleText.swift in Sources */,
 				49A751692A32B3EB00715B76 /* Strain+CoreDataClass.swift in Sources */,
@@ -1051,6 +1075,7 @@
 				49603D542A2C1CAF00CBFBA4 /* UserCommentRow.swift in Sources */,
 				49603D7E2A2C1CB000CBFBA4 /* MessagesView.swift in Sources */,
 				49603D252A2C1CAF00CBFBA4 /* KeyboardTextField.swift in Sources */,
+				49457FAD2A395D7F009B50E6 /* StrainError.swift in Sources */,
 				49603D7B2A2C1CB000CBFBA4 /* ProfileReviewList.swift in Sources */,
 				49603C402A2C1C1700CBFBA4 /* Persistence.swift in Sources */,
 				49603D4B2A2C1CAF00CBFBA4 /* RowHeaderViewAll.swift in Sources */,
@@ -1066,6 +1091,7 @@
 				49603D2A2A2C1CAF00CBFBA4 /* ChatBubble.swift in Sources */,
 				49603C832A2C1C8500CBFBA4 /* Achievement.swift in Sources */,
 				49603D282A2C1CAF00CBFBA4 /* UserImageThumbnail.swift in Sources */,
+				49457FAB2A3945C0009B50E6 /* AchievementStrainsRow.swift in Sources */,
 				49603C7E2A2C1C8500CBFBA4 /* UserCircle.swift in Sources */,
 				49603D472A2C1CAF00CBFBA4 /* ImageRow.swift in Sources */,
 				49603C7D2A2C1C8500CBFBA4 /* Message.swift in Sources */,
@@ -1104,6 +1130,7 @@
 				49603D742A2C1CAF00CBFBA4 /* StrainListView.swift in Sources */,
 				49603D792A2C1CB000CBFBA4 /* FeedView.swift in Sources */,
 				49A7517C2A36A0ED00715B76 /* LocationUtil.swift in Sources */,
+				49457FA92A393DB6009B50E6 /* AchievementRequirementsRow.swift in Sources */,
 				49603D2D2A2C1CAF00CBFBA4 /* MainTabView.swift in Sources */,
 				49603D622A2C1CAF00CBFBA4 /* DiscoverHeaderRow.swift in Sources */,
 				49603D4A2A2C1CAF00CBFBA4 /* SystemImageRow.swift in Sources */,
@@ -1124,6 +1151,7 @@
 				49603D462A2C1CAF00CBFBA4 /* HorizontalAchievementsRow.swift in Sources */,
 				49603D5A2A2C1CAF00CBFBA4 /* HorizontalTerpeneEffectAromaRow.swift in Sources */,
 				49603D392A2C1CAF00CBFBA4 /* StrainRateDescriptionRow.swift in Sources */,
+				49457FB02A3969C8009B50E6 /* ErrorHandler.swift in Sources */,
 				49603D602A2C1CAF00CBFBA4 /* DiscoverTerpeneEffectsAromasRow.swift in Sources */,
 				49A751892A38C6A700715B76 /* StrainRatePhotoRow.swift in Sources */,
 				49603C7B2A2C1C8500CBFBA4 /* Comment.swift in Sources */,

@@ -11,34 +11,15 @@ struct AchievementDetailView: View {
 //    @EnvironmentObject var globalData: GlobalData
     var achievement: Achievement
     var body: some View {
-        VStack{
-            List{
-                Section(header: Text("Achievement")){
-                    Image(systemName: "atom").resizable().scaledToFill()
-                    Text(achievement.name).font(.title).padding(.bottom)
-                    Text(achievement.description).font(.subheadline)
-                }
-                Section(header: Text("Requirement")){
-                    Text(String(self.achievement.requires)).font(.headline)
-                }
-                    Section(header: Text("Eligible Strains")){
-                        
-                        ForEach(achievement.strains, id: \.self) { strain in
-                            if StrainJSONUtil.loadStrainByName(name: strain) != nil{
-                                NavigationLink{
-                                    
-                                    StrainDetail2_0View(strain: StrainJSONUtil.loadStrainByName(name: strain)!)
-                                }label: {
-                                    BasicRow(title: strain, description: "")
-                                }
-                            }else{
-                                BasicRow(title: strain, description: "Strain information not available")
-                            }
-//                            BasicRow(title: strain, description: "")
-                        }
-                        
+        ScrollView(.vertical){
+            VStack{
+                AchievementHeaderRow(achievement: self.achievement).padding(.bottom)
+                AchievementRequirementsRow(achievement: self.achievement).padding(.bottom)
+                AchievementStrainsRow(achievement: self.achievement).padding(.bottom)
                 
-                }
+                
+                
+                
             }
         }
     }

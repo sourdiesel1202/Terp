@@ -12,7 +12,7 @@ struct PostStrainRow: View {
     let review: Review
     @State private var strain: StrainJSON = StrainJSON.example
     @State private var loading: Bool = true
-    
+    @EnvironmentObject var errorHandler: ErrorHandler
     var body: some View {
 //        VStack(alignment: .center){
 //            Text("Strain")
@@ -29,7 +29,7 @@ struct PostStrainRow: View {
                 }
             } else{
             NavigationLink{
-                StrainDetail2_0View(strain: StrainJSONUtil.loadStrainByName(name: review.strain)!) //todo handle this
+                StrainDetail2_0View(strain: self.strain) //todo handle this
             }label: {
                 
                 
@@ -77,15 +77,20 @@ struct PostStrainRow: View {
                 
         }.onAppear{
             DispatchQueue.global(qos: .utility).async {
-                let strainData = StrainJSONUtil.loadStrainByName(name: self.review.strain)
-//                let _strain = StrainJSONUtil.loadStrainByName(name: T##String)
-                DispatchQueue.main.async {
-                    self.strain = strainData!
-//                    self.children = children
-//                    self.parents = parents
-//                    self.searchResults = _searchResults
-//                        self.strains = strainData
-                    self.loading = false
+                do{
+                    let strainData = try StrainJSONUtil.loadStrainByName(name: self.review.strain)
+                    
+                    //                let _strain = StrainJSONUtil.loadStrainByName(name: T##String)
+                    DispatchQueue.main.async {
+                        self.strain = strainData
+                        //                    self.children = children
+                        //                    self.parents = parents
+                        //                    self.searchResults = _searchResults
+                        //                        self.strains = strainData
+                        self.loading = false
+                    }
+                }catch{
+                    self.errorHandler.handle(error: error)
                 }
             }
         }

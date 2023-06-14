@@ -6,6 +6,11 @@
 //
 
 import Foundation
+struct StrainReview: Hashable{
+    let strain: StrainJSON
+    let review: Review
+}
+
 struct ReviewUtil{
     static func loadReviews() -> [Review]{
         Bundle.main.decode([Review].self, from: "reviews.json")
