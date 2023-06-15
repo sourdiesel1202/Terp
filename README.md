@@ -35,13 +35,13 @@ A social cannabis experience
 <tr><td>28</td><td>Implement video take/upload view | support for video</td><td>Open</td></tr>
 <tr><td>29</td><td>Implement hashtag support</td><td>Open</td></tr>
 <tr><td>30</td><td>Implement wiring behind follow/unfollow button</td><td>Open</td></tr>
-<tr><td>31</td><td>Rebuild achievement view to match app style</td><td>Open</td></tr>
+<tr><td>31</td><td>Rebuild achievement view to match app style</td><td>Closed</td></tr>
 <tr><td>32</td><td>Implement mechanism to post in-app without adding a review</td><td>Open</td></tr>
 <tr><td>33</td><td>Add recommendation logic</td><td>Open</td></tr>
 <tr><td>34</td><td>Push notifications</td><td>Open</td></tr>
-<tr><td>35</td><td>Implement Aroma detail view</td><td>Open</td></tr>
-<tr><td>36</td><td>Implement Effect detail view</td><td>Open</td></tr>
-<tr><td>37</td><td>Clean-up terpene detail view</td><td>Open</td></tr>
+<tr><td>35</td><td>Implement Aroma detail view</td><td>In-progress</td></tr>
+<tr><td>36</td><td>Implement Effect detail view</td><td>In-progress</td></tr>
+<tr><td>37</td><td>Clean-up terpene detail view</td><td>In-progress</td></tr>
 <tr><td>38</td><td>Add "Strains containing" to effect and aroma detail view</td><td>Open</td></tr>
 <tr><td>39</td><td>Add "Terpenes containing" to effect and aroma detail view</td><td>Open</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       

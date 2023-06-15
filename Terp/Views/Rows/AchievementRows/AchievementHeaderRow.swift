@@ -12,7 +12,7 @@ struct AchievementHeaderRow: View {
     var body: some View {
 //        Image(systemName: "atom").resizable().scaledToFill()
         VStack{
-            URLImage(url: achievement.image, shape: AnyShape(Rectangle())).scaledToFit()
+            URLImage(url: achievement.image, shape: AnyShape(Rectangle())).scaledToFit().padding(.top)
             Text(achievement.name).font(.largeTitle).padding(.bottom).fontWeight(.bold)
             Text("Info").font(.title).fontWeight(.bold)
             Text(achievement.description).font(.subheadline)
