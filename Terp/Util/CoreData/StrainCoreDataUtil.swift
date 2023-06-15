@@ -22,7 +22,7 @@ struct StrainCoreDataUtil{
             let strains = try viewContext.fetch(fetchRequest)
             return strains
         }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+            print("Could not load strains \(error.userInfo)")
         }
         return [Strain]()
     }
@@ -81,7 +81,7 @@ struct StrainCoreDataUtil{
                 
                 
             }catch let error as NSError{
-                print("Could not load aromas \(error.userInfo)")
+                print("Could not load strain \(name) from core data \(error.userInfo)")
             }
         throw StrainError.strainNotFound
 //        }
@@ -117,7 +117,7 @@ struct StrainCoreDataUtil{
             return res
 //            return strains
         }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+            print("Could not load parents for \(strain.name!) \(error.userInfo)")
         }
         return [Strain]()
     }
@@ -153,7 +153,7 @@ struct StrainCoreDataUtil{
             return res
 //            return strains
         }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+            print("Could not load children for \(strain.name!) \(error.userInfo)")
         }
         return [Strain]()
     }
@@ -170,7 +170,7 @@ struct StrainCoreDataUtil{
             let strains = try viewContext.fetch(fetchRequest)
             return strains
         }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+            print("Could not search for strains by keyword \(name) \(error.userInfo)")
         }
         return [Strain]()
     }
@@ -246,11 +246,11 @@ struct StrainCoreDataUtil{
                         let strainJSON = StrainJSONUtil.loadInitalStrainData().filter({$0.name.lowercased() == child.lowercased()}).first//loadStrainByName(name: child)
                         print("Loaded strain data from json")
                         if strainJSON != nil{
-                            print("Attempting to insert \(strainJSON!.name) into core data")
+                            print("Attempting to i nsert \(strainJSON!.name) into core data")
                             insertNewStrain(strain: strainJSON!, viewContext: viewContext, strainDict: &strainDict)
                             let _newChildObj = try self.loadStrainByName(name: child, viewContext: viewContext, strainDict: &strainDict)
                             print("Searching for \(strainJSON!.name) in core data")
-                            if _newChildObj != nil{
+                            
                                 //                            _strain.addToChildren(<#T##value: StrainChild##StrainChild#>)
                                 print("Found \(strainJSON!.name) in core data")
                                 //                            let childStrain = StrainChild(context: viewContext)
@@ -259,7 +259,7 @@ struct StrainCoreDataUtil{
                                 ////                            childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
                                 _strain.addToChildren(_newChildObj)
                                 print("Creating child relationship between \(strain.name) <==> \(_newChildObj.name!)")
-                            }
+                            
                             
                         }
                     }else{

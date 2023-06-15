@@ -26,7 +26,7 @@ A social cannabis experience
 <tr><td>19</td><td>Implement post settings</td><td>Open</td></tr>
 <tr><td>20</td><td>Clean-up review view</td><td>Open</td></tr>
 <tr><td>21</td><td>Clean-up terpene profile view</td><td>Open</td></tr>
-<tr><td>22</td><td>No error handling displayed to user</td><td>Open</td></tr>
+<tr><td>22</td><td>No error handling displayed to user</td><td>In-progress</td></tr>
 <tr><td>23</td><td>Add information views for user</td><td>Open</td></tr>
 <tr><td>24</td><td>Scroll down to refresh feed</td><td>Open</td></tr>
 <tr><td>25</td><td>Scroll down to refresh messages</td><td>Open</td></tr>
@@ -42,6 +42,8 @@ A social cannabis experience
 <tr><td>35</td><td>Implement Aroma detail view</td><td>Open</td></tr>
 <tr><td>36</td><td>Implement Effect detail view</td><td>Open</td></tr>
 <tr><td>37</td><td>Clean-up terpene detail view</td><td>Open</td></tr>
+<tr><td>38</td><td>Add "Strains containing" to effect and aroma detail view</td><td>Open</td></tr>
+<tr><td>39</td><td>Add "Terpenes containing" to effect and aroma detail view</td><td>Open</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HorizontalTerpeneEffectAromaRow: View {
-    let data: [String]
+    let data: [AromaEffectJSON]
     private var limit: Int {
         return self.data.count > 3 ? 3: self.data.count
     }
@@ -16,17 +16,17 @@ struct HorizontalTerpeneEffectAromaRow: View {
         ScrollView(.horizontal){
             HStack(alignment: .top){
                 
-                ForEach(self.data[0..<self.limit], id: \.self){ (item:String) in
+                ForEach(self.data[0..<self.limit], id: \.self){ (item:AromaEffectJSON) in
                     Button(action: {}){
                         NavigationLink {
-                            TerpeneEffectAromaView(title: item, description: DictionaryUtil.loadDescription(text: item))
+                            TerpeneEffectAromaView(effectAroma: item)
 //                            Terpene(name: <#T##String#>, description: <#T##String#>, aromas: <#T##[String]#>, effects: <#T##[String]#>)
 //                            StrainDetail2_0View(strain: strain)
                         }label: {
                             VStack{
 //                                URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                CircleText(text: item, color: .blue)
-                                Text(item).font(.caption).fontWeight(.bold)
+                                CircleText(text: item.name, color: .blue)
+                                Text(item.name).font(.caption).fontWeight(.bold)
                                 
                             }.padding([.trailing])
                         }
@@ -57,6 +57,6 @@ struct HorizontalTerpeneEffectAromaRow: View {
 
 struct HorizontalTerpeneEffectAromaRow_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalTerpeneEffectAromaRow(data: ["Apples", "Butthole", "Earthy", "Grape"])
+        HorizontalTerpeneEffectAromaRow(data: [AromaEffectJSON.example])
     }
 }

@@ -25,7 +25,7 @@ struct TerpeneCoreDataUtil{
             let terpenes = try viewContext.fetch(fetchRequest)
             return terpenes
         }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+            print("Could not load Terpenes \(error.userInfo)")
         }
         return [Terpene]()
     }
@@ -36,9 +36,70 @@ struct TerpeneCoreDataUtil{
             let effects = try viewContext.fetch(fetchRequest)
             return effects
         }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+            print("Could not load effects \(error.userInfo), \(error.localizedDescription)")
         }
         return [Effect]()
+    }
+    
+    static func loadAromaByName(name: String, viewContext: NSManagedObjectContext) throws -> Aroma {
+            let fetchRequest = NSFetchRequest<Aroma>(entityName: "Aroma")
+            fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+            
+            do{
+                let effects = try viewContext.fetch(fetchRequest)
+                if effects.count > 0 {
+                    return effects.first!
+                    
+                }else{
+                    throw TerpeneError.aromaNotFound
+                }
+                
+                
+            }catch let error as NSError{
+                print("Could not load aroma: \(name) \(error.userInfo)")
+            }
+        throw TerpeneError.aromaNotFound
+//        }
+    }
+    static func loadTerpeneByName(name: String, viewContext: NSManagedObjectContext) throws -> Terpene {
+            let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
+            fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+            
+            do{
+                let effects = try viewContext.fetch(fetchRequest)
+                if effects.count > 0 {
+                    return effects.first!
+                    
+                }else{
+                    throw TerpeneError.terpeneNotFound
+                }
+                
+                
+            }catch let error as NSError{
+                print("Could not load aroma: \(name) \(error.userInfo)")
+            }
+        throw TerpeneError.aromaNotFound
+//        }
+    }
+    static func loadEffectByName(name: String, viewContext: NSManagedObjectContext) throws -> Effect {
+            let fetchRequest = NSFetchRequest<Effect>(entityName: "Effect")
+            fetchRequest.predicate = NSPredicate(format: "name == %@", name)
+            
+            do{
+                let effects = try viewContext.fetch(fetchRequest)
+                if effects.count > 0 {
+                    return effects.first!
+                    
+                }else{
+                    throw TerpeneError.effectNotFound
+                }
+                
+                
+            }catch let error as NSError{
+                print("Could not load effect \(name) from core data \(error.userInfo) \(error.localizedDescription)")
+            }
+        throw TerpeneError.effectNotFound
+//        }
     }
     
     static func deleteTerepenes(viewContext: NSManagedObjectContext){
@@ -57,6 +118,7 @@ struct TerpeneCoreDataUtil{
         print("Terpene Count: \(self.loadTerpenes(viewContext: viewContext).count)")
 
     }
+    
     
     static func deleteEffects(viewContext: NSManagedObjectContext){
         let effects = self.loadEffects(viewContext: viewContext)
@@ -96,12 +158,13 @@ struct TerpeneCoreDataUtil{
         
         if self.loadEffects(viewContext: viewContext).count == 0 {
             print("No effects have been loaded, loading effects")
-            TerpeneJSONUtil.loadEffects().forEach { effectStr in
+            TerpeneJSONUtil.loadEffectJSON().forEach { effect in
                 let _effect = Effect(context: viewContext)
                 //                _effect.desc
-                _effect.name = effectStr
-                _effect.desc = DictionaryUtil.loadDescription(text: effectStr)
-                _effect.id = String(Int.random(in: 1000...5000))
+                _effect.name = effect.name
+                _effect.desc = effect.description
+                _effect.id = effect.id
+                _effect.image = effect.image
                 //                privateContext.perform {
                 
                 //                    do {
@@ -110,7 +173,7 @@ struct TerpeneCoreDataUtil{
                 viewContext.performAndWait {
                     do{
                         try viewContext.save()
-                        print("Wrote effect \(effectStr)")
+                        print("Wrote effect \(effect.name)")
                     } catch{
                         let nsError = error as NSError
                         fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -128,11 +191,12 @@ struct TerpeneCoreDataUtil{
         
         if self.loadAromas(viewContext: viewContext).count == 0 {
             print("No aromas have been loaded, loading aromas")
-            TerpeneJSONUtil.loadAromas().forEach { aromaStr in
+            TerpeneJSONUtil.loadAromaJSON().forEach { aroma in
                 let _aroma = Aroma(context: viewContext)
-                _aroma.name = aromaStr
-                _aroma.desc = DictionaryUtil.loadDescription(text: aromaStr)
-                _aroma.id = String(Int.random(in: 1000...5000))
+                _aroma.name = aroma.name
+                _aroma.desc = aroma.description
+                _aroma.id = aroma.id
+                _aroma.image = aroma.image
 //                privateContext.perform {
                     
 //                    do {
@@ -141,7 +205,7 @@ struct TerpeneCoreDataUtil{
 //                            viewContext.performAndWait {
                                 do{
                                     try viewContext.save()
-                                    print("Wrote aroma \(aromaStr)")
+                                    print("Wrote aroma \(aroma.name)")
                                 } catch{
                                     let nsError = error as NSError
                                     fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
@@ -178,12 +242,12 @@ struct TerpeneCoreDataUtil{
                     //                    do{
                     //                        let request : NSFetchRequest <Aroma>
                     //                        let aroma = viewContext.fetch(<#T##request: NSFetchRequest<NSFetchRequestResult>##NSFetchRequest<NSFetchRequestResult>#>)
-                    _terpene.addToAromas(aromas.filter({$0.name!.lowercased() == _aroma.lowercased() }).first!)
+                    _terpene.addToAromas(aromas.filter({$0.name!.lowercased() == _aroma.name.lowercased() }).first!)
                     //                    }
                     
                 }
                 terpene.effects.forEach(){ _effect in
-                    _terpene.addToEffects(effects.filter({$0.name!.lowercased() == _effect.lowercased() }).first!)
+                    _terpene.addToEffects(effects.filter({$0.name!.lowercased() == _effect.name.lowercased() }).first!)
                 }
                 do {
                     try viewContext.save()

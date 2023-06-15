@@ -51,7 +51,6 @@
 		49603C8A2A2C1C8500CBFBA4 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */; };
 		49603C8B2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */; };
 		49603C972A2C1C9700CBFBA4 /* achievement.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8D2A2C1C9700CBFBA4 /* achievement.json */; };
-		49603C982A2C1C9700CBFBA4 /* terpene.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8E2A2C1C9700CBFBA4 /* terpene.json */; };
 		49603C992A2C1C9700CBFBA4 /* reviews.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C8F2A2C1C9700CBFBA4 /* reviews.json */; };
 		49603C9A2A2C1C9700CBFBA4 /* messages.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C902A2C1C9700CBFBA4 /* messages.json */; };
 		49603C9C2A2C1C9700CBFBA4 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603C922A2C1C9700CBFBA4 /* users.json */; };
@@ -177,6 +176,9 @@
 		49A751852A37D5CD00715B76 /* FilterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751842A37D5CD00715B76 /* FilterSelectionView.swift */; };
 		49A751872A38B57F00715B76 /* ImageFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751862A38B57F00715B76 /* ImageFilters.swift */; };
 		49A751892A38C6A700715B76 /* StrainRatePhotoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A751882A38C6A700715B76 /* StrainRatePhotoRow.swift */; };
+		49FFC7B52A3A2B2D009FC0C3 /* AromaJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FFC7B42A3A2B2D009FC0C3 /* AromaJSON.swift */; };
+		49FFC7B92A3A3475009FC0C3 /* terpene.json in Resources */ = {isa = PBXBuildFile; fileRef = 49FFC7B82A3A3475009FC0C3 /* terpene.json */; };
+		49FFC7BB2A3A5812009FC0C3 /* TerpeneError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FFC7BA2A3A5812009FC0C3 /* TerpeneError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -225,7 +227,6 @@
 		49603C6B2A2C1C8500CBFBA4 /* UserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
 		49603C6C2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerpeneJSONUtil.swift; sourceTree = "<group>"; };
 		49603C8D2A2C1C9700CBFBA4 /* achievement.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievement.json; sourceTree = "<group>"; };
-		49603C8E2A2C1C9700CBFBA4 /* terpene.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = terpene.json; sourceTree = "<group>"; };
 		49603C8F2A2C1C9700CBFBA4 /* reviews.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reviews.json; sourceTree = "<group>"; };
 		49603C902A2C1C9700CBFBA4 /* messages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = messages.json; sourceTree = "<group>"; };
 		49603C922A2C1C9700CBFBA4 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
@@ -351,6 +352,9 @@
 		49A751842A37D5CD00715B76 /* FilterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionView.swift; sourceTree = "<group>"; };
 		49A751862A38B57F00715B76 /* ImageFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilters.swift; sourceTree = "<group>"; };
 		49A751882A38C6A700715B76 /* StrainRatePhotoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainRatePhotoRow.swift; sourceTree = "<group>"; };
+		49FFC7B42A3A2B2D009FC0C3 /* AromaJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AromaJSON.swift; sourceTree = "<group>"; };
+		49FFC7B82A3A3475009FC0C3 /* terpene.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = terpene.json; sourceTree = "<group>"; };
+		49FFC7BA2A3A5812009FC0C3 /* TerpeneError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +473,7 @@
 				49603C552A2C1C8500CBFBA4 /* NotificationType.swift */,
 				49A751862A38B57F00715B76 /* ImageFilters.swift */,
 				49457FAC2A395D7F009B50E6 /* StrainError.swift */,
+				49FFC7BA2A3A5812009FC0C3 /* TerpeneError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -485,11 +490,11 @@
 		49603C8C2A2C1C9700CBFBA4 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				49FFC7B82A3A3475009FC0C3 /* terpene.json */,
 				49A751652A32A3C000715B76 /* strain_data.json */,
 				49603D802A2C1D8700CBFBA4 /* feed.json */,
 				492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */,
 				49603C8D2A2C1C9700CBFBA4 /* achievement.json */,
-				49603C8E2A2C1C9700CBFBA4 /* terpene.json */,
 				49603C8F2A2C1C9700CBFBA4 /* reviews.json */,
 				49603C902A2C1C9700CBFBA4 /* messages.json */,
 				49603C922A2C1C9700CBFBA4 /* users.json */,
@@ -896,6 +901,7 @@
 				49603C672A2C1C8500CBFBA4 /* StrainJSON.swift */,
 				49603C682A2C1C8500CBFBA4 /* TerpeneJSON.swift */,
 				49A751792A36726500715B76 /* Location.swift */,
+				49FFC7B42A3A2B2D009FC0C3 /* AromaJSON.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1001,6 +1007,7 @@
 			files = (
 				49603C9F2A2C1C9700CBFBA4 /* user_circle.json in Resources */,
 				49603C9E2A2C1C9700CBFBA4 /* notifications.json in Resources */,
+				49FFC7B92A3A3475009FC0C3 /* terpene.json in Resources */,
 				49603C972A2C1C9700CBFBA4 /* achievement.json in Resources */,
 				49603C992A2C1C9700CBFBA4 /* reviews.json in Resources */,
 				49603C9D2A2C1C9700CBFBA4 /* user_achievements.json in Resources */,
@@ -1008,7 +1015,6 @@
 				492A216D2A303CDB00F3DBE3 /* strain_data_demo.json in Resources */,
 				49603C3B2A2C1C1700CBFBA4 /* Assets.xcassets in Resources */,
 				49603C9C2A2C1C9700CBFBA4 /* users.json in Resources */,
-				49603C982A2C1C9700CBFBA4 /* terpene.json in Resources */,
 				49603D812A2C1D8700CBFBA4 /* feed.json in Resources */,
 				49603C9A2A2C1C9700CBFBA4 /* messages.json in Resources */,
 				49A751702A3569E600715B76 /* README.md in Resources */,
@@ -1081,6 +1087,7 @@
 				49603D4B2A2C1CAF00CBFBA4 /* RowHeaderViewAll.swift in Sources */,
 				49603D3F2A2C1CAF00CBFBA4 /* StrainRateConsumptionRow.swift in Sources */,
 				49603D4C2A2C1CAF00CBFBA4 /* MultipleSelectionRow.swift in Sources */,
+				49FFC7BB2A3A5812009FC0C3 /* TerpeneError.swift in Sources */,
 				49603DC22A2C3A5B00CBFBA4 /* Terp.xcdatamodeld in Sources */,
 				49603D502A2C1CAF00CBFBA4 /* ProfileTerpeneRow.swift in Sources */,
 				49603DCD2A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift in Sources */,
@@ -1176,6 +1183,7 @@
 				49A751832A37BF6F00715B76 /* ImageUtil.swift in Sources */,
 				49603D582A2C1CAF00CBFBA4 /* TerpeneDetailHeaderRow.swift in Sources */,
 				49603D532A2C1CAF00CBFBA4 /* NewCommentRow.swift in Sources */,
+				49FFC7B52A3A2B2D009FC0C3 /* AromaJSON.swift in Sources */,
 				49603DDF2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift in Sources */,
 				49603C892A2C1C8500CBFBA4 /* StrainJSONUtil.swift in Sources */,
 				49603D372A2C1CAF00CBFBA4 /* StrainDetailHeaderRow.swift in Sources */,

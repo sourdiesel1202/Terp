@@ -61,7 +61,7 @@ struct TerpeneDetailView: View {
     func loadTerpeneEffects()->[DataMap]{
         var effects = [DataMap]()
         self.terpene.effects.forEach {
-            effects.append(DataMap(key: $0, value: "", view: ContentWithTitleDescView(title: $0, desc: $0, image: nil)))
+            effects.append(DataMap(key: $0.name, value: "", view: ContentWithTitleDescView(title: $0.name, desc: $0.description, image: nil)))
         }
         return effects
     }
@@ -69,7 +69,7 @@ struct TerpeneDetailView: View {
     func loadTerpeneAromas()->[DataMap]{
         var aromas = [DataMap]()
         self.terpene.aromas.forEach {
-            aromas.append(DataMap(key: $0, value: "", view: ContentWithTitleDescView(title: $0, desc: $0, image: nil)))
+            aromas.append(DataMap(key: $0.name, value: "", view: ContentWithTitleDescView(title: $0.name, desc: $0.description, image: nil)))
         }
         return aromas
     }

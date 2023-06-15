@@ -52,8 +52,8 @@ struct TerpeneJSON: Codable, Identifiable, Hashable{
     var description: String
 
     
-    var aromas: [String]
-    var effects: [String]
+    var aromas: [AromaEffectJSON]
+    var effects: [AromaEffectJSON]
     var image: String?
     
 //    var children: [String]
@@ -70,30 +70,9 @@ struct TerpeneJSON: Codable, Identifiable, Hashable{
     
 #if DEBUG
     static let example = TerpeneJSON(id: UUID(), name: "Myrcene", description: "Myrcene, also known as alpha-Myrcene and beta-Myrcene, is a monoterpene commonly found in lemongrass, hop (Humulus Lupulus), mango, verbena, bay leaves, and thyme, among others. It is the most abundant terpene in cannabis. According to a study conducted by the Swiss Federal Research Station for Agroecology and Agriculture, Myrcene contains 65% of the terpene content in a cannabis plant (Mediavilla & Steinemann, 1997). It is described as herbal or earthy and is commonly used as an intermediate by the fragrance industry to produce derivative terpenes. It is also acknowledged as a potent muscle relaxant, anti-inflammatory, pain reliever, and sedative. In the case of cannabinoids, Myrcene is believed to increase the speed of action, and the desired effects can be felt faster.", aromas: [
-        "Hops",
-        "Mango",
-        "Lemongrass",
-        "Fruity",
-        "Earthy",
-        "Clove",
-        "Sweet Basil",
-        "Basil",
-        "Grassy",
-        "Sweet",
-        "Musty",
-        "Grape"
+        
       ], effects: [
-        "Sleep-Aid",
-        "Muscle Relaxant",
-        "Relaxing",
-        "Euphoric",
-        "Analgesic",
-        "Anti-Psychotic",
-        "Anti-Carcinogenic",
-        "Anti-Pasmodic",
-        "Hypnotic",
-        "Sedative",
-        "Neuroprotective"
+        
       ])
 #endif
 }

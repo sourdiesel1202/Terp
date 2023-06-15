@@ -8,12 +8,27 @@
             "image": "https://external-preview.redd.it/yAvFGhUWDGAg_t93u6UtvXgk2SDMwPEUr9QX3T1mFto.jpg?auto=webp&s=c4fa72e3d795dc32e53e11e3d9f1ac8921272c59",
             "description": "The Cake by the Pound achievement can be earned by rating 3 cake stains"
         },
+        
         {
-            "name":"Stoner Starter Pack",
+            "name":"Lets Get It Started (Level 1)",
             "strains": ["*"],
-            "requires": 3,
-            "image": "https://external-preview.redd.it/yAvFGhUWDGAg_t93u6UtvXgk2SDMwPEUr9QX3T1mFto.jpg?auto=webp&s=c4fa72e3d795dc32e53e11e3d9f1ac8921272c59",
-            "description": "To achieve the Stoner Starter Pack, rate any 3 strains"
+            "requires": 1,
+            "image": "https://media.istockphoto.com/id/1186052908/vector/cannabis-leaf-illustration.jpg?s=612x612&w=0&k=20&c=OmTisuKdaOb_OeMxJb5M0YS9If6_GMaRioQ37PPmYJg=",
+            "description": "To achieve Lets Get It Started (Level 1), rate any strain"
+        },
+        {
+            "name":"Lets Get It Started (Level 2)",
+            "strains": ["*"],
+            "requires": 5,
+            "image": "https://media.istockphoto.com/id/1186052908/vector/cannabis-leaf-illustration.jpg?s=612x612&w=0&k=20&c=OmTisuKdaOb_OeMxJb5M0YS9If6_GMaRioQ37PPmYJg=",
+            "description": "To achieve the Lets Get It Started (Level 2), rate any 5 strains"
+        },
+        {
+            "name":"Lets Get It Started (Level 3)",
+            "strains": ["*"],
+            "requires": 10,
+            "image": "https://media.istockphoto.com/id/1186052908/vector/cannabis-leaf-illustration.jpg?s=612x612&w=0&k=20&c=OmTisuKdaOb_OeMxJb5M0YS9If6_GMaRioQ37PPmYJg=",
+            "description": "To achieve the Lets Get It Started (Level 3), rate any 10 strains"
         },
             {
                 "name": "Stacy's Bong",
