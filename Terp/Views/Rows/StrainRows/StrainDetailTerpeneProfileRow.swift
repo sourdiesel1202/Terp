@@ -21,10 +21,12 @@ struct StrainDetailTerpeneProfileRow: View {
             
                 
 
-            RowHeaderViewAll(text: "Terpenes (\(self.strain.terpenes.count))", data: TerpeneJSONUtil.loadTerpeneDataMapFromStrings(terpenes:self.strain.terpenes))
+            
             if self.loading{
+                RowHeader(text: "Terpenes")
                 ProgressView()
             }else{
+                RowHeaderViewAll(text: "Terpenes (\(self.strain.terpenes.count))", data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: self.terpenes))
                 HorizontalTerpeneRow(terpenes: self.terpenes)
             }
             //            ViewDivider(height: 0.25)
