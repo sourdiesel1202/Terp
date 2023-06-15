@@ -42,9 +42,12 @@ A social cannabis experience
 <tr><td>35</td><td>Implement Aroma detail view</td><td>Closed</td></tr>
 <tr><td>36</td><td>Implement Effect detail view</td><td>Closed</td></tr>
 <tr><td>37</td><td>Clean-up terpene detail view</td><td>Closed</td></tr>
-<tr><td>38</td><td>Add "Strains containing" to effect and aroma detail view</td><td>Open</td></tr>
-<tr><td>39</td><td>Add "Terpenes containing" to effect and aroma detail view</td><td>Open</td></tr>
+<tr><td>38</td><td>Add "Strains containing" to effect and aroma detail view</td><td>Closed</td></tr>
+<tr><td>39</td><td>Add "Terpenes containing" to effect and aroma detail view</td><td>Closed</td></tr>
 <tr><td>40</td><td>Convert horizontal effect/aroma/terpene row views to use object images when applicable</td><td>Closed</td></tr>
+<tr><td>41</td><td>Show strains reviewed under "completed" on achievement detail view</td><td>Open</td></tr>
+<tr><td>42</td><td>Implement Dispensaries near me</td><td>Open</td></tr>
+<tr><td>43</td><td>Implement find this strain near me</td><td>Open</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 

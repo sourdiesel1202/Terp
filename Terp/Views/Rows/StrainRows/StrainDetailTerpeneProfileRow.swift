@@ -9,24 +9,21 @@ import SwiftUI
 
 struct StrainDetailTerpeneProfileRow: View {
     let strain: StrainJSON
-    @State private var aromas: [AromaEffectJSON] = [AromaEffectJSON]()
-    @State private var effects: [AromaEffectJSON] = [AromaEffectJSON]()
+    @State private var aromas: [EffectAromaJSON] = [EffectAromaJSON]()
+    @State private var effects: [EffectAromaJSON] = [EffectAromaJSON]()
     @State private var terpenes: [TerpeneJSON] = [TerpeneJSON]()
     @State private var loading: Bool = false
     @EnvironmentObject var errorHandler: ErrorHandler
     var body: some View {
         Text("Terpene Profile").padding([.top,.bottom]).fontWeight(.bold)
-        VStack(alignment: .leading){
-            //            ViewDivider(height: 0.5)
+        VStack{
             
-                
-
             
             if self.loading{
                 RowHeader(text: "Terpenes")
                 ProgressView()
             }else{
-                RowHeaderViewAll(text: "Terpenes (\(self.strain.terpenes.count))", data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: self.terpenes))
+//                RowHeaderViewAll(text: "Terpenes", data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: self.terpenes))
                 HorizontalTerpeneRow(terpenes: self.terpenes)
             }
             //            ViewDivider(height: 0.25)
@@ -53,32 +50,33 @@ struct StrainDetailTerpeneProfileRow: View {
             
         }.onAppear{
             self.loading = true
-                DispatchQueue.global(qos: .utility).async {
+            DispatchQueue.global(qos: .utility).async {
+                
+                do{
+                    let _terpenes = try TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)
+                    let _effects = try TerpeneJSONUtil.loadEffectsByNames(names: TerpeneJSONUtil.loadTerpeneEffects(terpenes: _terpenes))
+                    let _aromas = try TerpeneJSONUtil.loadAromasByNames(names: TerpeneJSONUtil.loadTerpeneAromas(terpenes: _terpenes))
                     
-                    do{
-                        let _terpenes = try TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)
-                        let _effects = try TerpeneJSONUtil.loadEffectsByNames(names: TerpeneJSONUtil.loadTerpeneEffects(terpenes: _terpenes))
-                        let _aromas = try TerpeneJSONUtil.loadAromasByNames(names: TerpeneJSONUtil.loadTerpeneAromas(terpenes: _terpenes))
-                        
-//                        let strainData = try StrainJSONUtil.loadStrainsByNames(names: self.achievement.strains)
-                        DispatchQueue.main.async {
-                            self.aromas = _aromas
-                            self.effects = _effects
-                            self.terpenes = _terpenes
-                            self.loading = false
-                        }
-                    }catch{
-                        DispatchQueue.main.async {
-                            self.errorHandler.handle(error: error)
-                            //                        self.loading = false
-                            self.loading = false
-                        }
-                        
+                    //                        let strainData = try StrainJSONUtil.loadStrainsByNames(names: self.achievement.strains)
+                    DispatchQueue.main.async {
+                        self.aromas = _aromas
+                        self.effects = _effects
+                        self.terpenes = _terpenes
+                        self.loading = false
+                    }
+                }catch{
+                    DispatchQueue.main.async {
+                        self.errorHandler.handle(error: error)
+                        //                        self.loading = false
+                        self.loading = false
                     }
                     
+                }
+                
                 
             }
         }
+        
     }
 }
 

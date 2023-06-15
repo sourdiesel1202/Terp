@@ -52,8 +52,8 @@ struct TerpeneJSON: Codable, Identifiable, Hashable{
     var description: String
 
     
-    var aromas: [AromaEffectJSON]
-    var effects: [AromaEffectJSON]
+    var aromas: [EffectAromaJSON]
+    var effects: [EffectAromaJSON]
     var image: String?
     
 //    var children: [String]

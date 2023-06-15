@@ -19,13 +19,13 @@ struct TerpeneJSONUtil{
         do{
             let _terpenes = try viewContext.fetch(fetchRequest)
             _terpenes.forEach(){ terp in
-                var _aromas = [AromaEffectJSON]()
-                var _effects = [AromaEffectJSON]()
+                var _aromas = [EffectAromaJSON]()
+                var _effects = [EffectAromaJSON]()
                 terp.aromas!.forEach(){ (aroma: Aroma) in
-                    _aromas.append(AromaEffectJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
+                    _aromas.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
                 }
                 terp.effects!.forEach(){ effect in
-                    _effects.append(AromaEffectJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
+                    _effects.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
                 }
                 terpenes.append(TerpeneJSON(name: terp.name!, description: terp.desc!, aromas: _aromas, effects: _effects, image: terp.image!))
             }
@@ -50,12 +50,12 @@ struct TerpeneJSONUtil{
         return self.loadTerpenes().filter({$0.name.lowercased().contains(name.lowercased())})
     }
 //    static func search
-    static func loadEffectsByNames(names: [String]) throws -> [AromaEffectJSON]{
-        var _res = [AromaEffectJSON]()
+    static func loadEffectsByNames(names: [String]) throws -> [EffectAromaJSON]{
+        var _res = [EffectAromaJSON]()
         do{
             try names.forEach { effectName in
                 let effect = try TerpeneCoreDataUtil.loadEffectByName(name: effectName, viewContext: PersistenceController.shared.container.viewContext)
-                _res.append(AromaEffectJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
+                _res.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
                 //            if !_res.contains(terpene) && terpene.aromas.contains(aroma){
                 //                _res.append(terpene)
                 //            }
@@ -68,12 +68,12 @@ struct TerpeneJSONUtil{
         return _res
     }
     
-    static func loadAromasByNames(names: [String]) throws -> [AromaEffectJSON]{
-        var _res = [AromaEffectJSON]()
+    static func loadAromasByNames(names: [String]) throws -> [EffectAromaJSON]{
+        var _res = [EffectAromaJSON]()
         do{
             try names.forEach { aromaName in
                 let aroma = try TerpeneCoreDataUtil.loadAromaByName(name: aromaName, viewContext: PersistenceController.shared.container.viewContext)
-                _res.append(AromaEffectJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
+                _res.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
                 //            if !_res.contains(terpene) && terpene.aromas.contains(aroma){
                 //                _res.append(terpene)
                 //            }
@@ -101,17 +101,20 @@ struct TerpeneJSONUtil{
         return terpenes.filter({$0.name.lowercased()==name.lowercased()}).first!
         
     }
-    static func convertCoreDataAromasToAromaEffect(aromas: [Aroma])->[AromaEffectJSON]{
-        var _res = [AromaEffectJSON]()
-        aromas.forEach(){aroma in
-            _res.append(AromaEffectJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
+    static func convertCoreDataAromasToAromaEffect(aromas: [Aroma])->[EffectAromaJSON]{
+        var _res = [EffectAromaJSON]()
+        for i in (0..<aromas.count){
+            let aroma = aromas[i]
+//        aromas.forEach(){aroma in
+            _res.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
         }
         return _res
     }
-    static func convertCoreDataEffectsToAromaEffect(effects: [Effect])->[AromaEffectJSON]{
-        var _res = [AromaEffectJSON]()
-        effects.forEach(){effect in
-            _res.append(AromaEffectJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
+    static func convertCoreDataEffectsToAromaEffect(effects: [Effect])->[EffectAromaJSON]{
+        var _res = [EffectAromaJSON]()
+        for i in (0..<effects.count){
+            let effect = effects[i]
+            _res.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
         }
         return _res
     }
@@ -137,6 +140,65 @@ struct TerpeneJSONUtil{
         
     }
 
+//    static func convertCoreDataEffectAromaToJSON(effect)
+    static func convertCoreDataTerpeneToJSON(terpene: Terpene) -> TerpeneJSON{
+        var aromas = [EffectAromaJSON]()
+        var effects = [EffectAromaJSON]()
+        if terpene.aromas != nil{
+//            var _aromas = []
+            terpene.aromas!.forEach(){ aroma in
+                aromas.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
+            }
+        }
+        if terpene.effects != nil{
+//            var _aromas = []
+            terpene.effects!.forEach(){ effect in
+                effects.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
+            }
+        }
+        
+        return TerpeneJSON(name: terpene.name!, description: terpene.desc!, aromas: aromas, effects: effects, image: terpene.image!)
+    }
+    static func loadTerpenesByEffectAroma(effectAroma: EffectAromaJSON) -> [TerpeneJSON]
+    {
+//        v
+        var _res = [TerpeneJSON]()
+        do {
+            let aroma = try TerpeneCoreDataUtil.loadAromaByName(name: effectAroma.name, viewContext: PersistenceController.shared.container.viewContext)
+            if aroma.terpenes != nil {
+                for i in (0..<aroma.terpenes!.count){
+                    let terpene = Array(aroma.terpenes!)[i]
+                    _res.append(self.convertCoreDataTerpeneToJSON(terpene: terpene))
+//                    _res.append(TerpeneJSON(name: terpene.name!, description: terpene.desc!, aromas: self.convertCoreDataAromasToAromaEffect(aromas: terpene.aromas != nil ? Array(terpene.aromas!): [EffectAromaJSON]()), effects: self.convertCoreDataEffectsToAromaEffect(effects: terpene.effects != nil ? Array(terpene.effects!) : [EffectAromaJSON]()), image: terpene.image!))
+                }
+            }
+        }catch{
+            print("Effect/Aroma: \(effectAroma.name) not found as aroma")
+        }
+        
+        do {
+            let effect = try TerpeneCoreDataUtil.loadEffectByName(name: effectAroma.name, viewContext: PersistenceController.shared.container.viewContext)
+            if effect.terpenes != nil {
+                for i in (0..<effect.terpenes!.count){
+//                effect.terpenes!.forEach(){ terpene in
+                    let terpene = Array(effect.terpenes!)[i]
+                    _res.append(TerpeneJSON(name: terpene.name!, description: terpene.desc!, aromas: self.convertCoreDataAromasToAromaEffect(aromas: Array(terpene.aromas!)), effects: self.convertCoreDataEffectsToAromaEffect(effects: Array(terpene.effects!)), image: terpene.image!))
+                }
+            }
+        }catch{
+            print("Effect/Aroma: \(effectAroma.name) not found as effect")
+        }
+        
+        return _res
+//        terpenes.forEach { terpene in
+//            if !_res.contains(terpene) && terpene.effects.contains(where: {effect.lowercased() == $0.name.lowercased()}){
+//                _res.append(terpene)
+//            }
+//        }
+//        return _res.sorted {
+//            $0.name < $1.name
+//        }
+    }
     static func loadTerpenesByEffect(effect: String, terpenes: [TerpeneJSON]) -> [TerpeneJSON]
     {
         var _res = [TerpeneJSON]()
@@ -149,8 +211,8 @@ struct TerpeneJSONUtil{
             $0.name < $1.name
         }
     }
-    static func loadAromaJSON()->[AromaEffectJSON]{
-        var _res = [AromaEffectJSON]()
+    static func loadAromaJSON()->[EffectAromaJSON]{
+        var _res = [EffectAromaJSON]()
         self.loadTerpenes().forEach { terpene in
             terpene.aromas.forEach { aroma in
                 if !_res.contains(where: {$0.name.lowercased() == aroma.name.lowercased()}){
@@ -165,8 +227,8 @@ struct TerpeneJSONUtil{
         }
     }
     
-    static func loadEffectJSON()->[AromaEffectJSON]{
-        var _res = [AromaEffectJSON]()
+    static func loadEffectJSON()->[EffectAromaJSON]{
+        var _res = [EffectAromaJSON]()
         self.loadTerpenes().forEach { terpene in
             terpene.effects.forEach { effect in
                 if !_res.contains(where: {$0.name.lowercased() == effect .name.lowercased()}){
@@ -233,9 +295,9 @@ struct TerpeneJSONUtil{
             $0 < $1
         }
     }
-    static func loadTerpeneAromas(terpenes: [TerpeneJSON])->[DataMap]{
+    static func loadTerpeneAromasDataMap(terpenes: [TerpeneJSON])->[DataMap]{
         var _res = [DataMap]()
-        loadTerpeneAromas(terpenes: terpenes).forEach { aroma in
+        self.loadTerpeneAromas(terpenes: terpenes).forEach { aroma in
 //            terpene.effects.forEach { effect in
 //                if !_res.contains(effect){
 //                    _res.append(effect)
@@ -311,7 +373,7 @@ struct TerpeneJSONUtil{
 //        var _res = [String]()
         return self.loadAromas().filter({$0.lowercased() == query.lowercased()})
     }
-    static func loadAromaEffectDataMap(data: [AromaEffectJSON])-> [DataMap]{
+    static func loadAromaEffectDataMap(data: [EffectAromaJSON])-> [DataMap]{
         var _res = [DataMap]()
         data.forEach(){ ae in
             _res.append(DataMap(key: ae.name, value: ae.description, view: TerpeneEffectAromaView(effectAroma: ae), image: ae.image))
@@ -323,7 +385,7 @@ struct TerpeneJSONUtil{
     static func loadAromaEffectDataMap(data: [String])-> [DataMap]{
         var _res = [DataMap]()
         data.forEach(){ ae in
-            _res.append(DataMap(key: ae, value: DictionaryUtil.loadDescription(text: ae), view: TerpeneEffectAromaView(effectAroma: AromaEffectJSON(id: "1111111", name: ae, description: ae, image: ""))))
+            _res.append(DataMap(key: ae, value: DictionaryUtil.loadDescription(text: ae), view: TerpeneEffectAromaView(effectAroma: EffectAromaJSON(id: "1111111", name: ae, description: ae, image: ""))))
             
         }
         return _res

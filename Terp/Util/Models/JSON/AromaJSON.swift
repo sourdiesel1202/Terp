@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct AromaEffectJSON: Codable, Identifiable, Hashable{
+struct EffectAromaJSON: Codable, Identifiable, Hashable{
 //    var name: String
     enum CodingKeys: CodingKey{
 //        var id = UUID()
@@ -26,6 +26,6 @@ struct AromaEffectJSON: Codable, Identifiable, Hashable{
     var image: String
     
 #if DEBUG
-    static let example = AromaEffectJSON(id: "1234", name: "Butthole", description: "The delicious smell of buttholes; Fresh butthole in the morning", image: "https://t4.ftcdn.net/jpg/02/97/35/93/360_F_297359303_TcVumdikGci1F7uhYEPnhfOe8FUt4JnO.jpg")
+    static let example = EffectAromaJSON(id: "1234", name: "Butthole", description: "The delicious smell of buttholes; Fresh butthole in the morning", image: "https://t4.ftcdn.net/jpg/02/97/35/93/360_F_297359303_TcVumdikGci1F7uhYEPnhfOe8FUt4JnO.jpg")
 #endif
 }

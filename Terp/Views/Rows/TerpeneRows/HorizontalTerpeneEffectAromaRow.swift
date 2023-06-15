@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HorizontalTerpeneEffectAromaRow: View {
-    let data: [AromaEffectJSON]
+    let data: [EffectAromaJSON]
     private var limit: Int {
         return self.data.count > 3 ? 3: self.data.count
     }
@@ -16,7 +16,7 @@ struct HorizontalTerpeneEffectAromaRow: View {
         ScrollView(.horizontal){
             HStack(alignment: .top){
                 
-                ForEach(self.data[0..<self.limit], id: \.self){ (item:AromaEffectJSON) in
+                ForEach(self.data[0..<self.limit], id: \.self){ (item:EffectAromaJSON) in
                     Button(action: {}){
                         NavigationLink {
                             TerpeneEffectAromaView(effectAroma: item)
@@ -58,6 +58,6 @@ struct HorizontalTerpeneEffectAromaRow: View {
 
 struct HorizontalTerpeneEffectAromaRow_Previews: PreviewProvider {
     static var previews: some View {
-        HorizontalTerpeneEffectAromaRow(data: [AromaEffectJSON.example])
+        HorizontalTerpeneEffectAromaRow(data: [EffectAromaJSON.example])
     }
 }

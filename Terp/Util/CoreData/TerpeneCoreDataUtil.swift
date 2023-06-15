@@ -159,24 +159,28 @@ struct TerpeneCoreDataUtil{
         if self.loadEffects(viewContext: viewContext).count == 0 {
             print("No effects have been loaded, loading effects")
             TerpeneJSONUtil.loadEffectJSON().forEach { effect in
-                let _effect = Effect(context: viewContext)
-                //                _effect.desc
-                _effect.name = effect.name
-                _effect.desc = effect.description
-                _effect.id = effect.id
-                _effect.image = effect.image
-                //                privateContext.perform {
-                
-                //                    do {
-                
-                //                        try privateContext.save()
-                viewContext.performAndWait {
-                    do{
-                        try viewContext.save()
-                        print("Wrote effect \(effect.name)")
-                    } catch{
-                        let nsError = error as NSError
-                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                do{
+                    _ = try self.loadEffectByName(name: effect.name, viewContext: viewContext)
+                }catch{
+                    let _effect = Effect(context: viewContext)
+                    //                _effect.desc
+                    _effect.name = effect.name
+                    _effect.desc = effect.description
+                    _effect.id = effect.id
+                    _effect.image = effect.image
+                    //                privateContext.perform {
+                    
+                    //                    do {
+                    
+                    //                        try privateContext.save()
+                    viewContext.performAndWait {
+                        do{
+                            try viewContext.save()
+                            print("Wrote effect \(effect.name)")
+                        } catch{
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
                     }
                 }
             }
@@ -190,26 +194,31 @@ struct TerpeneCoreDataUtil{
 //        privateContext.parent = viewContext
         
         if self.loadAromas(viewContext: viewContext).count == 0 {
+            
             print("No aromas have been loaded, loading aromas")
             TerpeneJSONUtil.loadAromaJSON().forEach { aroma in
-                let _aroma = Aroma(context: viewContext)
-                _aroma.name = aroma.name
-                _aroma.desc = aroma.description
-                _aroma.id = aroma.id
-                _aroma.image = aroma.image
-//                privateContext.perform {
+                do {
+                    let cdAroma = try self.loadAromaByName(name: aroma.name, viewContext: viewContext)
+                }catch{
+                    let _aroma = Aroma(context: viewContext)
+                    _aroma.name = aroma.name
+                    _aroma.desc = aroma.description
+                    _aroma.id = aroma.id
+                    _aroma.image = aroma.image
+                    //                privateContext.perform {
                     
-//                    do {
-                        
-//                        try privateContext.save()
-//                            viewContext.performAndWait {
-                                do{
-                                    try viewContext.save()
-                                    print("Wrote aroma \(aroma.name)")
-                                } catch{
-                                    let nsError = error as NSError
-                                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                                }
+                    //                    do {
+                    
+                    //                        try privateContext.save()
+                    //                            viewContext.performAndWait {
+                    do{
+                        try viewContext.save()
+                        print("Wrote aroma \(aroma.name)")
+                    } catch{
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    }
+                }
             }
         }
 
@@ -232,34 +241,38 @@ struct TerpeneCoreDataUtil{
             print("Effect count: \(effects.count)")
             
             TerpeneJSONUtil.loadTerpenes().forEach(){ terpene in
-                let _terpene = Terpene(context: viewContext)
-                _terpene.id = String(Int.random(in: 1000...5000))
-                _terpene.name = terpene.name
-                _terpene.desc = terpene.description
-                _terpene.image = terpene.image
-                terpene.aromas.forEach(){ _aroma in
-                    //                    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Aroma., ascending: true)]) var aromas: FetchedResults<Aroma>
-                    //                    do{
-                    //                        let request : NSFetchRequest <Aroma>
-                    //                        let aroma = viewContext.fetch(<#T##request: NSFetchRequest<NSFetchRequestResult>##NSFetchRequest<NSFetchRequestResult>#>)
-                    _terpene.addToAromas(aromas.filter({$0.name!.lowercased() == _aroma.name.lowercased() }).first!)
-                    //                    }
+                do{
+                    let terpene = try self.loadTerpeneByName(name: terpene.name, viewContext: viewContext)
+                }catch{
+                    let _terpene = Terpene(context: viewContext)
+                    _terpene.id = String(Int.random(in: 1000...5000))
+                    _terpene.name = terpene.name
+                    _terpene.desc = terpene.description
+                    _terpene.image = terpene.image
+                    terpene.aromas.forEach(){ _aroma in
+                        //                    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Aroma., ascending: true)]) var aromas: FetchedResults<Aroma>
+                        //                    do{
+                        //                        let request : NSFetchRequest <Aroma>
+                        //                        let aroma = viewContext.fetch(<#T##request: NSFetchRequest<NSFetchRequestResult>##NSFetchRequest<NSFetchRequestResult>#>)
+                        _terpene.addToAromas(aromas.filter({$0.name!.lowercased() == _aroma.name.lowercased() }).first!)
+                        //                    }
+                        
+                    }
+                    terpene.effects.forEach(){ _effect in
+                        _terpene.addToEffects(effects.filter({$0.name!.lowercased() == _effect.name.lowercased() }).first!)
+                    }
+                    do {
+                        try viewContext.save()
+                        print("Wrote terpene \(terpene.name)")
+                    } catch {
+                        // Replace this implementation with code to handle the error appropriately.
+                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                        let nsError = error as NSError
+                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                    }
+                    
                     
                 }
-                terpene.effects.forEach(){ _effect in
-                    _terpene.addToEffects(effects.filter({$0.name!.lowercased() == _effect.name.lowercased() }).first!)
-                }
-                do {
-                    try viewContext.save()
-                    print("Wrote terpene \(terpene.name)")
-                } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                }
-                
-                
             }
             
         }

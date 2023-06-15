@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProfileTerpeneRow: View {
     let user: User
-    @State private var aromas: [AromaEffectJSON] = [AromaEffectJSON]()
-    @State private var effects: [AromaEffectJSON] = [AromaEffectJSON]()
+    @State private var aromas: [EffectAromaJSON] = [EffectAromaJSON]()
+    @State private var effects: [EffectAromaJSON] = [EffectAromaJSON]()
     @State private var terpenes: [TerpeneJSON] = [TerpeneJSON]()
     @State private var loading: Bool = false
     @EnvironmentObject var errorHandler: ErrorHandler

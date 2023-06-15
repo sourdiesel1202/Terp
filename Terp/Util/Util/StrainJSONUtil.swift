@@ -112,16 +112,18 @@ struct StrainJSONUtil{
     }
     static func loadStrainsByTerpene(terpene: TerpeneJSON) -> [StrainJSON]{
         
-        var _res = [StrainJSON]()
-        self.loadStrains().forEach { strain in
-            if strain.terpenes.contains(terpene.name){
-                _res.append(strain)
+        
+        do {
+            guard let strains = try TerpeneCoreDataUtil.loadTerpeneByName(name: terpene.name, viewContext: PersistenceController.shared.container.viewContext).strains else{
+                return [StrainJSON]()
             }
-            //            if strain.terpenes.
-            //                _res.append(strain)
-            //            }
+            return StrainJSONUtil.convertCoreDataToJSON(strains: Array(strains))
+                
+                    
+        }catch {
+            
         }
-        return _res
+        return [StrainJSON]()
     }
     static func searchStrainByName(name: String)-> [StrainJSON]{
         if self.shouldUseCoreData(){

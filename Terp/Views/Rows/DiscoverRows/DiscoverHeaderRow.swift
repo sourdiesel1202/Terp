@@ -10,7 +10,7 @@ import SwiftUI
 struct DiscoverHeaderRow: View {
     var body: some View {
         VStack{
-            Text("Discover").fontWeight(.bold).font(.title)
+            Text("Discover").fontWeight(.bold).font(.largeTitle).padding(.bottom)
             Text("Find strains by effect and aroma, discover nearby dispensaries and recommended strains and more")
         }
     }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490A3FB82A3B85D200E30584 /* TerpeneEffectAromaHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FB72A3B85D200E30584 /* TerpeneEffectAromaHeaderRow.swift */; };
+		490A3FBA2A3B8B9E00E30584 /* TerpeneEffectAromaTerpeneRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FB92A3B8B9E00E30584 /* TerpeneEffectAromaTerpeneRow.swift */; };
+		490A3FBF2A3B923200E30584 /* Aroma+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FBB2A3B923200E30584 /* Aroma+CoreDataClass.swift */; };
+		490A3FC02A3B923200E30584 /* Aroma+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FBC2A3B923200E30584 /* Aroma+CoreDataProperties.swift */; };
+		490A3FC12A3B923200E30584 /* Effect+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FBD2A3B923200E30584 /* Effect+CoreDataClass.swift */; };
+		490A3FC22A3B923200E30584 /* Effect+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FBE2A3B923200E30584 /* Effect+CoreDataProperties.swift */; };
+		490A3FC42A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FC32A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift */; };
 		492A216D2A303CDB00F3DBE3 /* strain_data_demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */; };
 		492A21792A3114CC00F3DBE3 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A21782A3114CC00F3DBE3 /* TimeAgo.swift */; };
 		49457FA72A393517009B50E6 /* AchievementHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */; };
@@ -154,10 +161,6 @@
 		49603D7F2A2C1CB000CBFBA4 /* ContentWithTitleDescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603D212A2C1CAF00CBFBA4 /* ContentWithTitleDescView.swift */; };
 		49603D812A2C1D8700CBFBA4 /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 49603D802A2C1D8700CBFBA4 /* feed.json */; };
 		49603DC22A2C3A5B00CBFBA4 /* Terp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC02A2C3A5B00CBFBA4 /* Terp.xcdatamodeld */; };
-		49603DC92A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */; };
-		49603DCA2A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */; };
-		49603DCD2A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */; };
-		49603DCE2A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */; };
 		49603DD22A2D57EA00CBFBA4 /* TerpeneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */; };
 		49603DD52A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */; };
 		49603DDF2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603DDE2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift */; };
@@ -182,6 +185,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490A3FB72A3B85D200E30584 /* TerpeneEffectAromaHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneEffectAromaHeaderRow.swift; sourceTree = "<group>"; };
+		490A3FB92A3B8B9E00E30584 /* TerpeneEffectAromaTerpeneRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneEffectAromaTerpeneRow.swift; sourceTree = "<group>"; };
+		490A3FBB2A3B923200E30584 /* Aroma+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataClass.swift"; sourceTree = "<group>"; };
+		490A3FBC2A3B923200E30584 /* Aroma+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		490A3FBD2A3B923200E30584 /* Effect+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataClass.swift"; sourceTree = "<group>"; };
+		490A3FBE2A3B923200E30584 /* Effect+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		490A3FC32A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneEffectAromaStrainRow.swift; sourceTree = "<group>"; };
 		492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data_demo.json; sourceTree = "<group>"; };
 		492A21782A3114CC00F3DBE3 /* TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementHeaderRow.swift; sourceTree = "<group>"; };
@@ -330,10 +340,6 @@
 		49603D212A2C1CAF00CBFBA4 /* ContentWithTitleDescView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentWithTitleDescView.swift; sourceTree = "<group>"; };
 		49603D802A2C1D8700CBFBA4 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
 		49603DC12A2C3A5B00CBFBA4 /* Terp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Terp.xcdatamodel; sourceTree = "<group>"; };
-		49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataClass.swift"; sourceTree = "<group>"; };
-		49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataClass.swift"; sourceTree = "<group>"; };
-		49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Aroma+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49603DD12A2D57EA00CBFBA4 /* TerpeneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneViewModel.swift; sourceTree = "<group>"; };
 		49603DD42A2E120500CBFBA4 /* TerpeneCoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneCoreDataUtil.swift; sourceTree = "<group>"; };
 		49603DDE2A2E26D500CBFBA4 /* StrainCoreDataUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrainCoreDataUtil.swift; sourceTree = "<group>"; };
@@ -409,6 +415,10 @@
 		49603C2A2A2C1C1500CBFBA4 = {
 			isa = PBXGroup;
 			children = (
+				490A3FBB2A3B923200E30584 /* Aroma+CoreDataClass.swift */,
+				490A3FBC2A3B923200E30584 /* Aroma+CoreDataProperties.swift */,
+				490A3FBD2A3B923200E30584 /* Effect+CoreDataClass.swift */,
+				490A3FBE2A3B923200E30584 /* Effect+CoreDataProperties.swift */,
 				49A751752A35725700715B76 /* Terpene+CoreDataClass.swift */,
 				49A751762A35725700715B76 /* Terpene+CoreDataProperties.swift */,
 				49A7516F2A3569E600715B76 /* README.md */,
@@ -706,6 +716,9 @@
 				49603CEA2A2C1CAF00CBFBA4 /* TerpeneDetailHeaderRow.swift */,
 				49603CEB2A2C1CAF00CBFBA4 /* TerpeneDetailStrainRow.swift */,
 				49603CEC2A2C1CAF00CBFBA4 /* HorizontalTerpeneEffectAromaRow.swift */,
+				490A3FB72A3B85D200E30584 /* TerpeneEffectAromaHeaderRow.swift */,
+				490A3FB92A3B8B9E00E30584 /* TerpeneEffectAromaTerpeneRow.swift */,
+				490A3FC32A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift */,
 			);
 			path = TerpeneRows;
 			sourceTree = "<group>";
@@ -873,10 +886,6 @@
 		49603D822A2C27B100CBFBA4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				49603DC32A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift */,
-				49603DC42A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift */,
-				49603DC72A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift */,
-				49603DC82A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1036,9 +1045,9 @@
 				49603D382A2C1CAF00CBFBA4 /* StrainSearchRow.swift in Sources */,
 				49603D7F2A2C1CB000CBFBA4 /* ContentWithTitleDescView.swift in Sources */,
 				49603C822A2C1C8500CBFBA4 /* DataMap.swift in Sources */,
-				49603DC92A2C3DC300CBFBA4 /* Effect+CoreDataClass.swift in Sources */,
 				49603D3B2A2C1CAF00CBFBA4 /* FeedRow.swift in Sources */,
 				49603D412A2C1CAF00CBFBA4 /* MessageRecievedRow.swift in Sources */,
+				490A3FBF2A3B923200E30584 /* Aroma+CoreDataClass.swift in Sources */,
 				49603D312A2C1CAF00CBFBA4 /* MoreTerpeneRow.swift in Sources */,
 				49603D482A2C1CAF00CBFBA4 /* RowHeader.swift in Sources */,
 				49603D232A2C1CAF00CBFBA4 /* FullWidthButton.swift in Sources */,
@@ -1054,12 +1063,12 @@
 				49603D352A2C1CAF00CBFBA4 /* StrainRateStarsRow.swift in Sources */,
 				49603D5F2A2C1CAF00CBFBA4 /* PostContentRow.swift in Sources */,
 				49603D512A2C1CAF00CBFBA4 /* ProfileHeaderRow.swift in Sources */,
+				490A3FC12A3B923200E30584 /* Effect+CoreDataClass.swift in Sources */,
 				49603D2C2A2C1CAF00CBFBA4 /* URLImage.swift in Sources */,
-				49603DCA2A2C3DC300CBFBA4 /* Effect+CoreDataProperties.swift in Sources */,
-				49603DCE2A2C3DC300CBFBA4 /* Aroma+CoreDataProperties.swift in Sources */,
 				49603D362A2C1CAF00CBFBA4 /* StrainDetailLineageRow.swift in Sources */,
 				49603D2B2A2C1CAF00CBFBA4 /* FollowButton.swift in Sources */,
 				49603D4F2A2C1CAF00CBFBA4 /* ProfileCircleRow.swift in Sources */,
+				490A3FC22A3B923200E30584 /* Effect+CoreDataProperties.swift in Sources */,
 				49603D662A2C1CAF00CBFBA4 /* ThumbnailListView.swift in Sources */,
 				49A751812A37679500715B76 /* ImagePickerView.swift in Sources */,
 				49603C8B2A2C1C8500CBFBA4 /* TerpeneJSONUtil.swift in Sources */,
@@ -1090,8 +1099,8 @@
 				49FFC7BB2A3A5812009FC0C3 /* TerpeneError.swift in Sources */,
 				49603DC22A2C3A5B00CBFBA4 /* Terp.xcdatamodeld in Sources */,
 				49603D502A2C1CAF00CBFBA4 /* ProfileTerpeneRow.swift in Sources */,
-				49603DCD2A2C3DC300CBFBA4 /* Aroma+CoreDataClass.swift in Sources */,
 				49603C752A2C1C8500CBFBA4 /* NotificationType.swift in Sources */,
+				490A3FC42A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift in Sources */,
 				49603D4D2A2C1CAF00CBFBA4 /* ProfileReviewsRow.swift in Sources */,
 				49603C812A2C1C8500CBFBA4 /* GlobalData.swift in Sources */,
 				49603D3C2A2C1CAF00CBFBA4 /* StrainHeaderRow.swift in Sources */,
@@ -1127,6 +1136,7 @@
 				49603C792A2C1C8500CBFBA4 /* Review.swift in Sources */,
 				49A751782A35725700715B76 /* Terpene+CoreDataProperties.swift in Sources */,
 				49603D702A2C1CAF00CBFBA4 /* StrainSearchView.swift in Sources */,
+				490A3FC02A3B923200E30584 /* Aroma+CoreDataProperties.swift in Sources */,
 				49603D6A2A2C1CAF00CBFBA4 /* TerpeneProfileAromaView.swift in Sources */,
 				49603C842A2C1C8500CBFBA4 /* Post.swift in Sources */,
 				49603DD22A2D57EA00CBFBA4 /* TerpeneViewModel.swift in Sources */,
@@ -1146,7 +1156,9 @@
 				49603D4E2A2C1CAF00CBFBA4 /* ProfileFeedRow.swift in Sources */,
 				49603C702A2C1C8500CBFBA4 /* NavigationUtil.swift in Sources */,
 				49603D342A2C1CAF00CBFBA4 /* StrainDetailAverageRatingRow.swift in Sources */,
+				490A3FBA2A3B8B9E00E30584 /* TerpeneEffectAromaTerpeneRow.swift in Sources */,
 				49603D292A2C1CAF00CBFBA4 /* FullWidthText.swift in Sources */,
+				490A3FB82A3B85D200E30584 /* TerpeneEffectAromaHeaderRow.swift in Sources */,
 				49603CA32A2C1CA300CBFBA4 /* Row.swift in Sources */,
 				49603D6B2A2C1CAF00CBFBA4 /* TerpeneEffectAromaView.swift in Sources */,
 				49603D552A2C1CAF00CBFBA4 /* CommentReplyRow.swift in Sources */,

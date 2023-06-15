@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct TerpeneEffectAromaView: View {
-    let effectAroma: AromaEffectJSON
+    let effectAroma: EffectAromaJSON
 //    let title: String
 //    let description: String
 //    var image: String?
     var body: some View {
-        VStack{
-            
-            URLImage(url: self.effectAroma.image, shape: AnyShape(Rectangle())).scaledToFit()
-            Text(self.effectAroma.name).font(.title).fontWeight(.bold).padding(.top)
-            Text(self.effectAroma.description).font(.headline)
-            
-        }.padding()
+        ScrollView(.vertical){
+            VStack{
+                
+                TerpeneEffectAromaHeaderRow(effectAroma: self.effectAroma)
+                TerpeneEffectAromaTerpeneRow(effectAroma: self.effectAroma)
+                TerpeneEffectAromaStrainRow(effectAroma: self.effectAroma)
+                
+            }.padding()
+        }
     }
 }
 
-struct TerpeneEffectAromaView_Previews: PreviewProvider {
+struct TerpeneEffectAromaView_Previewsj: PreviewProvider {
     static var previews: some View {
-        TerpeneEffectAromaView(effectAroma: AromaEffectJSON.example)
+        TerpeneEffectAromaView(effectAroma: EffectAromaJSON.example)
     }
 }

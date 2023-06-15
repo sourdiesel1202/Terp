@@ -10,8 +10,8 @@ import SwiftUI
 struct DiscoverTerpeneEffectsAromasRow: View {
     let terpene: TerpeneJSON
     @State var loading: Bool = true
-    @State private var aromas: [AromaEffectJSON] = [AromaEffectJSON]()
-    @State private var effects: [AromaEffectJSON] = [AromaEffectJSON]()
+    @State private var aromas: [EffectAromaJSON] = [EffectAromaJSON]()
+    @State private var effects: [EffectAromaJSON] = [EffectAromaJSON]()
     @State private var terpenes: [TerpeneJSON] = [TerpeneJSON]()
 //    private var terpeneSection: some View{
 //
