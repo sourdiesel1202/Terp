@@ -39,12 +39,12 @@ A social cannabis experience
 <tr><td>32</td><td>Implement mechanism to post in-app without adding a review</td><td>Open</td></tr>
 <tr><td>33</td><td>Add recommendation logic</td><td>Open</td></tr>
 <tr><td>34</td><td>Push notifications</td><td>Open</td></tr>
-<tr><td>35</td><td>Implement Aroma detail view</td><td>In-progress</td></tr>
-<tr><td>36</td><td>Implement Effect detail view</td><td>In-progress</td></tr>
-<tr><td>37</td><td>Clean-up terpene detail view</td><td>In-progress</td></tr>
+<tr><td>35</td><td>Implement Aroma detail view</td><td>Closed</td></tr>
+<tr><td>36</td><td>Implement Effect detail view</td><td>Closed</td></tr>
+<tr><td>37</td><td>Clean-up terpene detail view</td><td>Closed</td></tr>
 <tr><td>38</td><td>Add "Strains containing" to effect and aroma detail view</td><td>Open</td></tr>
 <tr><td>39</td><td>Add "Terpenes containing" to effect and aroma detail view</td><td>Open</td></tr>
-<tr><td>40</td><td>Convert horizontal effect/aroma/terpene row views to use object images when applicable</td><td>Open</td></tr>
+<tr><td>40</td><td>Convert horizontal effect/aroma/terpene row views to use object images when applicable</td><td>Closed</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 

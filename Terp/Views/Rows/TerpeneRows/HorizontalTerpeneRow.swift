@@ -21,7 +21,7 @@ struct HorizontalTerpeneRow: View {
                                     TerpeneDetailView(terpene: terpene)
                                 } label: {
                                     VStack{
-                                        CircleText(text: terpene.name, color: .blue)
+                                        URLImage(url: terpene.image!, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                         Text(terpene.name).font(.caption).fontWeight(.bold)
         
                                     }

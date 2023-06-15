@@ -15,8 +15,10 @@ struct TerpeneDetailStrainRow: View {
 //        return StrainJSONUtil.loadStrainsByTerpene(terpene: self.terpene)
 //    }
     var body: some View {
+            
         VStack{
-            RowHeaderViewAll(text: "Strains Containing \(self.terpene.name)", data: StrainJSONUtil.loadStrainDataMap(strains: self.strains))
+            Text("Strains  Containing \(self.terpene.name)").font(.title).fontWeight(.bold).padding([.bottom])
+            RowHeaderViewAll(text: "Strains", data: StrainJSONUtil.loadStrainDataMap(strains: self.strains))
             if loading{
                 ProgressView()
             }else{

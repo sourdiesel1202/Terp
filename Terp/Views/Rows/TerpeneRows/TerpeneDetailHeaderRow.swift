@@ -12,16 +12,10 @@ struct TerpeneDetailHeaderRow: View {
     var body: some View {
         
         VStack(alignment: .center){
-            URLImage(url: terpene.image!, shape: AnyShape(Rectangle())).scaledToFit()
-            Text(terpene.name).font(.title).padding(.bottom).fontWeight(.bold)
-            
-            //            } else{
-            //                URLImage(url: terpene.image, shape: AnyShape(Circle()))
-            //            }
-            //            Image(systemName: "atom").padding()
-            
-            Text(terpene.description).padding()
-        }
+            URLImage(url: terpene.image!, shape: AnyShape(Rectangle())).scaledToFit().padding(.bottom)
+            Text(terpene.name).font(.largeTitle).fontWeight(.bold)
+            Text(terpene.description)
+        }.padding()
     }
 }
 

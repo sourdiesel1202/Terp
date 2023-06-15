@@ -13,6 +13,7 @@ struct TerpeneDetailEffectAromaRow: View {
     let terpene: TerpeneJSON
     var body: some View {
         VStack{
+            Text("Effects & Aromas").font(.title).fontWeight(.bold).padding(.bottom)
             RowHeaderViewAll(text: "Aromas (\(self.terpene.aromas.count))", data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.terpene.aromas))
             HorizontalTerpeneEffectAromaRow(data: self.terpene.aromas)
             ViewDivider(height: 0.25)

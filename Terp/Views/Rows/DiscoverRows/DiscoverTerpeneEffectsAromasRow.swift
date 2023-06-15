@@ -10,8 +10,8 @@ import SwiftUI
 struct DiscoverTerpeneEffectsAromasRow: View {
     let terpene: TerpeneJSON
     @State var loading: Bool = true
-    @State private var aromas: [String] = [String]()
-    @State private var effects: [String] = [String]()
+    @State private var aromas: [AromaEffectJSON] = [AromaEffectJSON]()
+    @State private var effects: [AromaEffectJSON] = [AromaEffectJSON]()
     @State private var terpenes: [TerpeneJSON] = [TerpeneJSON]()
 //    private var terpeneSection: some View{
 //
@@ -47,7 +47,7 @@ struct DiscoverTerpeneEffectsAromasRow: View {
                 RowHeaderViewAll(text: "Explore Aromas of \(terpene.name)",data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.terpene.aromas))
                 HorizontalTerpeneEffectAromaRow(data: self.terpene.aromas)
                 NavigationLink{
-                    ThumbnailListView(data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.effects), searchTitle: "All Terpene Aromas (\(self.aromas.count))")
+                    ThumbnailListView(data: TerpeneJSONUtil.loadAromaEffectDataMap(data: self.aromas), searchTitle: "All Terpene Aromas (\(self.aromas.count))")
                 }label: {
                     FullWidthText(text: "View All Terpene Effects").padding()
                 }
@@ -69,8 +69,8 @@ struct DiscoverTerpeneEffectsAromasRow: View {
 //                    let strainData = StrainJSONUtil.loadStrains()
 //                let _searchResults = loadSearchResults()
                 let terpenes = TerpeneJSONUtil.loadTerpenes()
-                let aromas = TerpeneJSONUtil.loadAromas()
-                let effects = TerpeneJSONUtil.loadEffects()
+                let aromas = TerpeneJSONUtil.loadAromaJSON()
+                let effects = TerpeneJSONUtil.loadEffectJSON()
 //                let parents = StrainJSONUtil.loadStrainParents(strain: self.strain)
 //                let children = StrainJSONUtil.loadStrainChildren(strain: self.strain)
                 DispatchQueue.main.async {

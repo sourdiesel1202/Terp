@@ -24,8 +24,9 @@ struct HorizontalTerpeneEffectAromaRow: View {
 //                            StrainDetail2_0View(strain: strain)
                         }label: {
                             VStack{
-//                                URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                CircleText(text: item.name, color: .blue)
+                                URLImage(url: item.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
+//                                CircleText(text: item.name, color: .blue)
+                                
                                 Text(item.name).font(.caption).fontWeight(.bold)
                                 
                             }.padding([.trailing])

@@ -14,10 +14,10 @@ struct TerpeneDetailView: View {
             VStack(alignment: .center){
                 TerpeneDetailHeaderRow(terpene: self.terpene)
             }
-        ViewDivider(height: 4)
+//        ViewDivider(height: 4)
             VStack (alignment: .leading){
                 TerpeneDetailStrainRow(terpene: self.terpene)
-                ViewDivider(height: 0.25)
+//                ViewDivider(height: 0.25)
                 TerpeneDetailEffectAromaRow(terpene: self.terpene)
                 
                 

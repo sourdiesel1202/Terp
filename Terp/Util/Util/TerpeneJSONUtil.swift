@@ -27,7 +27,7 @@ struct TerpeneJSONUtil{
                 terp.effects!.forEach(){ effect in
                     _effects.append(AromaEffectJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
                 }
-                terpenes.append(TerpeneJSON(name: terp.name!, description: terp.desc!, aromas: _aromas, effects: _effects))
+                terpenes.append(TerpeneJSON(name: terp.name!, description: terp.desc!, aromas: _aromas, effects: _effects, image: terp.image!))
             }
         } catch let error as NSError{
             print("could not load terpenes from core data \(error.userInfo): \(error)")
@@ -35,8 +35,10 @@ struct TerpeneJSONUtil{
         print("Terpenes in core data \(terpenes.count)")
         // ok so the idea here is basically that if CD is empty we need to return from json. not ideal, but it works
         if terpenes.count == 0 {
+            print("Loaded Terpene JSON file")
             return Bundle.main.decode([TerpeneJSON].self, from: "terpene.json")
         }else{
+            print("Loaded Terpene Core Data ")
             return terpenes
         }
 //        return terpenes
@@ -281,7 +283,7 @@ struct TerpeneJSONUtil{
     static func loadTerpeneDataMap(terpenes: [TerpeneJSON]) -> [DataMap]{
         var _terpenes = [DataMap]()
         terpenes.forEach {
-            _terpenes.append(DataMap(key: $0.name, value: DictionaryUtil.loadDescription(text: $0.name), view: TerpeneDetailView(terpene: $0)))
+            _terpenes.append(DataMap(key: $0.name, value: $0.description, view: TerpeneDetailView(terpene: $0),image: $0.image))
         }
         return _terpenes.sorted {
             $0.key < $1.value
@@ -312,7 +314,7 @@ struct TerpeneJSONUtil{
     static func loadAromaEffectDataMap(data: [AromaEffectJSON])-> [DataMap]{
         var _res = [DataMap]()
         data.forEach(){ ae in
-            _res.append(DataMap(key: ae.name, value: ae.description, view: TerpeneEffectAromaView(effectAroma: ae)))
+            _res.append(DataMap(key: ae.name, value: ae.description, view: TerpeneEffectAromaView(effectAroma: ae), image: ae.image))
             
         }
         return _res

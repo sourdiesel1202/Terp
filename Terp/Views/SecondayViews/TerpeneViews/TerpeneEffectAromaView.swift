@@ -16,10 +16,10 @@ struct TerpeneEffectAromaView: View {
         VStack{
             
             URLImage(url: self.effectAroma.image, shape: AnyShape(Rectangle())).scaledToFit()
-            Text(self.effectAroma.name).font(.title).fontWeight(.bold).padding(.bottom)
+            Text(self.effectAroma.name).font(.title).fontWeight(.bold).padding(.top)
             Text(self.effectAroma.description).font(.headline)
             
-        }
+        }.padding()
     }
 }
 
