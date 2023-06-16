@@ -26,7 +26,7 @@ struct HorizontalAchievementsRow: View {
                                 //                                NavigationLink(destination: <#T##Destination#>, label: <#T##() -> Label#>)
                                 VStack{
                                     URLImage(url: achievement.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                    Text(achievement.name).font(.caption).fontWeight(.bold)
+                                    Text(achievement.name).font(.subheadline).fontWeight(.bold)
                                     
                                 }.padding([.leading,.trailing])
                                 

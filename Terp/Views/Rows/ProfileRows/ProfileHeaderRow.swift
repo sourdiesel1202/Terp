@@ -34,10 +34,10 @@ struct ProfileHeaderRow: View {
                 HStack{
                     Text("\(user.location.city.name), \(user.location.state.name) ").font(.caption)
                     Text("\(user.location.country.emoji)").font(.subheadline)
-                }
+                }.padding(.bottom)
           
                 if self.user.bio.count > 0{
-                    Text("About").font(.headline).fontWeight(.bold)
+                    Text("About Me").font(.headline).fontWeight(.bold)
                     Text(self.user.bio).font(.subheadline).padding([.trailing,.leading])
                 }
                         

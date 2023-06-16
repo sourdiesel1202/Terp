@@ -23,13 +23,13 @@ struct ProfileReviewsRow: View {
             VStack(alignment: .leading){
                 //ok come back to this cause this is going to be a bit of work
                 HStack{
-                    Text(!self.loading ? "Reviews (\(self.reviews.count))" : "Reviews").padding([.leading,.bottom]).font(.caption)
+                    Text(!self.loading ? "Reviews (\(self.reviews.count))" : "Reviews").padding([.leading,.bottom]).font(.subheadline)
                     Spacer()
                     NavigationLink{
                         ProfileReviewList(user: self.user)
                     }label: {
                         //                        NavigationLink{}label"
-                        Text("View All").font(.caption).padding([.bottom,.trailing])
+                        Text("View All").font(.subheadline).padding([.bottom,.trailing])
                     }
                 }
                 if loading{
@@ -49,7 +49,7 @@ struct ProfileReviewsRow: View {
                                     VStack{
                                         URLImage(url: review.strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                         
-                                        Text(review.strain.name).font(.caption).fontWeight(.bold)
+                                        Text(review.strain.name).font(.subheadline).fontWeight(.bold)
                                         
                                     }.padding([.trailing])
                                     //                            VStack{

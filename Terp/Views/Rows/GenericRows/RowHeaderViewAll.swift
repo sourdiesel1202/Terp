@@ -12,12 +12,12 @@ struct RowHeaderViewAll: View {
     let data: [DataMap]
     var body: some View {
         HStack{
-            Text(self.text).padding([.leading,.bottom]).font(.caption)//.fontWeight(.bold)
+            Text(self.text).padding([.leading,.bottom]).font(.subheadline)//.fontWeight(.bold)
             Spacer()
             NavigationLink{
                 ThumbnailListView(data: self.data, searchTitle: self.text)
             }label: {
-                Text("View All").font(.caption).padding([.bottom,.trailing])
+                Text("View All").font(.subheadline).padding([.bottom,.trailing])
             }
             
         }

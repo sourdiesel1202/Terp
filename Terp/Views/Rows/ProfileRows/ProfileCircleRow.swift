@@ -38,7 +38,7 @@ struct ProfileCircleRow: View {
                             
                             VStack{
                                 URLImage(url: follower.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                Text(follower.username).font(.caption).fontWeight(.bold)
+                                Text(follower.username).font(.subheadline).fontWeight(.bold)
                                 
                             }.padding([.leading,.trailing])
                             //                            VStack{
@@ -83,7 +83,7 @@ struct ProfileCircleRow: View {
                         } label: {
                             VStack{
                                 URLImage(url: follower.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                Text(follower.username).font(.caption).fontWeight(.bold)
+                                Text(follower.username).font(.subheadline).fontWeight(.bold)
                                 
                             }.padding([.leading,.trailing])
                             //                            VStack{

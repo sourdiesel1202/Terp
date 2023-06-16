@@ -21,7 +21,7 @@ struct HorizontalStrainListRow: View {
                                 VStack{
                                     URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                     
-                                    Text(strain.name).font(.caption).fontWeight(.bold)
+                                    Text(strain.name).font(.subheadline).fontWeight(.bold)
                                     
                                 }.padding([.trailing])
                             }

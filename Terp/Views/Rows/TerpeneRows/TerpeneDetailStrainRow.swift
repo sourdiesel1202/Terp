@@ -18,7 +18,7 @@ struct TerpeneDetailStrainRow: View {
             
         VStack{
             Text("Strains  Containing \(self.terpene.name)").font(.title).fontWeight(.bold).padding([.bottom])
-            RowHeaderViewAll(text: "Strains", data: StrainJSONUtil.loadStrainDataMap(strains: self.strains))
+            RowHeaderViewAll(text: "Strains (\(self.strains.count))", data: StrainJSONUtil.loadStrainDataMap(strains: self.strains))
             if loading{
                 ProgressView()
             }else{

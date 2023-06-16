@@ -27,7 +27,7 @@ struct HorizontalTerpeneEffectAromaRow: View {
                                 URLImage(url: item.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
 //                                CircleText(text: item.name, color: .blue)
                                 
-                                Text(item.name).font(.caption).fontWeight(.bold)
+                                Text(item.name).font(.subheadline).fontWeight(.bold)
                                 
                             }.padding([.trailing])
                         }

@@ -22,7 +22,7 @@ struct HorizontalTerpeneRow: View {
                                 } label: {
                                     VStack{
                                         URLImage(url: terpene.image!, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
-                                        Text(terpene.name).font(.caption).fontWeight(.bold)
+                                        Text(terpene.name).font(.subheadline).fontWeight(.bold)
         
                                     }
                                 }.padding([.leading,.trailing])
