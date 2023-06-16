@@ -35,7 +35,7 @@ struct DiscoverRecommendedStrainsRow: View {
             }
         }.onAppear {
             //            await self.loadstrainRecommendations()
-            DispatchQueue.global(qos: .utility).async {
+            DispatchQueue.global(qos: .userInitiated).async {
                 let strainData = StrainJSONUtil.loadStrains()
                 DispatchQueue.main.async {
                     self.strains = strainData

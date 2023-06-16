@@ -65,25 +65,14 @@ struct DiscoverTerpeneEffectsAromasRow: View {
                 
             }}
         }.onAppear{
-            DispatchQueue.global(qos: .utility).async {
-//                    let strainData = StrainJSONUtil.loadStrains()
-//                let _searchResults = loadSearchResults()
                 let terpenes = TerpeneJSONUtil.loadTerpenes()
                 let aromas = TerpeneJSONUtil.loadAromaJSON()
                 let effects = TerpeneJSONUtil.loadEffectJSON()
-//                let parents = StrainJSONUtil.loadStrainParents(strain: self.strain)
-//                let children = StrainJSONUtil.loadStrainChildren(strain: self.strain)
-                DispatchQueue.main.async {
+
                     self.terpenes = terpenes
                     self.aromas = aromas
                     self.effects = effects
-//                    self.children = children/
-//                    self.parents = parents
-//                    self.searchResults = _searchResults
-//                        self.strains = strainData
                     self.loading = false
-                }
-            }
         }
     }
 }

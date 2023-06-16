@@ -25,7 +25,7 @@ struct StrainJSONUtil{
     static func convertCoreDataToJSON(_strain: Strain)->StrainJSON{
         var terpenes = [String]()
 //        for i in 0.._strain.ter
-        _strain.terpenes!.forEach(){ terpene in
+            _strain.terpenes!.forEach(){ terpene in
             terpenes.append(terpene.name!)
         }
         var parents = [String]()

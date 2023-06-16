@@ -198,7 +198,7 @@ struct TerpeneCoreDataUtil{
             print("No aromas have been loaded, loading aromas")
             TerpeneJSONUtil.loadAromaJSON().forEach { aroma in
                 do {
-                    let cdAroma = try self.loadAromaByName(name: aroma.name, viewContext: viewContext)
+                    _ = try self.loadAromaByName(name: aroma.name, viewContext: viewContext)
                 }catch{
                     let _aroma = Aroma(context: viewContext)
                     _aroma.name = aroma.name

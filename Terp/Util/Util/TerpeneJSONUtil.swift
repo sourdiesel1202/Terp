@@ -182,7 +182,7 @@ struct TerpeneJSONUtil{
                 for i in (0..<effect.terpenes!.count){
 //                effect.terpenes!.forEach(){ terpene in
                     let terpene = Array(effect.terpenes!)[i]
-                    _res.append(TerpeneJSON(name: terpene.name!, description: terpene.desc!, aromas: self.convertCoreDataAromasToAromaEffect(aromas: Array(terpene.aromas!)), effects: self.convertCoreDataEffectsToAromaEffect(effects: Array(terpene.effects!)), image: terpene.image!))
+                    _res.append(convertCoreDataTerpeneToJSON(terpene: terpene))
                 }
             }
         }catch{

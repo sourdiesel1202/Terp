@@ -10,11 +10,14 @@ import SwiftUI
 struct ProfileAchievemenstRow: View {
     let user: User
     var body: some View {
-        
+        VStack{
+            Text("Acheievements").font(.title).fontWeight(.bold).padding(.bottom)
             VStack(alignment: .leading){
+                
                 RowHeaderViewAll(text: "Achievements (\(self.achievements.count))", data: AchievementUtil.loadAchievementDataMap(achievements: AchievementUtil.loadUserAchievements(user: self.user)))
                 HorizontalAchievementsRow(achievements: AchievementUtil.loadUserAchievements(user: self.user))
-            
+                
+            }
         }
     }
     

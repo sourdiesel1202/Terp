@@ -48,6 +48,9 @@ A social cannabis experience
 <tr><td>41</td><td>Show strains reviewed under "completed" on achievement detail view</td><td>Open</td></tr>
 <tr><td>42</td><td>Implement Dispensaries near me</td><td>Open</td></tr>
 <tr><td>43</td><td>Implement find this strain near me</td><td>Open</td></tr>
+<tr><td>44</td><td>Discover->View All Achievements Doesn't show images</td><td>Open</td></tr>
+<tr><td>45</td><td>Show type in aroma/effect view</td><td>Open</td></tr>
+<tr><td>46</td><td>Support for Terpene ID</td><td>Open</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 
@@ -60,4 +63,5 @@ A social cannabis experience
 <tr><td>3</td><td>Adding the first comment to a post results in an app crash</td><td>Closed</td></tr>
 <tr><td>4</td><td>Searching terpene from search view results in app crash</td><td>Open</td></tr>
 <tr><td>5</td><td>Searching terpene from search strains->Strain Detail in app crash</td><td>Closed</td></tr>
+<tr><td>5</td><td>Random crashing as a result of lack of thread saftey</td><td>Open</td></tr>
 </table>

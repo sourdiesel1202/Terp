@@ -13,18 +13,21 @@ struct ProfileFeedRow: View {
     }
     let user: User
     var body: some View {
-        VStack(alignment: .leading){
-            
+        VStack{
+            Text("Posts").font(.title).fontWeight(.bold).padding(.bottom)
+            VStack(alignment: .leading){
+                
                 HStack{
                     Text("Public Posts (\(self.posts.count))").padding([.leading,.bottom]).font(.caption)
                     Spacer()
                 }
-            
-            ForEach(self.posts) { (post: Post) in
-                FeedRow(post: post).padding(.bottom).padding(.top)
-                ViewDivider(height: 4)
-                    
                 
+                ForEach(self.posts) { (post: Post) in
+                    FeedRow(post: post).padding(.bottom).padding(.top)
+                    ViewDivider(height: 4)
+                    
+                    
+                }
             }
         }
     }

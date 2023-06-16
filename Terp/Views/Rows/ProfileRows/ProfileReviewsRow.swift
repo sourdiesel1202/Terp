@@ -19,6 +19,7 @@ struct ProfileReviewsRow: View {
     var body: some View {
         
         VStack{
+            Text("Strains Reviewed").font(.title).fontWeight(.bold).padding(.bottom)
             VStack(alignment: .leading){
                 //ok come back to this cause this is going to be a bit of work
                 HStack{

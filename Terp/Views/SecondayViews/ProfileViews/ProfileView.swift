@@ -18,14 +18,14 @@ struct ProfileView: View {
                     ProfileReviewsRow(user: self.user)
                     ProfileTerpeneRow(user: self.user)
                     //                Text("")
-                    ViewDivider(height: 2)
+//                    ViewDivider(height: 2)
                     ProfileAchievemenstRow(user: self.user)
-                    ViewDivider(height: 2)
+//                    ViewDivider(height: 2)
                     ProfileCircleRow(user: self.user)
-                    ViewDivider(height: 2)
+//                    ViewDivider(height: 2)
                     
                     ProfileFeedRow(user: self.user)
-                    ViewDivider(height: 2)
+//                    ViewDivider(height: 2)
                 }
             
         }

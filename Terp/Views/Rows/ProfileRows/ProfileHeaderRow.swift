@@ -21,8 +21,9 @@ struct ProfileHeaderRow: View {
 //                    URLImage(url: self.user.image, shape: AnyShape(Circle())).frame(width: 200, height: 200).scaledToFit()
 //                }
                 
-                Text(user.username).fontWeight(.bold).font(.headline)
-                Text("\(user.firstname) \(user.lastname)").font(.subheadline)
+                Text("\(user.firstname) \(user.lastname)").fontWeight(.bold).font(.largeTitle)
+                Text("@\(user.username)").font(.headline)
+                
                 
                 
                 
@@ -31,40 +32,43 @@ struct ProfileHeaderRow: View {
 //                Text("🇺🇸").font(.title)
             VStack(alignment: .center){
                 HStack{
-                    Text("\(user.location.city.name), \(user.location.state.name) ").font(.caption2)
+                    Text("\(user.location.city.name), \(user.location.state.name) ").font(.caption)
                     Text("\(user.location.country.emoji)").font(.subheadline)
-                }.padding(.bottom)
+                }
+          
                 if self.user.bio.count > 0{
-                    Text("About").font(.caption2).fontWeight(.bold)
-                    Text(self.user.bio).font(.caption).padding([.trailing,.leading])
+                    Text("About").font(.headline).fontWeight(.bold)
+                    Text(self.user.bio).font(.subheadline).padding([.trailing,.leading])
                 }
                         
-                    HStack{
-                        Button(action: {
-                            print("Follow button clicked")
-                        }){
-                            
-                                FollowMessageButton(user: self.user, text: "Follow", action: {}).padding(.bottom)
-                            
-                        }
-                        
-                        
-                        Button(action: {
-                            print("Message button clicked")
-                        }){
-                            NavigationLink{
-                                MessagesRow(messageThread: MessageUtil.loadMessageThreadByUser(user: User.example, target: self.user))
-                            }label:{
-                                
-                                FollowMessageButton(user: self.user, text: "Message", action: {}).padding(.bottom)
-                            }
-                        }
-                        
-                    }.padding(.top)
+         
 //                    Button(action: {}){
 //                        Text("Follow").font(.subheadline)
 //                    }
 //                    FullWidthText(text: "Follow").frame(width: 100,height: 10)
+                HStack{
+                    Button(action: {
+                        print("Follow button clicked")
+                    }){
+                        
+                        FullWidthButton(text: "Follow", action: {})
+//                            FollowMessageButton(user: self.user, text: "Follow", action: {}).padding(.bottom)
+                        
+                    }
+                    
+                    
+//                    Button(action: {
+//                        print("Message button clicked")
+//                    }){
+//                        NavigationLink{
+//                            MessagesRow(messageThread: MessageUtil.loadMessageThreadByUser(user: User.example, target: self.user))
+//                        }label:{
+//
+//                            FollowMessageButton(user: self.user, text: "Message", action: {}).padding(.bottom)
+//                        }
+//                    }
+                    
+                }.padding()
                 }
                 
             }

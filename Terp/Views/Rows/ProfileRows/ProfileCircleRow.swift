@@ -13,18 +13,20 @@ struct ProfileCircleRow: View {
         return CircleUtil.loadUserCirlce(user: self.user)
     }
     var body: some View {
-        RowHeaderViewAll(text: "Followers", data: UserUtil.loadUserDataMap(users: circle.followers))
-//        VStack{
-//            HStack{
-//                Text("Followers (\(self.circle.followers.count))").padding([.leading,.bottom]).font(.caption)
-//                Spacer()
-//                NavigationLink{
-//                    ContentView()
-//                }label: {
-//                    Text("View All").font(.caption).padding([.bottom,.trailing])
-//                }
-//
-//            }
+        VStack{
+            Text("Circle").font(.title).fontWeight(.bold).padding(.bottom)
+            RowHeaderViewAll(text: "Followers", data: UserUtil.loadUserDataMap(users: circle.followers))
+            //        VStack{
+            //            HStack{
+            //                Text("Followers (\(self.circle.followers.count))").padding([.leading,.bottom]).font(.caption)
+            //                Spacer()
+            //                NavigationLink{
+            //                    ContentView()
+            //                }label: {
+            //                    Text("View All").font(.caption).padding([.bottom,.trailing])
+            //                }
+            //
+            //            }
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     
@@ -32,8 +34,8 @@ struct ProfileCircleRow: View {
                         NavigationLink{
                             ProfileView(user: follower)
                         } label: {
-                        
-                        
+                            
+                            
                             VStack{
                                 URLImage(url: follower.image, shape: AnyShape(Circle())).frame(width: 75, height: 75).frame(maxWidth: .infinity)
                                 Text(follower.username).font(.caption).fontWeight(.bold)
@@ -57,21 +59,21 @@ struct ProfileCircleRow: View {
                         }.padding([.leading,.trailing])
                     }
                 }.padding([.leading,.trailing,.bottom])
-//            }
-        }
+                //            }
+            }
             ViewDivider(height: 0.5)
-        RowHeaderViewAll(text: "Following", data: UserUtil.loadUserDataMap(users: self.circle.following))
-//            HStack{
-//                Text("Following (\(self.circle.following.count))").padding([.leading,.bottom]).font(.caption)
-//                Spacer()
-//                NavigationLink{
-//                    ContentView()
-//                }label: {
-//                    Text("View All").font(.caption).padding([.bottom,.trailing])
-//                }
-//
-//
-//            }
+            RowHeaderViewAll(text: "Following", data: UserUtil.loadUserDataMap(users: self.circle.following))
+            //            HStack{
+            //                Text("Following (\(self.circle.following.count))").padding([.leading,.bottom]).font(.caption)
+            //                Spacer()
+            //                NavigationLink{
+            //                    ContentView()
+            //                }label: {
+            //                    Text("View All").font(.caption).padding([.bottom,.trailing])
+            //                }
+            //
+            //
+            //            }
             ScrollView(.horizontal){
                 HStack(alignment: .top){
                     
@@ -104,7 +106,7 @@ struct ProfileCircleRow: View {
                 }.padding([.leading,.trailing,.bottom])
             }
         }
-        
+    }
         
         
     
