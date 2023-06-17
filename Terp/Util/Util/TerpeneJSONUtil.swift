@@ -12,6 +12,9 @@ import CoreData
 struct TerpeneJSONUtil{
 //    @Environment(\.managedObjectContext) private var viewContext
     
+    static func shouldUseCoreData()->Bool{
+        return TerpeneCoreDataUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext).count >= Bundle.main.decode([TerpeneJSON].self, from: "terpene.json").count
+    }
     static func loadTerpenes() -> [TerpeneJSON]  {
         let viewContext = PersistenceController.shared.container.viewContext
         let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
@@ -47,8 +50,22 @@ struct TerpeneJSONUtil{
     
     
     static func searchTerpenesByName(name: String) -> [TerpeneJSON]{
-        return self.loadTerpenes().filter({$0.name.lowercased().contains(name.lowercased())})
-    }
+        
+        if self.shouldUseCoreData(){
+            return self.convertCoreDataTerpenesToJSON(terpenes: TerpeneCoreDataUtil.searchTerpenesByName(name: name))
+        }else{
+            var _res = [TerpeneJSON]()
+//            return self.
+            self.loadTerpenes().forEach(){ terpene in
+                    if terpene.name.lowercased().contains(name.lowercased()){
+                        _res.append(terpene)
+                    }
+                }
+            return _res
+            }
+            
+        }
+    
 //    static func search
     static func loadEffectsByNames(names: [String]) throws -> [EffectAromaJSON]{
         var _res = [EffectAromaJSON]()
@@ -141,6 +158,13 @@ struct TerpeneJSONUtil{
     }
 
 //    static func convertCoreDataEffectAromaToJSON(effect)
+    static func convertCoreDataTerpenesToJSON(terpenes: [Terpene]) -> [TerpeneJSON]{
+        var _res = [TerpeneJSON]()
+        terpenes.forEach(){ terp in
+            _res.append(self.convertCoreDataTerpeneToJSON(terpene: terp))
+        }
+        return _res
+    }
     static func convertCoreDataTerpeneToJSON(terpene: Terpene) -> TerpeneJSON{
         var aromas = [EffectAromaJSON]()
         var effects = [EffectAromaJSON]()
@@ -365,14 +389,43 @@ struct TerpeneJSONUtil{
         }
     }
     
-    static func searchEffects(query: String)->[String]{
-        return self.loadEffects().filter({$0.lowercased() == query.lowercased()})
-//        self.loadAromas().forEach(<#T##body: (String) throws -> Void##(String) throws -> Void#>)
+    static func searchEffects(query: String)->[EffectAromaJSON]{
+        if self.shouldUseCoreData(){
+            return self.convertCoreDataEffectsToAromaEffect(effects: TerpeneCoreDataUtil.searchEffectsByName(name: query))
+        }else{
+            var _res = [EffectAromaJSON]()
+//            return self.
+            self.loadTerpenes().forEach(){ terpene in
+                terpene.effects.forEach(){ effect in
+                    if effect.name.lowercased().contains(query.lowercased()){
+                        _res.append(effect)
+                    }
+                }
+            }
+            return _res
+        }
     }
-    static func searchAromas(query: String)->[String]{
-//        var _res = [String]()
-        return self.loadAromas().filter({$0.lowercased() == query.lowercased()})
+    static func searchAromas(query: String)->[EffectAromaJSON]{
+        if self.shouldUseCoreData(){
+            return self.convertCoreDataAromasToAromaEffect(aromas: TerpeneCoreDataUtil.searchAromasByName(name: query))
+        }else{
+            var _res = [EffectAromaJSON]()
+//            return self.
+            self.loadTerpenes().forEach(){ terpene in
+                terpene.aromas.forEach(){ aroma in
+                    if aroma.name.lowercased().contains(query.lowercased()){
+                        _res.append(aroma)
+                    }
+                }
+            }
+            return _res
+        }
     }
+
+//    static func searchAromas(query: String)->[String]{
+////        var _res = [String]()
+//        return self.loadAromas().filter({$0.lowercased() == query.lowercased()})
+//    }
     static func loadAromaEffectDataMap(data: [EffectAromaJSON])-> [DataMap]{
         var _res = [DataMap]()
         data.forEach(){ ae in

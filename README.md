@@ -61,7 +61,7 @@ A social cannabis experience
 <tr><td>1</td><td>Terpenes not reflecting properly on strain detail views when pulling via core data</td><td>Closed</td></tr>
 <tr><td>2</td><td>Search results resetting when chosing a result (i.e. searching ortega gives the full list of strains when selecting Ortega) </td><td>Closed</td></tr>
 <tr><td>3</td><td>Adding the first comment to a post results in an app crash</td><td>Closed</td></tr>
-<tr><td>4</td><td>Searching terpene from search view results in app crash</td><td>Open</td></tr>
+<tr><td>4</td><td>Searching terpene from search view results in app crash</td><td>Closed</td></tr>
 <tr><td>5</td><td>Searching terpene from search strains->Strain Detail in app crash</td><td>Closed</td></tr>
 <tr><td>5</td><td>Random crashing as a result of lack of thread saftey</td><td>Open</td></tr>
 </table>

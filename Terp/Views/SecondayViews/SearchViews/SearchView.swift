@@ -90,43 +90,6 @@ struct SearchView: View {
         
     }
     
-//    var searchResults: [DataMap] {
-//            if searchText.isEmpty {
-//                return data
-//            } else {
-//                if self.searchText.count < 3{
-//                    return [DataMap]()
-//                }
-//
-//                //ok so down here is where we will do the fancy stuff
-//                if self.searchText.hasPrefix("@"){ //user search
-//                    return UserUtil.loadUserDataMap(users: UserUtil.searchUsersByUsername(username: self.searchText.replacingOccurrences(of: "@", with: "")))
-//                } else if self.searchText.hasPrefix("#"){ //post search
-//                    return PostUtil.loadPostDataMap(posts: PostUtil.searchPostByHashtag(hashtag: searchText.replacingOccurrences(of: "#", with: "")))
-//                }else{
-//                    // ok so here we're going to load strains, terpenes, aromas and effects
-//                    var _res = [DataMap]()
-//                    StrainJSONUtil.loadStrainDataMap(strains: StrainJSONUtil.searchStrainByName(name: self.searchText)).forEach(){ dm in
-//                        _res.append(dm)
-//                    }
-//                    //do terpenes next
-//                    TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.searchTerpenesByName(name:   self.searchText)).forEach(){ dm in
-//                        _res.append(dm)
-//                    }
-//
-////                    TerpeneUtil.search
-//                    TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.searchEffects(query: self.searchText)).forEach(){ dm in
-////                        dm.secondaryValue = "Aroma"
-//                        _res.append(DataMap(key: dm.key, value: dm.value, view: dm.view, secondaryValue: "Effect"))
-//                    }
-//                    TerpeneJSONUtil.loadAromaEffectDataMap(data: TerpeneJSONUtil.searchAromas(query: self.searchText)).forEach(){ dm in
-//                        _res.append(DataMap(key: dm.key, value: dm.value, view: dm.view, secondaryValue: "Aroma"))
-//                    }
-//                    return _res
-//                }
-////                return data.filter { $0.key.lowercased().contains(searchText.lowercased())  ||  $0.value.lowercased().contains(searchText.lowercased()) }
-//            }
-//        }
     
     func loadSearchResults()->[DataMap]{
         if searchText.isEmpty {

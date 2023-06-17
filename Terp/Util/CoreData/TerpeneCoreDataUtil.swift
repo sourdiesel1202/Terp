@@ -187,7 +187,55 @@ struct TerpeneCoreDataUtil{
             
         }
     }
+    static func searchTerpenesByName(name: String)->[Terpene] {
+        let viewContext: NSManagedObjectContext = {
+            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            moc.parent = PersistenceController.shared.container.viewContext
+            return moc
+        }()
+        let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
+        fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
+        do{
+            let strains = try viewContext.fetch(fetchRequest)
+            return strains
+        }catch let error as NSError{
+            print("Could not search for strains by keyword \(name) \(error.userInfo)")
+        }
+        return [Terpene]()
+    }
     
+    static func searchEffectsByName(name: String)->[Effect] {
+        let viewContext: NSManagedObjectContext = {
+            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            moc.parent = PersistenceController.shared.container.viewContext
+            return moc
+        }()
+        let fetchRequest = NSFetchRequest<Effect>(entityName: "Effect")
+        fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
+        do{
+            let strains = try viewContext.fetch(fetchRequest)
+            return strains
+        }catch let error as NSError{
+            print("Could not search for strains by keyword \(name) \(error.userInfo)")
+        }
+        return [Effect]()
+    }
+    static func searchAromasByName(name: String)->[Aroma] {
+        let viewContext: NSManagedObjectContext = {
+            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            moc.parent = PersistenceController.shared.container.viewContext
+            return moc
+        }()
+        let fetchRequest = NSFetchRequest<Aroma>(entityName: "Aroma")
+        fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
+        do{
+            let strains = try viewContext.fetch(fetchRequest)
+            return strains
+        }catch let error as NSError{
+            print("Could not search for strains by keyword \(name) \(error.userInfo)")
+        }
+        return [Aroma]()
+    }
     
     static func buildAromaCoreData(viewContext: NSManagedObjectContext){
 //        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
