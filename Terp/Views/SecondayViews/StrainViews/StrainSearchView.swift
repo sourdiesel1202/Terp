@@ -12,9 +12,7 @@ struct StrainSearchView: View {
     @State private var searchText = ""
     @EnvironmentObject var globalData: GlobalData
     @State private var subTitle = ""
-//    @State var reload: Binding<Bool>
-//    let strains: [Strain]
-//    let searchTitle: String?
+
     @State private var loading: Bool = false
     var body: some View {
 //        self.presentat
