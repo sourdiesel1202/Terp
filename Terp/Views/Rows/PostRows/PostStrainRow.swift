@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct PostStrainRow: View {
 //    let strain: Strain
@@ -78,7 +79,15 @@ struct PostStrainRow: View {
         }.onAppear{
             DispatchQueue.global(qos: .utility).async {
                 do{
-                    let strainData = try StrainJSONUtil.loadStrainByName(name: self.review.strain)
+                   
+                    let viewContext: NSManagedObjectContext = {
+                        let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//                        let newbackgroundContext =  PersistenceController.shared.container.newBackgroundContext()
+                        newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                        newbackgroundContext.automaticallyMergesChangesFromParent = true
+                        return newbackgroundContext
+                    }()
+                    let strainData = try StrainJSONUtil.loadStrainByName(name: self.review.strain, viewContext: viewContext)
                     
                     //                let _strain = StrainJSONUtil.loadStrainByName(name: T##String)
                     DispatchQueue.main.async {

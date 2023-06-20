@@ -26,7 +26,7 @@ struct DiscoverView: View {
 //                ViewDivider(height: 4)
                 DiscoverRecommendedStrainsRow()
                 ViewDivider(height: 4)
-                DiscoverTerpeneEffectsAromasRow(terpene: TerpeneJSONUtil.loadTerpeneByName(name: terpeneProfile.terpenes[Int.random(in: 0..<self.terpeneProfile.terpenes.count)]))
+                DiscoverTerpeneEffectsAromasRow(terpene: TerpeneJSONUtil.loadTerpeneByName(name: terpeneProfile.terpenes[Int.random(in: 0..<self.terpeneProfile.terpenes.count)], viewContext: PersistenceController.shared.container.viewContext))
                 ViewDivider(height: 4)
                 DiscoverAchievementRow()
             }

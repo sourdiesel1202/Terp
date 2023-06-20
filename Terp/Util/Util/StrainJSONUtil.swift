@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import CoreData
+
 struct StrainJSONUtil{
-    static func shouldUseCoreData()-> Bool{
-        return StrainCoreDataUtil.loadStrains().count >= Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json").count
+    static func shouldUseCoreData(viewContext: NSManagedObjectContext)-> Bool{
+        return StrainCoreDataUtil.loadStrains(viewContext: viewContext).count >= Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json").count
     }
     static func loadInitalStrainData() -> [StrainJSON]{
         return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
@@ -40,22 +42,22 @@ struct StrainJSONUtil{
 //        _strains.append(strainJson)
         
     }
-    static func loadStrains() -> [StrainJSON]{
-        print("Strain Count in Core Data: \(StrainCoreDataUtil.loadStrains().count)")
+    static func loadStrains(viewContext: NSManagedObjectContext) -> [StrainJSON]{
+        print("Strain Count in Core Data: \(StrainCoreDataUtil.loadStrains(viewContext: viewContext).count)")
         //basically the idea here is that if we have more in core data than we do in the demo file, we should use the demo file
-        if !self.shouldUseCoreData() {
+        if !self.shouldUseCoreData(viewContext: viewContext) {
             print("returning demo strain data")
             return Bundle.main.decode([StrainJSON].self, from: "strain_data_demo.json")
         }else{
             //otherwise, we can use core data
             print("returning data from core data")
             var _strains = [StrainJSON]()
-            StrainCoreDataUtil.loadStrains().forEach(){ _strain in
+            StrainCoreDataUtil.loadStrains(viewContext: viewContext).forEach(){ _strain in
                 _strains.append(self.convertCoreDataToJSON(_strain: _strain))
             }
             print("returning \(_strains.count) strains")
             return _strains
-//            return StrainCoreDataUtil.loadStrains(viewContext: PersistenceController.shared.container.viewContext)
+//            return StrainCoreDataUtil.loadStrains(viewContext: viewContext)
             
         }
 //        return Bundle.main.decode([StrainJSON].self, from: "strain_data.json")
@@ -63,27 +65,27 @@ struct StrainJSONUtil{
 //    static func loadPublicReviewsByStrain(strain: Strain) -> [Review]{
 //        return ReviewUtil.loadReviewsByUser(user: <#T##User#>)
 //    }
-    static func loadStrainChildren(strain: StrainJSON) throws  -> [StrainJSON] {
+    static func loadStrainChildren(strain: StrainJSON, viewContext: NSManagedObjectContext) throws  -> [StrainJSON] {
         var strainDict: [String:Strain]? = [String:Strain]()
-        if self.shouldUseCoreData(){
+        if self.shouldUseCoreData(viewContext: viewContext){
             do {
-                let result = try self.convertCoreDataToJSON(strains: Array(StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict).children!))
+                let result = try self.convertCoreDataToJSON(strains: Array(StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: viewContext, strainDict: &strainDict).children!))
                 return result
             }catch {
                 throw StrainError.childNotFound
             }
             
-//            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict )!))
+//            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: viewContext, strainDict: &strainDict )!))
         }else{
-            return self.loadStrains().filter({$0.parents.contains(where: {$0.lowercased() == strain.name.lowercased()})})
+            return self.loadStrains(viewContext: viewContext).filter({$0.parents.contains(where: {$0.lowercased() == strain.name.lowercased()})})
         }
     }
-    static func loadStrainParents(strain: StrainJSON) throws -> [StrainJSON] {
+    static func loadStrainParents(strain: StrainJSON,viewContext: NSManagedObjectContext) throws -> [StrainJSON] {
         var strainDict: [String:Strain]? = [String:Strain]()
-        if self.shouldUseCoreData(){
-//            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict)!))
+        if self.shouldUseCoreData(viewContext:viewContext){
+//            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.loadStrainChildren(strain: StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: viewContext, strainDict: &strainDict)!))
             do{
-                let result = try self.convertCoreDataToJSON(strains: Array(StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict).parents!))
+                let result = try self.convertCoreDataToJSON(strains: Array(StrainCoreDataUtil.loadStrainByName(name: strain.name, viewContext: viewContext, strainDict: &strainDict).parents!))
                 return result
             }catch {
                 throw StrainError.parentNotFound
@@ -92,9 +94,9 @@ struct StrainJSONUtil{
             do{
                 var _res = [StrainJSON]()
                 try strain.parents.forEach(){ name in
-                    if self.loadStrains().contains(where: {$0.name.lowercased()==name.lowercased()}){
+                    if self.loadStrains(viewContext: viewContext).contains(where: {$0.name.lowercased()==name.lowercased()}){
                         do{
-                            let _strain  = try self.loadStrainByName(name: name)
+                            let _strain  = try self.loadStrainByName(name: name, viewContext: viewContext)
                             _res.append(_strain)
                         }catch {
                             throw StrainError.parentNotFound
@@ -110,11 +112,11 @@ struct StrainJSONUtil{
         }
         
     }
-    static func loadStrainsByTerpene(terpene: TerpeneJSON) -> [StrainJSON]{
+    static func loadStrainsByTerpene(terpene: TerpeneJSON, viewContext: NSManagedObjectContext) -> [StrainJSON]{
         
         
         do {
-            guard let strains = try TerpeneCoreDataUtil.loadTerpeneByName(name: terpene.name, viewContext: PersistenceController.shared.container.viewContext).strains else{
+            guard let strains = try TerpeneCoreDataUtil.loadTerpeneByName(name: terpene.name, viewContext: viewContext).strains else{
                 return [StrainJSON]()
             }
             return StrainJSONUtil.convertCoreDataToJSON(strains: Array(strains))
@@ -125,11 +127,11 @@ struct StrainJSONUtil{
         }
         return [StrainJSON]()
     }
-    static func searchStrainByName(name: String)-> [StrainJSON]{
-        if self.shouldUseCoreData(){
-            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.searchStrainsByName(name: name))
+    static func searchStrainByName(name: String, viewContext: NSManagedObjectContext)-> [StrainJSON]{
+        if self.shouldUseCoreData(viewContext: viewContext){
+            return self.convertCoreDataToJSON(strains: StrainCoreDataUtil.searchStrainsByName(name: name, viewContext: viewContext))
         }else{
-            return self.loadStrains().filter({$0.name.lowercased().contains(name.lowercased())})
+            return self.loadStrains(viewContext: viewContext).filter({$0.name.lowercased().contains(name.lowercased())})
         }
     }
     static func loadStrainsByTerpene(terpene: TerpeneJSON, strains: [StrainJSON]) -> [StrainJSON]{
@@ -170,11 +172,11 @@ struct StrainJSONUtil{
     static func loadStrainByName(name: String, strains: [StrainJSON]) throws -> StrainJSON? {
         return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
-    static func loadStrainByName(name: String) throws -> StrainJSON {
+    static func loadStrainByName(name: String, viewContext: NSManagedObjectContext) throws -> StrainJSON {
         var strainDict: [String:Strain]? = [String:Strain]()
-        if self.shouldUseCoreData(){
+        if self.shouldUseCoreData(viewContext: viewContext){
             do {
-                let result = try convertCoreDataToJSON(_strain: StrainCoreDataUtil.loadStrainByName(name: name, viewContext: PersistenceController.shared.container.viewContext, strainDict: &strainDict))
+                let result = try convertCoreDataToJSON(_strain: StrainCoreDataUtil.loadStrainByName(name: name, viewContext: viewContext, strainDict: &strainDict))
                 return result
             }catch{
                 throw StrainError.strainNotFound
@@ -182,17 +184,17 @@ struct StrainJSONUtil{
                     
         }else{
             
-            return self.loadStrains().filter({$0.name.lowercased()==name.lowercased()}).first!
+            return self.loadStrains(viewContext: viewContext).filter({$0.name.lowercased()==name.lowercased()}).first!
             
         }
     }
     
-    static func loadStrainsByNames(names: [String]) throws ->[StrainJSON]  {
+    static func loadStrainsByNames(names: [String], viewContext: NSManagedObjectContext) throws ->[StrainJSON]  {
         var res = [StrainJSON]()
         do {
             try names.forEach(){ name in
                 do{
-                    let strain = try  self.loadStrainByName(name: name)
+                    let strain = try  self.loadStrainByName(name: name, viewContext: viewContext)
                     res.append(strain)
                 } catch {
                     throw StrainError.strainNotFound
@@ -206,13 +208,13 @@ struct StrainJSONUtil{
             throw StrainError.strainNotFound
         }
     }
-    static func loadStrainAromas(strain: StrainJSON) -> [String] {
+    static func loadStrainAromas(strain: StrainJSON, viewContext: NSManagedObjectContext) -> [String] {
         var res  = [String]()
         strain.terpenes.forEach { (strTerp: String) in
             
             //            var terp = TerpeneUtil.loadTerpeneByName(name: strTerp){}
             
-            TerpeneJSONUtil.loadTerpeneByName(name: strTerp).aromas.forEach(){ aroma in
+            TerpeneJSONUtil.loadTerpeneByName(name: strTerp, viewContext: viewContext).aromas.forEach(){ aroma in
                 if !res.contains(where:{ $0.lowercased() == aroma.name.lowercased() }){
                     res.append(aroma.name)
                 }
@@ -225,13 +227,13 @@ struct StrainJSONUtil{
         return res
     }
     
-    static func loadStrainEffects(strain: StrainJSON) -> [String] {
+    static func loadStrainEffects(strain: StrainJSON, viewContext: NSManagedObjectContext) -> [String] {
         var res  = [String]()
         strain.terpenes.forEach { (strTerp: String) in
             
             //            var terp = TerpeneUtil.loadTerpeneByName(name: strTerp){}
             
-            TerpeneJSONUtil.loadTerpeneByName(name: strTerp).effects.forEach(){ effect in
+            TerpeneJSONUtil.loadTerpeneByName(name: strTerp, viewContext: viewContext).effects.forEach(){ effect in
                 if !res.contains(where:{ $0.lowercased() == effect.name.lowercased() }){
                     res.append(effect.name)
                 }

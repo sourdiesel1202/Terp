@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct DiscoverTerpeneEffectsAromasRow: View {
     let terpene: TerpeneJSON
@@ -65,9 +66,15 @@ struct DiscoverTerpeneEffectsAromasRow: View {
                 
             }}
         }.onAppear{
-                let terpenes = TerpeneJSONUtil.loadTerpenes()
-                let aromas = TerpeneJSONUtil.loadAromaJSON()
-                let effects = TerpeneJSONUtil.loadEffectJSON()
+            let viewContext: NSManagedObjectContext = {
+                let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                newbackgroundContext.automaticallyMergesChangesFromParent = true
+                return newbackgroundContext
+            }()
+                let terpenes = TerpeneJSONUtil.loadTerpenes(viewContext: viewContext)
+                let aromas = TerpeneJSONUtil.loadAromaJSON(viewContext: viewContext)
+                let effects = TerpeneJSONUtil.loadEffectJSON(viewContext: viewContext)
 
                     self.terpenes = terpenes
                     self.aromas = aromas

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct TerpeneEffectAromaStrainRow: View {
     let effectAroma: EffectAromaJSON
     @State private var strains: [StrainJSON] = [StrainJSON]()
@@ -24,9 +24,16 @@ struct TerpeneEffectAromaStrainRow: View {
         }.onAppear{
             
             DispatchQueue.global(qos: .utility).async {
+                let viewContext: NSManagedObjectContext = {
+                    let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                    newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                    newbackgroundContext.automaticallyMergesChangesFromParent = true
+                    return newbackgroundContext
+                }()
+                
                 var _strains = [StrainJSON]()
-                TerpeneJSONUtil.loadTerpenesByEffectAroma(effectAroma: self.effectAroma).forEach({ terpene in
-                    StrainJSONUtil.loadStrainsByTerpene(terpene: terpene).forEach({ strain in
+                TerpeneJSONUtil.loadTerpenesByEffectAroma(effectAroma: self.effectAroma, viewContext: viewContext).forEach({ terpene in
+                    StrainJSONUtil.loadStrainsByTerpene(terpene: terpene, viewContext: viewContext).forEach({ strain in
                         _strains.append(strain)
                     })
 //                    _strains.append(contentsOf: StrainJ)

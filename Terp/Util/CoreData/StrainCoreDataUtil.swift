@@ -10,25 +10,29 @@ import CoreData
 import SwiftUI
 struct StrainCoreDataUtil{
 //    var strainsMapped = [String:Strain]()
-    static func loadStrains()->[Strain]{
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
-        let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
-//        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
-        do{
-            let strains = try viewContext.fetch(fetchRequest)
-            return strains
-        }catch let error as NSError{
-            print("Could not load strains \(error.userInfo)")
+    static func loadStrains(viewContext: NSManagedObjectContext)->[Strain]{
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
+        return viewContext.performAndWait {
+            
+            
+            let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
+            //        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
+            do{
+                let strains = try viewContext.fetch(fetchRequest)
+                return strains
+            }catch let error as NSError{
+                print("Could not load strains \(error.userInfo)")
+            }
+            return [Strain]()
         }
-        return [Strain]()
     }
     
     static func deleteStrains(viewContext: NSManagedObjectContext){
-        let strains = self.loadStrains()
+        let strains = self.loadStrains(viewContext: viewContext)
         print("Strain count: \(strains.count)")
         strains.forEach(){strain in
             viewContext.delete(strain)
@@ -40,7 +44,7 @@ struct StrainCoreDataUtil{
         }catch let error as NSError{
             print("Could not delete aromas \(error.userInfo)")
         }
-        print("Strain Count: \(self.loadStrains().count)")
+        print("Strain Count: \(self.loadStrains(viewContext: viewContext).count)")
 
     }
     
@@ -63,94 +67,114 @@ struct StrainCoreDataUtil{
             let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
             fetchRequest.predicate = NSPredicate(format: "name == %@", name)
             
-            do{
-                let strains = try viewContext.fetch(fetchRequest)
-                if strainDict != nil{
-//                    strainDict.update
-                    if strains.count > 0{
-                        strainDict!.updateValue(strains.first!, forKey: name)
-                        print("Updating strain dict with value \(name)")
+        do {
+            return try viewContext.performAndWait {
+                
+                do{
+                    let strains = try viewContext.fetch(fetchRequest)
+                    if strainDict != nil{
+                        //                    strainDict.update
+                        if strains.count > 0{
+                            strainDict!.updateValue(strains.first!, forKey: name)
+                            print("Updating strain dict with value \(name)")
+                        }
                     }
-                }
-                if strains.count > 0 {
-                    return strains.first!
+                    if strains.count > 0 {
+                        return strains.first!
+                        
+                    }else{
+                        throw StrainError.strainNotFound
+                    }
                     
-                }else{
-                    throw StrainError.strainNotFound
+                    
+                }catch let error as NSError{
+                    print("Could not load strain \(name) from core data \(error.userInfo)")
                 }
-                
-                
-            }catch let error as NSError{
-                print("Could not load strain \(name) from core data \(error.userInfo)")
+                throw StrainError.strainNotFound
+                //        }
             }
-        throw StrainError.strainNotFound
-//        }
+        }catch{
+            throw StrainError.generalError
+        }
+        
     }
     
-    static func loadStrainParents(strain: Strain) throws ->[Strain] {
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
+    static func loadStrainParents(strain: Strain, viewContext: NSManagedObjectContext) throws ->[Strain] {
+//        let viewContext: NSManagedObjectContext = { nm
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
         
         //ok so we're going to rethink this
         let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
         fetchRequest.predicate = NSPredicate(format: "children CONTAINS %@", strain)
         //fetch all strain children where the strain is the strain we are loading children for
         var strainDict: [String : Strain]? = [String:Strain]()
+        
         do{
-            var res = [Strain]()
-            let parentStrains = try viewContext.fetch(fetchRequest)
+            
             do{
-                try parentStrains.forEach(){ parent in
+                var res = [Strain]()
+                return try viewContext.performAndWait {
+                    
+                    
+                    let parentStrains = try viewContext.fetch(fetchRequest)
                     do{
-                        let _parent = try self.loadStrainByName(name: parent.name!, viewContext: viewContext, strainDict:&strainDict )
-                        res.append(_parent)
+                        try parentStrains.forEach(){ parent in
+                            do{
+                                let _parent = try self.loadStrainByName(name: parent.name!, viewContext: viewContext, strainDict:&strainDict )
+                                res.append(_parent)
+                            }catch{
+                                throw StrainError.parentNotFound
+                            }
+                        }
                     }catch{
                         throw StrainError.parentNotFound
                     }
+                    return res
                 }
             }catch{
-                throw StrainError.parentNotFound
+                throw StrainError.generalError
             }
-            return res
 //            return strains
         }catch let error as NSError{
             print("Could not load parents for \(strain.name!) \(error.userInfo)")
         }
         return [Strain]()
     }
-    static func loadStrainChildren(strain: Strain)->[Strain] {
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
-        
+    static func loadStrainChildren(strain: Strain, viewContext: NSManagedObjectContext)->[Strain] {
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
+//
         //ok so we're going to rethink this
         let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
         fetchRequest.predicate = NSPredicate(format: "parents CONTAINS %@", strain)
         //fetch all strain children where the strain is the strain we are loading children for
         var strainDict: [String : Strain]? = [String:Strain]()
         do{
-            var res = [Strain]()
-            let childStrains = try viewContext.fetch(fetchRequest)
-            do{
-                try childStrains.forEach(){ child in
-                    do{
-                        
-                        let _child = try self.loadStrainByName(name: child.name!, viewContext: viewContext, strainDict:&strainDict )
-                        res.append(_child)
-                    }catch{
-                        throw StrainError.childNotFound
+            return try viewContext.performAndWait{
+                var res = [Strain]()
+                let childStrains = try viewContext.fetch(fetchRequest)
+                do{
+                    try childStrains.forEach(){ child in
+                        do{
+                            
+                            let _child = try self.loadStrainByName(name: child.name!, viewContext: viewContext, strainDict:&strainDict )
+                            res.append(_child)
+                        }catch{
+                            throw StrainError.childNotFound
+                        }
                     }
+                }catch{
+                    throw StrainError.childNotFound
                 }
-            }catch{
-                throw StrainError.childNotFound
+                
+                return res
             }
-            
-            return res
 //            return strains
         }catch let error as NSError{
             print("Could not load children for \(strain.name!) \(error.userInfo)")
@@ -158,21 +182,25 @@ struct StrainCoreDataUtil{
         return [Strain]()
     }
     
-    static func searchStrainsByName(name: String)->[Strain] {
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
-        let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
-        fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
-        do{
-            let strains = try viewContext.fetch(fetchRequest)
-            return strains
-        }catch let error as NSError{
-            print("Could not search for strains by keyword \(name) \(error.userInfo)")
+    static func searchStrainsByName(name: String, viewContext: NSManagedObjectContext)->[Strain] {
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
+        viewContext.performAndWait {
+            
+            
+            let fetchRequest = NSFetchRequest<Strain>(entityName: "Strain")
+            fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
+            do{
+                let strains = try viewContext.fetch(fetchRequest)
+                return strains
+            }catch let error as NSError{
+                print("Could not search for strains by keyword \(name) \(error.userInfo)")
+            }
+            return [Strain]()
         }
-        return [Strain]()
     }
     static func processStrainLineage(strain: StrainJSON, viewContext: NSManagedObjectContext, strainDict: inout [String:Strain]?) throws {
         print("Processing lineage for \(strain.name)")
@@ -192,32 +220,6 @@ struct StrainCoreDataUtil{
                 let parent  = strain.parents[i]
                 do{
                     let _parentObj = try  self.loadStrainByName(name: parent, viewContext: viewContext, strainDict: &strainDict)
-                    if _parentObj == nil{
-                        print("Parent of \(strain.name): \(parent) is not in CoreData yet, inserting")
-
-                        let strainJSON = StrainJSONUtil.loadInitalStrainData().filter({$0.name.lowercased() == parent.lowercased()}).first
-                        if strainJSON != nil{
-                            print("Attempting to write new parent strain: \(parent)")
-                            insertNewStrain(strain:strainJSON!, viewContext: viewContext, strainDict: &strainDict)
-                            print("Attempting search parent strain in core data: \(parent)")
-                            do {
-                                let _newParentObj = try self.loadStrainByName(name: parent, viewContext: viewContext, strainDict: &strainDict)
-                                
-                                
-                                    print("Found \(parent) in core data")
-                                    //                            let parentStrain = StrainParent(context: viewContext)
-                                    //                            parentStrain.setValue(UUID(), forKey: "id")
-                                    //                            parentStrain.strain = _newParentObj
-                                    //                            parentStrain.child = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
-                                    _strain.addToParents(_newParentObj)
-                                    print("Creating parent relationship between \(strain.name) <==> \(_newParentObj.name!)")
-                                
-                            }catch{
-                                throw StrainError.parentNotFound
-                            }
-                            
-                        }
-                    }else{
                         print("Checking for existing relationship between \(strain.name) and \(_parentObj.name!) ")
                         if !_strain.parents!.contains(where: {$0.name!.lowercased() == _parentObj.name!.lowercased() }){
     //                    if !_strain!.parents!.contains(where: {$0.strain!.name!.lowercased() == _parentObj!.name!.lowercased() }){
@@ -229,51 +231,71 @@ struct StrainCoreDataUtil{
                             print("Creating parent relationship between \(strain.name) <==> \(_parentObj.name!)")
                         }
                         
-                    }
+                    
                 }catch{
-                    throw StrainError.parentNotFound
+                    print("Parent of \(strain.name): \(parent) is not in CoreData yet, inserting")
+
+                    let strainJSON = StrainJSONUtil.loadInitalStrainData().filter({$0.name.lowercased() == parent.lowercased()}).first
+                    if strainJSON != nil{
+                        print("Attempting to write new parent strain: \(parent)")
+                        insertNewStrain(strain:strainJSON!, viewContext: viewContext, strainDict: &strainDict)
+                        print("Attempting search parent strain in core data: \(parent)")
+                        do {
+                            let _newParentObj = try self.loadStrainByName(name: parent, viewContext: viewContext, strainDict: &strainDict)
+                            
+                            
+                                print("Found \(parent) in core data")
+                                //                            let parentStrain = StrainParent(context: viewContext)
+                                //                            parentStrain.setValue(UUID(), forKey: "id")
+                                //                            parentStrain.strain = _newParentObj
+                                //                            parentStrain.child = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
+                                _strain.addToParents(_newParentObj)
+                                print("Creating parent relationship between \(strain.name) <==> \(_newParentObj.name!)")
+                            
+                        }catch{
+                            throw StrainError.parentNotFound
+                        }
+                        
+                    }
+//                    throw StrainError.parentNotFound
                 }
 
             }
-            do{
-                for i in 0..<strain.children.count{
-                    let child = strain.children[i]
+            for i in 0..<strain.children.count{
+                let child = strain.children[i]
+                do{
+                    
+                    
                     print("Checking children of \(strain.name)")
                     
                     let _childObj = try self.loadStrainByName(name: child, viewContext: viewContext, strainDict: &strainDict)
-                    if _childObj == nil{
-                        print("Child of \(strain.name): \(child) is not in CoreData yet, inserting")
-                        let strainJSON = StrainJSONUtil.loadInitalStrainData().filter({$0.name.lowercased() == child.lowercased()}).first//loadStrainByName(name: child)
-                        print("Loaded strain data from json")
-                        if strainJSON != nil{
-                            print("Attempting to i nsert \(strainJSON!.name) into core data")
-                            insertNewStrain(strain: strainJSON!, viewContext: viewContext, strainDict: &strainDict)
-                            let _newChildObj = try self.loadStrainByName(name: child, viewContext: viewContext, strainDict: &strainDict)
-                            print("Searching for \(strainJSON!.name) in core data")
-                            
-                                //                            _strain.addToChildren(<#T##value: StrainChild##StrainChild#>)
-                                print("Found \(strainJSON!.name) in core data")
-                                //                            let childStrain = StrainChild(context: viewContext)
-                                //                            childStrain.setValue(UUID(), forKey: "id")
-                                //                            childStrain.strain = _newChildObj
-                                ////                            childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
-                                _strain.addToChildren(_newChildObj)
-                                print("Creating child relationship between \(strain.name) <==> \(_newChildObj.name!)")
-                            
-                            
-                        }
-                    }else{
-                        //                    let childStrain = StrainChild(context: viewContext)
-                        //                    childStrain.setValue(UUID(), forKey: "id")
-                        //                    childStrain.strain = _childObj
-                        ////                    childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
                         _strain.addToChildren(_childObj)
                         print("Creating child relationship between \(strain.name) <==> \(_childObj.name!)")
                         
                         
+                    
+                }catch{
+                    print("Child of \(strain.name): \(child) is not in CoreData yet, inserting")
+                    let strainJSON = StrainJSONUtil.loadInitalStrainData().filter({$0.name.lowercased() == child.lowercased()}).first//loadStrainByName(name: child)
+                    print("Loaded strain data from json")
+                    if strainJSON != nil{
+                        print("Attempting to i nsert \(strainJSON!.name) into core data")
+                        insertNewStrain(strain: strainJSON!, viewContext: viewContext, strainDict: &strainDict)
+                        let _newChildObj = try self.loadStrainByName(name: child, viewContext: viewContext, strainDict: &strainDict)
+                        print("Searching for \(strainJSON!.name) in core data")
+                        
+                        //                            _strain.addToChildren(<#T##value: StrainChild##StrainChild#>)
+                        print("Found \(strainJSON!.name) in core data")
+                        //                            let childStrain = StrainChild(context: viewContext)
+                        //                            childStrain.setValue(UUID(), forKey: "id")
+                        //                            childStrain.strain = _newChildObj
+                        ////                            childStrain.parent = coreDataStrain//loadStrainByName(name: strain.name, viewContext: viewContext)
+                        _strain.addToChildren(_newChildObj)
+                        print("Creating child relationship between \(strain.name) <==> \(_newChildObj.name!)")
+                                                
                     }
+                    
                 }
-            }catch{
                 
             }
             do{
@@ -293,33 +315,37 @@ struct StrainCoreDataUtil{
         //        viewContext.concurrencyType = .privateQueueConcurrencyType
         do {
               let strain = try self.loadStrainByName(name: strain.name, viewContext: viewContext, strainDict: &strainDict)
-    }catch{
-            let terpenes = TerpeneCoreDataUtil.loadTerpenes(viewContext: viewContext)
-//            print("Working with \(terpenes.count) terpenes")
-            let _strain = Strain(context: viewContext)
-            _strain.id = strain.id
-            _strain.name = strain.name
-            _strain.desc = strain.description
-            _strain.image = strain.image
-            _strain.aliases = strain.aliases.joined(separator: ",")
-            _strain.url = strain.url
-            print("Processing terpenes for \(strain.name)")
-            for i in 0..<strain.terpenes.count{
-                _strain.addToTerpenes(terpenes.filter({$0.name!.lowercased() == strain.terpenes[i].lowercased()}).first!)
-            }
-            //ok so now the pain will be in loading the parents and children, assuming the recursion doesn't work accordingly
-
-            do{
-                try viewContext.save()
-                print("Wrote Strain \(strain.name):\(strain.id!) to CoreData")
-                if strainDict != nil{
-                    if !strainDict!.keys.contains(where:{$0 == strain.name}){
-                        strainDict?.updateValue(_strain, forKey: strain.name)
-                        print("Updating strain dict with value: \(strain.name)")
-                    }
+        }catch{
+            viewContext.performAndWait {
+                
+                
+                let terpenes = TerpeneCoreDataUtil.loadTerpenes(viewContext: viewContext)
+                //            print("Working with \(terpenes.count) terpenes")
+                let _strain = Strain(context: viewContext)
+                _strain.id = strain.id
+                _strain.name = strain.name
+                _strain.desc = strain.description
+                _strain.image = strain.image
+                _strain.aliases = strain.aliases.joined(separator: ",")
+                _strain.url = strain.url
+                print("Processing terpenes for \(strain.name)")
+                for i in 0..<strain.terpenes.count{
+                    _strain.addToTerpenes(terpenes.filter({$0.name!.lowercased() == strain.terpenes[i].lowercased()}).first!)
                 }
-            }catch let error as NSError{
-                print("Could not insert strain \(strain.name) \(error.userInfo) \(error.localizedDescription)")
+                //ok so now the pain will be in loading the parents and children, assuming the recursion doesn't work accordingly
+                
+                do{
+                    try viewContext.save()
+                    print("Wrote Strain \(strain.name):\(strain.id!) to CoreData")
+                    if strainDict != nil{
+                        if !strainDict!.keys.contains(where:{$0 == strain.name}){
+                            strainDict?.updateValue(_strain, forKey: strain.name)
+                            print("Updating strain dict with value: \(strain.name)")
+                        }
+                    }
+                }catch let error as NSError{
+                    print("Could not insert strain \(strain.name) \(error.userInfo) \(error.localizedDescription)")
+                }
             }
         }
     }
@@ -354,7 +380,7 @@ struct StrainCoreDataUtil{
             DispatchQueue.global(qos: .utility).async {
                 let viewContext: NSManagedObjectContext = {
                     let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-                    moc.parent = PersistenceController.shared.container.viewContext
+//                    moc.parent = PersistenceController.shared.container.viewContext
                     return moc
                 }()
                 // fetch animation based on status
@@ -364,7 +390,7 @@ struct StrainCoreDataUtil{
                 var strainDict: [String : Strain]? = [String:Strain]()
                 print(Thread.current)
                 print("Spawing new thread to process \(batch.count) strains")
-                if count != self.loadStrains().count{
+                if count != self.loadStrains(viewContext: viewContext).count{
                     for iStrain in 0..<batch.count{
                         let strain = batch[iStrain]
                         print("Processing \(iStrain)/\(batch.count) strains (insert) in batch \(iBatch)/\(batches.count)")

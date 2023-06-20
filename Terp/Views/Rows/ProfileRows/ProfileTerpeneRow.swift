@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct ProfileTerpeneRow: View {
     let user: User
     @State private var aromas: [EffectAromaJSON] = [EffectAromaJSON]()
@@ -29,7 +29,7 @@ struct ProfileTerpeneRow: View {
                 //            HStack{
                 //                Text("Terpene Profile").padding([.leading,.bottom]).font(.caption).fontWeight(.bold)
                 //            }
-                RowHeaderViewAll(text: "Terpenes (\(self.terpeneProfile.terpenes.count))", data: TerpeneJSONUtil.loadTerpeneDataMapFromStrings(terpenes: self.terpeneProfile.terpenes))
+                RowHeaderViewAll(text: "Terpenes (\(self.terpeneProfile.terpenes.count))", data: TerpeneJSONUtil.loadTerpeneDataMapFromStrings(terpenes: self.terpeneProfile.terpenes, viewContext: PersistenceController.shared.container.viewContext))
                 if self.loading{
                     ProgressView()
                 }else{
@@ -59,11 +59,17 @@ struct ProfileTerpeneRow: View {
             }.onAppear{
                 self.loading = true
                 DispatchQueue.global(qos: .utility).async {
+                    let viewContext: NSManagedObjectContext = {
+                        let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                        newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                        newbackgroundContext.automaticallyMergesChangesFromParent = true
+                        return newbackgroundContext
+                    }()
                     
                     do{
-                        let _effects = try TerpeneJSONUtil.loadEffectsByNames(names: self.terpeneProfile.effects)
-                        let _aromas = try TerpeneJSONUtil.loadAromasByNames(names: self.terpeneProfile.aromas)
-                        let _terpenes = try TerpeneJSONUtil.loadTerpenesByName(names: self.terpeneProfile.terpenes)
+                        let _effects = try TerpeneJSONUtil.loadEffectsByNames(names: self.terpeneProfile.effects, viewContext: viewContext)
+                        let _aromas = try TerpeneJSONUtil.loadAromasByNames(names: self.terpeneProfile.aromas, viewContext: viewContext)
+                        let _terpenes = try TerpeneJSONUtil.loadTerpenesByName(names: self.terpeneProfile.terpenes, viewContext: viewContext)
                         //                        let strainData = try StrainJSONUtil.loadStrainsByNames(names: self.achievement.strains)
                         DispatchQueue.main.async {
                             self.aromas = _aromas

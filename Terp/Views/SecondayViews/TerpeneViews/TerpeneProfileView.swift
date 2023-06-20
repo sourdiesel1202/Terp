@@ -34,10 +34,10 @@ struct TerpeneProfileView: View {
                             BasicRow(title: "No Terpene Profile", description: "Setup a terpene profile by choosing cannabis effects and aromas below")
                             
                         } else {
-                            ForEach(TerpeneJSONUtil.loadTerpeneDataMapFromStrings(terpenes: self.terpeneProfile.terpenes)) {(dm: DataMap) in
+                            ForEach(TerpeneJSONUtil.loadTerpeneDataMapFromStrings(terpenes: self.terpeneProfile.terpenes, viewContext: PersistenceController.shared.container.viewContext)) {(dm: DataMap) in
                                 
                                 NavigationLink{
-                                    TerpeneDetailView(terpene: TerpeneJSONUtil.loadTerpeneByName(name: dm.key) )
+                                    TerpeneDetailView(terpene: TerpeneJSONUtil.loadTerpeneByName(name: dm.key, viewContext: PersistenceController.shared.container.viewContext) )
                                 }label:{BasicRow(title: dm.key, description: dm.value)}
                                 
                             }
@@ -421,17 +421,17 @@ struct TerpeneProfileView: View {
     
     var effectSearchResults: [DataMap] {
             if searchText.isEmpty {
-                return TerpeneJSONUtil.loadEffectDataMap(effects: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenes()))
+                return TerpeneJSONUtil.loadEffectDataMap(effects: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext)))
             } else {
-                return TerpeneJSONUtil.loadEffectDataMap(effects: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenes())).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
+                return TerpeneJSONUtil.loadEffectDataMap(effects: TerpeneJSONUtil.loadTerpeneEffects(terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext))).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
             }
         }
     
     var aromaSearchResults: [DataMap] {
             if searchText.isEmpty {
-                return TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes()))
+                return TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext)))
             } else {
-                return TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes())).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
+                return TerpeneJSONUtil.loadAromaDataMap(aromas: TerpeneJSONUtil.loadTerpeneAromas(terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext))).filter { $0.key.lowercased().contains(searchText.lowercased()) || $0.value.lowercased().contains(searchText.lowercased()) }
             }
         }
 
@@ -450,14 +450,14 @@ struct TerpeneProfileView: View {
     func resetTerpeneProfileTerpenes(){
         self.terpeneProfile.terpenes.removeAll()
         self.terpeneProfile.aromas.forEach(){ aroma in
-            TerpeneJSONUtil.loadTerpenesByAroma(aroma: aroma, terpenes: TerpeneJSONUtil.loadTerpenes()).forEach() { terpene in
+            TerpeneJSONUtil.loadTerpenesByAroma(aroma: aroma, terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext)).forEach() { terpene in
                 if !self.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
                     self.terpeneProfile.terpenes.append(terpene.name)
                 }
             }
         }
         self.terpeneProfile.effects.forEach(){ effect in
-            TerpeneJSONUtil.loadTerpenesByEffect(effect: effect, terpenes: TerpeneJSONUtil.loadTerpenes()).forEach() { terpene in
+            TerpeneJSONUtil.loadTerpenesByEffect(effect: effect, terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext)).forEach() { terpene in
                 if !self.terpeneProfile.terpenes.contains(where: {$0.lowercased() == terpene.name.lowercased()}){
                     self.terpeneProfile.terpenes.append(terpene.name)
                 }

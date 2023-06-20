@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct DiscoverRecommendedStrainsRow: View {
     @State private var loading: Bool = true
     @State private var strains: [StrainJSON] = [StrainJSON]()
@@ -28,7 +28,7 @@ struct DiscoverRecommendedStrainsRow: View {
                 RowHeaderViewAll(text: "Strains with Sedative effects", data: StrainJSONUtil.loadStrainDataMap(strains: Array(self.strains[10...15])))
                 HorizontalStrainListRow(strains: Array(self.strains[4...9]))
                 NavigationLink{
-                    ThumbnailListView(data: StrainJSONUtil.loadStrainDataMap(strains: StrainJSONUtil.loadStrains()), searchTitle: "All Strains")
+                    ThumbnailListView(data: StrainJSONUtil.loadStrainDataMap(strains: StrainJSONUtil.loadStrains(viewContext: PersistenceController.shared.container.viewContext)), searchTitle: "All Strains")
                 }label: {
                     FullWidthText(text: "View All Strains").padding()
                 }
@@ -36,7 +36,13 @@ struct DiscoverRecommendedStrainsRow: View {
         }.onAppear {
             //            await self.loadstrainRecommendations()
             DispatchQueue.global(qos: .userInitiated).async {
-                let strainData = StrainJSONUtil.loadStrains()
+                let viewContext: NSManagedObjectContext = {
+                    let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                    newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                    newbackgroundContext.automaticallyMergesChangesFromParent = true
+                    return newbackgroundContext
+                }()
+                let strainData = StrainJSONUtil.loadStrains(viewContext: viewContext)
                 DispatchQueue.main.async {
                     self.strains = strainData
                     self.loading = false

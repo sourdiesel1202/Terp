@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 struct MainTabView: View {
 //    @EnvironmentObject var globalData: GlobalData
-    @Environment(\.managedObjectContext) private var viewContext
+//    @Environment(\.managedObjectContext) private var viewContext
     @State var reload: Bool = false
 //    @EnvironmentObject var globalData: GlobalData
 //    @FetchRequest(sortDescriptors: []) var aromas: FetchedResults<Aroma>
@@ -71,10 +71,16 @@ struct MainTabView: View {
 //                TerpeneCoreDataUtil.deleteEffects(viewContext: self.viewContext)
 //                TerpeneCoreDataUtil.deleteTerepenes(viewContext: self.viewContext)
 //
-                TerpeneCoreDataUtil.buildAromaCoreData(viewContext: self.viewContext)
-                TerpeneCoreDataUtil.buildEffectCoreData(viewContext: self.viewContext)
-                TerpeneCoreDataUtil.buildTerpeneCoreData(viewContext: self.viewContext)
-               if !StrainJSONUtil.shouldUseCoreData(){
+               let viewContext: NSManagedObjectContext = {
+                   let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                   newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                   newbackgroundContext.automaticallyMergesChangesFromParent = true
+                   return newbackgroundContext
+               }()
+                TerpeneCoreDataUtil.buildAromaCoreData(viewContext: viewContext)
+                TerpeneCoreDataUtil.buildEffectCoreData(viewContext: viewContext)
+                TerpeneCoreDataUtil.buildTerpeneCoreData(viewContext: viewContext)
+               if !StrainJSONUtil.shouldUseCoreData(viewContext: viewContext){
                    StrainCoreDataUtil.buildStrainCoreData()
                 }
                //ok so here is where we need to load in our data into core data if it doesn't exist

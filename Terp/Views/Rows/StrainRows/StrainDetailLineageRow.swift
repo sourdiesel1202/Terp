@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct StrainDetailLineageRow: View {
     let strain: StrainJSON
     
@@ -40,11 +40,17 @@ struct StrainDetailLineageRow: View {
         }.onAppear{
             
                 DispatchQueue.global(qos: .utility).async {
+                    let viewContext: NSManagedObjectContext = {
+                        let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                        newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                        newbackgroundContext.automaticallyMergesChangesFromParent = true
+                        return newbackgroundContext
+                    }()
                     //                    let strainData = StrainJSONUtil.loadStrains()
                     //                let _searchResults = loadSearchResults()
                     do{
-                    let parents = try StrainJSONUtil.loadStrainParents(strain: self.strain)
-                    let children = try StrainJSONUtil.loadStrainChildren(strain: self.strain)
+                    let parents = try StrainJSONUtil.loadStrainParents(strain: self.strain, viewContext: viewContext)
+                    let children = try StrainJSONUtil.loadStrainChildren(strain: self.strain, viewContext: viewContext)
                     DispatchQueue.main.async {
                         self.children = children
                         self.parents = parents

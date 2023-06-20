@@ -12,51 +12,55 @@ import CoreData
 struct TerpeneJSONUtil{
 //    @Environment(\.managedObjectContext) private var viewContext
     
-    static func shouldUseCoreData()->Bool{
-        return TerpeneCoreDataUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext).count >= Bundle.main.decode([TerpeneJSON].self, from: "terpene.json").count
+    static func shouldUseCoreData(viewContext: NSManagedObjectContext)->Bool{
+        return TerpeneCoreDataUtil.loadTerpenes(viewContext: viewContext).count >= Bundle.main.decode([TerpeneJSON].self, from: "terpene.json").count
     }
-    static func loadTerpenes() -> [TerpeneJSON]  {
-        let viewContext = PersistenceController.shared.container.viewContext
+    static func loadTerpenes(viewContext: NSManagedObjectContext) -> [TerpeneJSON]  {
+        let viewContext = viewContext
         let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
         var terpenes = [TerpeneJSON]()
-        do{
-            let _terpenes = try viewContext.fetch(fetchRequest)
-            _terpenes.forEach(){ terp in
-                var _aromas = [EffectAromaJSON]()
-                var _effects = [EffectAromaJSON]()
-                terp.aromas!.forEach(){ (aroma: Aroma) in
-                    _aromas.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
+        return viewContext.performAndWait {
+            
+            
+            do{
+                let _terpenes = try viewContext.fetch(fetchRequest)
+                _terpenes.forEach(){ terp in
+                    var _aromas = [EffectAromaJSON]()
+                    var _effects = [EffectAromaJSON]()
+                    terp.aromas!.forEach(){ (aroma: Aroma) in
+                        _aromas.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
+                    }
+                    terp.effects!.forEach(){ effect in
+                        _effects.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
+                    }
+                    terpenes.append(TerpeneJSON(name: terp.name!, description: terp.desc!, aromas: _aromas, effects: _effects, image: terp.image!))
                 }
-                terp.effects!.forEach(){ effect in
-                    _effects.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
-                }
-                terpenes.append(TerpeneJSON(name: terp.name!, description: terp.desc!, aromas: _aromas, effects: _effects, image: terp.image!))
+            } catch let error as NSError{
+                print("could not load terpenes from core data \(error.userInfo): \(error)")
             }
-        } catch let error as NSError{
-            print("could not load terpenes from core data \(error.userInfo): \(error)")
-        }
-        print("Terpenes in core data \(terpenes.count)")
-        // ok so the idea here is basically that if CD is empty we need to return from json. not ideal, but it works
-        if terpenes.count == 0 {
-            print("Loaded Terpene JSON file")
-            return Bundle.main.decode([TerpeneJSON].self, from: "terpene.json")
-        }else{
-            print("Loaded Terpene Core Data ")
-            return terpenes
+            print("Terpenes in core data \(terpenes.count)")
+            // ok so the idea here is basically that if CD is empty we need to return from json. not ideal, but it works
+            if terpenes.count == 0 {
+                print("Loaded Terpene JSON file")
+                return Bundle.main.decode([TerpeneJSON].self, from: "terpene.json")
+            }else{
+                print("Loaded Terpene Core Data ")
+                return terpenes
+            }
         }
 //        return terpenes
         //    return strains.filter({$0.name.lowercased()==name.lowercased()}).first
     }
     
     
-    static func searchTerpenesByName(name: String) -> [TerpeneJSON]{
+    static func searchTerpenesByName(name: String,viewContext: NSManagedObjectContext) -> [TerpeneJSON]{
         
-        if self.shouldUseCoreData(){
-            return self.convertCoreDataTerpenesToJSON(terpenes: TerpeneCoreDataUtil.searchTerpenesByName(name: name))
+        if self.shouldUseCoreData(viewContext: viewContext){
+            return self.convertCoreDataTerpenesToJSON(terpenes: TerpeneCoreDataUtil.searchTerpenesByName(name: name, viewContext: viewContext))
         }else{
             var _res = [TerpeneJSON]()
 //            return self.
-            self.loadTerpenes().forEach(){ terpene in
+            self.loadTerpenes(viewContext: viewContext).forEach(){ terpene in
                     if terpene.name.lowercased().contains(name.lowercased()){
                         _res.append(terpene)
                     }
@@ -67,11 +71,11 @@ struct TerpeneJSONUtil{
         }
     
 //    static func search
-    static func loadEffectsByNames(names: [String]) throws -> [EffectAromaJSON]{
+    static func loadEffectsByNames(names: [String],viewContext: NSManagedObjectContext) throws -> [EffectAromaJSON]{
         var _res = [EffectAromaJSON]()
         do{
             try names.forEach { effectName in
-                let effect = try TerpeneCoreDataUtil.loadEffectByName(name: effectName, viewContext: PersistenceController.shared.container.viewContext)
+                let effect = try TerpeneCoreDataUtil.loadEffectByName(name: effectName, viewContext: viewContext)
                 _res.append(EffectAromaJSON(id: effect.id!, name: effect.name!, description: effect.desc!, image: effect.image!))
                 //            if !_res.contains(terpene) && terpene.aromas.contains(aroma){
                 //                _res.append(terpene)
@@ -85,11 +89,11 @@ struct TerpeneJSONUtil{
         return _res
     }
     
-    static func loadAromasByNames(names: [String]) throws -> [EffectAromaJSON]{
+    static func loadAromasByNames(names: [String],viewContext: NSManagedObjectContext) throws -> [EffectAromaJSON]{
         var _res = [EffectAromaJSON]()
         do{
             try names.forEach { aromaName in
-                let aroma = try TerpeneCoreDataUtil.loadAromaByName(name: aromaName, viewContext: PersistenceController.shared.container.viewContext)
+                let aroma = try TerpeneCoreDataUtil.loadAromaByName(name: aromaName, viewContext: viewContext)
                 _res.append(EffectAromaJSON(id: aroma.id!, name: aroma.name!, description: aroma.desc!, image: aroma.image!))
                 //            if !_res.contains(terpene) && terpene.aromas.contains(aroma){
                 //                _res.append(terpene)
@@ -135,12 +139,12 @@ struct TerpeneJSONUtil{
         }
         return _res
     }
-    static func loadTerpenesByName(names: [String]) throws -> [TerpeneJSON]{
+    static func loadTerpenesByName(names: [String], viewContext: NSManagedObjectContext) throws -> [TerpeneJSON]{
         var _res = [TerpeneJSON]()
 //        let terpenes = self.loadTerpenes()
         do {
             try names.forEach(){ name in
-                let terpene = try TerpeneCoreDataUtil.loadTerpeneByName(name: name, viewContext: PersistenceController.shared.container.viewContext)
+                let terpene = try TerpeneCoreDataUtil.loadTerpeneByName(name: name, viewContext: viewContext)
                 _res.append(TerpeneJSON(name: terpene.name!, description: terpene.desc!, aromas: self.convertCoreDataAromasToAromaEffect(aromas: Array(terpene.aromas!)), effects: self.convertCoreDataEffectsToAromaEffect(effects: Array(terpene.effects!)), image: terpene.image!))
                 
                 
@@ -152,8 +156,8 @@ struct TerpeneJSONUtil{
 //        return self.loadTerpenes().filter(names.contains({$0.lowercased()==$1.name.lowercased()}))
         
     }
-    static func loadTerpeneByName(name: String) -> TerpeneJSON{
-        return self.loadTerpenes().filter({$0.name.lowercased()==name.lowercased()}).first!
+    static func loadTerpeneByName(name: String,viewContext: NSManagedObjectContext) -> TerpeneJSON{
+        return self.loadTerpenes(viewContext: viewContext).filter({$0.name.lowercased()==name.lowercased()}).first!
         
     }
 
@@ -183,12 +187,12 @@ struct TerpeneJSONUtil{
         
         return TerpeneJSON(name: terpene.name!, description: terpene.desc!, aromas: aromas, effects: effects, image: terpene.image!)
     }
-    static func loadTerpenesByEffectAroma(effectAroma: EffectAromaJSON) -> [TerpeneJSON]
+    static func loadTerpenesByEffectAroma(effectAroma: EffectAromaJSON, viewContext: NSManagedObjectContext) -> [TerpeneJSON]
     {
 //        v
         var _res = [TerpeneJSON]()
         do {
-            let aroma = try TerpeneCoreDataUtil.loadAromaByName(name: effectAroma.name, viewContext: PersistenceController.shared.container.viewContext)
+            let aroma = try TerpeneCoreDataUtil.loadAromaByName(name: effectAroma.name, viewContext: viewContext)
             if aroma.terpenes != nil {
                 for i in (0..<aroma.terpenes!.count){
                     let terpene = Array(aroma.terpenes!)[i]
@@ -201,7 +205,7 @@ struct TerpeneJSONUtil{
         }
         
         do {
-            let effect = try TerpeneCoreDataUtil.loadEffectByName(name: effectAroma.name, viewContext: PersistenceController.shared.container.viewContext)
+            let effect = try TerpeneCoreDataUtil.loadEffectByName(name: effectAroma.name, viewContext: viewContext)
             if effect.terpenes != nil {
                 for i in (0..<effect.terpenes!.count){
 //                effect.terpenes!.forEach(){ terpene in
@@ -235,9 +239,9 @@ struct TerpeneJSONUtil{
             $0.name < $1.name
         }
     }
-    static func loadAromaJSON()->[EffectAromaJSON]{
+    static func loadAromaJSON(viewContext: NSManagedObjectContext)->[EffectAromaJSON]{
         var _res = [EffectAromaJSON]()
-        self.loadTerpenes().forEach { terpene in
+        self.loadTerpenes(viewContext: viewContext).forEach { terpene in
             terpene.aromas.forEach { aroma in
                 if !_res.contains(where: {$0.name.lowercased() == aroma.name.lowercased()}){
                     _res.append(aroma)
@@ -251,9 +255,9 @@ struct TerpeneJSONUtil{
         }
     }
     
-    static func loadEffectJSON()->[EffectAromaJSON]{
+    static func loadEffectJSON(viewContext: NSManagedObjectContext)->[EffectAromaJSON]{
         var _res = [EffectAromaJSON]()
-        self.loadTerpenes().forEach { terpene in
+        self.loadTerpenes(viewContext: viewContext).forEach { terpene in
             terpene.effects.forEach { effect in
                 if !_res.contains(where: {$0.name.lowercased() == effect .name.lowercased()}){
                     _res.append(effect )
@@ -275,9 +279,9 @@ struct TerpeneJSONUtil{
 
                                   
                                   
-    static func loadAromas()->[String]{
+    static func loadAromas(viewContext: NSManagedObjectContext)->[String]{
         var _res = [String]()
-        self.loadTerpenes().forEach { terpene in
+        self.loadTerpenes(viewContext: viewContext).forEach { terpene in
             terpene.aromas.forEach { aroma in
                 if !_res.contains(aroma.name){
                     _res.append(aroma.name)
@@ -290,9 +294,9 @@ struct TerpeneJSONUtil{
         }
     }
     
-    static func loadEffects()->[String]{
+    static func loadEffects(viewContext: NSManagedObjectContext)->[String]{
         var _res = [String]()
-        self.loadTerpenes().forEach { terpene in
+        self.loadTerpenes(viewContext: viewContext).forEach { terpene in
             terpene.effects.forEach { effect in
                 if !_res.contains(effect.name){
                     _res.append(effect.name)
@@ -389,13 +393,13 @@ struct TerpeneJSONUtil{
         }
     }
     
-    static func searchEffects(query: String)->[EffectAromaJSON]{
-        if self.shouldUseCoreData(){
-            return self.convertCoreDataEffectsToAromaEffect(effects: TerpeneCoreDataUtil.searchEffectsByName(name: query))
+    static func searchEffects(query: String,viewContext: NSManagedObjectContext)->[EffectAromaJSON]{
+        if self.shouldUseCoreData(viewContext: viewContext){
+            return self.convertCoreDataEffectsToAromaEffect(effects: TerpeneCoreDataUtil.searchEffectsByName(name: query, viewContext: viewContext))
         }else{
             var _res = [EffectAromaJSON]()
 //            return self.
-            self.loadTerpenes().forEach(){ terpene in
+            self.loadTerpenes(viewContext: viewContext).forEach(){ terpene in
                 terpene.effects.forEach(){ effect in
                     if effect.name.lowercased().contains(query.lowercased()){
                         _res.append(effect)
@@ -405,13 +409,13 @@ struct TerpeneJSONUtil{
             return _res
         }
     }
-    static func searchAromas(query: String)->[EffectAromaJSON]{
-        if self.shouldUseCoreData(){
-            return self.convertCoreDataAromasToAromaEffect(aromas: TerpeneCoreDataUtil.searchAromasByName(name: query))
+    static func searchAromas(query: String,viewContext: NSManagedObjectContext)->[EffectAromaJSON]{
+        if self.shouldUseCoreData(viewContext: viewContext){
+            return self.convertCoreDataAromasToAromaEffect(aromas: TerpeneCoreDataUtil.searchAromasByName(name: query, viewContext: viewContext))
         }else{
             var _res = [EffectAromaJSON]()
 //            return self.
-            self.loadTerpenes().forEach(){ terpene in
+            self.loadTerpenes(viewContext: viewContext).forEach(){ terpene in
                 terpene.aromas.forEach(){ aroma in
                     if aroma.name.lowercased().contains(query.lowercased()){
                         _res.append(aroma)
@@ -451,10 +455,10 @@ struct TerpeneJSONUtil{
         }
         return _res
     }
-    static func loadTerpeneDataMapFromStrings(terpenes: [String]) -> [DataMap]{
+    static func loadTerpeneDataMapFromStrings(terpenes: [String],viewContext: NSManagedObjectContext) -> [DataMap]{
         var _res = [DataMap]()
         terpenes.forEach(){ terpene in
-            _res.append(DataMap(key: terpene, value: DictionaryUtil.loadDescription(text: terpene), view: TerpeneDetailView(terpene: self.loadTerpeneByName(name: terpene))))
+            _res.append(DataMap(key: terpene, value: DictionaryUtil.loadDescription(text: terpene), view: TerpeneDetailView(terpene: self.loadTerpeneByName(name: terpene,viewContext: viewContext))))
             
         }
         return _res

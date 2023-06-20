@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct StrainSearchView: View {
     @State private var searchResults: [StrainJSON] = [StrainJSON]()
     @State private var searchText = ""
@@ -57,18 +57,31 @@ struct StrainSearchView: View {
                 }
             }.onAppear {
                 DispatchQueue.global(qos: .utility).async {
-                    let newString = "\(StrainJSONUtil.loadStrains().count) different strains found and counting"
+                    let viewContext: NSManagedObjectContext = {
+                        let newbackgroundContext = PersistenceController.shared.container.newBackgroundContext()
+                        newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                        newbackgroundContext.automaticallyMergesChangesFromParent = true
+                        return newbackgroundContext
+                    }()
+                    let newString = "\(StrainJSONUtil.loadStrains(viewContext: viewContext).count) different strains found and counting"
                     DispatchQueue.main.async {
                         self.subTitle = newString
                     }
                 }
             }.searchable(text: $searchText,placement: .navigationBarDrawer(displayMode: .always),prompt: "search").disableAutocorrection(true).onChange(of: self.searchText){ newValue in
-                  print("foo")
+//                  print("foo")
+                let viewContext: NSManagedObjectContext = {
+                    let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//                    let newbackgroundContext = PersistenceController.shared.container.newBackgroundContext()
+                    newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                    newbackgroundContext.automaticallyMergesChangesFromParent = true
+                    return newbackgroundContext
+                }()
                 if newValue.count >= 3{
                     self.loading = true
                     DispatchQueue.global(qos: .utility).async {
                         //                    let strainData = StrainJSONUtil.loadStrains()
-                        let _searchResults = loadSearchResults()
+                        let _searchResults = loadSearchResults(viewContext: viewContext)
                         DispatchQueue.main.async {
                             self.searchResults = _searchResults
                             //                        self.strains = strainData
@@ -89,15 +102,15 @@ struct StrainSearchView: View {
 //            }
 //        }
 
-    func loadSearchResults() -> [StrainJSON]{
+    func loadSearchResults(viewContext: NSManagedObjectContext) -> [StrainJSON]{
             
-                if StrainJSONUtil.shouldUseCoreData(){
+                if StrainJSONUtil.shouldUseCoreData(viewContext: viewContext){
 //                    DispatchQueue.global(qos: .utility).async {
 //                        let strainData = StrainJSONUtil.loadStrains()
-                      return  StrainJSONUtil.convertCoreDataToJSON(strains: StrainCoreDataUtil.searchStrainsByName(name: self.searchText.lowercased()))
+                      return  StrainJSONUtil.convertCoreDataToJSON(strains: StrainCoreDataUtil.searchStrainsByName(name: self.searchText.lowercased(), viewContext: viewContext))
                       
                 }else{
-                    return StrainJSONUtil.searchStrainByName(name: self.searchText)
+                    return StrainJSONUtil.searchStrainByName(name: self.searchText, viewContext: viewContext)
                 }
         
     }

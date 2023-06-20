@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct AchievementStrainsRow: View {
     let achievement: Achievement
     @State private var strains: [StrainJSON] = [StrainJSON]()
@@ -35,9 +35,15 @@ struct AchievementStrainsRow: View {
         }.padding(.bottom).onAppear{
             if self.achievement.strains[0] != "*"{
                 DispatchQueue.global(qos: .utility).async {
-                    
+                    let viewContext: NSManagedObjectContext = {
+                        let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                        newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                        newbackgroundContext.automaticallyMergesChangesFromParent = true
+                        return newbackgroundContext
+                    }(
+                    )
                     do{
-                        let strainData = try StrainJSONUtil.loadStrainsByNames(names: self.achievement.strains)
+                        let strainData = try StrainJSONUtil.loadStrainsByNames(names: self.achievement.strains, viewContext: viewContext)
                         DispatchQueue.main.async {
                             self.strains = strainData
                             //                        self.loading = false

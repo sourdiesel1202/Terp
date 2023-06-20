@@ -14,8 +14,8 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "processStrainLineage(strain:viewContext:strainDict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "processStrainLineage(strain:viewContext:strainDict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "loadStrainByName(name:viewContext:strainDict:)"
             landmarkType = "7">
             <Locations>
@@ -126,42 +126,10 @@
             filePath = "Terp/Util/CoreData/StrainCoreDataUtil.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "loadStrainParents(strain:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "loadStrainParents(strain:viewContext:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "129A0744-6108-4603-9EF9-8DA895B3451E - bce9e38696938d2c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Terp.StrainCoreDataUtil.loadStrainParents(strain: Terp.Strain) throws -&gt; Swift.Array&lt;Terp.Strain&gt;"
-                  moduleName = "Terp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Terp/Util/CoreData/StrainCoreDataUtil.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "148">
-               </Location>
-               <Location
-                  uuid = "129A0744-6108-4603-9EF9-8DA895B3451E - 6b28f7a3910b5916"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; __C.NSManagedObjectContext in static Terp.StrainCoreDataUtil.loadStrainParents(strain: Terp.Strain) throws -&gt; Swift.Array&lt;Terp.Strain&gt;"
-                  moduleName = "Terp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Terp/Util/CoreData/StrainCoreDataUtil.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -210,6 +178,22 @@
             endingLineNumber = "19"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA1158F9-5A11-4BA2-BB50-45CC1AF8326A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Terp/Util/Util/TerpeneJSONUtil.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
+            landmarkName = "loadTerpeneDataMapFromStrings(terpenes:viewContext:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct StrainDetailTerpeneProfileRow: View {
     let strain: StrainJSON
@@ -51,11 +52,16 @@ struct StrainDetailTerpeneProfileRow: View {
         }.onAppear{
             self.loading = true
             DispatchQueue.global(qos: .utility).async {
-                
+                let viewContext: NSManagedObjectContext = {
+                    let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                    newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                    newbackgroundContext.automaticallyMergesChangesFromParent = true
+                    return newbackgroundContext
+                }()
                 do{
-                    let _terpenes = try TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes)
-                    let _effects = try TerpeneJSONUtil.loadEffectsByNames(names: TerpeneJSONUtil.loadTerpeneEffects(terpenes: _terpenes))
-                    let _aromas = try TerpeneJSONUtil.loadAromasByNames(names: TerpeneJSONUtil.loadTerpeneAromas(terpenes: _terpenes))
+                    let _terpenes = try TerpeneJSONUtil.loadTerpenesByName(names: self.strain.terpenes, viewContext: viewContext)
+                    let _effects = try TerpeneJSONUtil.loadEffectsByNames(names: TerpeneJSONUtil.loadTerpeneEffects(terpenes: _terpenes), viewContext: viewContext)
+                    let _aromas = try TerpeneJSONUtil.loadAromasByNames(names: TerpeneJSONUtil.loadTerpeneAromas(terpenes: _terpenes), viewContext: viewContext)
                     
                     //                        let strainData = try StrainJSONUtil.loadStrainsByNames(names: self.achievement.strains)
                     DispatchQueue.main.async {

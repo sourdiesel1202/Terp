@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct ProfileReviewsRow: View {
     let user: User
     @State private var reviewStrains: [StrainReview] = [StrainReview]()
@@ -90,10 +90,17 @@ struct ProfileReviewsRow: View {
 //                let strainData = StrainJSONUtil.loadStrainByName(name: self.review.strain)
 //                let _strain = StrainJSONUtil.loadStrainByName(name: T##String)
                 var _strainReviews = [StrainReview]()
+                let viewContext: NSManagedObjectContext = {
+                    let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//                    let newbackgroundContext = PersistenceController.shared.container.newBackgroundContext()
+                    newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                    newbackgroundContext.automaticallyMergesChangesFromParent = true
+                    return newbackgroundContext
+                }()
                 do{
                     try _reviews.forEach(){ review in
                         
-                        let strainReview = try StrainReview(strain: StrainJSONUtil.loadStrainByName(name: review.strain), review: review)
+                        let strainReview = try StrainReview(strain: StrainJSONUtil.loadStrainByName(name: review.strain, viewContext: viewContext), review: review)
                         _strainReviews.append(strainReview)
                     }
                 }catch{

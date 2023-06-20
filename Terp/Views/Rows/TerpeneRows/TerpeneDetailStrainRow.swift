@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct TerpeneDetailStrainRow: View {
     let terpene: TerpeneJSON
     @State private var loading: Bool = true
@@ -27,7 +27,14 @@ struct TerpeneDetailStrainRow: View {
             }
         }.onAppear{
             DispatchQueue.global(qos: .utility).async {
-                let _strains = StrainJSONUtil.loadStrainsByTerpene(terpene: self.terpene)
+                let viewContext: NSManagedObjectContext = {
+//                    let newbackgroundContext = PersistenceController.shared.container.newBackgroundContext()
+                    let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                    newbackgroundContext.parent = PersistenceController.shared.container.viewContext
+                    newbackgroundContext.automaticallyMergesChangesFromParent = true
+                    return newbackgroundContext
+                }()
+                let _strains = StrainJSONUtil.loadStrainsByTerpene(terpene: self.terpene, viewContext: viewContext)
                 DispatchQueue.main.async {
                     self.strains = _strains
                     self.loading = false

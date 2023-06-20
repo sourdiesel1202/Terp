@@ -8,40 +8,50 @@ import CoreData
 import Foundation
 struct TerpeneCoreDataUtil{
     static func loadAromas(viewContext: NSManagedObjectContext)->[Aroma]{
-        let fetchRequest = NSFetchRequest<Aroma>(entityName: "Aroma")
-//        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
-        do{
-            let aromas = try viewContext.fetch(fetchRequest)
-            return aromas
-        }catch let error as NSError{
-            print("Could not load aromas \(error.userInfo)")
+        return viewContext.performAndWait {
+            
+            
+            let fetchRequest = NSFetchRequest<Aroma>(entityName: "Aroma")
+            //        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
+            do{
+                let aromas = try viewContext.fetch(fetchRequest)
+                return aromas
+            }catch let error as NSError{
+                print("Could not load aromas \(error.userInfo)")
+            }
+            return [Aroma]()
         }
-        return [Aroma]()
     }
     static func loadTerpenes(viewContext: NSManagedObjectContext)->[Terpene]{
-        let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
-//        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
-        do{
-            let terpenes = try viewContext.fetch(fetchRequest)
-            return terpenes
-        }catch let error as NSError{
-            print("Could not load Terpenes \(error.userInfo)")
+        return viewContext.performAndWait {
+            let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
+            //        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
+            do{
+                let terpenes = try viewContext.fetch(fetchRequest)
+                return terpenes
+            }catch let error as NSError{
+                print("Could not load Terpenes \(error.userInfo)")
+            }
+            return [Terpene]()
         }
-        return [Terpene]()
+        
     }
     static func loadEffects(viewContext: NSManagedObjectContext)->[Effect]{
-        let fetchRequest = NSFetchRequest<Effect>(entityName: "Effect")
-//        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
-        do{
-            let effects = try viewContext.fetch(fetchRequest)
-            return effects
-        }catch let error as NSError{
-            print("Could not load effects \(error.userInfo), \(error.localizedDescription)")
+        return viewContext.performAndWait {
+            let fetchRequest = NSFetchRequest<Effect>(entityName: "Effect")
+            //        fetchRequest.predicate = NSPredicate(format: "name", <#T##args: CVarArg...##CVarArg#>)
+            do{
+                let effects = try viewContext.fetch(fetchRequest)
+                return effects
+            }catch let error as NSError{
+                print("Could not load effects \(error.userInfo), \(error.localizedDescription)")
+            }
+            return [Effect]()
         }
-        return [Effect]()
     }
     
     static func loadAromaByName(name: String, viewContext: NSManagedObjectContext) throws -> Aroma {
+        return try viewContext.performAndWait {
             let fetchRequest = NSFetchRequest<Aroma>(entityName: "Aroma")
             fetchRequest.predicate = NSPredicate(format: "name == %@", name)
             
@@ -58,10 +68,13 @@ struct TerpeneCoreDataUtil{
             }catch let error as NSError{
                 print("Could not load aroma: \(name) \(error.userInfo)")
             }
-        throw TerpeneError.aromaNotFound
+            
+            throw TerpeneError.aromaNotFound
+        }
 //        }
     }
     static func loadTerpeneByName(name: String, viewContext: NSManagedObjectContext) throws -> Terpene {
+        return try viewContext.performAndWait {
             let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
             fetchRequest.predicate = NSPredicate(format: "name == %@", name)
             
@@ -78,10 +91,12 @@ struct TerpeneCoreDataUtil{
             }catch let error as NSError{
                 print("Could not load aroma: \(name) \(error.userInfo)")
             }
-        throw TerpeneError.aromaNotFound
+            throw TerpeneError.aromaNotFound
+        }
 //        }
     }
     static func loadEffectByName(name: String, viewContext: NSManagedObjectContext) throws -> Effect {
+        return try  viewContext.performAndWait {
             let fetchRequest = NSFetchRequest<Effect>(entityName: "Effect")
             fetchRequest.predicate = NSPredicate(format: "name == %@", name)
             
@@ -98,7 +113,8 @@ struct TerpeneCoreDataUtil{
             }catch let error as NSError{
                 print("Could not load effect \(name) from core data \(error.userInfo) \(error.localizedDescription)")
             }
-        throw TerpeneError.effectNotFound
+            throw TerpeneError.effectNotFound
+        }
 //        }
     }
     
@@ -158,7 +174,7 @@ struct TerpeneCoreDataUtil{
         
         if self.loadEffects(viewContext: viewContext).count == 0 {
             print("No effects have been loaded, loading effects")
-            TerpeneJSONUtil.loadEffectJSON().forEach { effect in
+            TerpeneJSONUtil.loadEffectJSON(viewContext: viewContext).forEach { effect in
                 do{
                     _ = try self.loadEffectByName(name: effect.name, viewContext: viewContext)
                 }catch{
@@ -187,12 +203,12 @@ struct TerpeneCoreDataUtil{
             
         }
     }
-    static func searchTerpenesByName(name: String)->[Terpene] {
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
+    static func searchTerpenesByName(name: String,viewContext: NSManagedObjectContext)->[Terpene] {
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
         let fetchRequest = NSFetchRequest<Terpene>(entityName: "Terpene")
         fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
         do{
@@ -204,12 +220,12 @@ struct TerpeneCoreDataUtil{
         return [Terpene]()
     }
     
-    static func searchEffectsByName(name: String)->[Effect] {
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
+    static func searchEffectsByName(name: String, viewContext: NSManagedObjectContext)->[Effect] {
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
         let fetchRequest = NSFetchRequest<Effect>(entityName: "Effect")
         fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
         do{
@@ -220,12 +236,12 @@ struct TerpeneCoreDataUtil{
         }
         return [Effect]()
     }
-    static func searchAromasByName(name: String)->[Aroma] {
-        let viewContext: NSManagedObjectContext = {
-            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-            moc.parent = PersistenceController.shared.container.viewContext
-            return moc
-        }()
+    static func searchAromasByName(name: String,viewContext: NSManagedObjectContext)->[Aroma] {
+//        let viewContext: NSManagedObjectContext = {
+//            let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//            moc.parent = PersistenceController.shared.container.viewContext
+//            return moc
+//        }()
         let fetchRequest = NSFetchRequest<Aroma>(entityName: "Aroma")
         fetchRequest.predicate = NSPredicate(format: "name contains[cd] %@", name.lowercased())
         do{
@@ -241,42 +257,43 @@ struct TerpeneCoreDataUtil{
 //        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
 //        privateContext.parent = viewContext
         
-        if self.loadAromas(viewContext: viewContext).count == 0 {
-            
-            print("No aromas have been loaded, loading aromas")
-            TerpeneJSONUtil.loadAromaJSON().forEach { aroma in
-                do {
-                    _ = try self.loadAromaByName(name: aroma.name, viewContext: viewContext)
-                }catch{
-                    let _aroma = Aroma(context: viewContext)
-                    _aroma.name = aroma.name
-                    _aroma.desc = aroma.description
-                    _aroma.id = aroma.id
-                    _aroma.image = aroma.image
-                    //                privateContext.perform {
-                    
-                    //                    do {
-                    
-                    //                        try privateContext.save()
-                    //                            viewContext.performAndWait {
-                    do{
-                        try viewContext.save()
-                        print("Wrote aroma \(aroma.name)")
-                    } catch{
-                        let nsError = error as NSError
-                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        viewContext.performAndWait {
+            if self.loadAromas(viewContext: viewContext).count == 0 {
+                
+                print("No aromas have been loaded, loading aromas")
+                TerpeneJSONUtil.loadAromaJSON(viewContext: viewContext).forEach { aroma in
+                    do {
+                        _ = try self.loadAromaByName(name: aroma.name, viewContext: viewContext)
+                    }catch{
+                        let _aroma = Aroma(context: viewContext)
+                        _aroma.name = aroma.name
+                        _aroma.desc = aroma.description
+                        _aroma.id = aroma.id
+                        _aroma.image = aroma.image
+                        //                privateContext.perform {
+                        
+                        //                    do {
+                        
+                        //                        try privateContext.save()
+                        //                            viewContext.performAndWait {
+                        do{
+                            try viewContext.save()
+                            print("Wrote aroma \(aroma.name)")
+                        } catch{
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
                     }
                 }
             }
         }
-
     }
     
     
 //    static 
     static func buildTerpeneCoreData(viewContext: NSManagedObjectContext){
         //load data in here
-        
+        viewContext.performAndWait {
         if self.loadTerpenes(viewContext: viewContext).count == 0 {
             //we will need to load terpene data in
             print("Terpene count is zero, we need to load terpene data")
@@ -288,9 +305,9 @@ struct TerpeneCoreDataUtil{
             print("Aroma count: \(aromas.count)")
             print("Effect count: \(effects.count)")
             
-            TerpeneJSONUtil.loadTerpenes().forEach(){ terpene in
+            TerpeneJSONUtil.loadTerpenes(viewContext: viewContext).forEach(){ terpene in
                 do{
-                    let terpene = try self.loadTerpeneByName(name: terpene.name, viewContext: viewContext)
+                    _ = try self.loadTerpeneByName(name: terpene.name, viewContext: viewContext)
                 }catch{
                     let _terpene = Terpene(context: viewContext)
                     _terpene.id = String(Int.random(in: 1000...5000))
@@ -321,6 +338,7 @@ struct TerpeneCoreDataUtil{
                     
                     
                 }
+            }
             }
             
         }

@@ -90,12 +90,7 @@ struct EditProfileView: View {
             }.fullScreenCover(isPresented: self.$showFilters, content: {
                 FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
             })
-            ////        PhotosPicker(
-            //                selection: $selectedItem,
-            //                matching: .images,
-            //                photoLibrary: .shared()) {
-            //                    Text("Select a photo")
-            //                }
+            
         }
     }
     }

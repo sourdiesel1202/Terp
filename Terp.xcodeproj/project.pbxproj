@@ -374,6 +374,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490EE8802A3EA001000CB3A1 /* EditProfileRows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditProfileRows;
+			sourceTree = "<group>";
+		};
 		492A21772A3114C400F3DBE3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,13 +694,13 @@
 		49603CDC2A2C1CAF00CBFBA4 /* ProfileRows */ = {
 			isa = PBXGroup;
 			children = (
+				490EE8802A3EA001000CB3A1 /* EditProfileRows */,
 				49603CDD2A2C1CAF00CBFBA4 /* ProfileReviewsRow.swift */,
 				49603CDE2A2C1CAF00CBFBA4 /* ProfileFeedRow.swift */,
 				49603CDF2A2C1CAF00CBFBA4 /* ProfileCircleRow.swift */,
 				49603CE02A2C1CAF00CBFBA4 /* ProfileTerpeneRow.swift */,
 				49603CE12A2C1CAF00CBFBA4 /* ProfileHeaderRow.swift */,
 				49603CE22A2C1CAF00CBFBA4 /* ProfileAchievementsRow.swift */,
-				49A7517D2A375F4200715B76 /* EditProfileView.swift */,
 			);
 			path = ProfileRows;
 			sourceTree = "<group>";
@@ -860,6 +867,7 @@
 		49603D192A2C1CAF00CBFBA4 /* ProfileViews */ = {
 			isa = PBXGroup;
 			children = (
+				49A7517D2A375F4200715B76 /* EditProfileView.swift */,
 				49603D1A2A2C1CAF00CBFBA4 /* ProfileView.swift */,
 				49603D1B2A2C1CAF00CBFBA4 /* ProfileReviewList.swift */,
 			);

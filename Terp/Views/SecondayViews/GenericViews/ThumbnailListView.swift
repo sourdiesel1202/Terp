@@ -59,6 +59,6 @@ struct ThumbnailListView: View {
 
 struct ThumbnailListView_Previews: PreviewProvider {
     static var previews: some View {
-        ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.loadTerpenes()), searchTitle: "Terpenes")
+        ThumbnailListView(data: TerpeneJSONUtil.loadTerpeneDataMap(terpenes: TerpeneJSONUtil.loadTerpenes(viewContext: PersistenceController.shared.container.viewContext)), searchTitle: "Terpenes")
     }
 }
