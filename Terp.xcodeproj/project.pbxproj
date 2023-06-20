@@ -14,6 +14,7 @@
 		490A3FC12A3B923200E30584 /* Effect+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FBD2A3B923200E30584 /* Effect+CoreDataClass.swift */; };
 		490A3FC22A3B923200E30584 /* Effect+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FBE2A3B923200E30584 /* Effect+CoreDataProperties.swift */; };
 		490A3FC42A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3FC32A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift */; };
+		490EE8822A41DEAE000CB3A1 /* ChooseTakePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490EE8812A41DEAE000CB3A1 /* ChooseTakePhotoView.swift */; };
 		492A216D2A303CDB00F3DBE3 /* strain_data_demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */; };
 		492A21792A3114CC00F3DBE3 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A21782A3114CC00F3DBE3 /* TimeAgo.swift */; };
 		49457FA72A393517009B50E6 /* AchievementHeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */; };
@@ -192,6 +193,7 @@
 		490A3FBD2A3B923200E30584 /* Effect+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataClass.swift"; sourceTree = "<group>"; };
 		490A3FBE2A3B923200E30584 /* Effect+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effect+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		490A3FC32A3B9BED00E30584 /* TerpeneEffectAromaStrainRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpeneEffectAromaStrainRow.swift; sourceTree = "<group>"; };
+		490EE8812A41DEAE000CB3A1 /* ChooseTakePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTakePhotoView.swift; sourceTree = "<group>"; };
 		492A216B2A303CDA00F3DBE3 /* strain_data_demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = strain_data_demo.json; sourceTree = "<group>"; };
 		492A21782A3114CC00F3DBE3 /* TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		49457FA62A393517009B50E6 /* AchievementHeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementHeaderRow.swift; sourceTree = "<group>"; };
@@ -960,6 +962,7 @@
 			isa = PBXGroup;
 			children = (
 				49A751802A37679500715B76 /* ImagePickerView.swift */,
+				490EE8812A41DEAE000CB3A1 /* ChooseTakePhotoView.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1199,6 +1202,7 @@
 				49603D712A2C1CAF00CBFBA4 /* StrainDetailView.swift in Sources */,
 				49603C372A2C1C1500CBFBA4 /* TerpApp.swift in Sources */,
 				49603C6F2A2C1C8500CBFBA4 /* NotificationUtil.swift in Sources */,
+				490EE8822A41DEAE000CB3A1 /* ChooseTakePhotoView.swift in Sources */,
 				49603C7F2A2C1C8500CBFBA4 /* User.swift in Sources */,
 				49A751832A37BF6F00715B76 /* ImageUtil.swift in Sources */,
 				49603D582A2C1CAF00CBFBA4 /* TerpeneDetailHeaderRow.swift in Sources */,

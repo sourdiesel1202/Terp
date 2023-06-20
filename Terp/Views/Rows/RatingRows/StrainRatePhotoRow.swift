@@ -11,9 +11,12 @@ import PhotosUI
 struct StrainRatePhotoRow: View {
     @State var image: UIImage?
     @State private var selectedItem: PhotosPickerItem? = nil
-    @State var showSelection: Bool = false
-    @State var showPicker: Bool = false
     @State var showFilters: Bool = false
+    @State private var newProfilePicture: UIImage? = nil
+
+//    @State var showSelection: Bool = false
+//    @State var showPicker: Bool = false
+//    @State var showFilters: Bool = false
     @State var showConfirmRemove: Bool = false
     @State var type: UIImagePickerController.SourceType = .photoLibrary
     
@@ -29,39 +32,9 @@ struct StrainRatePhotoRow: View {
                 
             }
         }
-        FullWidthButton(text: self.image == nil ? "Add Photo" : "Change Photo", action: {
-            self.showSelection = true
-        }).padding()
-//        Button( self.image == nil ? "Add Photo" : "Change Photo" ){
-//
-//        }
-        
-        
-        
-    
-    .confirmationDialog("Choose strain picture",
-                        isPresented: $showSelection,
-                        titleVisibility: .hidden) {
-        
-        Button("Take Photo") {
-            showPicker = true
-            type = .camera
-        }
-        
-        Button("Upload Existing") {
-            showPicker = true
-            type = .photoLibrary
-            
-        }
-    }
-                        .fullScreenCover(isPresented: $showPicker) {
-                            ImagePickerView(sourceType: self.type ) { img in
-                                self.image = img
-                                self.showFilters = true
-                            }
-                        }.fullScreenCover(isPresented: self.$showFilters, content: {
-                            FilterSelectionView(image: self.$image, displaying: self.$showFilters)
-                        }).confirmationDialog("Are you sure?", isPresented: self.$showConfirmRemove){
+        ChooseTakePhotoView(newImage: self.$newProfilePicture, showFilters: self.$showFilters).fullScreenCover(isPresented: self.$showFilters, content: {
+            FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
+                            }).confirmationDialog("Are you sure?", isPresented: self.$showConfirmRemove){
                             Button("Remove photo", role:.destructive){
                                 self.image = nil
                                 self.showConfirmRemove = false

@@ -58,7 +58,8 @@ struct StrainSearchView: View {
             }.onAppear {
                 DispatchQueue.global(qos: .utility).async {
                     let viewContext: NSManagedObjectContext = {
-                        let newbackgroundContext = PersistenceController.shared.container.newBackgroundContext()
+                        let newbackgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+//                        let newbackgroundContext = PersistenceController.shared.container.newBackgroundContext()
                         newbackgroundContext.parent = PersistenceController.shared.container.viewContext
                         newbackgroundContext.automaticallyMergesChangesFromParent = true
                         return newbackgroundContext

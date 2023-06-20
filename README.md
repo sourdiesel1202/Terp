@@ -31,7 +31,7 @@ A social cannabis experience
 <tr><td>24</td><td>Scroll down to refresh feed</td><td>Open</td></tr>
 <tr><td>25</td><td>Scroll down to refresh messages</td><td>Open</td></tr>
 <tr><td>26</td><td>Endless scroll for view view</td><td>Open</td></tr>
-<tr><td>27</td><td>Implement re-usable take/upload photo view</td><td>Open</td></tr>
+<tr><td>27</td><td>Implement re-usable take/upload photo view</td><td>Closed</td></tr>
 <tr><td>28</td><td>Implement video take/upload view | support for video</td><td>Open</td></tr>
 <tr><td>29</td><td>Implement hashtag support</td><td>Open</td></tr>
 <tr><td>30</td><td>Implement wiring behind follow/unfollow button</td><td>Open</td></tr>

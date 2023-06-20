@@ -380,7 +380,7 @@ struct StrainCoreDataUtil{
             DispatchQueue.global(qos: .utility).async {
                 let viewContext: NSManagedObjectContext = {
                     let moc = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-//                    moc.parent = PersistenceController.shared.container.viewContext
+                    moc.parent = PersistenceController.shared.container.viewContext
                     return moc
                 }()
                 // fetch animation based on status
