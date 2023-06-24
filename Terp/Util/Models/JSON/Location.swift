@@ -27,7 +27,7 @@ struct LocationCountry: Codable, Identifiable, Hashable{
 //    #endif
     
 #if DEBUG
-    static let example = LocationCountry(id: "1234", name: "Canada", emoji: "🇨🇦", code: "CA")
+    static let example = LocationCountry(id: "1234", name: "United States", emoji: "🇺🇸", code: "US")
 #endif
 }
 
@@ -46,7 +46,7 @@ struct LocationState: Codable, Identifiable, Hashable{
     var code: String
     
 #if DEBUG
-    static let example = LocationState(id: "1234", name: "Ontario", code: "ON")
+    static let example = LocationState(id: "1234", name: "Florida", code: "FL")
 #endif
 }
 
@@ -67,7 +67,7 @@ struct LocationCity: Codable, Identifiable, Hashable{
     var latitude: String
     
 #if DEBUG
-    static let example = LocationCity(id: "1234", name: "Ontario", longitude: "", latitude: "")
+    static let example = LocationCity(id: "1234", name: "Naples", longitude: "", latitude: "")
 #endif
 }
 

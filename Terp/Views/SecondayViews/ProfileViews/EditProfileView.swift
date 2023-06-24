@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 struct EditProfileView: View {
-    let user: User
+    @State var user: User
     @State var showFilters: Bool = false
     @State private var newProfilePicture: UIImage? = nil
     @State private var firstName: String = ""
@@ -19,83 +19,43 @@ struct EditProfileView: View {
     //    @State private var
     var body: some View {
         //        VStack(alignment: ){
-        VStack{
-            if self.newProfilePicture != nil{
-                Image(uiImage: self.newProfilePicture!).resizable().frame(width: 200, height: 200).clipShape(Circle())
-            }else{
-                UserImageThumbnail(user: self.user).frame(width: 200, height: 200)
-                //                    URLImage(url: <#T##String#>, shape: <#T##AnyShape#>)
+        ScrollView(.vertical){
+            VStack(alignment: .center){
+                
+                
+                //                Section(header:Text("Edit Profile")){
+                HStack{
+                    if self.newProfilePicture != nil{
+                        Image(uiImage: self.newProfilePicture!).resizable().frame(width: 200, height: 200).clipShape(Circle()).scaledToFill()
+                    }else{
+                        UserImageThumbnail(user: self.user).frame(width: 200, height: 200).scaledToFill()
+                        //                    URLImage(url: <#T##String#>, shape: <#T##AnyShape#>)
+                    }
+                }.padding([.bottom])
+                //this is annoying, but i can't seem to send the binding deep enough to make it work
+                ChooseTakePhotoView(newImage: self.$newProfilePicture, showFilters: self.$showFilters).fullScreenCover(isPresented: self.$showFilters, content: {
+                    FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
+                })
+                //            Form{
+                
+                EditProfileUserInfoRow(user: self.$user)
+                EditProfileLocationRow(user: self.$user, selectedCountry: self.$user.location.country, selectedState: self.$user.location.state, selectedCity: self.$user.location.city)
+                FullWidthButton(text: "Save", action: {
+                    print("Data saved")
+                }).padding([.leading,.trailing])
+            }.onAppear{
+                self.firstName = self.user.firstname
+                self.lastName = self.user.lastname
+                self.bio = self.user.bio
+                self.location = self.user.location
             }
             
-            //this is annoying, but i can't seem to send the binding deep enough to make it work
-            ChooseTakePhotoView(newImage: self.$newProfilePicture, showFilters: self.$showFilters).fullScreenCover(isPresented: self.$showFilters, content: {
-                FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
-                                })
-//            VStack(alignment: .center){
-//
-//
-//
-//                Button("Change Profile Photo"){
-//                    self.showSelection = true
-//                }
-//
-//
-//
-//            }
-//            .confirmationDialog("Choose profile picture",
-//                                isPresented: $showSelection,
-//                                titleVisibility: .hidden) {
-//
-//                Button("Take Photo") {
-//                    showPicker = true
-//                    type = .camera
-//                }
-//
-//                Button("Upload Existing") {
-//                    showPicker = true
-//                    type = .photoLibrary
-//
-//                }
-//            }
-//                                .fullScreenCover(isPresented: $showPicker) {
-//                                    ImagePickerView(sourceType: self.type ) { image in
-//                                        self.newProfilePicture = image
-//                                        self.showFilters = true
-//                                    }
-//                                }
-            Form{
-                Section(header:Text("Edit Profile")){
-                    
-                    
-                    VStack(alignment: .leading){
-                        
-                        HStack {
-                            Text("First Name").padding([.leading])
-                            TextField("", text: self.$firstName).multilineTextAlignment(.leading).padding([.leading,.trailing])
-                            //                Spacer()
-                        }
-                        HStack {
-                            Text("Last Name").padding([.leading])
-                            TextField("", text: self.$lastName).multilineTextAlignment(.leading).padding([.leading,.trailing])
-                            //                Spacer()
-                        }
-                        HStack {
-                            Text("Bio").padding([.leading])
-                            TextField("", text: self.$bio).multilineTextAlignment(.leading).padding([.leading,.trailing])
-                            //                Spacer()
-                        }
-                    }
-                }.onAppear{
-                    self.firstName = self.user.firstname
-                    self.lastName = self.user.lastname
-                    self.bio = self.user.bio
-                    self.location = self.user.location
-                }//.fullScreenCover(isPresented: self.$showFilters, content: {
-//                    FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
-//                })
-                
-            }
         }
+            
+            
+//        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+//        .listRowInsets(EdgeInsets())
+//        .background(Color(UIColor.lightGray))
     }
 }
 

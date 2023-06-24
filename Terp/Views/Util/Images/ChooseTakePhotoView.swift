@@ -26,7 +26,7 @@ struct ChooseTakePhotoView: View {
             
             FullWidthButton(text: self.newImage.wrappedValue == nil ? "Add Photo" : "Change Photo", action: {
                 self.showSelection = true
-            }).padding()
+            }).padding([.leading,.trailing])
             
             
             
