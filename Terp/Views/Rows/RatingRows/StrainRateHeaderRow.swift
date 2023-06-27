@@ -11,8 +11,9 @@ struct StrainRateHeaderRow: View {
     let strain: StrainJSON
     var body: some View {
         VStack(alignment: .center){
-            Text(strain.name).fontWeight(.bold).font(.headline).padding([.top, .bottom])
+            
             URLImage(url: strain.image, shape: AnyShape(Circle())).frame(width: 150, height: 150)
+            Text(strain.name).fontWeight(.bold).font(.largeTitle).padding([.top, .bottom])
 //            Toggle("Show welcome message", isOn: $showGreeting)
             
         }

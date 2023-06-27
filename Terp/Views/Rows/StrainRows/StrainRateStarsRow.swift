@@ -10,9 +10,10 @@ import SwiftUI
 struct StrainRateStarsRow: View {
     @State var rating: Binding<Int>
     var body: some View {
-        RowHeader(text: "Rating")
-        RatingView(rating: self.rating).padding([.leading,.trailing]).frame(height: 50)
-//        RowHeaderViewAll(text: <#T##String#>)
+        VStack{
+            Text("Rating").font(.title).fontWeight(.bold)
+            RatingView(rating: self.rating).padding([.leading,.trailing]).frame(height: 50)
+        }
     }
 }
 

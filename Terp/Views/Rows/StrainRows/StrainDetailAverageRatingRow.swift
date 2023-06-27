@@ -24,12 +24,16 @@ struct StrainDetailAverageRatingRow: View {
                 ProgressView().padding()
             }else{
                 RatingView(rating: .constant(self.userRating)).frame(height: 50).padding(.bottom)
-                FullWidthButton(text: "Review", action:{self.isShowingReviewSheet = true}
-                ).sheet(isPresented: self.$isShowingReviewSheet, content: {
-                    
+                NavigationLink{
                     StrainRateView(strain: self.strain)
+                }label: {
+                    FullWidthText(text: "Review")
+                }
+                
                     
-                }).padding()
+                
+                    
+                
             }
             
         }.onAppear{

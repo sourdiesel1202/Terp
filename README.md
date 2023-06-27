@@ -51,6 +51,7 @@ A social cannabis experience
 <tr><td>44</td><td>Discover->View All Achievements Doesn't show images</td><td>Open</td></tr>
 <tr><td>45</td><td>Show type in aroma/effect view</td><td>Open</td></tr>
 <tr><td>46</td><td>Support for Terpene ID</td><td>Open</td></tr>
+<tr><td>47</td><td>Include effects/aromas in review(s)</td><td>Open</td></tr>
 </table>                                                                                                                                                                                                                                                                                                                                                       
 
 

@@ -10,10 +10,17 @@ import SwiftUI
 struct StrainRateDescriptionRow: View {
     @State var text: Binding<String>
     var body: some View {
+        HStack{
+            Spacer()
+        }
+        VStack{
+            Text("Create Review").font(.title).fontWeight(.bold)
+        }
         VStack(alignment: .leading){
-            RowHeader(text: "Notes")
-            TextField("Description",text: self.text, axis: .vertical ) .textFieldStyle(.roundedBorder)
-                .lineLimit(3...).padding([.leading,.trailing])
+//            RowHeader(text: "Notes")
+            
+            TextField("What are your thoughts about this strain?",text: self.text, axis: .vertical )
+                .lineLimit(3...).padding([.leading,.trailing]).frame(maxWidth: .infinity)
         }
         
     }

@@ -32,9 +32,9 @@ struct StrainRatePhotoRow: View {
                 
             }
         }
-        ChooseTakePhotoView(newImage: self.$newProfilePicture, showFilters: self.$showFilters).fullScreenCover(isPresented: self.$showFilters, content: {
-            FilterSelectionView(image: self.$newProfilePicture, displaying: self.$showFilters)
-                            }).confirmationDialog("Are you sure?", isPresented: self.$showConfirmRemove){
+        ChooseTakePhotoView(newImage: self.$image, showFilters: self.$showFilters).fullScreenCover(isPresented: self.$showFilters, content: {
+            FilterSelectionView(image: self.$image, displaying: self.$showFilters)
+                            }).padding([.top, .bottom]).confirmationDialog("Are you sure?", isPresented: self.$showConfirmRemove){
                             Button("Remove photo", role:.destructive){
                                 self.image = nil
                                 self.showConfirmRemove = false
