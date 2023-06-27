@@ -40,6 +40,7 @@ struct User: Codable, Identifiable, Hashable{
         case location
         case circle
         case bio
+        case created
     }
     var uid = UUID()
     var id: String
@@ -53,7 +54,7 @@ struct User: Codable, Identifiable, Hashable{
 //    var country: String
     var circle: [String: [String]]
     var bio: String = ""
-    
+    var created: String = "04-20-2020 14:20:00"
 #if DEBUG
     static let example = User(id: "420", username: "sourdiesel", firstname: "Andrew", lastname: "Pridemore", image: "", location: Location.example, circle:["following": ["42069"], "followers":["6969"]], bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Sed euismod nisi porta lorem mollis. Phasellus vestibulum lorem sed risus ultricies tristique. Augue ut lectus arcu bibendum at." )
 #endif

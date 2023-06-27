@@ -3,6 +3,7 @@
             "id": "1234",
             "user": "42069",
             "strain": "Presidential OG",
+            "created": "04-20-2020 16:20:00",
       "isPublic": true,
       "isCircle": true,
             "rating": 3,
@@ -14,6 +15,7 @@
                 "id": "1236",
                 "user": "420",
                 "strain": "Red Pop",
+                "created": "04-20-2020 16:20:00",
                 "rating": 2,
                 "isPublic": true,
                 "isCircle": true,
@@ -23,6 +25,7 @@
   {
 
               "id": "1235",
+              "created": "04-20-2020 16:20:00",
               "user": "6969",
               "strain": "Presidential OG",
         "isPublic": false,
@@ -36,6 +39,7 @@
     {
 
                 "id": "1235",
+                "created": "04-20-2020 16:20:00",
                 "user": "6969",
                 "strain": "Red Pop",
           "isPublic": true,

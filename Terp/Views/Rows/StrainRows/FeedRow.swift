@@ -14,7 +14,7 @@ struct FeedRow: View {
             
 //                PostHeaderRow(user: UserUtil.loadUserById(id: post.review.user), postDate: "April 20th, 2023")
                     HStack{
-                        PostHeaderRow(user: UserUtil.loadUserById(id: post.review.user), postDate: "April 20th, 2023").padding(.bottom)
+                        PostHeaderRow(user: UserUtil.loadUserById(id: post.review.user), postDate: DateUtil.dateToStringDayMonthYear(inDate: DateUtil.stringToDate(str: post.review.created))).padding(.bottom)
                     }
 //            StrainSearchRow(strain: StrainUtil.loadStrainByName(name: post.review.strain)!)
             PostStrainRow(review: post.review)

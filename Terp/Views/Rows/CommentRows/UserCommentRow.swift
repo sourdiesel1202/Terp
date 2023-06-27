@@ -40,6 +40,7 @@ struct UserCommentRow: View {
                     }.sheet(isPresented: self.$isShowingProfileSheet, content: {
                         ProfileView(user: UserUtil.loadUserById(id: self.comment.user))
                     })
+//                    Text(DateUtil.dateToStringDayMonthYear(inDate: DateUtil.stringToDate(str: self.comment.created)))
                     Text(self.comment.description).font(.caption2)
                     Text("")
                     HStack(alignment: .center){

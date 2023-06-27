@@ -6,6 +6,7 @@
             "rating": 3,
             "isPublic": true,
             "isCircle": true,
+            "created": "04-20-2020 16:20:00",
             "description": "With earthy aromas and a heavy body high, Pure Michigan has become one of my all time favorite strains #presidentialog",
             "image": "https://images.herb.co/wp-content/uploads/2018/09/Ricky-from-Trailer-Park-Boys-is-Dreading-Canadian-Cannabis-Legalization.jpg"
         },
@@ -19,13 +20,16 @@
             "id": "123",
             "user": "6969",
             "description": "omggggg rickyyyyyy 😂",
+            "created": "04-20-2020 16:20:00",
             "replies": [{
                     "id": "124",
                     "user": "42069",
+                    "created": "04-20-2020 16:20:00",
                     "description": "@hotchick420 they can't arrest me, I'm stoned 🚨😂💨"
                 }, {
                     "id": "125",
                     "user": "6969",
+                    "created": "04-20-2020 16:20:00",
                     "description": "@whosegonnausehername 😂😂😂"
                 }
 
@@ -41,6 +45,7 @@
             "rating": 5,
             "isPublic": true,
             "isCircle": true,
+            "created": "04-20-2020 16:20:00",
             "description": "I loooooved this strain",
             "image": ""
 
@@ -59,6 +64,7 @@
             "rating": 2,
             "isPublic": true,
             "isCircle": true,
+            "created": "04-20-2020 16:20:00",
             "description": "I didn't care for this strain much, too much body high 😢",
             "image": "https://cdn.quotesgram.com/img/1/87/1922935124-ky4xws-l-610x610-sweater-tumblr-most-dope-smoking-crewneck-headphones-blanc-smoke-cannabis-pullover-dope-marijuana-dopefam-sweatshirt-asap-weed-shirt-weed-shirt-t-shirt.jpg"
         },
@@ -76,6 +82,7 @@
             "rating": 2,
             "isPublic": true,
             "isCircle": true,
+            "created": "04-20-2020 16:20:00",
             "description": "Not really my thing unfortunately",
             "image": ""
         },

@@ -31,6 +31,7 @@ struct Review: Codable, Identifiable, Hashable{
         case image
         case isPublic
         case isCircle
+        case created
     //    var photoCredit: String
     //    var price: Int
     //    var restrictions: [String]
@@ -53,6 +54,7 @@ struct Review: Codable, Identifiable, Hashable{
     var image: String
     var isPublic: Bool
     var isCircle: Bool
+    var created: String = "04-20-2020 14:20:00"
     
 #if DEBUG
     static let example = Review(id: "1234", user: "42069", strain: "Presidential OG", rating: 5, description: "With earthy aromas and a heavy body high, Presidential OG has become one of my all time favorite strains", image: "https://images.herb.co/wp-content/uploads/2018/09/Ricky-from-Trailer-Park-Boys-is-Dreading-Canadian-Cannabis-Legalization.jpg", isPublic: false, isCircle: true)

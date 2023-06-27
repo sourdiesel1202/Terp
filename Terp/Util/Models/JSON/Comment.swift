@@ -27,12 +27,14 @@ struct Comment: Codable, Identifiable, Hashable{
         case user
         case description
         case replies
+        case created
     }
     var uuid = UUID()
     var id: String
     var user: String
     var description: String
     var replies: [Comment]?
+    var created: String = "04-20-2020 14:20:00"
     
 #if DEBUG
     static let example = Comment(id: "1234",user: User.example.id, description: "Fuck Ricky, they can't arrest you now, you're stoned!")

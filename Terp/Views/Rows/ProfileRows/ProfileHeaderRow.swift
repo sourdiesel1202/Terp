@@ -34,7 +34,12 @@ struct ProfileHeaderRow: View {
                 HStack{
                     Text("\(user.location.city.name), \(user.location.state.name) ").font(.caption)
                     Text("\(user.location.country.emoji)").font(.subheadline)
+                    
+                }
+                HStack{
+                    Text("Smoking Since \(DateUtil.dateToStringMonthYear(inDate: DateUtil.stringToDate(str: self.user.created)))").font(.caption)
                 }.padding(.bottom)
+                
           
                 if self.user.bio.count > 0{
                     Text("About Me").font(.headline).fontWeight(.bold)
