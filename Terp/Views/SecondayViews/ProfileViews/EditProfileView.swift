@@ -39,7 +39,7 @@ struct EditProfileView: View {
                 //            Form{
                 
                 EditProfileUserInfoRow(user: self.$user)
-                EditProfileLocationRow(user: self.$user, selectedCountry: self.$user.location.country, selectedState: self.$user.location.state, selectedCity: self.$user.location.city)
+                EditProfileLocationRow(user: self.$user, selectedCountry: self.$location.country, selectedState: self.$location.state, selectedCity: self.$location.city)
                 FullWidthButton(text: "Save", action: {
                     print("Data saved")
                 }).padding([.leading,.trailing])

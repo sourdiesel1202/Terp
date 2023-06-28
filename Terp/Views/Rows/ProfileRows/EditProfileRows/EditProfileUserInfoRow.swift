@@ -26,11 +26,11 @@ struct EditProfileUserInfoRow: View {
                 TextField("", text: self.user.lastname).multilineTextAlignment(.leading).padding([.leading,.trailing])
                 //                Spacer()
             }.padding([.top,.leading])
-            HStack {
+            VStack {
                 Text("Bio").fontWeight(.bold)
                 TextField("", text: self.user.bio, axis: .vertical).multilineTextAlignment(.leading).padding([.leading,.trailing]).lineLimit(8, reservesSpace: true).textFieldStyle(.roundedBorder)
                 //                Spacer()
-            }.padding([.leading])
+            }.padding([.top])
         }.padding()
     }
 }

@@ -13,13 +13,15 @@ struct MoreAccountRow: View {
         Section(header: Text("Account Settings")){
                 
                 NavigationLink{
-                    ContentView()
+                    AccountSettingsView(user: User.example)
+//                    Toggl
+//                    ContentView()
                 }label:{
                     BasicRow(title: "Accont Settings", description: "Manage account settings")
                 }
                 
                 NavigationLink{
-                    ContentView()
+                    PostSettingsView()
                 }label:{
                     BasicRow(title: "Post Settings", description: "Manage post settings")
                 }

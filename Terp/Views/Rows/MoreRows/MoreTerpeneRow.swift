@@ -12,27 +12,12 @@ struct MoreTerpeneRow: View {
     var body: some View {
         Section(header: Text("Terp Settings")){
             NavigationLink{
-                ContentView()
+                TerpeneProfileView(user: User.example, terpeneProfile: TerpeneJSONUtil.loadTerpeneProfileByUser(user: User.example))
             }label:{
                 BasicRow(title: "Edit Terpene Profile", description: "Edit your terpene profile")
             }
             
-            NavigationLink{
-                ContentView()
-            }label:{
-                BasicRow(title: "Strain Settings", description: "Manage strain settings")
-            }
-            NavigationLink{
-                ContentView()
-//                FilterSelectionView(image: UIImage(systemName: "person.fill")!)
-            }label:{
-                BasicRow(title: "Strain Settings", description: "Manage strain settings")
-            }
-//            NavigationLink{
-//                ContentView()
-//            }label:{
-//                BasicRow(title: "Exclude Aromas", description: "")
-//            }
+            
         }
         
     }

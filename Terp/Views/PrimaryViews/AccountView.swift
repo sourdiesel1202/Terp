@@ -26,7 +26,8 @@ struct AccountView: View {
         List {
             //            ForEach(data) {(strain: Strain) in
             NavigationLink {
-                AccountSettingsView()
+                ContentView()
+//                AccountSettingsView(user: User.example)
             } label: {
                 BasicRow(title: "Account Settings", description: "Account Settings")
                 //                    StrainSearchRow(strain: strain)

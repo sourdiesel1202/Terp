@@ -14,6 +14,7 @@ struct StrainRateView: View {
     @State private var description: String = ""
     @State private var isPublic: Bool = false
     @State private var consumptionType: ConsumptionType = .flower
+    @EnvironmentObject var globalData: GlobalData
     var body: some View {
         VStack{
             ScrollView{
@@ -30,7 +31,9 @@ struct StrainRateView: View {
                 StrainRatePublicFeedRow(isPublic: self.$isPublic).padding([.bottom, .top])
                 FullWidthButton(text: "Post", action: {
                     
-                }).padding()
+                }).padding().onAppear{
+                    self.isPublic = self.globalData.isPostPublic
+                }
             }
             
         }

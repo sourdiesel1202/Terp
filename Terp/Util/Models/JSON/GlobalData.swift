@@ -8,6 +8,7 @@
 import Foundation
 class GlobalData: ObservableObject{
     @Published var doubleTappedMainTabView: Bool = false // Bundle.main.decode([Strain].self, from: "strain_data.json")
+    @Published var isPostPublic: Bool = false // Bundle.main.decode([Strain].self, from: "strain_data.json")
 //    @Published var terpenes = Bundle.main.decode([Terpene].self, from: "terpene.json")
 //    @Published var terpeneProfile = Bundle.main.decode(TerpeneProfile.self, from: "terpene_profile.json")
 }
