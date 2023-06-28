@@ -8,9 +8,6 @@ A social cannabis experience
 <tr><td>1</td><td>Sign up flow</td><td>Open</td></tr>
 <tr><td>2</td><td>Convert `User.example` usages to use current logged in user</td><td>Open</td></tr>
 <tr><td>6</td><td>Double tap MainTabView to reset current view</td><td>Open</td></tr>
-<tr><td>11</td><td>Delete Review Flow</td><td>Open</td></tr>
-<tr><td>12</td><td>Report Review/Post Flow</td><td>Open</td></tr>
-<tr><td>13</td><td>Report User Flow</td><td>Open</td></tr>
 <tr><td>14</td><td>Edit Profile View (name, location, bio, profile pic)</td><td>In-progress</td></tr>
 <tr><td>15</td><td>Implement more view</td><td>Open</td></tr>
 <tr><td>17</td><td>Implement 20 filters</td><td>Open</td></tr>
@@ -71,5 +68,8 @@ A social cannabis experience
 <tr><td>8</td><td>User Creation Date</td><td>Closed</td></tr>
 <tr><td>9</td><td>Post Creation Date</td><td>Closed</td></tr>
 <tr><td>10</td><td>Comment Creation Date</td><td>Closed</td></tr>
+<tr><td>11</td><td>Delete Review Flow</td><td>Closed</td></tr>
+<tr><td>12</td><td>Report Review/Post Flow</td><td>Closed</td></tr>
+<tr><td>13</td><td>Report User Flow</td><td>Closed</td></tr>
 </table>
 

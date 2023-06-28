@@ -10,7 +10,7 @@ import CoreData
 
 struct SearchView: View {
 //    @State private var searchResults: [DataMap]
-    @State private var searchText = ""
+    @State var searchText = ""
 //    @State private var data: [DataMap] = [DataMap]()
     @State private var searchResults: [DataMap] = [DataMap]()
     @State private var loading: Bool = false

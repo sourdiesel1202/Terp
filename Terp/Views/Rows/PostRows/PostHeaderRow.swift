@@ -10,6 +10,7 @@ import SwiftUI
 struct PostHeaderRow: View {
     var user: User
     var postDate: String
+    @State private  var showingOptions: Bool = false
     var body: some View {
         VStack(alignment: .leading){
             HStack{
@@ -40,7 +41,30 @@ struct PostHeaderRow: View {
                         Text(self.postDate).font(.caption)
                     }.padding(.trailing).padding(.trailing).padding(.trailing).padding(.trailing).padding(.trailing).padding(.trailing)
                 }
+                Spacer()
+                Button(action:{
+                    self.showingOptions = true
+                }){
+                    Image(systemName: "ellipsis").frame(width: 25, height: 15)
+                }.padding(.trailing).confirmationDialog("Options", isPresented: self.$showingOptions) {
+                    Button("Report") {
+                        self.showingOptions = false
+                    }
+                    if self.user.id == User.example.id{
+                        Button("Delete", role: .destructive) {
+                            self.showingOptions = false
+                        }
+                    }
+//                    Button("Green") {  }
+//                    Button("Blue") {  }
+                    Button("Cancel", role: .cancel) {
+                        self.showingOptions = false
+                    }
+                } message: {
+                    Text("Post Options").font(.title)
+                }
             }
+            
         }
     }
 }

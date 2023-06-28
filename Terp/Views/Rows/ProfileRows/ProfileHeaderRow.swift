@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileHeaderRow: View {
     let user: User
+    @State private  var showingOptions: Bool = false
     var body: some View {
         ScrollView(.vertical){
             VStack(alignment: .center){
@@ -38,6 +39,30 @@ struct ProfileHeaderRow: View {
                 }
                 HStack{
                     Text("Smoking Since \(DateUtil.dateToStringMonthYear(inDate: DateUtil.stringToDate(str: self.user.created)))").font(.caption)
+                }
+                Button(action:{
+                    self.showingOptions = true
+                }){
+                    Image(systemName: "ellipsis").frame(width: 25, height: 15)
+                }.padding(.trailing).confirmationDialog("Options", isPresented: self.$showingOptions) {
+                    Button("Report") {
+                        self.showingOptions = false
+                    }
+                    if self.user.id == User.example.id{
+                        Button("Delete", role: .destructive) {
+                            self.showingOptions = false
+                        }
+                    }
+//                    Button("Green") {  }
+//                    Button("Blue") {  }
+                    Button("Cancel", role: .cancel) {
+                        self.showingOptions = false
+                    }
+                } message: {
+//                    Text("Post Options").font(.title)
+                }
+//                            FollowMessageButton(user: self.user, text: "Follow", action: {}).padding(.bottom)
+                    
                 }.padding(.bottom)
                 
           
@@ -57,9 +82,11 @@ struct ProfileHeaderRow: View {
                     }){
                         
                         FullWidthButton(text: "Follow", action: {})
-//                            FollowMessageButton(user: self.user, text: "Follow", action: {}).padding(.bottom)
+                        
                         
                     }
+//                    Spacer()
+                    
                     
                     
 //                    Button(action: {
@@ -72,11 +99,12 @@ struct ProfileHeaderRow: View {
 //                            FollowMessageButton(user: self.user, text: "Message", action: {}).padding(.bottom)
 //                        }
 //                    }
-                    
+                
                 }.padding()
+                
                 }
                 
-            }
+            
         
     }
 }
