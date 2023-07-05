@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct TerpApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let persistenceController = PersistenceController.shared
     @StateObject var globalData = GlobalData()
     var body: some Scene {

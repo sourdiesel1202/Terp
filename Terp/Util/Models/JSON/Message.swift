@@ -15,7 +15,7 @@ struct Message: Codable, Identifiable, Hashable{
         case user
         case content
         case image
-        case date
+        case created
         case read
     }
     var uid = UUID()
@@ -23,10 +23,10 @@ struct Message: Codable, Identifiable, Hashable{
     var user: User
     var content: String
     var image: String
-    var date: String
+    var created: String
     var read: Bool
     
 #if DEBUG
-    static let example = Message(id: "123456",user: User.example, content: "Test", image: "", date: "02-06-2023 15:56:02", read: false)
+    static let example = Message(id: "123456",user: User.example, content: "Test", image: "", created: "02-06-2023 15:56:02", read: false)
 #endif
 }

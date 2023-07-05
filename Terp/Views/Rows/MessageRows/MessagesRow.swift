@@ -44,7 +44,7 @@ struct MessagesRow: View {
             HStack{
                 KeyboardTextField(hint: "Chatting with @\(messageThread.user.username)", buttonText: "Send", text: self.$messageContent, action: {
                     let m = Message(id: String(Int.random(in: 5000...10000)), user: User.example, content: self.messageContent, image:
-                                "", date: "\(Date.now)", read: true)
+                                "", created: "\(Date.now)", read: true)
                     self.messageThread.messages.append(m)
                     self.messageContent = ""
                 })

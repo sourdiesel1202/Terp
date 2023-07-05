@@ -10,6 +10,7 @@ import PhotosUI
 
 struct StrainRatePhotoRow: View {
     @State var image: UIImage?
+    @State var boundImage: Binding<UIImage?>
     @State private var selectedItem: PhotosPickerItem? = nil
     @State var showFilters: Bool = false
     @State private var newProfilePicture: UIImage? = nil
@@ -39,13 +40,15 @@ struct StrainRatePhotoRow: View {
                                 self.image = nil
                                 self.showConfirmRemove = false
                             }
-                        }
+                            }.onChange(of: self.image, perform: {nuImage in
+                                self.boundImage.wrappedValue = nuImage
+                            })
     
     }
 }
 
 struct StrainRatePhotoRow_Previews: PreviewProvider {
     static var previews: some View {
-        StrainRatePhotoRow(image: UIImage(systemName: "person.fill"))
+        StrainRatePhotoRow(image: UIImage(systemName: "person.fill"), boundImage: .constant(UIImage(systemName: "person.fill")))
     }
 }

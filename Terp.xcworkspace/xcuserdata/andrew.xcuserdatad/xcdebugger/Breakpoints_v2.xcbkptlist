@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EFE013F4-2DAA-46D9-875E-BD6B8C0A78CC"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "545E36FA-8060-4D0F-8F11-89773E3387C2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Terp/Util/Util/S3Util.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "S3Util"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "545E36FA-8060-4D0F-8F11-89773E3387C2 - 76e000fbf48b15e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Terp.S3Util.uploadImage(image: __C.UIImage, s3Path: Swift.String) throws -&gt; Swift.String"
+                  moduleName = "Terp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Terp/Util/Util/S3Util.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "545E36FA-8060-4D0F-8F11-89773E3387C2 - 76e000fbf48b15e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Terp.S3Util.uploadImage(image: __C.UIImage, s3Path: Swift.String) throws -&gt; Swift.String"
+                  moduleName = "Terp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrew/XcodeProjects/Terp/Terp/Util/Util/S3Util.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

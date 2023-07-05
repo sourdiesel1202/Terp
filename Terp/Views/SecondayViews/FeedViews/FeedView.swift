@@ -53,7 +53,7 @@ struct FeedView: View {
 //                .frame(maxWidth: .infinity)
 //                .padding()
 ////                .background(.indigo)
-        }.padding(.bottom)
+        }.padding([.bottom,.top])
 //            Text("Outside Safe Area")
 //                .font(.largeTitle)
 ////                .foregroundColor(.white)

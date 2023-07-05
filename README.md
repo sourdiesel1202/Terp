@@ -37,6 +37,8 @@ A social cannabis experience
 <table>
 <tr><th>Number</th><th>Description</th><th>Status</th></tr>
 <tr><th>7</th><th>Edit Profile not loading location properly</th><th>Open</th></tr>
+<tr><th>8</th><th>Posting the first comment on a post results in an app crash</th><th>Open</th></tr>
+<tr><th>9</th><th>Profile pictures render wonky</th><th>Open</th></tr>
 </table>
 
 
@@ -72,6 +74,6 @@ A social cannabis experience
 <tr><td>14</td><td>Edit Profile View (name, location, bio, profile pic)</td><td>Closed</td></tr>
 <tr><td>15</td><td>Implement more view</td><td>Closed</td></tr>
 <tr><td>19</td><td>Implement post settings</td><td>Closed</td></tr>
-
+<tr><td>48</td><td>S3 Image Upload</td><td>Closed</td></tr>
 </table>
 

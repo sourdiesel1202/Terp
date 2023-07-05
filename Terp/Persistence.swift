@@ -6,6 +6,7 @@
 //
 
 import CoreData
+//import AWSCore
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -35,6 +36,7 @@ struct PersistenceController {
         container = NSPersistentContainer(name: "Terp")
 //        self.container.
         if inMemory {
+            
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
 //        let psc = container.persistentStoreCoordinator
